@@ -132,7 +132,7 @@ Pagefind uses an opt-in body marker (`data-pagefind-body` on the article body in
 
 - Real documentation pages (content inside `articleBody`)
 - Page titles and body text used for matching and result excerpts
-- `.. meta::` fields listed under **`search_result_meta`** in [`pagefind.yml`](pagefind.yml): shown on result cards and used as facet filters in the sidebar (Sphinx emits `data-pagefind-filter` / `data-pagefind-meta` via `plugins/pagefind_meta.py`)
+- `.. meta::` fields listed under **`search_result_meta`** in [`pagefind.yml`](pagefind.yml): used as facet filters, and shown on result cards from the Pagefind index (Sphinx emits `data-pagefind-filter` / `data-pagefind-meta` via `plugins/pagefind_meta.py`). Result excerpts are Pagefind's own excerpts. The browser UI is [`source/_static/pagefind-search.js`](source/_static/pagefind-search.js).
 
 **Excluded**
 

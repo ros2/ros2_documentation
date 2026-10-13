@@ -100,24 +100,8 @@ extensions = [
 ]
 
 
-# Pagefind search integration (Sphinx build + browser UI).
-# Consumed by plugins/pagefind_meta.py and source/_templates/searchbox.html.
-# CLI options (exclude_selectors) and search_result_meta live in pagefind.yml.
-from pagefind_config import load_always_show_filters
-from pagefind_config import load_search_result_meta_order
-
-# Optional: merge remote package doc indexes at search time (Component UI).
-pagefind_merge_enabled = False
-pagefind_merge_package_pkgs = []
-pagefind_merge_index_base = 'https://docs.ros.org'
-pagefind_merge_index_overrides = {}
-pagefind_merge_filter_per_pkg = None
-pagefind_merge_index_weight_per_pkg = None
-
-# Search result metadata + facet allowlist (order and labels). Edit pagefind.yml.
-pagefind_result_meta_order = load_search_result_meta_order(os.path.dirname(__file__))
-# Facet keys always shown in the sidebar (placeholders when not yet indexed).
-pagefind_always_show_filters = load_always_show_filters(os.path.dirname(__file__))
+# Pagefind search: CLI options and the facet list live in pagefind.yml.
+# plugins/pagefind_config.py and plugins/pagefind_meta.py read that file.
 
 # Intersphinx mapping
 

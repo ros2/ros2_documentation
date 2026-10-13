@@ -30,9 +30,14 @@
   pointer-events: none;
 }
 
+/*
+  Pagefind sets pointer-events:revert on .pf-* with a high-specificity :is(#\#)
+  hack. That beats a normal `auto` here and reverts to inheritance from the
+  portal host (none), so filter checkboxes never receive clicks. Force auto.
+*/
 .ros2-pagefind-search--portal dialog.pf-modal,
 .ros2-pagefind-search--portal dialog.pf-modal::backdrop {
-  pointer-events: auto;
+  pointer-events: auto !important;
 }
 
 .ros2-pagefind-search pagefind-modal-trigger {
@@ -95,9 +100,7 @@
 }
 
 .ros-page-meta-summary,
-.ros2-pagefind-search .pf-result-meta-block,
-#ros-search-page .pf-result-meta-block,
-dialog.pf-modal .pf-result-meta-block {
+.ros-search-ui .pf-result-meta-block {
   margin: -0.25rem 0 1rem !important;
   padding: 0.45rem 0.75rem !important;
   border-left: 4px solid #6c757d !important;
@@ -112,8 +115,7 @@ dialog.pf-modal .pf-result-meta-block {
   min-width: min(900px, 92vw) !important;
 }
 
-.ros2-pagefind-search .ros-search-two-col,
-#ros-search-page .ros-search-two-col {
+.ros-search-ui .ros-search-two-col {
   display: grid;
   grid-template-columns: minmax(220px, 260px) minmax(0, 1fr);
   gap: 16px;
@@ -122,15 +124,10 @@ dialog.pf-modal .pf-result-meta-block {
   align-items: stretch;
 }
 
-.ros2-pagefind-search .ros-search-facets,
-.ros2-pagefind-search .ros-search-results {
+.ros-search-ui .ros-search-facets,
+.ros-search-ui .ros-search-results {
   max-height: 62vh;
   overflow: auto;
-  min-width: 0;
-}
-
-#ros-search-page .ros-search-facets,
-#ros-search-page .ros-search-results {
   min-width: 0;
 }
 
@@ -138,16 +135,14 @@ dialog.pf-modal .pf-result-meta-block {
   Match Pagefind Component UI .pf-filter-pane tokens so empty placeholders
   and the native filter pane read as the same sidebar treatment.
 */
-.ros2-pagefind-search .ros-search-facets,
-#ros-search-page .ros-search-facets {
+.ros-search-ui .ros-search-facets {
   align-self: stretch;
   background: transparent;
   border: 0;
   padding: 0;
 }
 
-.ros2-pagefind-search .ros-search-facets.ros-search-facets--placeholders,
-#ros-search-page .ros-search-facets.ros-search-facets--placeholders {
+.ros-search-ui .ros-search-facets.ros-search-facets--placeholders {
   background: #eee;
   border: 1px solid #e0e0e0;
   border-radius: 6px;
@@ -159,12 +154,9 @@ dialog.pf-modal .pf-result-meta-block {
   min-height: 50vh;
 }
 
-.ros2-pagefind-search .ros-search-facets pagefind-filter-pane,
-.ros2-pagefind-search .ros-search-results pagefind-summary,
-.ros2-pagefind-search .ros-search-results pagefind-results,
-#ros-search-page .ros-search-facets pagefind-filter-pane,
-#ros-search-page .ros-search-results pagefind-summary,
-#ros-search-page .ros-search-results pagefind-results {
+.ros-search-ui .ros-search-facets pagefind-filter-pane,
+.ros-search-ui .ros-search-results pagefind-summary,
+.ros-search-ui .ros-search-results pagefind-results {
   display: block;
 }
 
@@ -248,8 +240,7 @@ pagefind-filter-pane[hidden] {
   display: none !important;
 }
 
-.ros2-pagefind-search .ros-search-results pagefind-summary,
-#ros-search-page .ros-search-results pagefind-summary {
+.ros-search-ui .ros-search-results pagefind-summary {
   margin-bottom: 0.75rem;
 }
 
@@ -328,82 +319,12 @@ pagefind-filter-pane[hidden] {
   line-height: 1.4 !important;
   font-weight: 400 !important;
   color: var(--pf-text-secondary, rgba(0, 0, 0, 0.7)) !important;
-  /* Allow multi-line / list excerpts from article-body injection. */
   white-space: normal !important;
   overflow: visible !important;
   text-overflow: unset !important;
 }
 
-/* Keep nested excerpt markup (lists, code, leftover spans) visually flat. */
-.ros2-pagefind-search .pf-result-excerpt :where(p, li, ul, ol, span, code, pre, strong, em, b, i),
-.ros2-pagefind-search .pf-result-preview :where(p, li, ul, ol, span, code, pre, strong, em, b, i),
-#ros-search-page .pf-result-excerpt :where(p, li, ul, ol, span, code, pre, strong, em, b, i),
-#ros-search-page .pf-result-preview :where(p, li, ul, ol, span, code, pre, strong, em, b, i) {
-  font-size: inherit;
-  font-family: inherit;
-  font-weight: inherit;
-  line-height: inherit;
-  color: inherit;
-  background: transparent;
-  border: 0;
-}
-
-.ros2-pagefind-search .pf-result-excerpt ul,
-.ros2-pagefind-search .pf-result-preview ul,
-#ros-search-page .pf-result-excerpt ul,
-#ros-search-page .pf-result-preview ul {
-  list-style-type: disc !important;
-  list-style-position: outside !important;
-  margin: 0.25rem 0 0;
-  padding-left: 1.35rem;
-}
-
-.ros2-pagefind-search .pf-result-excerpt ol,
-.ros2-pagefind-search .pf-result-preview ol,
-#ros-search-page .pf-result-excerpt ol,
-#ros-search-page .pf-result-preview ol {
-  list-style-type: decimal !important;
-  list-style-position: outside !important;
-  margin: 0.25rem 0 0;
-  padding-left: 1.35rem;
-}
-
-.ros2-pagefind-search .pf-result-excerpt li,
-.ros2-pagefind-search .pf-result-preview li,
-#ros-search-page .pf-result-excerpt li,
-#ros-search-page .pf-result-preview li {
-  display: list-item !important;
-  list-style: inherit !important;
-  margin: 0.1rem 0;
-}
-
-.ros2-pagefind-search .pf-result-excerpt ul ul,
-.ros2-pagefind-search .pf-result-preview ul ul,
-#ros-search-page .pf-result-excerpt ul ul,
-#ros-search-page .pf-result-preview ul ul {
-  list-style-type: circle !important;
-  margin-top: 0.1rem;
-}
-
-.ros2-pagefind-search .pf-result-excerpt li > p,
-.ros2-pagefind-search .pf-result-preview li > p,
-#ros-search-page .pf-result-excerpt li > p,
-#ros-search-page .pf-result-preview li > p {
-  margin: 0;
-  display: inline;
-}
-
-.ros2-pagefind-search .pf-result-excerpt > p.topic-title,
-.ros2-pagefind-search .pf-result-preview > p.topic-title,
-#ros-search-page .pf-result-excerpt > p.topic-title,
-#ros-search-page .pf-result-preview > p.topic-title {
-  margin: 0 0 0.15rem;
-  font-weight: inherit;
-}
-
-.ros2-pagefind-search .pf-result-meta-block,
-#ros-search-page .pf-result-meta-block,
-dialog.pf-modal .pf-result-meta-block {
+.ros-search-ui .pf-result-meta-block {
   margin-top: 0.35rem !important;
   margin-bottom: 0.45rem !important;
   border-radius: 0 !important;
@@ -411,12 +332,8 @@ dialog.pf-modal .pf-result-meta-block {
   line-height: 1.35 !important;
 }
 
-.ros2-pagefind-search .pf-result-meta-block b,
-.ros2-pagefind-search .pf-result-meta-block strong,
-#ros-search-page .pf-result-meta-block b,
-#ros-search-page .pf-result-meta-block strong,
-dialog.pf-modal .pf-result-meta-block b,
-dialog.pf-modal .pf-result-meta-block strong {
+.ros-search-ui .pf-result-meta-block b,
+.ros-search-ui .pf-result-meta-block strong {
   color: #495057 !important;
   font-weight: 600 !important;
 }
@@ -457,28 +374,21 @@ dialog.pf-modal .pf-result-meta-block strong {
 }
 
 @media (max-width: 980px) {
-  .ros2-pagefind-search .ros-search-two-col,
-  #ros-search-page .ros-search-two-col {
+  .ros-search-ui .ros-search-two-col {
     grid-template-columns: 1fr;
   }
 
-  .ros2-pagefind-search .ros-search-facets,
-  .ros2-pagefind-search .ros-search-results {
+  .ros-search-ui .ros-search-facets,
+  .ros-search-ui .ros-search-results {
     max-height: none;
   }
 
-  .ros2-pagefind-search .ros-search-facets {
+  .ros-search-ui .ros-search-facets {
     border-right: 0;
     margin-bottom: 0.75rem;
   }
 
-  #ros-search-page .ros-search-facets {
-    border-right: 0;
-    margin-bottom: 0.75rem;
-  }
-
-  .ros2-pagefind-search .ros-search-facets.ros-search-facets--placeholders,
-  #ros-search-page .ros-search-facets.ros-search-facets--placeholders {
+  .ros-search-ui .ros-search-facets.ros-search-facets--placeholders {
     border-bottom: 1px solid #e0e0e0;
   }
 }
