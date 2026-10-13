@@ -18,11 +18,8 @@ from typing import Any, Dict, List, Optional, Tuple
 from docutils import nodes
 
 from meta_util import all_doctree_meta, expand_all_meta_values, split_meta_values
-from pagefind_config import load_always_show_filters
-from pagefind_config import load_search_result_breadcrumb
-from pagefind_config import load_search_result_excerpt_length
-from pagefind_config import load_search_result_meta_order
-from pagefind_config import load_search_result_metadata
+from pagefind_config import SearchUiConfig
+from pagefind_config import load_search_ui_config
 
 # Separator for Sphinx toctree parent titles on search result cards.
 _BREADCRUMB_SEPARATOR = ' › '
@@ -71,17 +68,12 @@ def _current_distro_from_config(app) -> str:
     return str((getattr(app.config, 'macros', {}) or {}).get('DISTRO', 'rolling'))
 
 
-def _search_config(app) -> Tuple[List[Dict[str, str]], List[str], bool, bool, int]:
-    """``(meta fields, always-show filters, breadcrumb, metadata, excerpt length)``."""
+def _search_config(app) -> SearchUiConfig:
+    """Search UI settings from ``pagefind.yml``, cached on the Sphinx app."""
     cached = getattr(app, '_ros_pagefind_search_config', None)
-    if cached is not None:
+    if isinstance(cached, SearchUiConfig):
         return cached
-    fields = _parse_result_meta_fields(load_search_result_meta_order(app.confdir))
-    always = load_always_show_filters(app.confdir)
-    show_breadcrumb = load_search_result_breadcrumb(app.confdir)
-    show_metadata = load_search_result_metadata(app.confdir)
-    excerpt_length = load_search_result_excerpt_length(app.confdir)
-    cached = (fields, always, show_breadcrumb, show_metadata, excerpt_length)
+    cached = load_search_ui_config(app.confdir)
     app._ros_pagefind_search_config = cached
     return cached
 
@@ -194,7 +186,8 @@ def _html_page_context(
     context: Dict[str, Any],
     doctree,
 ) -> None:
-    fields, always_show, show_breadcrumb, show_metadata, excerpt_length = _search_config(app)
+    ui = _search_config(app)
+    fields = _parse_result_meta_fields(ui.result_meta)
     current_distro = _current_distro_from_config(app)
     context.update({
         'pagefind_seo_filter_metas': '',
@@ -203,12 +196,12 @@ def _html_page_context(
         'pagefind_component_js': './pagefind/pagefind-component-ui.js',
         'pagefind_filter_keys_csv': ','.join(_facet_filter_keys(fields)),
         'pagefind_result_meta_fields': fields,
-        'pagefind_always_show_filters': always_show,
+        'pagefind_always_show_filters': list(ui.always_show_filters),
         'pagefind_search_results_href': 'search.html',
         'pagefind_current_distro': current_distro,
-        'pagefind_show_breadcrumb': show_breadcrumb,
-        'pagefind_show_metadata': show_metadata,
-        'pagefind_excerpt_length': excerpt_length,
+        'pagefind_show_breadcrumb': ui.show_breadcrumb,
+        'pagefind_show_metadata': ui.show_metadata,
+        'pagefind_excerpt_length': ui.excerpt_length,
     })
 
     if app.builder.format != 'html' or templatename is None:
@@ -219,7 +212,7 @@ def _html_page_context(
     values = _resolved_page_meta(app, doctree)
     css_href, js_href = _pagefind_component_urls(app, pagename)
     meta_html = _seo_and_filter_metas(fields, values)
-    if show_breadcrumb:
+    if ui.show_breadcrumb:
         crumb = _breadcrumb_from_parents(context.get('parents'))
         if crumb:
             crumb_tag = _breadcrumb_meta_tag(crumb)

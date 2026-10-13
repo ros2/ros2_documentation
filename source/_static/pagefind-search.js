@@ -27,6 +27,10 @@ const bundlePrefix = String(config?.bundlePrefix || './pagefind/');
 const componentJs = String(config?.componentJs || '');
 const showBreadcrumb = Boolean(config?.showBreadcrumb);
 const showMetadata = Boolean(config?.showMetadata);
+const parsedExcerptLength = Number(config?.excerptLength);
+const excerptLength = Number.isFinite(parsedExcerptLength) && parsedExcerptLength >= 1
+  ? Math.floor(parsedExcerptLength)
+  : 30;
 
 function getPagefindInstance() {
   return window.PagefindComponents?.getInstanceManager?.()?.getInstance?.('default') ?? null;
@@ -162,7 +166,8 @@ function formatMetaValue(raw) {
 }
 
 function labelForMetaKey(key) {
-  const field = resultMetaFields.find((item) => item.key === key);
+  const lower = String(key || '').toLowerCase();
+  const field = resultMetaFields.find((item) => item.key && item.key.toLowerCase() === lower);
   return (field?.label || '').trim() || String(key || '');
 }
 
@@ -556,7 +561,19 @@ function isAlwaysShowFilterKey(key) {
 }
 
 function facetGroupTitle(key) {
-  return String(key || '').trim().toUpperCase();
+  return labelForMetaKey(key);
+}
+
+function applyFacetGroupLabel(group, key) {
+  const title = facetGroupTitle(key);
+  if (!title) {
+    return;
+  }
+  group.querySelectorAll('.pf-filter-group-name, .pf-filter-fieldset > legend').forEach((el) => {
+    if (el.textContent !== title) {
+      el.textContent = title;
+    }
+  });
 }
 
 function filterPaneRoot(pane) {
@@ -589,6 +606,7 @@ function customizeFilterPane(pane, totalFilters) {
     if (group.dataset.rosPfFilterKey !== key) {
       group.dataset.rosPfFilterKey = key;
     }
+    applyFacetGroupLabel(group, key);
     matched.push({ key, el: group });
   });
   const container = matched[0]?.el?.parentElement;
@@ -899,6 +917,9 @@ function refreshResultMetadata() {
 }
 
 function scheduleRefreshResultMetadata() {
+  if (!showBreadcrumb && !showMetadata) {
+    return;
+  }
   if (refreshMetaRaf !== null) {
     return;
   }
@@ -1131,6 +1152,7 @@ async function bootPagefind() {
   }
   const configEl = document.createElement('pagefind-config');
   configEl.setAttribute('bundle-path', new URL(bundlePrefix, document.baseURI).href);
+  configEl.setAttribute('excerpt-length', String(excerptLength));
   // Allow filter-only searches (empty query + filters) instead of clearing results.
   configEl.setAttribute('faceted', '');
   document.head.appendChild(configEl);
@@ -1139,7 +1161,9 @@ async function bootPagefind() {
   liftSearchModalOutOfSidebar();
   await import(new URL(componentJs, document.baseURI).href);
   setupFacetPaneCustomization();
-  setupResultMetadataRendering();
+  if (showBreadcrumb || showMetadata) {
+    setupResultMetadataRendering();
+  }
   bindDefaultDistributionToModal();
   applySearchQueryFromUrl();
   applyDefaultDistributionFilter();

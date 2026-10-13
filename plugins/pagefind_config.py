@@ -4,9 +4,22 @@
 from __future__ import annotations
 
 import os
-from typing import Any, Dict, List
+from typing import Any, Dict, List, NamedTuple, Optional
 
 import yaml
+
+# Pagefind's built-in excerpt window when ``search_result_excerpt_length`` is absent.
+_DEFAULT_EXCERPT_LENGTH = 30
+
+
+class SearchUiConfig(NamedTuple):
+    """Search UI settings from one read of ``pagefind.yml``."""
+
+    result_meta: Dict[str, str]
+    always_show_filters: List[str]
+    show_breadcrumb: bool
+    show_metadata: bool
+    excerpt_length: int
 
 
 def pagefind_yml_path(confdir: str) -> str:
@@ -23,9 +36,9 @@ def load_pagefind_yml(confdir: str) -> Dict[str, Any]:
     return data if isinstance(data, dict) else {}
 
 
-def load_search_result_meta_order(confdir: str) -> Dict[str, str]:
-    """Return ``search_result_meta`` from ``pagefind.yml`` as ``{key: label}``."""
-    raw = load_pagefind_yml(confdir).get('search_result_meta') or {}
+def _result_meta(data: Dict[str, Any]) -> Dict[str, str]:
+    """``search_result_meta`` as ``{key: label}``."""
+    raw = data.get('search_result_meta') or {}
     if not isinstance(raw, dict):
         return {}
     out: Dict[str, str] = {}
@@ -37,47 +50,26 @@ def load_search_result_meta_order(confdir: str) -> Dict[str, str]:
     return out
 
 
-def load_always_show_filters(confdir: str) -> List[str]:
-    """Return ``always_show_filters`` keys from ``pagefind.yml`` (order preserved).
-
-    Only keys that also appear in ``search_result_meta`` are kept.
-    """
-    data = load_pagefind_yml(confdir)
-    meta_keys = set(load_search_result_meta_order(confdir))
+def _always_show_filters(data: Dict[str, Any], meta_keys: Dict[str, str]) -> List[str]:
+    """``always_show_filters`` keys that also appear in ``search_result_meta``."""
     raw = data.get('always_show_filters') or []
     if not isinstance(raw, (list, tuple)):
         return []
+    allowed = set(meta_keys)
     out: List[str] = []
     seen: set = set()
     for item in raw:
         key = str(item).strip()
-        if not key or key in seen or key not in meta_keys:
+        if not key or key in seen or key not in allowed:
             continue
         seen.add(key)
         out.append(key)
     return out
 
 
-def load_search_result_breadcrumb(confdir: str) -> bool:
-    """Return ``search_result_breadcrumb`` from ``pagefind.yml`` (default False)."""
-    raw = load_pagefind_yml(confdir).get('search_result_breadcrumb', False)
-    return bool(raw)
-
-
-def load_search_result_metadata(confdir: str) -> bool:
-    """Return ``search_result_metadata`` from ``pagefind.yml`` (default False)."""
-    raw = load_pagefind_yml(confdir).get('search_result_metadata', False)
-    return bool(raw)
-
-
-# Pagefind's built-in excerpt window when ``search_result_excerpt_length`` is absent.
-_DEFAULT_EXCERPT_LENGTH = 30
-
-
-def load_search_result_excerpt_length(confdir: str) -> int:
-    """Return ``search_result_excerpt_length`` from ``pagefind.yml`` (default 30)."""
-    raw = load_pagefind_yml(confdir).get(
-        'search_result_excerpt_length', _DEFAULT_EXCERPT_LENGTH)
+def _excerpt_length(data: Dict[str, Any]) -> int:
+    """``search_result_excerpt_length``, or 30 when missing or invalid."""
+    raw = data.get('search_result_excerpt_length', _DEFAULT_EXCERPT_LENGTH)
     try:
         length = int(raw)
     except (TypeError, ValueError):
@@ -87,18 +79,43 @@ def load_search_result_excerpt_length(confdir: str) -> int:
     return length
 
 
-def note_pagefind_yml_dependency(app) -> None:
-    """Register ``pagefind.yml`` so edits invalidate the build."""
-    env = getattr(app, 'env', None)
-    if env is None:
-        return
-    path = pagefind_yml_path(app.confdir)
-    if os.path.isfile(path):
-        env.note_dependency(path)
+def load_search_ui_config(confdir: str) -> SearchUiConfig:
+    """Read search UI settings from ``pagefind.yml`` in one pass."""
+    data = load_pagefind_yml(confdir)
+    result_meta = _result_meta(data)
+    return SearchUiConfig(
+        result_meta=result_meta,
+        always_show_filters=_always_show_filters(data, result_meta),
+        show_breadcrumb=bool(data.get('search_result_breadcrumb', False)),
+        show_metadata=bool(data.get('search_result_metadata', False)),
+        excerpt_length=_excerpt_length(data),
+    )
+
+
+def _pagefind_yml_stamp(confdir: str) -> Optional[int]:
+    path = pagefind_yml_path(confdir)
+    try:
+        return os.stat(path).st_mtime_ns
+    except OSError:
+        return None
+
+
+def pagefind_yml_outdated(app, env, _added, _changed, _removed) -> List[str]:
+    """Re-read every page when ``pagefind.yml`` is new or has changed."""
+    stamp = _pagefind_yml_stamp(app.confdir)
+    if getattr(env, 'pagefind_yml_mtime', None) == stamp:
+        return []
+    return list(getattr(env, 'found_docs', ()) or ())
+
+
+def remember_pagefind_yml(app, env) -> None:
+    """Store the ``pagefind.yml`` mtime after a successful read."""
+    env.pagefind_yml_mtime = _pagefind_yml_stamp(app.confdir)
 
 
 def setup(app) -> Dict[str, Any]:
-    app.connect('builder-inited', note_pagefind_yml_dependency)
+    app.connect('env-get-outdated', pagefind_yml_outdated)
+    app.connect('env-updated', remember_pagefind_yml)
     return {
         'version': '1.0.0',
         'parallel_read_safe': True,
