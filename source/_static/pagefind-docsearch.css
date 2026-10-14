@@ -256,6 +256,11 @@ pagefind-filter-pane[hidden] {
   display: none !important;
 }
 
+/* Hide the page count beside each filter option. */
+.ros-search-ui .pf-filter-checkbox-count {
+  display: none !important;
+}
+
 .ros-search-ui .ros-search-results pagefind-summary {
   margin-bottom: 0.75rem;
 }
