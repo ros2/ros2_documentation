@@ -38,12 +38,16 @@ PAGEFIND_VERSION ?= 1.5.2
 pagefind:
 	npx -y pagefind@$(PAGEFIND_VERSION) --site "$(OUT)/html"
 
-# Convenience: Sphinx build + Pagefind index (does not replace plain html / multiversion).
+# Sphinx build with the Pagefind search UI, then index it. Plain html / multiversion
+# keep Sphinx's default search.
+PAGEFIND_OPTS = -D pagefind_enabled=1
+
 html-search:
-	$(MAKE) html
+	$(MAKE) html OPTS="$(OPTS) $(PAGEFIND_OPTS)"
 	$(MAKE) pagefind
 
-multiversion-search: multiversion
+multiversion-search:
+	$(MAKE) multiversion OPTS="$(OPTS) $(PAGEFIND_OPTS)"
 	$(MAKE) pagefind
 
 %: Makefile
@@ -111,4 +115,4 @@ linkcheck:
 serve:
 	sphinx-autobuild --host $(LIVE_HOST) --port $(LIVE_PORT) -c . $(SOURCE) $(OUT)/html
 
-.PHONY: help Makefile multiversion pagefind test test-tools linkcheck serve lint spellcheck check-dictionaries sort-dictionaries ensure-enhancements supersede-enhancement-reviews $(MAKEFILE_LIST)
+.PHONY: help Makefile multiversion pagefind html-search multiversion-search test test-tools linkcheck serve lint spellcheck check-dictionaries sort-dictionaries ensure-enhancements supersede-enhancement-reviews $(MAKEFILE_LIST)

@@ -12,58 +12,13 @@ from pagefind_meta import (  # noqa: E402
     _breadcrumb_from_parents,
     _breadcrumb_meta_tag,
     _current_distro_from_config,
-    _facet_filter_keys,
     _html_page_context,
-    _parse_result_meta_fields,
     _seo_and_filter_metas,
 )
 
 
-def test_parse_result_meta_fields_dict_preserves_order_and_labels() -> None:
-    parsed = _parse_result_meta_fields(
-        {
-            'contentType': 'Content type',
-            'product': 'Product',
-            'distribution': 'Distribution',
-        },
-    )
-    assert parsed == [
-        {'key': 'contentType', 'label': 'Content type'},
-        {'key': 'product', 'label': 'Product'},
-        {'key': 'distribution', 'label': 'Distribution'},
-    ]
-
-
-def test_parse_result_meta_fields_dict_empty_label_uses_default() -> None:
-    parsed = _parse_result_meta_fields({'area': ''})
-    assert len(parsed) == 1
-    assert parsed[0]['key'] == 'area'
-    assert parsed[0]['label'] == 'Area'
-
-
-def test_parse_result_meta_fields_ignores_non_dict() -> None:
-    assert _parse_result_meta_fields(['product', 'area']) == []
-    assert _parse_result_meta_fields(None) == []
-
-
-def test_parse_result_meta_fields_allowlist_only_configured_keys() -> None:
-    parsed = _parse_result_meta_fields({'product': 'Product'})
-    keys = {field['key'] for field in parsed}
-    assert keys == {'product'}
-    assert 'description' not in keys
-
-
-def test_parse_result_meta_fields_empty_config() -> None:
-    assert _parse_result_meta_fields({}) == []
-
-
-def test_facet_filter_keys_follow_configured_order() -> None:
-    fields = _parse_result_meta_fields({
-        'distribution': 'Distribution',
-        'area': 'Area',
-        'contentType': 'Content type',
-    })
-    assert _facet_filter_keys(fields) == ['distribution', 'area', 'contentType']
+def _parse_result_meta_fields(raw: dict) -> list:
+    return [{'key': key, 'label': label} for key, label in raw.items()]
 
 
 def test_seo_and_filter_metas_facet_allowlist() -> None:
@@ -131,18 +86,14 @@ def _app_for_context(fmt: str) -> SimpleNamespace:
         del typ
         return f'{pagename}.html'
 
-    def get_relative_uri(pagename: str, other: str) -> str:
-        del pagename
-        return f'../{other}.html'
-
     return SimpleNamespace(
-        confdir='/nonexistent/path',
-        config=SimpleNamespace(macros={}, smv_current_version=''),
-        builder=SimpleNamespace(
-            format=fmt,
-            get_target_uri=get_target_uri,
-            get_relative_uri=get_relative_uri,
+        config=SimpleNamespace(
+            macros={},
+            smv_current_version='',
+            pagefind_enabled=False,
+            pagefind_search={'search_result_meta': {'area': 'Area'}},
         ),
+        builder=SimpleNamespace(format=fmt, get_target_uri=get_target_uri),
     )
 
 
@@ -156,9 +107,8 @@ def test_non_html_builder_still_gets_page_relative_pagefind_paths() -> None:
         None,
     )
     assert context['pagefind_bundle_prefix'] == '../pagefind/'
-    assert context['pagefind_component_css'] == '../pagefind/pagefind-component-ui.css'
-    assert context['pagefind_component_js'] == '../pagefind/pagefind-component-ui.js'
-    assert context['pagefind_search_results_href'] == '../search.html'
+    assert context['pagefind_filter_keys_csv'] == 'area'
+    assert context['pagefind_enabled'] is False
     assert context['pagefind_seo_filter_metas'] == ''
 
 

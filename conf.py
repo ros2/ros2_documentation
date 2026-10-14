@@ -101,7 +101,10 @@ extensions = [
 
 
 # Pagefind search: CLI options and the facet list live in pagefind.yml.
-# plugins/pagefind_config.py and plugins/pagefind_meta.py read that file.
+# Loading it into a config value makes Sphinx rebuild pages when it changes.
+from pagefind_config import load_pagefind_yml  # noqa: E402
+
+pagefind_search = load_pagefind_yml(os.path.abspath('.'))
 
 # Intersphinx mapping
 
@@ -211,7 +214,7 @@ html_static_path = ['source/_static']
 html_sourcelink_suffix = ''
 
 # Relative to html_static_path
-html_css_files = ['custom.css', 'adopters.css', 'pagefind-docsearch.css']
+html_css_files = ['custom.css', 'adopters.css']
 html_js_files = ['adopters.js', 'related_articles.js']
 
 # -- Options for HTMLHelp output ------------------------------------------

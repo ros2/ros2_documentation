@@ -11,15 +11,13 @@ plain ``<meta>`` tags for SEO.
 from __future__ import annotations
 
 import html
-import re
 from pathlib import PurePosixPath
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any, Dict, List, Optional
 
 from docutils import nodes
 
 from meta_util import all_doctree_meta, expand_all_meta_values, split_meta_values
-from pagefind_config import SearchUiConfig
-from pagefind_config import load_search_ui_config
+from pagefind_config import parse_search_ui_config
 
 # Separator for Sphinx toctree parent titles on search result cards.
 _BREADCRUMB_SEPARATOR = ' › '
@@ -35,47 +33,9 @@ def _resolved_page_meta(app, doctree: Optional[nodes.document]) -> Dict[str, str
     return expand_all_meta_values(raw, _macros_flat(app))
 
 
-def _default_filter_label(key: str) -> str:
-    spaced = re.sub(r'([a-z])([A-Z])', r'\1 \2', key)
-    return spaced.replace('_', ' ').replace('-', ' ').strip().title()
-
-
-def _parse_result_meta_fields(raw: Any) -> List[Dict[str, str]]:
-    """Build an ordered ``{key, label}`` list from ``search_result_meta``."""
-    if not isinstance(raw, dict):
-        return []
-    out: List[Dict[str, str]] = []
-    for key, label in raw.items():
-        k = str(key).strip()
-        if not k:
-            continue
-        lbl = str(label).strip() if label is not None else ''
-        out.append({'key': k, 'label': lbl or _default_filter_label(k)})
-    return out
-
-
-def _facet_filter_keys(fields: List[Dict[str, str]]) -> List[str]:
-    """Facet keys in ``search_result_meta`` order."""
-    return [field['key'] for field in fields if field.get('key')]
-
-
-def _facet_key_set(fields: List[Dict[str, str]]) -> set[str]:
-    return set(_facet_filter_keys(fields))
-
-
 def _current_distro_from_config(app) -> str:
     """Build-time distro for the current Sphinx target (``macros['DISTRO']``)."""
     return str((getattr(app.config, 'macros', {}) or {}).get('DISTRO', 'rolling'))
-
-
-def _search_config(app) -> SearchUiConfig:
-    """Search UI settings from ``pagefind.yml``, cached on the Sphinx app."""
-    cached = getattr(app, '_ros_pagefind_search_config', None)
-    if isinstance(cached, SearchUiConfig):
-        return cached
-    cached = load_search_ui_config(app.confdir)
-    app._ros_pagefind_search_config = cached
-    return cached
 
 
 def _breadcrumb_from_parents(parents: Any) -> str:
@@ -103,7 +63,7 @@ def _breadcrumb_meta_tag(crumb: str) -> str:
 
 def _seo_and_filter_metas(fields: List[Dict[str, str]], values: Dict[str, str]) -> str:
     """One ``<meta>`` per value; facet keys get Pagefind filter and meta attrs."""
-    facet_keys = _facet_key_set(fields)
+    facet_keys = {field['key'] for field in fields}
     lines: List[str] = []
     for key in sorted(values.keys()):
         esc_name = html.escape(key, quote=True)
@@ -130,9 +90,6 @@ def _seo_and_filter_metas(fields: List[Dict[str, str]], values: Dict[str, str]) 
 def _pagefind_bundle_prefix(app, pagename: str) -> str:
     """Relative URL prefix from the current HTML page to the site-root ``pagefind/`` directory.
 
-    Must start with ``./`` or ``../`` so the browser resolves dynamic imports (for example
-    ``import(bundlePath + 'pagefind.js')``) as URLs, not bare module specifiers.
-
     For ``sphinx-multiversion``, each distro is built with ``pagename`` relative to that
     distro tree (for example ``index``), but HTML is served under ``/{smv_current_version}/``.
     The Pagefind bundle lives at the site root (``build/html/pagefind/``), so add one
@@ -154,31 +111,6 @@ def _pagefind_bundle_prefix(app, pagename: str) -> str:
     return ('../' * depth) + 'pagefind/'
 
 
-def _pagefind_component_urls(app, pagename: str) -> Tuple[str, str]:
-    """``(css_href, js_href)`` relative to the current page."""
-    prefix = _pagefind_bundle_prefix(app, pagename)
-    return prefix + 'pagefind-component-ui.css', prefix + 'pagefind-component-ui.js'
-
-
-def _search_results_href(app, pagename: str) -> str:
-    """Relative URL from the current page to Sphinx's ``search.html``.
-
-    Uses the HTML builder's relative URI helper so multiversion pages under
-    ``/{distro}/`` link to ``/{distro}/search.html``, not site-root
-    ``/search.html`` (which may be wrong after ``make multiversion``).
-    """
-    builder = getattr(app, 'builder', None)
-    if builder is None:
-        return 'search.html'
-    try:
-        rel = builder.get_relative_uri(pagename, 'search')
-        if rel:
-            return rel
-    except (AttributeError, KeyError, ValueError):
-        pass
-    return 'search.html'
-
-
 def _html_page_context(
     app,
     pagename: str,
@@ -186,20 +118,16 @@ def _html_page_context(
     context: Dict[str, Any],
     doctree,
 ) -> None:
-    ui = _search_config(app)
-    fields = _parse_result_meta_fields(ui.result_meta)
-    current_distro = _current_distro_from_config(app)
-    css_href, js_href = _pagefind_component_urls(app, pagename)
+    ui = parse_search_ui_config(app.config.pagefind_search)
+    fields = ui.result_meta
     context.update({
+        'pagefind_enabled': bool(app.config.pagefind_enabled),
         'pagefind_seo_filter_metas': '',
         'pagefind_bundle_prefix': _pagefind_bundle_prefix(app, pagename),
-        'pagefind_component_css': css_href,
-        'pagefind_component_js': js_href,
-        'pagefind_filter_keys_csv': ','.join(_facet_filter_keys(fields)),
+        'pagefind_filter_keys_csv': ','.join(field['key'] for field in fields),
         'pagefind_result_meta_fields': fields,
-        'pagefind_always_show_filters': list(ui.always_show_filters),
-        'pagefind_search_results_href': _search_results_href(app, pagename),
-        'pagefind_current_distro': current_distro,
+        'pagefind_always_show_filters': ui.always_show_filters,
+        'pagefind_current_distro': _current_distro_from_config(app),
         'pagefind_show_breadcrumb': ui.show_breadcrumb,
         'pagefind_show_metadata': ui.show_metadata,
         'pagefind_excerpt_length': ui.excerpt_length,

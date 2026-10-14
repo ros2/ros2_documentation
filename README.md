@@ -18,6 +18,7 @@ To build this you need to install
 
 * make
 * graphviz
+* [Node.js](https://nodejs.org/) 18+ (only for indexing search with Pagefind; check with `node -v && npx -v`)
 
 With [venv](https://docs.python.org/3/library/venv.html)
 
@@ -109,42 +110,41 @@ make multiversion JOBS=8
 **NB:** For `make multiversion`, `JOBS` parallelizes the work *within* each
 branch's build; the branches themselves are still built one after another.
 
-### Pagefind search index
+### Search (Pagefind)
 
-After `make html` or `make multiversion`, run [Pagefind](https://pagefind.app/) so the built HTML under `build/html` is indexed and `build/html/pagefind/` is written (search bundle and Component UI assets). From the repo root:
+`make html` and `make multiversion` keep Sphinx's built-in search. To build with
+[Pagefind](https://pagefind.app/) search instead, use the `-search` targets. They build
+with the Pagefind search UI (`-D pagefind_enabled=1`) and then index the output.
+This needs Node.js 18+ (for `npx`).
 
-`make pagefind`
+```bash
+make html-search          # html with Pagefind UI, then make pagefind
+make multiversion-search  # multiversion with Pagefind UI, then make pagefind
+```
 
-Or use convenience targets that run Sphinx and Pagefind in one step:
+Running `make pagefind` on its own only re-indexes an existing `-search` build.
 
-- `make html-search` — `make html` then `make pagefind`
-- `make multiversion-search` — `make multiversion` then `make pagefind`
+Preview over HTTP (search does not work from `file://`):
 
-Plain `make html` and `make multiversion` do **not** run Pagefind (Node.js is only required when you index search).
+```bash
+python3 -m http.server --directory build/html
+```
 
-This requires **Node.js** (for `npx`). Pin the CLI with `PAGEFIND_VERSION` in the Makefile if needed.
+`make serve` always uses Sphinx's built-in search.
 
-#### What search includes
+**Configuration:** [`pagefind.yml`](pagefind.yml) holds the Pagefind CLI options and the
+search UI settings: which `.. meta::` fields become filters, which filters always show,
+breadcrumbs, metadata on result cards, and excerpt length. Each option is described in
+the file. Sphinx rebuilds the pages when the file changes.
 
-Pagefind uses an opt-in body marker (`data-pagefind-body` on the article body in [`source/_templates/layout.html`](source/_templates/layout.html)). Once that attribute exists on the site, only pages that have it are indexed.
+The CLI version is pinned by `PAGEFIND_VERSION` in the Makefile. Override it with
+`make pagefind PAGEFIND_VERSION=x.y.z`. Note that
+[`pagefind-search.js`](source/_static/pagefind-search.js) is written against the
+pinned version's UI.
 
-**Included**
-
-- Real documentation pages (content inside `articleBody`)
-- Page titles and body text used for matching and result excerpts. Each excerpt is **`search_result_excerpt_length`** words (30 when unset), chosen around the strongest match.
-- `.. meta::` fields listed under **`search_result_meta`** in [`pagefind.yml`](pagefind.yml): used as facet filters (Sphinx emits `data-pagefind-filter` / `data-pagefind-meta` via `plugins/pagefind_meta.py`). Result cards show those fields only when **`search_result_metadata`** is true. Filters still use `search_result_meta` when that flag is false. Result excerpts are Pagefind's own excerpts. The browser UI is [`source/_static/pagefind-search.js`](source/_static/pagefind-search.js).
-
-**Excluded**
-
-- Redirect stubs from `.. redirect-from::` (they omit `data-pagefind-body` so they do not appear as empty or duplicate hits)
-- Sphinx heading permalink anchors (`a.headerlink`), so titles stay clean
-- `p.topic-title` (“Table of Contents” labels) from the indexed lead-in; contents lists themselves remain searchable
-- In-page `.. showmeta::` summaries (`data-pagefind-ignore`), so metadata is not double-indexed as body text
-
-CLI indexing options live in [`pagefind.yml`](pagefind.yml). Sphinx also reads that file for **`search_result_meta`** (ordered field → label map), **`always_show_filters`** (facet keys that always appear in the sidebar), and the result-card settings **`search_result_metadata`**, **`search_result_breadcrumb`**, and **`search_result_excerpt_length`**. The Pagefind CLI ignores keys it does not recognize.
-
-The production [Jenkins doc job](https://build.ros.org/job/doc_ros2doc) should run the same `pagefind` step on `build/html` after Sphinx so deployed pages include the search bundle.
-
+**Deployment:** the production [doc job](https://build.ros.org/job/doc_ros2doc) must use
+`make multiversion-search` (or `make multiversion` plus `-D pagefind_enabled=1`, then
+`make pagefind`) for deployed pages to use Pagefind search.
 
 ### Note for Windows (WSL) Users
 

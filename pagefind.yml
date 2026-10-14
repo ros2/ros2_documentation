@@ -4,6 +4,8 @@
 # Whole-page exclusions: redirect stubs omit data-pagefind-body (see
 # source/_templates/layout.html). Once any page has that attribute, Pagefind
 # indexes only pages that include it.
+# In-page `.. showmeta::` summaries carry data-pagefind-ignore, so page
+# metadata is not indexed twice as body text.
 
 # Exclude Sphinx heading permalink anchors from the search index.
 # Without this, Pagefind title metadata includes the headerlink glyph ().
