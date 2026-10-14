@@ -1,0 +1,41 @@
+{# Pagefind Component UI. Behavior lives in source/_static/pagefind-search.js. #}
+<link rel="stylesheet" href="{{ pagefind_bundle_prefix }}pagefind-component-ui.css">
+<script id="ros-pagefind-config" type="application/json">
+{{ {
+  "bundlePrefix": pagefind_bundle_prefix,
+  "searchResultsUrl": pathto('search'),
+  "resultMetaFields": pagefind_result_meta_fields,
+  "alwaysShowFilterKeys": pagefind_always_show_filters,
+  "currentDistro": pagefind_current_distro,
+  "showBreadcrumb": pagefind_show_breadcrumb,
+  "showMetadata": pagefind_show_metadata,
+  "excerptLength": pagefind_excerpt_length,
+}|tojson }}
+</script>
+<script type="module" src="{{ pathto('_static/pagefind-search.js', 1) }}"></script>
+
+<div class="ros2-pagefind-search ros-search-ui">
+  <pagefind-modal-trigger
+    shortcut="mod+k"
+    placeholder="Enter search...">
+  </pagefind-modal-trigger>
+  <pagefind-modal class="ros-search-awaiting-term" reset-on-close="true">
+    <pagefind-modal-header>
+      <pagefind-input></pagefind-input>
+    </pagefind-modal-header>
+    <pagefind-modal-body>
+      <div class="ros-search-two-col">
+        <aside class="ros-search-facets" aria-label="Search filters">
+          <pagefind-filter-pane{% if pagefind_filter_keys_csv %} open="{{ pagefind_filter_keys_csv }}"{% endif %}></pagefind-filter-pane>
+        </aside>
+        <main class="ros-search-results" aria-label="Search results">
+          <pagefind-summary></pagefind-summary>
+          <pagefind-results></pagefind-results>
+        </main>
+      </div>
+    </pagefind-modal-body>
+    <pagefind-modal-footer>
+      <pagefind-keyboard-hints></pagefind-keyboard-hints>
+    </pagefind-modal-footer>
+  </pagefind-modal>
+</div>
