@@ -54,7 +54,7 @@ It helps readers to understand the structure of separate documentation sections 
 .. code-block:: rst
 
    .. toctree::
-      :hidden:
+      :maxdepth: 1
 
 The ``.. contents::`` directive is used for the generation of a table of contents for that particular page.
 It parses all present headings in a page and builds an in-page nested table of contents.
@@ -65,7 +65,7 @@ Using ``:depth: 2`` will only show sections and subsections in the table of cont
 
 .. code-block:: rst
 
-   .. contents:: Contents
+   .. contents:: Table of Contents
       :depth: 2
       :local:
 
