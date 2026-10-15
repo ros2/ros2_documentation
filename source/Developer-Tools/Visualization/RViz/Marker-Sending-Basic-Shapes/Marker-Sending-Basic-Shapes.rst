@@ -137,7 +137,8 @@ If **Fixed Frame** stays at ``map``, the marker will not show in the 3D view.
 The Marker display can show shapes that a node publishes as ``visualization_msgs/msg/Marker`` messages.
 RViz does not need to know the meaning of marker data ahead of time.
 
-The **Displays** list in RViz defines which different elements are included in the visualization. You need to subscribe to the marker messages to include them in the 3D view.
+The **Displays** list in RViz defines which different elements are included in the visualization.
+You need to subscribe to the marker messages to include them in the 3D view.
 
 #. At the bottom of the **Displays** list, select **Add**:
 
