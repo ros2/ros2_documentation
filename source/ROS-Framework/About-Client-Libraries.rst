@@ -34,13 +34,9 @@ Client libraries
    client-libraries/About-Middleware-Implementations
    client-libraries/Working-with-Client-Libraries
 
-Client libraries are the APIs that allow you to implement your ROS code.
-This article explains ``rcl``, the shared core library, and the main C++ and Python client libraries.
-With this information, you can choose the right library for your language and understand how nodes written in different languages work together.
-
 .. contents:: Contents
-    :depth: 2
-    :local:
+   :depth: 2
+   :local:
 
 Summary
 -------
@@ -139,7 +135,8 @@ Community packages
 ^^^^^^^^^^^^^^^^^^
 
 * `Ada <https://github.com/ada-ros/ada4ros2>`__: This is a set of packages (binding to ``rcl``, message generator, binding to ``tf2``, examples and tutorials) that allows the writing of Ada applications for ROS.
-* `C <https://github.com/ros2/rclc>`__: ``rclc`` does not put a layer on top of rcl but complements rcl to make rcl+rclc a feature-complete client library in C. See `micro.ros.org <https://micro.ros.org/>`__ for tutorials.
+* `C <https://github.com/ros2/rclc>`__: ``rclc`` does not put a layer on top of rcl but complements rcl to make rcl+rclc a feature-complete client library in C.
+  See `micro.ros.org <https://micro.ros.org/>`__ for tutorials.
 * `JVM and Android <https://github.com/ros2-java>`__: Java and Android bindings for ROS.
 * `.NET Core, UWP and C# <https://github.com/esteve/ros2_dotnet>`__: This is a collection of projects (bindings, code generator, examples and more) for writing ROS applications for .NET Core and .NET Standard.
 * `Node.js <https://www.npmjs.com/package/rclnodejs>`__: rclnodejs is a Node.js client for ROS.

@@ -143,7 +143,7 @@ This class uses significantly less CPU compared to the default ``SingleThreadedE
     if __name__ == '__main__':
         asyncio.run(_main())
 
-See :doc:`../../ROS-Framework/nodes/Working-with-nodes/Writing-An-Async-Node-With-Asyncio-Python` and `ros2/rclpy#1620 <https://github.com/ros2/rclpy/pull/1620>`_ for more details.
+See :doc:`../ROS-Framework/nodes/Working-with-nodes/Writing-An-Async-Node-With-Asyncio-Python` and `ros2/rclpy#1620 <https://github.com/ros2/rclpy/pull/1620>`_ for more details.
 
 Publish messages without copying data using ``rosidl::Buffer``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -158,9 +158,9 @@ Note that publishers and subscribers using ``rmw_fastrtps_cpp`` or ``rmw_zenoh_c
 
 Using a custom hardware accelerator or machine learning library?
 You can benefit from this too.
-See :doc:`../../ROS-Framework/interfaces/Working-with-interfaces/Buffer-Backends/Writing-a-Buffer-Backend` to learn how to implement your own ``rosidl::BufferBackend``.
+See :doc:`../ROS-Framework/interfaces/Working-with-interfaces/Buffer-Backends/Writing-a-Buffer-Backend` to learn how to implement your own ``rosidl::BufferBackend``.
 
-See :doc:`../../ROS-Framework/interfaces/Working-with-interfaces/Buffer-Backends/About-Buffer-Backends` and :doc:`../../ROS-Framework/interfaces/Working-with-interfaces/Buffer-Backends/Using-Buffer-Backends` for more details.
+See :doc:`../ROS-Framework/interfaces/Working-with-interfaces/Buffer-Backends/About-Buffer-Backends` and :doc:`../ROS-Framework/interfaces/Working-with-interfaces/Buffer-Backends/Using-Buffer-Backends` for more details.
 
 Annotate types in YAML Parameter Files
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -207,7 +207,7 @@ New substitutions in XML and YAML launch files
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Use XML or YAML launch files?
-:doc:`Substitutions <../../Developer-Tools/Launch/Using-Substitutions>` make your launch files evaluate variables at launch time.
+:doc:`Substitutions <../Developer-Tools/Launch/Using-Substitutions>` make your launch files evaluate variables at launch time.
 Launch frontends (the things that make it possible to use XML and YAML launch files) may now use ``string-join`` and ``path-join`` substitutions.
 
 .. code-block:: xml
