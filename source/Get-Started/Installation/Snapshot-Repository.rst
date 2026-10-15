@@ -1,5 +1,12 @@
 .. _SnapshotRepository:
 
+.. meta::
+   :contentType: how-to
+   :experience: intermediate
+   :area: installation
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 Installing from the snapshot repository
 =======================================
 

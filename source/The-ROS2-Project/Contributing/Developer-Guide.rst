@@ -30,12 +30,6 @@ Contributing to code
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. toctree::
-   :maxdepth: 2
-   :hidden:
-
-   Source-Control-Best-Practices
-
 .. contents:: Table of Contents
    :depth: 2
    :local:
