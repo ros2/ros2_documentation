@@ -116,7 +116,7 @@ This interface type has the following main characteristics:
 * Communication is synchronous
 * Services are ideal for short-lived operations that require confirmation or provide a result in response to a request
 * Services should be used for remote procedure calls that terminate quickly, such as for querying the state of a node or doing a quick calculation such as IK
-* Services should never be used for longer running processes, in particular processes that might be required to preempt if exceptional situations occur. 
+* Services should never be used for longer running processes, in particular processes that might be required to preempt if exceptional situations occur.
   They should never change or depend on state, to avoid unwanted side effects for other nodes
 
 .. mermaid::
@@ -140,7 +140,7 @@ This interface type has the following main characteristics:
 * Actions are suitable for operations that take time, such as slow perception routines which take several seconds to terminate, or for initiating a lower-level control mode.
 * Actions should be used for any discrete behaviour that moves a robot or that runs for a longer time but provides feedback during execution.
 * Actions can be preempted and preemption should always be implemented cleanly by action servers.
-* Actions can keep state for the lifetime of a goal. 
+* Actions can keep state for the lifetime of a goal.
   If executing two action goals in parallel on the same server, a separate state instance can be kept for each client because the goal is uniquely identified by its ID.
 * Action support more complex non-blocking background processing, including longer tasks such as execution of robot actions.
 
