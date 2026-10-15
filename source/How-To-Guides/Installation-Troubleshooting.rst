@@ -43,14 +43,6 @@ If the first command did not return a response similar to:
 
    Received from xx.xxx.xxx.xx:43751: 'Hello World!'
 
-then you will need to update your firewall configuration to allow multicast using `ufw <https://help.ubuntu.com/community/UFW>`__.
-
-.. code-block:: console
-
-   $ sudo ufw allow in proto udp to 224.0.0.0/4
-   $ sudo ufw allow in proto udp from 224.0.0.0/4
-
-
 You can check if the multicast flag is enabled for your network interface using the :code:`ifconfig` tool and looking for :code:`MULTICAST` in the flags section:
 
 .. code-block:: bash
@@ -114,6 +106,16 @@ You may have to check your ``.bashrc`` for this line and comment it out.
 On the other hand on Windows, the official ROS 2 installation procedure uses ``conda`` packages via the ``pixi`` package manager, and that works fine as there is no mix of different package managers
 
 ``conda`` packages for ROS 2 may be built (such as the one provided by the community-mantained `RoboStack <https://robostack.github.io/>`_ project) but no official conda packages for ROS 2 are provided.
+
+Firewall blocks multicast
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If the multicast test above failed, you may need to update your firewall configuration to allow multicast using `ufw <https://help.ubuntu.com/community/UFW>`__.
+
+.. code-block:: console
+
+   $ sudo ufw allow in proto udp to 224.0.0.0/4
+   $ sudo ufw allow in proto udp from 224.0.0.0/4
 
 .. _macOS-troubleshooting:
 
