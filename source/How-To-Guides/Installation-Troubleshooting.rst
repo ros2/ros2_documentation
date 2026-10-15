@@ -43,12 +43,7 @@ If the first command did not return a response similar to:
 
    Received from xx.xxx.xxx.xx:43751: 'Hello World!'
 
-then you will need to update your firewall configuration to allow multicast using `ufw <https://help.ubuntu.com/community/UFW>`__.
 
-.. code-block:: console
-
-   $ sudo ufw allow in proto udp to 224.0.0.0/4
-   $ sudo ufw allow in proto udp from 224.0.0.0/4
 
 
 You can check if the multicast flag is enabled for your network interface using the :code:`ifconfig` tool and looking for :code:`MULTICAST` in the flags section:
@@ -115,6 +110,43 @@ On the other hand on Windows, the official ROS 2 installation procedure uses ``c
 
 ``conda`` packages for ROS 2 may be built (such as the one provided by the community-mantained `RoboStack <https://robostack.github.io/>`_ project) but no official conda packages for ROS 2 are provided.
 
+<<<<<<< HEAD:source/How-To-Guides/Installation-Troubleshooting.rst
+=======
+Cannot start rviz2
+^^^^^^^^^^^^^^^^^^
+
+``rviz2`` may fail to start on a Wayland display system with errors like:
+
+.. code-block::
+
+   QSocketNotifier: Can only be used with threads started with QThread
+   [INFO] [1714730141.758659580] [rviz2]: Stereo is NOT SUPPORTED
+   [INFO] [1714730141.758813709] [rviz2]: OpenGl version: 3.1 (GLSL 1.4)
+   [ERROR] [1714730141.797879232] [rviz2]: rviz::RenderSystem: error creating render window: RenderingAPIException: Invalid parentWindowHandle (wrong server or screen) in GLXWindow::create at ./.obj-aarch64-linux-gnu/ogre_vendor-prefix/src/ogre_vendor/RenderSystems/GLSupport/src/GLX/OgreGLXWindow.cpp (line 246)
+   ...
+   [ERROR] [1714730141.808124283] [rviz2]: Unable to create the rendering window after 100 tries
+   terminate called after throwing an instance of 'std::runtime_error'
+     what():  Unable to create the rendering window after 100 tries
+   Aborted (core dumped)
+
+This is due to an incompatibility between Wayland and RViz2.
+You may be able to workaround this problem by running RViz2 in X11 compatibility mode:
+
+.. code-block::
+
+   QT_QPA_PLATFORM=xcb rviz2
+
+Firewall blocks multicast
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If the multicast test above failed, you may need to update your firewall configuration to allow multicast using `ufw <https://help.ubuntu.com/community/UFW>`__.
+
+.. code-block:: console
+
+   $ sudo ufw allow in proto udp to 224.0.0.0/4
+   $ sudo ufw allow in proto udp from 224.0.0.0/4
+
+>>>>>>> 354d1e7 (Move Linux-specific firewall instructions to Linux section (#7277)):source/Get-Started/Installation/Installation-Troubleshooting.rst
 .. _macOS-troubleshooting:
 
 macOS
