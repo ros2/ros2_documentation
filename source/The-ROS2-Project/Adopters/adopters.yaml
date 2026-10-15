@@ -484,3 +484,19 @@ adopters:
       - DE
       - CA
     description: "NVIDIA Isaac™ ROS is an agent-friendly, open source software foundation for building AI-powered robots with ROS 2. Built on NVIDIA’s upstream contributions to the ROS ecosystem, it combines accelerated computing, optimized robotics software, AI models, workflows, and deployment tools to help developers build, deploy, and scale production-ready robots faster."
+  - organization: "NVIDIA"
+    organization_url: "https://www.nvidia.com/"
+    project: "Isaac Sim"
+    project_url: "https://docs.isaacsim.omniverse.nvidia.com/latest/index.html"
+    domain:
+      - Components
+    date_added: "2026-10-14"
+    country:
+      - US
+      - CN
+      - IN
+      - CH
+      - DE
+      - CA
+      - ES
+    description: "NVIDIA Isaac Sim™ is an open-source reference framework built on NVIDIA Omniverse™ for developing AI-powered robots in physically based virtual environments. It combines robot and environment authoring, synthetic data generation, and software-in-the-loop testing with ROS 2 to help developers validate robot software stacks before real-world deployment."
