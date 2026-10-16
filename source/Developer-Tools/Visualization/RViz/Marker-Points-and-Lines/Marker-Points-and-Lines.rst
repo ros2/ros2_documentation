@@ -29,11 +29,11 @@ Using Marker Points and Lines (C++) - tutorial
 
 .. note::
 
-   This tutorial assumes that you have completed :doc:`Marker: Sending Basic Shapes <../Marker-Sending-Basic-Shapes/Marker-Sending-Basic-Shapes>`.
+   This tutorial assumes that you have completed :doc:`Learning about data visualization <../Marker-Sending-Basic-Shapes/Marker-Sending-Basic-Shapes>`.
 
 Intro
 -----
-In :doc:`Marker: Sending Basic Shapes <../Marker-Sending-Basic-Shapes/Marker-Sending-Basic-Shapes>` you learned how to send simple shapes to RViz using visualization markers.
+In :doc:`Learning about data visualization <../Marker-Sending-Basic-Shapes/Marker-Sending-Basic-Shapes>` you viewed simple shapes in RViz using visualization markers.
 You can send more than just simple shapes, and this tutorial introduces the ``POINTS``, ``LINE_STRIP``, and ``LINE_LIST`` marker types.
 For a full list of types, see :doc:`Marker: Display types <../Marker-Display-types/Marker-Display-types>`.
 
@@ -49,7 +49,7 @@ The code
 ^^^^^^^^
 Get the package from the `visualization_tutorials repository <https://github.com/ros-visualization/visualization_tutorials>`_.
 The code for this tutorial lives in the ``visualization_marker_tutorials`` package.
-You can read it in `points_and_lines.cpp <https://github.com/ros-visualization/visualization_tutorials/blob/ros2/visualization_marker_tutorials/src/points_and_lines.cpp>`_.
+You can read it in `points_and_lines.cpp <https://github.com/ros-visualization/visualization_tutorials/blob/{REPOS_FILE_BRANCH}/visualization_marker_tutorials/src/points_and_lines.cpp>`_.
 
 The code explained
 ^^^^^^^^^^^^^^^^^^
