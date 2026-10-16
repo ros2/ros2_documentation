@@ -137,6 +137,10 @@ search UI settings: which `.. meta::` fields become filters, which filters alway
 breadcrumbs, metadata on result cards, and excerpt length. Each option is described in
 the file. Sphinx rebuilds the pages when the file changes.
 
+Filter behaviour is fixed in the search UI script, not in `pagefind.yml`. Every indexed
+option stays visible. Options ticked within one group match any of them (OR). Different
+groups, and the search term, must all match (AND).
+
 The CLI version is pinned by `PAGEFIND_VERSION` in the Makefile. Override it with
 `make pagefind PAGEFIND_VERSION=x.y.z`. Note that
 [`pagefind-search.js`](source/_static/pagefind-search.js) is written against the
