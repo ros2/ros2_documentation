@@ -206,15 +206,16 @@
   /**
    * Ordered, lowercased ``area`` tokens from a package's package.xml.
    *
-   * Accepts either one ``<area>`` with values separated by commas or several
-   * ``<area>`` elements. Duplicates are dropped and order is preserved.
+   * Reads REP 149-prefixed ``<ros2_documentation_area>`` exports. Accepts
+   * either one element with values separated by commas or several elements.
+   * Duplicates are dropped and order is preserved.
    *
    * @param {string} xmlStr
    * @returns {string[]}
    */
   function extractAreaTokens(xmlStr) {
     var out = [];
-    var re = /<area[^>]*>([^<]+)<\/area>/gi;
+    var re = /<ros2_documentation_area\b[^>]*>([^<]+)<\/ros2_documentation_area>/gi;
     var m;
     var parts;
     var k;
@@ -253,7 +254,7 @@
 
   /**
    * A package matches when the page's primary area appears anywhere in the
-   * package's ``<area>`` values.
+   * package's ``<ros2_documentation_area>`` values.
    *
    * @param {string} xmlStr
    * @param {string} wantPrimary the page's primary (first) area value
@@ -268,14 +269,17 @@
   }
 
   /**
-   * Core vs federation scope from ``<related_scope>`` in package.xml export.
-   * Defaults to federation when the tag is absent (unknown upstream packages).
+   * Core vs federation scope from ``<ros2_documentation_related_scope>`` in
+   * package.xml export. Defaults to federation when the tag is absent
+   * (unknown upstream packages).
    *
    * @param {string} xmlStr
    * @returns {'core'|'federation'}
    */
   function extractRelatedScope(xmlStr) {
-    var match = /<related_scope\b[^>]*>([^<]+)<\/related_scope>/i.exec(xmlStr || '');
+    var match = /<ros2_documentation_related_scope\b[^>]*>([^<]+)<\/ros2_documentation_related_scope>/i.exec(
+      xmlStr || ''
+    );
     if (!match) {
       return 'federation';
     }

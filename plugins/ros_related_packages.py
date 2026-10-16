@@ -141,23 +141,25 @@ class RosRelatedPackagesDirective(SphinxDirective):
     --------------
     The page declares ``area`` via ``.. meta::`` (the same field the related
     article lists use). A package is listed when the page's primary (first)
-    ``area`` value appears **anywhere** in the package's ``<area>`` export.
-    Order ``area`` so that the most specific value comes first on the page
-    (for example ``nodes, framework`` / ``debugging, introspection, tools,
-    framework``). Matching keys on that primary value and does not pull in
-    packages that only share a broader parent.
+    ``area`` value appears **anywhere** in the package's
+    ``<ros2_documentation_area>`` export. Order ``area`` so that the most
+    specific value comes first on the page (for example ``nodes, framework`` /
+    ``debugging, introspection, tools, framework``). Matching keys on that
+    primary value and does not pull in packages that only share a broader
+    parent.
 
     Results are split into **Core ROS packages** and **Community
-    packages**, using ``<related_scope>core</related_scope>`` or
-    ``federation`` inside the package ``<export>`` (packages without the tag
-    are treated as ``federation``). Each group is ordered alphabetically.
+    packages**, using
+    ``<ros2_documentation_related_scope>core</ros2_documentation_related_scope>``
+    or ``federation`` inside the package ``<export>`` (packages without the
+    tag are treated as ``federation``). Each group is ordered alphabetically.
 
     Package metadata comes from the rosdistro cache::
 
         <export>
           <build_type>ament_cmake</build_type>
-          <area>nodes, framework</area>
-          <related_scope>core</related_scope>
+          <ros2_documentation_area>nodes, framework</ros2_documentation_area>
+          <ros2_documentation_related_scope>core</ros2_documentation_related_scope>
         </export>
     """
 

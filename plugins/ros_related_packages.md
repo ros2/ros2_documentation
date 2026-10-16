@@ -17,7 +17,7 @@ Unlike related articles, these lists are **built in the browser**. The directive
 | **When (build)** | The directive writes a placeholder `div` and the build may download a cache snapshot into `_static/` |
 | **When (page load)** | The browser fetches the cache, filters packages, and renders the lists |
 | **Which pages** | Only pages that include `.. ros-related-packages::` and declare a non-empty `area` |
-| **What is listed** | Released packages whose `<area>` export contains this page's **primary** (first) `area` value |
+| **What is listed** | Released packages whose `<ros2_documentation_area>` export contains this page's **primary** (first) `area` value |
 | **When skipped** | Pages without the directive. A missing `area` fails the build rather than skipping |
 
 ### Prerequisites
@@ -25,8 +25,8 @@ Unlike related articles, these lists are **built in the browser**. The directive
 | Requirement | Detail |
 |-------------|--------|
 | `area` on this page | **Required.** Declared in a `.. meta::` block, or passed as `:area:` on the directive. The directive raises a build error when neither is present |
-| `<area>` on the package | **Required.** An export in the package's `package.xml`. Packages without it are never listed |
-| `<related_scope>` on the package | Optional. Decides which of the two groups the package appears under |
+| `<ros2_documentation_area>` on the package | **Required.** An export in the package's `package.xml`. Packages without it are never listed |
+| `<ros2_documentation_related_scope>` on the package | Optional. Decides which of the two groups the package appears under |
 | Network access at build time | The build downloads the rosdistro cache into `_static/`. Without it the page falls back to whatever snapshot is already there |
 
 ### Adding the directive
@@ -54,35 +54,35 @@ Write the `Related packages:` intro yourself in the source. At page load it is p
 
 ### Package metadata
 
-Matching relies on two custom exports in the package's `package.xml`. Anything inside `<export>` that a tool does not recognise is ignored by the rest of the ROS toolchain (see [REP 149](https://ros.org/reps/rep-0149.html)), so adding these is safe:
+Matching relies on two custom exports in the package's `package.xml`. The tag names are prefixed with `ros2_documentation_` per [REP 149](https://ros.org/reps/rep-0149.html), so they stay namespaced to the docs tooling and do not collide with other export consumers. Anything inside `<export>` that a tool does not recognise is ignored by the rest of the ROS toolchain, so adding these is safe:
 
 ```xml
 <export>
   <build_type>ament_cmake</build_type>
-  <area>nodes, framework</area>
-  <related_scope>core</related_scope>
+  <ros2_documentation_area>nodes, framework</ros2_documentation_area>
+  <ros2_documentation_related_scope>core</ros2_documentation_related_scope>
 </export>
 ```
 
 | Export | Values | Effect |
 |--------|--------|--------|
-| `<area>` | comma-separated values, most specific first | Decides which pages the package appears on. Several `<area>` elements are also accepted |
-| `<related_scope>` | `core` or `federation` | Decides the group. Missing, empty or unrecognised values are treated as `federation` |
+| `<ros2_documentation_area>` | comma-separated values, most specific first | Decides which pages the package appears on. Several such elements are also accepted |
+| `<ros2_documentation_related_scope>` | `core` or `federation` | Decides the group. Missing, empty or unrecognised values are treated as `federation` |
 
 The package's `<description>` is shown after the package name, so its quality is visible to readers.
 
 ### How packages are matched
 
-The **primary area** is the first value in the page's `area`. A package is listed when that value appears **anywhere** in its `<area>` export. Matching on the primary value stops a page tagged `nodes, framework` from listing every package that merely shares `framework`.
+The **primary area** is the first value in the page's `area`. A package is listed when that value appears **anywhere** in its `<ros2_documentation_area>` export. Matching on the primary value stops a page tagged `nodes, framework` from listing every package that merely shares `framework`.
 
 ### The two groups
 
 Matching packages are split under `h4` subheadings and each group is sorted alphabetically:
 
-| Heading | `<related_scope>` |
+| Heading | `<ros2_documentation_related_scope>` |
 |---------|-------------------|
 | Core ROS packages | `core` |
-| Community packages | `federation`, or no `related_scope` export at all |
+| Community packages | `federation`, or no `ros2_documentation_related_scope` export at all |
 
 ### Mixing in hand-written links
 
@@ -131,8 +131,8 @@ Each group shows its first **7** packages, with the rest behind a **Show N more 
 |---------|-------|
 | Build error: `define 'area' with '.. meta::'` | The page has no `area` metadata and no `:area:` option |
 | Every page shows *Could not load package metadata* | The cache is missing from `_static/rosdistro_cache/`. Rebuild while online |
-| Lists are empty everywhere | No released package carries an `<area>` export yet. See [Where the data comes from](#where-the-data-comes-from) |
-| A package is in the wrong group | Its `<related_scope>` is missing or misspelled, so it defaulted to Community |
+| Lists are empty everywhere | No released package carries a `<ros2_documentation_area>` export yet. See [Where the data comes from](#where-the-data-comes-from) |
+| A package is in the wrong group | Its `<ros2_documentation_related_scope>` is missing or misspelled, so it defaulted to Community |
 | Descriptions look poor | They come verbatim from each package's `<description>`; the fix belongs upstream in that package |
 
 ---
@@ -179,7 +179,7 @@ Live updates between builds need one piece of infrastructure that this PR cannot
 
 Whichever is chosen should keep a short cache lifetime in front of it. The file is a few hundred kilobytes and changes only when the build farm republishes, so caching it for minutes rather than seconds keeps load off `repo.ros2.org`; both local tools cache for five minutes for the same reason.
 
-No upstream `package.xml` carries `<area>` or `<related_scope>` yet, so against the real cache these lists match nothing. Both exports have to be adopted upstream before the feature does anything in production.
+No upstream `package.xml` carries `<ros2_documentation_area>` or `<ros2_documentation_related_scope>` yet, so against the real cache these lists match nothing. Both exports have to be adopted upstream before the feature does anything in production.
 
 ### Code modules
 
@@ -206,7 +206,7 @@ No upstream `package.xml` carries `<area>` or `<related_scope>` yet, so against 
 
 | Change | Where |
 |--------|-------|
-| New `<related_scope>` value | `extractRelatedScope` in [`related_packages.js`](../source/_static/related_packages.js), plus the heading passed to `appendScopedPackageList` |
+| New `<ros2_documentation_related_scope>` value | `extractRelatedScope` in [`related_packages.js`](../source/_static/related_packages.js), plus the heading passed to `appendScopedPackageList` |
 | Different visible-item cap | `DEFAULT_RELATED_PACKAGES_VISIBLE_MAX` in [`ros_related_packages.py`](ros_related_packages.py) (currently `7`); the script reads it from `data-visible-max` |
 | New page-side metadata used for matching | The directive must put it on the placeholder as a `data-*` attribute; the script must read it in `fillWidget` |
 | Different cache URL | `ROSDISTRO_CACHE_TEMPLATE` (build download) and `fetchAndParse` (browser fallback) |
@@ -273,7 +273,7 @@ There is no dedicated unit suite for this extension. Changes are verified by bui
 
 ### Previewing locally
 
-The bundled snapshot alone is enough to see the widget (lists stay empty until packages carry `<area>`):
+The bundled snapshot alone is enough to see the widget (lists stay empty until packages carry `<ros2_documentation_area>`):
 
 ```bash
 make html
