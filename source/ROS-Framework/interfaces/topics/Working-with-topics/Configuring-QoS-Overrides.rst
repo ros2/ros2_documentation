@@ -30,13 +30,13 @@ Configuring QoS overrides using parameters — tutorial
 Overview
 --------
 
-In ROS 2, publishers and subscriptions communicate using Quality of Service (QoS) profiles.
+In ROS 2, Quality of Service (QoS) profiles determine the frequency, reliability, and overall performance of communication between publishers and subscribers on a ROS topic.
 By default, developers specify QoS settings directly in their application source code when creating publishers and subscriptions.
 However, hard-coded QoS settings make it difficult to adapt nodes to different deployment environments.
 For example, a robot might use reliable communications over a wired gigabit network during development, but require best-effort communications over a lossy wireless connection in deployment.
 
 To address this challenge, ROS 2 provides **QoS overrides**.
-QoS overrides allow developers to expose publisher and subscription QoS configurations as read-only ROS 2 parameters under a structured parameter group.
+QoS overrides allow developers to expose publisher and subscription QoS configurations as read-only ROS 2 parameters under a hierarchical parameter prefix (``qos_overrides.<topic>...``).
 Users can then change QoS policies at node startup using YAML parameter files or command-line arguments without recompiling or altering the node source code.
 
 Prerequisites
@@ -56,6 +56,7 @@ Enabling QoS overrides in code
 ------------------------------
 
 To allow users to override QoS settings, the node author must opt in when constructing the publisher or subscription.
+This opt-in process does not change the QoS policy itself, but instead provides a way for users to change the policy via a parameter file specified at execution time.
 You can enable default reconfigurable policies (history, depth, and reliability) or specify a custom list of policy kinds with an optional validation callback.
 
 .. tabs::
@@ -77,7 +78,7 @@ You can enable default reconfigurable policies (history, depth, and reliability)
            QosConfigurableNode()
            : Node("qos_configurable_node")
            {
-             // Configure publisher options to allow QoS overrides
+             // Configure publisher options to allow overriding default QoS policies (history, depth, and reliability)
              rclcpp::PublisherOptions pub_opts;
              pub_opts.qos_overriding_options = rclcpp::QosOverridingOptions::with_default_policies(
                [](const rclcpp::QoS & qos) {
@@ -93,7 +94,7 @@ You can enable default reconfigurable policies (history, depth, and reliability)
 
              pub_ = this->create_publisher<std_msgs::msg::String>("chatter", 10, pub_opts);
 
-             // Configure subscription options to allow QoS overrides
+             // Configure subscription options to allow overriding default QoS policies (history, depth, and reliability)
              rclcpp::SubscriptionOptions sub_opts;
              sub_opts.qos_overriding_options = rclcpp::QosOverridingOptions::with_default_policies();
 
@@ -129,22 +130,24 @@ You can enable default reconfigurable policies (history, depth, and reliability)
              def __init__(self):
                  super().__init__('qos_configurable_node')
 
-                 # Enable QoS overrides for the publisher with a validation callback
+                 # Enable QoS overrides with default policies (history, depth, reliability) for the publisher
                  self.pub = self.create_publisher(
                      String,
                      'chatter',
                      10,
+                     # Adding the following line makes the QoS configurable at run time.
                      qos_overriding_options=QoSOverridingOptions.with_default_policies(
                          callback=self.validate_qos,
                      ),
                  )
 
-                 # Enable QoS overrides for the subscription
+                 # Enable QoS overrides with default policies (history, depth, reliability) for the subscription
                  self.sub = self.create_subscription(
                      String,
                      'chatter',
                      self.listener_callback,
                      10,
+                     # Adding the following line makes the QoS configurable at run time.
                      qos_overriding_options=QoSOverridingOptions.with_default_policies(),
                  )
 
