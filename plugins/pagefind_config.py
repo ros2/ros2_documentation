@@ -4,9 +4,10 @@
 ``conf.py`` loads the file into the ``pagefind_search`` config value, so Sphinx
 rebuilds every page when the file changes.
 
-The Pagefind search UI replaces Sphinx's default search only when the build sets
-``pagefind_enabled`` (``make html-search`` / ``make multiversion-search`` pass
-``-D pagefind_enabled=1``).
+``make html`` and ``make multiversion`` set ``pagefind_enabled`` and then index the
+output. Sphinx's built-in search is deprecated for those builds. ``make serve`` still
+uses it (``ROS_DOCS_SERVE=1`` and ``-D pagefind_enabled=0``) so local preview has
+search without rebuilding the Pagefind index on every save.
 """
 
 from __future__ import annotations
@@ -16,6 +17,12 @@ import re
 from typing import Any, Dict, List, NamedTuple
 
 import yaml
+from sphinx.util import logging
+
+logger = logging.getLogger(__name__)
+
+# HTML builders that ship a search page. Other builders have nothing to deprecate.
+_HTML_SEARCH_BUILDERS = frozenset({'html', 'dirhtml', 'singlehtml'})
 
 # Pagefind's built-in excerpt window when ``search_result_excerpt_length`` is absent.
 _DEFAULT_EXCERPT_LENGTH = 30
@@ -98,15 +105,27 @@ def parse_search_ui_config(data: Any) -> SearchUiConfig:
     )
 
 
-def _add_search_css(app) -> None:
+def _configure_search(app) -> None:
     if app.config.pagefind_enabled:
         app.add_css_file('pagefind-docsearch.css')
+        return
+    builder = getattr(getattr(app, 'builder', None), 'name', '')
+    # make serve sets this so the live preview can keep Sphinx search quietly.
+    if builder not in _HTML_SEARCH_BUILDERS or os.environ.get('ROS_DOCS_SERVE') == '1':
+        return
+    logger.warning(
+        "Sphinx's built-in search is deprecated. "
+        "Use 'make html' or 'make multiversion' for Pagefind search. "
+        "Sphinx search remains available with 'make serve'.",
+        type='pagefind',
+        subtype='deprecated_sphinx_search',
+    )
 
 
 def setup(app) -> Dict[str, Any]:
     app.add_config_value('pagefind_search', {}, 'html')
     app.add_config_value('pagefind_enabled', False, 'html', types=[bool])
-    app.connect('builder-inited', _add_search_css)
+    app.connect('builder-inited', _configure_search)
     return {
         'version': '1.0.0',
         'parallel_read_safe': True,

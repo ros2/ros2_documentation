@@ -81,7 +81,7 @@ jobs:
           node-version: '24'
 
       - name: Build the docs with Pagefind search
-        run: make html-search
+        run: make html
 
       - name: Upload document artifacts
         uses: actions/upload-artifact@v4
@@ -156,5 +156,5 @@ jobs:
           node-version: '24'
 
       - name: Build the docs with Pagefind search
-        run: make multiversion-search
+        run: make multiversion
 

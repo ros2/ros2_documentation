@@ -18,7 +18,7 @@ To build this you need to install
 
 * make
 * graphviz
-* [Node.js](https://nodejs.org/) 18+ (only for indexing search with Pagefind; check with `node -v && npx -v`)
+* [Node.js](https://nodejs.org/) 18+ (`make html` and `make multiversion` index search with Pagefind; check with `node -v && npx -v`)
 
 With [venv](https://docs.python.org/3/library/venv.html)
 
@@ -50,6 +50,14 @@ For local testing of the current tree use:
 
 `make html`
 
+This builds the site with [Pagefind](https://pagefind.app/) search and indexes it. Search does not work from `file://`, so preview over HTTP:
+
+```bash
+python3 -m http.server --directory build/html
+```
+
+Then open `http://127.0.0.1:8000`. To open the built files directly instead:
+
 `sensible-browser build/html/index.html`
 
 ### Live-reload local development
@@ -65,6 +73,8 @@ make serve
 ```
 
 Then open `http://localhost:2022` in a browser.
+
+`make serve` keeps Sphinx's built-in search. The live server rebuilds pages as you edit and does not run the Pagefind indexer, so that search is what works while you write. Sphinx search is deprecated for `make html` and `make multiversion`.
 
 The `serve` target binds to `0.0.0.0:2022` by default (a little ROS 2 vibe) so the server is reachable through devcontainer / port forwarding.
 Override the bind address or port if needed:
@@ -89,7 +99,7 @@ To test building the multisite version deployed to the website use:
 
 `make multiversion`
 
-`sensible-browser build/html/rolling/index.html`
+This builds every version with Pagefind search, then indexes the whole site. Preview over HTTP, as with `make html`. The Rolling pages are at `build/html/rolling/index.html`.
 
 **NB:** This will ignore local workspace changes and build from the branches.
 
@@ -112,25 +122,12 @@ branch's build; the branches themselves are still built one after another.
 
 ### Search (Pagefind)
 
-`make html` and `make multiversion` keep Sphinx's built-in search. To build with
-[Pagefind](https://pagefind.app/) search instead, use the `-search` targets. They build
-with the Pagefind search UI (`-D pagefind_enabled=1`) and then index the output.
-This needs Node.js 18+ (for `npx`).
+`make html` and `make multiversion` pass `-D pagefind_enabled=1` and then run
+`make pagefind`. An HTML build that leaves Pagefind off warns that Sphinx's built-in
+search is deprecated. `make serve` is the exception: it sets `-D pagefind_enabled=0`
+and keeps Sphinx search.
 
-```bash
-make html-search          # html with Pagefind UI, then make pagefind
-make multiversion-search  # multiversion with Pagefind UI, then make pagefind
-```
-
-Running `make pagefind` on its own only re-indexes an existing `-search` build.
-
-Preview over HTTP (search does not work from `file://`):
-
-```bash
-python3 -m http.server --directory build/html
-```
-
-`make serve` always uses Sphinx's built-in search.
+Running `make pagefind` on its own only re-indexes an existing build.
 
 **Configuration:** [`pagefind.yml`](pagefind.yml) holds the Pagefind CLI options and the
 search UI settings: which `.. meta::` fields become filters, which filters always show,
@@ -147,8 +144,7 @@ The CLI version is pinned by `PAGEFIND_VERSION` in the Makefile. Override it wit
 pinned version's UI.
 
 **Deployment:** the production [doc job](https://build.ros.org/job/doc_ros2doc) must use
-`make multiversion-search` (or `make multiversion` plus `-D pagefind_enabled=1`, then
-`make pagefind`) for deployed pages to use Pagefind search.
+`make multiversion` so deployed pages get Pagefind search.
 
 ### Note for Windows (WSL) Users
 

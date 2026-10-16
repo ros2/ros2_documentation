@@ -1,2 +1,2 @@
-{#- Pagefind search box when built with pagefind_enabled; otherwise the theme's default. -#}
+{#- Pagefind search box. Sphinx's built-in search is deprecated and remains for make serve. -#}
 {%- if pagefind_enabled %}{% include "pagefind-searchbox.html" %}{% else %}{% include "!searchbox.html" %}{% endif %}
