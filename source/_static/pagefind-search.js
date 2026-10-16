@@ -301,7 +301,9 @@ function searchScopes() {
 }
 
 function refreshSearchScopes() {
-  const totalFilters = getPagefindInstance()?.totalFilters ?? null;
+  const instance = getPagefindInstance();
+  useOrWithinFilterGroups(instance);
+  const totalFilters = instance?.totalFilters ?? null;
   searchScopes().forEach((scope) => {
     scope.querySelectorAll('pagefind-filter-pane').forEach(customizeFilterPane);
     scope.querySelectorAll('pagefind-results').forEach(decorateResultRenderer);
@@ -348,10 +350,8 @@ function mergeDefaultDistributionFilter(filters) {
 
 let defaultDistributionPinned = false;
 
-let clearingSearch = false;
-
 function applyDefaultDistributionFilter() {
-  if (clearingSearch || defaultDistributionPinned) {
+  if (defaultDistributionPinned) {
     return;
   }
   const instance = getPagefindInstance();
@@ -395,23 +395,28 @@ function urlSearchTerm() {
   return (new URLSearchParams(window.location.search).get('q') || '').trim();
 }
 
-function reflectSearchTermOnPage(term) {
-  const host = document.querySelector('#ros-search-page pagefind-input');
+// Set a <pagefind-input>'s text and Pagefind's view of it; returns the <input>.
+function setInputTerm(host, term) {
   const input = host?.querySelector('input');
   if (!(input instanceof HTMLInputElement)) {
-    return;
-  }
-  if (!input.dataset.rosTermWatch) {
-    input.dataset.rosTermWatch = '1';
-    input.addEventListener('input', () => {
-      userEditedPageSearchTerm = true;
-    });
+    return null;
   }
   if (input.value !== term) {
     input.value = term;
   }
   if (typeof host.updateState === 'function') {
     host.updateState(term);
+  }
+  return input;
+}
+
+function reflectSearchTermOnPage(term) {
+  const input = setInputTerm(document.querySelector('#ros-search-page pagefind-input'), term);
+  if (input && !input.dataset.rosTermWatch) {
+    input.dataset.rosTermWatch = '1';
+    input.addEventListener('input', () => {
+      userEditedPageSearchTerm = true;
+    });
   }
 }
 
@@ -459,12 +464,9 @@ function forgetSearchUrl() {
   if (!document.querySelector('#ros-search-page')) {
     return;
   }
-  const url = new URL(window.location.href);
-  if (!url.search) {
-    return;
+  if (window.location.search) {
+    history.replaceState(null, '', window.location.pathname + window.location.hash);
   }
-  url.search = '';
-  history.replaceState(null, '', `${url.pathname}${url.hash}`);
 }
 
 function bindClearSearch() {
@@ -480,28 +482,13 @@ function bindClearSearch() {
     }
     event.preventDefault();
     event.stopPropagation();
-    const input = button.parentElement?.querySelector('input');
-    const host = button.closest('pagefind-input');
+    const input = setInputTerm(button.closest('pagefind-input'), '');
     userEditedPageSearchTerm = true;
-    if (input instanceof HTMLInputElement) {
-      input.value = '';
-    }
-    if (host && typeof host.updateState === 'function') {
-      host.updateState('');
-    }
-    const instance = getPagefindInstance();
-    if (instance) {
-      clearingSearch = true;
-      try {
-        instance.triggerSearchWithFilters('', {});
-      } finally {
-        clearingSearch = false;
-      }
-    }
+    // Clearing is a deliberate choice: do not re-apply the default distro afterwards.
+    defaultDistributionPinned = true;
+    getPagefindInstance()?.triggerSearchWithFilters('', {});
     forgetSearchUrl();
-    if (input instanceof HTMLInputElement) {
-      input.focus();
-    }
+    input?.focus();
   }, true);
 }
 
@@ -530,25 +517,9 @@ function liftSearchModalOutOfSidebar() {
 // { any: [...] } is OR within that group. Separate groups stay AND with each
 // other and with the search term.
 function filtersWithAnyWithinGroups(filters) {
-  if (!filters || typeof filters !== 'object' || Array.isArray(filters)) {
-    return filters;
-  }
-  const out = {};
-  for (const [key, value] of Object.entries(filters)) {
-    if (key === 'any' || key === 'all' || key === 'none' || key === 'not') {
-      out[key] = value;
-      continue;
-    }
-    if (value && typeof value === 'object' && !Array.isArray(value)) {
-      out[key] = value;
-      continue;
-    }
-    const values = cleanValues(value);
-    if (values.length) {
-      out[key] = { any: values };
-    }
-  }
-  return out;
+  return Object.fromEntries(
+    Object.entries(normalizeSearchFilters(filters)).map(([key, values]) => [key, { any: values }]),
+  );
 }
 
 function useOrWithinFilterGroups(instance) {
@@ -573,7 +544,6 @@ async function bootPagefind() {
   bindClearSearch();
   liftSearchModalOutOfSidebar();
   await import(new URL('pagefind-component-ui.js', bundleUrl).href);
-  useOrWithinFilterGroups(getPagefindInstance());
   observeSearchScopes();
   bindDefaultDistributionToModal();
   applySearchQueryFromUrl();
