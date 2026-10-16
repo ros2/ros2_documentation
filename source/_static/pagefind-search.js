@@ -348,8 +348,10 @@ function mergeDefaultDistributionFilter(filters) {
 
 let defaultDistributionPinned = false;
 
+let clearingSearch = false;
+
 function applyDefaultDistributionFilter() {
-  if (defaultDistributionPinned) {
+  if (clearingSearch || defaultDistributionPinned) {
     return;
   }
   const instance = getPagefindInstance();
@@ -453,6 +455,56 @@ function applySearchQueryFromUrl() {
   }
 }
 
+function forgetSearchUrl() {
+  if (!document.querySelector('#ros-search-page')) {
+    return;
+  }
+  const url = new URL(window.location.href);
+  if (!url.search) {
+    return;
+  }
+  url.search = '';
+  history.replaceState(null, '', `${url.pathname}${url.hash}`);
+}
+
+function bindClearSearch() {
+  // Pagefind's Clear button only empties the text. Capture the click and also
+  // drop every selected filter. On search.html, drop the query string so the
+  // term and filters are not restored from the URL.
+  document.addEventListener('click', (event) => {
+    const button = event.target instanceof Element
+      ? event.target.closest('button.pf-input-clear')
+      : null;
+    if (!(button instanceof HTMLButtonElement)) {
+      return;
+    }
+    event.preventDefault();
+    event.stopPropagation();
+    const input = button.parentElement?.querySelector('input');
+    const host = button.closest('pagefind-input');
+    userEditedPageSearchTerm = true;
+    if (input instanceof HTMLInputElement) {
+      input.value = '';
+    }
+    if (host && typeof host.updateState === 'function') {
+      host.updateState('');
+    }
+    const instance = getPagefindInstance();
+    if (instance) {
+      clearingSearch = true;
+      try {
+        instance.triggerSearchWithFilters('', {});
+      } finally {
+        clearingSearch = false;
+      }
+    }
+    forgetSearchUrl();
+    if (input instanceof HTMLInputElement) {
+      input.focus();
+    }
+  }, true);
+}
+
 function syncResultListVisibility(term) {
   const hasTerm = Boolean(String(term ?? getPagefindInstance()?.searchTerm ?? '').trim());
   document.querySelectorAll('pagefind-modal, #ros-search-page').forEach((el) => {
@@ -474,6 +526,40 @@ function liftSearchModalOutOfSidebar() {
   portal.appendChild(host);
 }
 
+// Pagefind treats an array of values as AND: the page must have every value.
+// { any: [...] } is OR within that group. Separate groups stay AND with each
+// other and with the search term.
+function filtersWithAnyWithinGroups(filters) {
+  if (!filters || typeof filters !== 'object' || Array.isArray(filters)) {
+    return filters;
+  }
+  const out = {};
+  for (const [key, value] of Object.entries(filters)) {
+    if (key === 'any' || key === 'all' || key === 'none' || key === 'not') {
+      out[key] = value;
+      continue;
+    }
+    if (value && typeof value === 'object' && !Array.isArray(value)) {
+      out[key] = value;
+      continue;
+    }
+    const values = cleanValues(value);
+    if (values.length) {
+      out[key] = { any: values };
+    }
+  }
+  return out;
+}
+
+function useOrWithinFilterGroups(instance) {
+  if (!instance || instance.__rosOrWithinGroups || typeof instance.__search__ !== 'function') {
+    return;
+  }
+  const search = instance.__search__.bind(instance);
+  instance.__search__ = (term, filters) => search(term, filtersWithAnyWithinGroups(filters));
+  instance.__rosOrWithinGroups = true;
+}
+
 async function bootPagefind() {
   const bundleUrl = new URL(bundlePrefix, document.baseURI);
   const configEl = document.createElement('pagefind-config');
@@ -484,8 +570,10 @@ async function bootPagefind() {
   document.head.appendChild(configEl);
 
   bindModalEnterToSearchPage();
+  bindClearSearch();
   liftSearchModalOutOfSidebar();
   await import(new URL('pagefind-component-ui.js', bundleUrl).href);
+  useOrWithinFilterGroups(getPagefindInstance());
   observeSearchScopes();
   bindDefaultDistributionToModal();
   applySearchQueryFromUrl();
