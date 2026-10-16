@@ -159,15 +159,14 @@ Therefore add the following to ``.devcontainer/devcontainer.json``:
                 "extensions":[
                     "ms-vscode.cpptools",
                     "ms-vscode.cpptools-themes",
-                    "twxs.cmake",
-                    "donjayamanne.python-extension-pack",
+                    "ms-vscode.cmake-tools",
+                    "ms-python.python",
                     "eamodio.gitlens",
-                    "ms-iot.vscode-ros"
+                    "ranch-hand-robotics.rde-pack"
                 ]
             }
         },
         "containerEnv": {
-            "DISPLAY": "unix:0",
             "ROS_AUTOMATIC_DISCOVERY_RANGE": "LOCALHOST",
             "ROS_DOMAIN_ID": "42"
         },
@@ -178,10 +177,10 @@ Therefore add the following to ``.devcontainer/devcontainer.json``:
             "-e", "DISPLAY=${env:DISPLAY}"
         ],
         "mounts": [
-           "source=/tmp/.X11-unix,target=/tmp/.X11-unix,type=bind,consistency=cached",
-           "source=/dev/dri,target=/dev/dri,type=bind,consistency=cached"
+           "source=/tmp/.X11-unix,target=/tmp/.X11-unix,type=bind",
+           "source=/dev/dri,target=/dev/dri,type=bind"
         ],
-        "postCreateCommand": "sudo rosdep update && sudo rosdep install --from-paths src --ignore-src -y && sudo chown -R $(whoami) /home/ws/"
+        "postCreateCommand": "sudo apt-get update && rosdep update && rosdep install --from-paths src --ignore-src -y && sudo chown -R $(whoami) /home/ws/"
     }
 
 
@@ -218,7 +217,7 @@ Open the Dockerfile and add the following contents:
         && chmod 0440 /etc/sudoers.d/$USERNAME
     RUN apt-get update && apt-get upgrade -y
     RUN apt-get install -y python3-pip
-    ENV SHELL /bin/bash
+    ENV SHELL=/bin/bash
 
     # ********************************************************
     # * Anything else you want to do like clean up goes here *
@@ -226,6 +225,8 @@ Open the Dockerfile and add the following contents:
 
     # [Optional] Set the default user. Omit if you want to keep the default as root.
     USER $USERNAME
+    # VS Code overrides the image entrypoint, so source ROS in every interactive shell
+    RUN echo "source /opt/ros/$ROS_DISTRO/setup.bash" >> ~/.bashrc
     CMD ["/bin/bash"]
 
 Replace ``ROS_DISTRO`` with the ROS 2 distribution you wish to use as base image above, for example ``rolling``.
@@ -249,7 +250,6 @@ Inside the terminal do the following:
 .. code-block:: console
 
     $ sudo apt install ros-$ROS_DISTRO-rviz2 -y
-    $ source /opt/ros/$ROS_DISTRO/setup.bash
     $ rviz2
 
 .. Note:: There might be a problem with displaying RVIZ.
