@@ -28,27 +28,25 @@ help:
 	@$(BUILD) -M help "$(SOURCE)" "$(OUT)" $(OPTS)
 	@echo "  multiversion to build documentation for all branches"
 
-multiversion: Makefile
-	sphinx-multiversion $(OPTS) "$(SOURCE)" build/html
-	@echo "<html><head><meta http-equiv=\"refresh\" content=\"0; url=lyrical/index.html\" /></head></html>" > build/html/index.html
-	$(PYTHON) make_sitemapindex.py
-
-# Pagefind static search index (requires Node.js / npx). Run after html or multiversion.
+# Pagefind static search index (requires Node.js / npx).
 PAGEFIND_VERSION ?= 1.5.2
+PAGEFIND_OPTS = -D pagefind_enabled=1
 pagefind:
 	npx -y pagefind@$(PAGEFIND_VERSION) --site "$(OUT)/html"
 
-# Sphinx build with the Pagefind search UI, then index it. Plain html / multiversion
-# keep Sphinx's default search.
-PAGEFIND_OPTS = -D pagefind_enabled=1
-
-html-search:
-	$(MAKE) html OPTS="$(OPTS) $(PAGEFIND_OPTS)"
+# Default docs builds use the Pagefind search UI, then index the output.
+html: Makefile
+	@$(BUILD) -M html "$(SOURCE)" "$(OUT)" $(OPTS) $(PAGEFIND_OPTS)
 	$(MAKE) pagefind
 
-multiversion-search:
-	$(MAKE) multiversion OPTS="$(OPTS) $(PAGEFIND_OPTS)"
+multiversion: Makefile
+	sphinx-multiversion $(OPTS) $(PAGEFIND_OPTS) "$(SOURCE)" build/html
+	@echo "<html><head><meta http-equiv=\"refresh\" content=\"0; url=lyrical/index.html\" /></head></html>" > build/html/index.html
+	$(PYTHON) make_sitemapindex.py
 	$(MAKE) pagefind
+
+html-search multiversion-search:
+	$(error '$@' was removed. Use 'make html' or 'make multiversion' for Pagefind search. 'make serve' still uses Sphinx search)
 
 %: Makefile
 	@$(BUILD) -M $@ "$(SOURCE)" "$(OUT)" $(OPTS)
@@ -112,7 +110,8 @@ linkcheck:
 	@echo
 	@echo "Check finished. Report is in $(LINKCHECKDIR)."
 
+# Live preview keeps Sphinx search. Pagefind's index is not rebuilt on each save.
 serve:
-	sphinx-autobuild --host $(LIVE_HOST) --port $(LIVE_PORT) -c . $(SOURCE) $(OUT)/html
+	ROS_DOCS_SERVE=1 sphinx-autobuild --host $(LIVE_HOST) --port $(LIVE_PORT) -c . -D pagefind_enabled=0 $(SOURCE) $(OUT)/html
 
-.PHONY: help Makefile multiversion pagefind html-search multiversion-search test test-tools linkcheck serve lint spellcheck check-dictionaries sort-dictionaries ensure-enhancements supersede-enhancement-reviews $(MAKEFILE_LIST)
+.PHONY: help Makefile html multiversion pagefind test test-tools linkcheck serve lint spellcheck check-dictionaries sort-dictionaries ensure-enhancements supersede-enhancement-reviews $(MAKEFILE_LIST)
