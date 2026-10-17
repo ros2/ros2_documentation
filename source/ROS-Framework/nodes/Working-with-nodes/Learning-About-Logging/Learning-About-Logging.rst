@@ -4,7 +4,7 @@ Learning about CLI logging - tutorial
 =====================================
 
 Log messages report what a node is doing, and each message has a severity level.
-This article walks you through writing a small battery-monitor node that logs at different severities, then using the ROS CLI to show or hide those messages.
+This article teaches you to write a small battery monitor node that logs at different severities, then use the ROS CLI to show or hide those messages.
 A hands-on exercise shows why ``DEBUG`` is hidden by default and how ``--log-level`` reveals it.
 
 **Area: Nodes, Framework | Content-type: tutorial | Experience: beginner**
@@ -27,9 +27,10 @@ Prerequisites
 -------------
 
 * Make sure you understand the concepts covered in :doc:`Learning about nodes <../Understanding-ROS2-Nodes/Understanding-ROS2-Nodes>`.
-* You will need a workspace and a basic understanding of how to build a Python package.
+* You need a workspace and a basic understanding of how to build a Python package.
   See :doc:`Creating a workspace <../../../client-libraries/Working-with-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace>` and :doc:`Creating a package <../../../client-libraries/Working-with-Client-Libraries/Creating-Your-First-ROS2-Package>`.
-* A basic Python publisher or subscriber tutorial is useful background, for example :doc:`Writing a simple publisher and subscriber (Python) <../../../client-libraries/Working-with-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber>`.
+* You need to be familiar with ROS publishers and subscribers.
+  See :doc:`Writing a simple publisher and subscriber (Python) <../../../client-libraries/Working-with-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber>`.
 
 Steps
 -----
@@ -37,95 +38,89 @@ Steps
 .. note::
     Make sure to source ROS in every new terminal you open.
 
-    For more information, see :doc:`Configuring environment <../../../../Get-Started/Configuring-ROS2-Environment>`.
+    For more information, see :ref:`SourceTerminal`.
 
 1 Create a package
 ^^^^^^^^^^^^^^^^^^
 
-Start by creating a package to hold the battery-monitor node that you will build in the next step.
+Create a package to hold the battery monitor node that you are going to build.
 
-Open a terminal, source your ROS installation, and move into the ``src`` directory of your workspace.
+#. Open a terminal, source your ROS installation, and navigate to the ``src`` directory of your workspace.
 
-Create a Python package for the battery monitor:
+#. Create a Python package for the battery monitor:
 
-.. code-block:: console
+   .. code-block:: console
 
-  $ ros2 pkg create --build-type ament_python --license Apache-2.0 battery_logging --dependencies rclpy
+     $ ros2 pkg create --build-type ament_python --license Apache-2.0 battery_logging --dependencies rclpy
 
-Your terminal returns a message confirming that the ``battery_logging`` package and its files were created.
+   Your terminal returns a message confirming that the ``battery_logging`` package and its files were created.
 
 2 Write the battery monitor node
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Add a node that logs at each severity level as a simulated battery drains.
-That gives you controlled messages to inspect with the CLI in the later steps.
+Write a node that logs at each severity level as a simulated battery drains.
+This node gives you controlled messages to inspect with the CLI in the later steps.
 
-Navigate into the package module directory:
+#. In the package module directory ``battery_logging/battery_logging``, create a file named ``battery_monitor.py``.
 
-.. code-block:: console
+#. In the ``battery_monitor.py`` file, include the following code:
 
-  $ cd battery_logging/battery_logging
+   .. code-block:: python
 
-Create a file named ``battery_monitor.py`` and paste the following code:
-
-.. code-block:: python
-
-  import rclpy
-  from rclpy.node import Node
+     import rclpy
+     from rclpy.node import Node
 
 
-  class BatteryMonitor(Node):
+     class BatteryMonitor(Node):
 
-      def __init__(self):
-          super().__init__('battery_monitor')
-          self.level = 100
-          self.warn_threshold = 30
-          self.error_threshold = 10
-          self.warned = False
-          self.errored = False
+         def __init__(self):
+             super().__init__('battery_monitor')
+             self.level = 100
+             self.warn_threshold = 30
+             self.error_threshold = 10
+             self.warned = False
+             self.errored = False
 
-          self.get_logger().info(
-              f'Battery monitor started, initial level {self.level}%')
-          self.timer = self.create_timer(0.5, self.timer_callback)
+             self.get_logger().info(
+                 f'Battery monitor started, initial level {self.level}%')
+             self.timer = self.create_timer(0.5, self.timer_callback)
 
-      def timer_callback(self):
-          self.get_logger().debug(f'Battery level: {self.level}%')
+         def timer_callback(self):
+             self.get_logger().debug(f'Battery level: {self.level}%')
 
-          if self.level <= 0:
-              self.get_logger().fatal(
-                  'Battery depleted, shutting down battery monitor')
-              raise SystemExit
+             if self.level <= 0:
+                 self.get_logger().fatal(
+                     'Battery depleted, shutting down battery monitor')
+                 raise SystemExit
 
-          if self.level <= self.error_threshold and not self.errored:
-              self.get_logger().error(
-                  f'Battery critically low at {self.level}%, stop immediately')
-              self.errored = True
-          elif self.level <= self.warn_threshold and not self.warned:
-              self.get_logger().warning(
-                  'Battery low, please return to dock')
-              self.warned = True
+             if self.level <= self.error_threshold and not self.errored:
+                 self.get_logger().error(
+                     f'Battery critically low at {self.level}%, stop immediately')
+                 self.errored = True
+             elif self.level <= self.warn_threshold and not self.warned:
+                 self.get_logger().warning(
+                     'Battery low, please return to dock')
+                 self.warned = True
 
-          self.level -= 5
-
-
-  def main(args=None):
-      rclpy.init(args=args)
-      node = BatteryMonitor()
-      try:
-          rclpy.spin(node)
-      except (SystemExit, KeyboardInterrupt):
-          pass
-      finally:
-          node.get_logger().info('Battery monitor shutting down')
-          node.destroy_node()
-          if rclpy.ok():
-              rclpy.shutdown()
+             self.level -= 5
 
 
-  if __name__ == '__main__':
-      main()
+     def main(args=None):
+         rclpy.init(args=args)
+         node = BatteryMonitor()
+         try:
+             rclpy.spin(node)
+         except (SystemExit, KeyboardInterrupt):
+             pass
+         finally:
+             node.get_logger().info('Battery monitor shutting down')
+             node.destroy_node()
+             if rclpy.ok():
+                 rclpy.shutdown()
 
-Save the file.
+
+     if __name__ == '__main__':
+         main()
 
 The node does the following:
 
@@ -136,32 +131,34 @@ The node does the following:
 * When the level reaches 0 %, it logs ``FATAL``, then the node shuts down and logs ``INFO`` on the way out.
 
 ``WARN`` and ``ERROR`` are printed only the first time each threshold is crossed, so the terminal stays readable.
-``DEBUG`` is printed on every timer callback, which is why it is verbose and hidden by default.
+``DEBUG`` is printed on every timer callback.
+Because it is verbose, it is hidden by default.
 
 3 Add an entry point
 ^^^^^^^^^^^^^^^^^^^^
 
-ROS needs an entry point so ``ros2 run`` can start your node by name.
-Navigate one level up to the package root, where ``setup.py`` and ``package.xml`` were created.
-Open ``setup.py``.
-Fill in the ``maintainer``, ``maintainer_email``, ``description``, and ``license`` fields to match your ``package.xml``, then add a console script entry:
+ROS needs an entry point to ensure that ``ros2 run`` can start your node by name.
 
-.. code-block:: python
+#. Navigate one level up to the package root, where ``setup.py`` and ``package.xml`` were created.
 
-  entry_points={
-      'console_scripts': [
-          'battery_monitor = battery_logging.battery_monitor:main',
-      ],
-  },
+#. Open ``setup.py``, then replace the console script entry:
 
-Save the file.
+   .. code-block:: python
+
+     entry_points={
+         'console_scripts': [
+             'battery_monitor = battery_logging.battery_monitor:main',
+         ],
+     },
+
+#. Save the file.
 
 4 Build and source the workspace
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Build the package so the new entry point is installed, then source the workspace overlay so ``ros2 run`` can find it.
+Build the package to install the new entry point, then source the workspace overlay so that ``ros2 run`` can find it.
 
-Return to the root of your workspace and build:
+Return to the root of your workspace, then run the following:
 
 .. tabs::
 
@@ -192,7 +189,7 @@ Return to the root of your workspace and build:
 5 Run the node with the default log level
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-First run the node with no log-level override.
+Run the node with no log-level override.
 That shows which severities appear under the default filter.
 
 .. code-block:: console
@@ -217,47 +214,69 @@ By default, ROS shows ``INFO`` and higher (``WARN``, ``ERROR``, ``FATAL``).
 6 Reveal DEBUG logs with the CLI
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-In the previous step, the node created a ``DEBUG`` message for each battery reading, but the default log level hid those messages.
+When you ran the node with no log-level override, it created a ``DEBUG`` message for each battery reading, but the default log level hid those messages.
 To print them, set the log level to ``debug`` when you start the node.
 
-Start by setting the level for the battery monitor only so that you see its ``DEBUG`` messages without also printing messages from internal library loggers:
+#. Run the ``battery_monitor`` with the arguments that allow you to see its ``DEBUG`` messages without also printing messages from internal library loggers:
 
-.. code-block:: console
+   .. code-block:: console
 
-  $ ros2 run battery_logging battery_monitor --ros-args --log-level battery_monitor:=debug
+     $ ros2 run battery_logging battery_monitor --ros-args --log-level battery_monitor:=debug
 
-Now you should also see a stream of lines such as:
+   Now you should also see a stream of lines such as:
 
-.. code-block:: console
+   .. code-block:: console
 
-  [DEBUG] [battery_monitor]: Battery level: 100%
-  [DEBUG] [battery_monitor]: Battery level: 95%
-  [DEBUG] [battery_monitor]: Battery level: 90%
+     [DEBUG] [battery_monitor]: Battery level: 100%
+     [DEBUG] [battery_monitor]: Battery level: 95%
+     [DEBUG] [battery_monitor]: Battery level: 90%
 
-The node was already creating those messages.
-The CLI log level only controls whether they are printed.
+   The node was already creating those messages.
+   The CLI log level only controls whether they are printed.
 
-You can also set a global log level to ``debug``:
+#. Now to set a global log level to ``debug``:
 
-.. code-block:: console
+   .. code-block:: console
 
-  $ ros2 run battery_logging battery_monitor --ros-args --log-level debug
+     $ ros2 run battery_logging battery_monitor --ros-args --log-level debug
 
-A global ``debug`` setting applies to every logger in the process, not only ``battery_monitor``.
-That includes internal ROS libraries such as ``rcl``, so you may see many extra ``DEBUG`` lines that are unrelated to the battery monitor.
-If you want global ``DEBUG`` for your own code but still hide those library messages, set ``rcl`` back to ``info``:
+   A global ``debug`` setting applies to every logger in the process, not only ``battery_monitor``.
+   That includes internal ROS libraries such as ``rcl``, so you may see many extra ``DEBUG`` lines that are unrelated to the battery monitor.
 
-.. code-block:: console
+#. If you want global ``DEBUG`` for your own code, set ``rcl`` back to ``info`` to hide the ``rcl`` lines.
 
-  $ ros2 run battery_logging battery_monitor --ros-args --log-level debug --log-level rcl:=info
+   Other library loggers may still print.
+
+   .. code-block:: console
+
+     $ ros2 run battery_logging battery_monitor --ros-args --log-level debug --log-level rcl:=info
 
 7 Choose an appropriate severity
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The CLI only controls which messages are shown.
-The severity you pick in code is what operators and later debugging sessions work with.
-If you put too many routine messages at ``INFO``, operators may struggle to spot the important ones among them.
-If you log a real fault at ``DEBUG``, it stays hidden until someone sets the log level to ``debug``.
+The severity you pick in code is what operators see by default.
+
+#. In ``battery_monitor.py``, change the low-battery call from ``warning`` to ``debug``:
+
+   .. code-block:: python
+
+     self.get_logger().debug(
+         'Battery low, please return to dock')
+
+#. Return to the root of your workspace, then rebuild the package and source the overlay.
+
+#. Run the node with no log-level override:
+
+   .. code-block:: console
+
+     $ ros2 run battery_logging battery_monitor
+
+   The battery still crosses 30 %, but the low-battery message no longer appears.
+   A real problem logged at ``DEBUG`` stays hidden until someone sets the log level to ``debug``.
+   If you put too many routine messages at ``INFO``, operators may struggle to spot the important ones among them.
+
+#. In ``battery_monitor.py``, change that call back to ``warning``, then rebuild the package and source the overlay.
 
 Use this node as a model for when each level fits:
 
@@ -270,26 +289,27 @@ Use this node as a model for when each level fits:
 Logging ``FATAL`` does not stop the process by itself.
 This example raises ``SystemExit`` after the fatal message so that the node shuts down cleanly.
 
-8 Optional: inspect the same logs in ``rqt_console``
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+8 Inspect the same logs in ``rqt_console``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Log messages are not limited to the terminal.
 They are also published on the ``/rosout`` topic, so you can view and filter them in a GUI with :doc:`Using rqt_console <../Using-Rqt-Console/Using-Rqt-Console>`.
 
-In a new terminal, start ``rqt_console``:
+#. In a new terminal, start ``rqt_console``:
 
-.. code-block:: console
+   .. code-block:: console
 
-  $ ros2 run rqt_console rqt_console
+     $ ros2 run rqt_console rqt_console
 
-In another terminal, run the battery monitor with ``--log-level battery_monitor:=debug``.
-In ``rqt_console``, exclude ``Debug`` and confirm that the remaining messages match the terminal output from the default log-level run.
+#. In another terminal, run the battery monitor with ``--log-level battery_monitor:=debug``.
+
+#. In ``rqt_console``, exclude ``Debug`` and confirm that the remaining messages match the terminal output from the default log-level run.
 
 Next steps
 ----------
 
 * Read more about severity, logger names, and configuration in :doc:`About logging <../../About-Logging/About-Logging>`.
-* For logger services, formatting, and per-logger CLI options, see :doc:`Logging and logger configuration <../../../../Developer-Tools/Introspection-and-analysis/Logging-and-logger-configuration>`.
+* Read more about logger services, formatting, and per-logger CLI options in :doc:`Logging and logger configuration <../../../../Developer-Tools/Introspection-and-analysis/Logging-and-logger-configuration>`.
 
 Related content
 ---------------

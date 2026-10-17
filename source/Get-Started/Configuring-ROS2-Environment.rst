@@ -49,6 +49,8 @@ If you are using Linux or macOS, but are not already familiar with the shell, `t
 Tasks
 -----
 
+.. _SourceTerminal:
+
 1 Source the setup files
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
