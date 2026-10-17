@@ -91,6 +91,115 @@ For example, the following declaration for a custom memory resource fulfills the
 
 To learn about the full capabilities of ``std::pmr::memory_resource``, see https://en.cppreference.com/w/cpp/memory/memory_resource.
 
+Providing an allocator for rcl
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+rclcpp is built on top of the C library rcl, which also allocates memory, for example for the publishers and subscriptions it creates.
+To route those allocations to your custom allocator too, rclcpp needs a C-style ``rcl_allocator_t``, a set of ``allocate``, ``deallocate``, ``reallocate`` and ``zero_allocate`` callbacks.
+Your allocator provides it through a ``get_rcl_allocator()`` member function.
+
+The callbacks cannot simply forward to the C++ allocator.
+rcl's ``deallocate`` does not pass the size of the block, but ``std::pmr::memory_resource::deallocate`` must receive the size and alignment that were used to allocate it.
+The callbacks are also called from C code, so they must not throw: like ``malloc``, they return ``nullptr`` on failure.
+
+For ``std::pmr``, a small wrapper around ``std::pmr::polymorphic_allocator`` can store the size of each block in a header in front of it:
+
+.. code-block:: c++
+
+    #include <cstring>
+    #include <limits>
+    #include <memory_resource>
+
+    #include "rcl/allocator.h"
+
+    template<typename T = void>
+    struct PmrAllocator : std::pmr::polymorphic_allocator<T>
+    {
+      using std::pmr::polymorphic_allocator<T>::polymorphic_allocator;
+
+      template<typename U>
+      PmrAllocator(const PmrAllocator<U> & other) noexcept
+      : std::pmr::polymorphic_allocator<T>(other.resource()) {}
+
+      template<typename U>
+      struct rebind
+      {
+        using other = PmrAllocator<U>;
+      };
+
+      rcl_allocator_t get_rcl_allocator() const
+      {
+        rcl_allocator_t rcl_allocator = rcl_get_default_allocator();
+        rcl_allocator.allocate = &allocate_block;
+        rcl_allocator.deallocate = &deallocate_block;
+        rcl_allocator.reallocate = &reallocate_block;
+        rcl_allocator.zero_allocate = &zero_allocate_block;
+        rcl_allocator.state = this->resource();
+        return rcl_allocator;
+      }
+
+    private:
+      static constexpr size_t header = alignof(std::max_align_t);
+
+      // Called from C, so like malloc they return nullptr instead of throwing.
+      static void * allocate_block(size_t size, void * state) noexcept
+      {
+        if (size > (std::numeric_limits<size_t>::max)() - header) {
+          return nullptr;
+        }
+        try {
+          auto resource = static_cast<std::pmr::memory_resource *>(state);
+          auto base = static_cast<char *>(resource->allocate(header + size, header));
+          std::memcpy(base, &size, sizeof(size));
+          return base + header;
+        } catch (...) {
+          return nullptr;
+        }
+      }
+
+      static void deallocate_block(void * pointer, void * state) noexcept
+      {
+        if (pointer == nullptr) {
+          return;
+        }
+        auto base = static_cast<char *>(pointer) - header;
+        size_t size;
+        std::memcpy(&size, base, sizeof(size));
+        static_cast<std::pmr::memory_resource *>(state)->deallocate(base, header + size, header);
+      }
+
+      static void * reallocate_block(void * pointer, size_t size, void * state) noexcept
+      {
+        void * new_pointer = allocate_block(size, state);
+        if (new_pointer == nullptr) {
+          // like realloc: on failure the original block is left untouched
+          return nullptr;
+        }
+        if (pointer != nullptr) {
+          size_t old_size;
+          std::memcpy(&old_size, static_cast<char *>(pointer) - header, sizeof(old_size));
+          std::memcpy(new_pointer, pointer, old_size < size ? old_size : size);
+          deallocate_block(pointer, state);
+        }
+        return new_pointer;
+      }
+
+      static void * zero_allocate_block(size_t count, size_t size, void * state) noexcept
+      {
+        if (size != 0 && count > (std::numeric_limits<size_t>::max)() / size) {
+          return nullptr;
+        }
+        void * pointer = allocate_block(count * size, state);
+        if (pointer != nullptr) {
+          std::memset(pointer, 0, count * size);
+        }
+        return pointer;
+      }
+    };
+
+If your allocator already has C-style functions that do not need the size, its ``get_rcl_allocator()`` can forward to them directly.
+The TLSF allocator described at the end of this tutorial does this.
+
 The full implementation of the custom allocator for this tutorial is in https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/topics/allocator_tutorial_pmr.cpp.
 
 Writing an example main
@@ -101,7 +210,7 @@ But first, we'll declare a few aliases to shorten the names.
 
 .. code-block:: c++
 
-     using Alloc = std::pmr::polymorphic_allocator<void>;
+     using Alloc = PmrAllocator<void>;
      using MessageAllocTraits =
        rclcpp::allocator::AllocRebind<std_msgs::msg::UInt32, Alloc>;
      using MessageAlloc = MessageAllocTraits::allocator_type;
