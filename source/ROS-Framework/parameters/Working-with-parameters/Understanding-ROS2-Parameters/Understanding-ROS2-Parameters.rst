@@ -37,7 +37,7 @@ Steps
 .. note::
     Do not forget to source ROS in every new terminal you open.
 
-    For more information, see :ref:`SourceTerminal`.
+    For more information, see :doc:`Configuring environment <../../../../Get-Started/Configuring-ROS2-Environment>`.
 
 1 Setup
 ^^^^^^^
