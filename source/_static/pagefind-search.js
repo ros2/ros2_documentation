@@ -21,7 +21,8 @@ const facetKeys = resultMetaFields.map((field) => field.key);
 const labelByKey = new Map(resultMetaFields.map((field) => [field.key, field.label || field.key]));
 const alwaysShowFilterKeys = new Set(Array.isArray(config?.alwaysShowFilterKeys) ? config.alwaysShowFilterKeys : []);
 const currentDistro = String(config?.currentDistro || '');
-const searchResultsUrl = String(config?.searchResultsUrl || 'search.html');
+// pathto('search') is '#' on search.html itself; resolve it to a real path so Enter loads the page.
+const searchResultsUrl = new URL(String(config?.searchResultsUrl || 'search.html'), document.baseURI).pathname;
 const bundlePrefix = String(config?.bundlePrefix || './pagefind/');
 const showBreadcrumb = Boolean(config?.showBreadcrumb);
 const showMetadata = Boolean(config?.showMetadata);
@@ -386,10 +387,7 @@ function bindDefaultDistributionToModal() {
   }
 }
 
-// search.html: run the ?q= search and keep the term in the input.
-
-let userEditedPageSearchTerm = false;
-let restoringUrlTerm = false;
+// search.html: run the ?q= search and show the term in the input.
 
 function urlSearchTerm() {
   return (new URLSearchParams(window.location.search).get('q') || '').trim();
@@ -411,33 +409,7 @@ function setInputTerm(host, term) {
 }
 
 function reflectSearchTermOnPage(term) {
-  const input = setInputTerm(document.querySelector('#ros-search-page pagefind-input'), term);
-  if (input && !input.dataset.rosTermWatch) {
-    input.dataset.rosTermWatch = '1';
-    input.addEventListener('input', () => {
-      userEditedPageSearchTerm = true;
-    });
-  }
-}
-
-function restoreUrlSearchTerm() {
-  if (userEditedPageSearchTerm || restoringUrlTerm || !document.querySelector('#ros-search-page')) {
-    return;
-  }
-  const term = urlSearchTerm();
-  const instance = getPagefindInstance();
-  if (!term || !instance) {
-    return;
-  }
-  if ((instance.searchTerm || '').trim() !== term) {
-    restoringUrlTerm = true;
-    try {
-      instance.triggerSearchWithFilters(term, mergeDefaultDistributionFilter(parseFiltersFromUrl()));
-    } finally {
-      restoringUrlTerm = false;
-    }
-  }
-  reflectSearchTermOnPage(term);
+  setInputTerm(document.querySelector('#ros-search-page pagefind-input'), term);
 }
 
 function applySearchQueryFromUrl() {
@@ -450,7 +422,6 @@ function applySearchQueryFromUrl() {
   if (term) {
     instance.triggerSearchWithFilters(term, filters);
     reflectSearchTermOnPage(term);
-    queueMicrotask(restoreUrlSearchTerm);
     return;
   }
   // Filter-only URL: apply the filters for the sidebar, but keep the result
@@ -483,7 +454,6 @@ function bindClearSearch() {
     event.preventDefault();
     event.stopPropagation();
     const input = setInputTerm(button.closest('pagefind-input'), '');
-    userEditedPageSearchTerm = true;
     // Clearing is a deliberate choice: do not re-apply the default distro afterwards.
     defaultDistributionPinned = true;
     getPagefindInstance()?.triggerSearchWithFilters('', {});
@@ -546,6 +516,9 @@ async function bootPagefind() {
   await import(new URL('pagefind-component-ui.js', bundleUrl).href);
   observeSearchScopes();
   bindDefaultDistributionToModal();
+  // In faceted mode Pagefind runs an empty search when its index first loads,
+  // which would wipe a term applied earlier. Load first, then apply the URL.
+  await getPagefindInstance()?.__load__?.();
   applySearchQueryFromUrl();
   applyDefaultDistributionFilter();
   syncResultListVisibility();
@@ -560,14 +533,6 @@ async function bootPagefind() {
   instance.on('search', (term) => {
     syncResultListVisibility(term);
     applyDefaultDistributionFilter();
-    if (userEditedPageSearchTerm || restoringUrlTerm || !urlSearchTerm()) {
-      return;
-    }
-    if ((term || '') !== urlSearchTerm()) {
-      queueMicrotask(restoreUrlSearchTerm);
-      return;
-    }
-    reflectSearchTermOnPage(urlSearchTerm());
   });
 }
 

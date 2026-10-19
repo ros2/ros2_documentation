@@ -74,7 +74,7 @@ make serve
 
 Then open `http://localhost:2022` in a browser.
 
-`make serve` keeps Sphinx's built-in search. The live server rebuilds pages as you edit and does not run the Pagefind indexer, so that search is what works while you write. Sphinx search is deprecated for `make html` and `make multiversion`.
+`make serve` keeps Sphinx's built-in search. The live server rebuilds pages as you edit and does not run the Pagefind indexer, so that search is what works while you write.
 
 The `serve` target binds to `0.0.0.0:2022` by default (a little ROS 2 vibe) so the server is reachable through devcontainer / port forwarding.
 Override the bind address or port if needed:
@@ -122,10 +122,9 @@ branch's build; the branches themselves are still built one after another.
 
 ### Search (Pagefind)
 
-`make html` and `make multiversion` pass `-D pagefind_enabled=1` and then run
-`make pagefind`. An HTML build that leaves Pagefind off warns that Sphinx's built-in
-search is deprecated. `make serve` is the exception: it sets `-D pagefind_enabled=0`
-and keeps Sphinx search.
+Every build uses the Pagefind search UI, and `make html` / `make multiversion` then run
+`make pagefind` to index the output. `make serve` is the exception: it passes
+`-D pagefind_enabled=0` and keeps Sphinx's built-in search.
 
 Running `make pagefind` on its own only re-indexes an existing build.
 

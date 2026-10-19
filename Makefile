@@ -30,23 +30,20 @@ help:
 
 # Pagefind static search index (requires Node.js / npx).
 PAGEFIND_VERSION ?= 1.5.2
-PAGEFIND_OPTS = -D pagefind_enabled=1
 pagefind:
+	@command -v npx >/dev/null || { echo "make pagefind needs Node.js 18+ (npx)"; exit 1; }
 	npx -y pagefind@$(PAGEFIND_VERSION) --site "$(OUT)/html"
 
-# Default docs builds use the Pagefind search UI, then index the output.
+# Docs builds use the Pagefind search UI (pagefind_enabled defaults on), then index the output.
 html: Makefile
-	@$(BUILD) -M html "$(SOURCE)" "$(OUT)" $(OPTS) $(PAGEFIND_OPTS)
+	@$(BUILD) -M html "$(SOURCE)" "$(OUT)" $(OPTS)
 	$(MAKE) pagefind
 
 multiversion: Makefile
-	sphinx-multiversion $(OPTS) $(PAGEFIND_OPTS) "$(SOURCE)" build/html
+	sphinx-multiversion $(OPTS) "$(SOURCE)" build/html
 	@echo "<html><head><meta http-equiv=\"refresh\" content=\"0; url=lyrical/index.html\" /></head></html>" > build/html/index.html
 	$(PYTHON) make_sitemapindex.py
 	$(MAKE) pagefind
-
-html-search multiversion-search:
-	$(error '$@' was removed. Use 'make html' or 'make multiversion' for Pagefind search. 'make serve' still uses Sphinx search)
 
 %: Makefile
 	@$(BUILD) -M $@ "$(SOURCE)" "$(OUT)" $(OPTS)
@@ -112,6 +109,6 @@ linkcheck:
 
 # Live preview keeps Sphinx search. Pagefind's index is not rebuilt on each save.
 serve:
-	ROS_DOCS_SERVE=1 sphinx-autobuild --host $(LIVE_HOST) --port $(LIVE_PORT) -c . -D pagefind_enabled=0 $(SOURCE) $(OUT)/html
+	sphinx-autobuild --host $(LIVE_HOST) --port $(LIVE_PORT) -c . -D pagefind_enabled=0 $(SOURCE) $(OUT)/html
 
 .PHONY: help Makefile html multiversion pagefind test test-tools linkcheck serve lint spellcheck check-dictionaries sort-dictionaries ensure-enhancements supersede-enhancement-reviews $(MAKEFILE_LIST)
