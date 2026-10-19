@@ -328,28 +328,19 @@ In this tutorial, we go with the first option as we will test the existing turtl
 4 Register the test in setup.py
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-For Python-based packages, tests are automatically discovered when placed in a ``test`` directory.
+For Python-based packages, tests are automatically discovered when placed in the ``test`` directory and match
+the pattern ``test_*.py`` or ``*_test.py``.
 
-Configure pytest discovery in ``setup.cfg``:
-
-.. code-block:: ini
-
-   [tool:pytest]
-   testpaths = test
-   python_files = test_*.py
-   markers =
-       launch_test: launch testing integration tests
+5 Running tests and report generation
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To run the tests, you can use the command:
 
 .. code-block:: bash
 
-    colcon test --packages-select your_package_name --python-testing pytest
+    colcon test
 
-5 Running tests and report generation
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-For running the integration test and examining the results, see the tutorial :doc:`Running Tests in ROS 2 from the Command Line <CLI>`.
+For more information on running the integration test and examining the results, see the tutorial :doc:`Running Tests in ROS 2 from the Command Line <CLI>`.
 
 Summary
 -------
