@@ -94,13 +94,13 @@ To learn about the full capabilities of ``std::pmr::memory_resource``, see https
 Providing an allocator for rcl
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-rclcpp is built on top of the C library rcl, which also allocates memory, for example for the publishers and subscriptions it creates.
-To route those allocations to your custom allocator too, rclcpp needs a C-style ``rcl_allocator_t``, a set of ``allocate``, ``deallocate``, ``reallocate`` and ``zero_allocate`` callbacks.
-Your allocator provides it through a ``get_rcl_allocator()`` member function.
+rclcpp is built on top of the C library rcl, and rclcpp uses rcl to allocate memory for the publishers and subscriptions it creates.
+To route those allocations to a custom allocator, rclcpp needs a C-style ``rcl_allocator_t``,  and a set of ``allocate``, ``deallocate``, ``reallocate`` and ``zero_allocate`` callbacks.
+Your allocator provides these capabilities through a ``get_rcl_allocator()`` member function.
 
-The callbacks cannot simply forward to the C++ allocator.
-rcl's ``deallocate`` does not pass the size of the block, but ``std::pmr::memory_resource::deallocate`` must receive the size and alignment that were used to allocate it.
-The callbacks are also called from C code, so they must not throw: like ``malloc``, they return ``nullptr`` on failure.
+The callbacks cannot simply forward to the C++ allocator for a number of reasons.
+For example, rcl's ``deallocate`` does not pass the size of the memory block, but ``std::pmr::memory_resource::deallocate`` must receive the size and alignment that were used to allocate it.
+The  callbacks are called from C code, so they cannot use  C++ ``throw:`` semantics, instead they must return ``nullptr`` on failure in a manner similar to those used by  ``malloc``.
 
 For ``std::pmr``, a small wrapper around ``std::pmr::polymorphic_allocator`` can store the size of each block in a header in front of it:
 
@@ -198,7 +198,7 @@ For ``std::pmr``, a small wrapper around ``std::pmr::polymorphic_allocator`` can
     };
 
 If your allocator already has C-style functions that do not need the size, its ``get_rcl_allocator()`` can forward to them directly.
-The TLSF allocator described at the end of this tutorial does this.
+The TLSF allocator described at the end of this tutorial demonstrates how to do this. .
 
 The full implementation of the custom allocator for this tutorial is in https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/topics/allocator_tutorial_pmr.cpp.
 
