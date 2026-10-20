@@ -68,8 +68,15 @@ You can enable default reconfigurable policies (history, depth, and reliability)
 
       .. code-block:: cpp
 
-         #include "rclcpp/rclcpp.hpp"
+         #include "rclcpp/logging.hpp"
+         #include "rclcpp/node.hpp"
+         #include "rclcpp/publisher.hpp"
+         #include "rclcpp/publisher_options.hpp"
+         #include "rclcpp/qos.hpp"
          #include "rclcpp/qos_overriding_options.hpp"
+         #include "rclcpp/subscription.hpp"
+         #include "rclcpp/subscription_options.hpp"
+         #include "std_msgs/msg/string.hpp"
          #include "std_msgs/msg/string.hpp"
 
          class QosConfigurableNode : public rclcpp::Node
