@@ -44,6 +44,22 @@ class TestMetaFields(unittest.TestCase):
         self.assertEqual(fields["product"], "ROS 2")
         self.assertEqual(fields["area"], "docs")
 
+    def test_blank_field_does_not_consume_the_next_field(self) -> None:
+        content = textwrap.dedent(
+            """
+            .. meta::
+               :contentType: how-to
+               :experience:
+               :area: node-management
+
+            Title
+            =====
+            """
+        ).lstrip()
+        fields = get_meta_fields_from_content(content)
+        self.assertEqual(fields["experience"], "")
+        self.assertEqual(fields["area"], "node-management")
+
     def test_returns_empty_when_no_meta_block(self) -> None:
         content = "Title\n=====\n"
         self.assertEqual(get_meta_fields_from_content(content), {})
