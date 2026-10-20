@@ -117,10 +117,12 @@ For ``std::pmr``, a small wrapper around ``std::pmr::polymorphic_allocator`` can
     {
       using std::pmr::polymorphic_allocator<T>::polymorphic_allocator;
 
+      // Share the memory resource when changing the allocator's element type.
       template<typename U>
       PmrAllocator(const PmrAllocator<U> & other) noexcept
       : std::pmr::polymorphic_allocator<T>(other.resource()) {}
 
+      // Let allocator traits create this wrapper for another element type.
       template<typename U>
       struct rebind
       {
@@ -129,30 +131,35 @@ For ``std::pmr``, a small wrapper around ``std::pmr::polymorphic_allocator`` can
 
       rcl_allocator_t get_rcl_allocator() const
       {
+        // Connect the C callbacks to the same memory resource as the C++ allocator.
         rcl_allocator_t rcl_allocator = rcl_get_default_allocator();
         rcl_allocator.allocate = &allocate_block;
         rcl_allocator.deallocate = &deallocate_block;
         rcl_allocator.reallocate = &reallocate_block;
         rcl_allocator.zero_allocate = &zero_allocate_block;
+        // rcl passes this state pointer to each callback.
         rcl_allocator.state = this->resource();
         return rcl_allocator;
       }
 
     private:
+      // Reserve space before each payload for its size, keeping the payload aligned.
       static constexpr size_t header = alignof(std::max_align_t);
 
-      // Called from C, so like malloc they return nullptr instead of throwing.
       static void * allocate_block(size_t size, void * state) noexcept
       {
+        // Check that adding the header will not overflow the allocation size.
         if (size > (std::numeric_limits<size_t>::max)() - header) {
           return nullptr;
         }
         try {
           auto resource = static_cast<std::pmr::memory_resource *>(state);
           auto base = static_cast<char *>(resource->allocate(header + size, header));
+          // Save the size in the header and return only the payload to rcl.
           std::memcpy(base, &size, sizeof(size));
           return base + header;
         } catch (...) {
+          // C callers expect nullptr on allocation failure, not a C++ exception.
           return nullptr;
         }
       }
@@ -162,22 +169,25 @@ For ``std::pmr``, a small wrapper around ``std::pmr::polymorphic_allocator`` can
         if (pointer == nullptr) {
           return;
         }
+        // rcl supplies no size, so recover it from the header before the payload.
         auto base = static_cast<char *>(pointer) - header;
         size_t size;
         std::memcpy(&size, base, sizeof(size));
+        // The resource requires the original address, total size, and alignment.
         static_cast<std::pmr::memory_resource *>(state)->deallocate(base, header + size, header);
       }
 
       static void * reallocate_block(void * pointer, size_t size, void * state) noexcept
       {
+        // Allocate first so a failure leaves the original block untouched.
         void * new_pointer = allocate_block(size, state);
         if (new_pointer == nullptr) {
-          // like realloc: on failure the original block is left untouched
           return nullptr;
         }
         if (pointer != nullptr) {
           size_t old_size;
           std::memcpy(&old_size, static_cast<char *>(pointer) - header, sizeof(old_size));
+          // Copy only what fits, then release the original block.
           std::memcpy(new_pointer, pointer, old_size < size ? old_size : size);
           deallocate_block(pointer, state);
         }
@@ -186,6 +196,7 @@ For ``std::pmr``, a small wrapper around ``std::pmr::polymorphic_allocator`` can
 
       static void * zero_allocate_block(size_t count, size_t size, void * state) noexcept
       {
+        // Check for multiplication overflow before allocating the array.
         if (size != 0 && count > (std::numeric_limits<size_t>::max)() / size) {
           return nullptr;
         }
@@ -198,7 +209,7 @@ For ``std::pmr``, a small wrapper around ``std::pmr::polymorphic_allocator`` can
     };
 
 If your allocator already has C-style functions that do not need the size, its ``get_rcl_allocator()`` can forward to them directly.
-The TLSF allocator described at the end of this tutorial demonstrates how to do this. .
+The TLSF allocator described at the end of this tutorial demonstrates how to do this.
 
 The full implementation of the custom allocator for this tutorial is in https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/topics/allocator_tutorial_pmr.cpp.
 
