@@ -21,11 +21,7 @@ Dashing Diademata (``dashing``)
    :local:
 
 .. short-description::
-<<<<<<< HEAD
-*Dashing Diademata* is the fourth release of ROS 2.
-=======
   *Dashing Diademata* is the fourth release of ROS 2.
->>>>>>> d0a18ecc (Add doc enhancements to pass build tests)
 
 Supported Platforms
 -------------------
