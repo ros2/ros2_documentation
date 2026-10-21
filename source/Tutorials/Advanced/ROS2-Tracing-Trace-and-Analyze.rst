@@ -22,7 +22,11 @@ However, the tutorial will work if you are using a non-real-time Linux system.
 Installing and building
 -----------------------
 
+<<<<<<< HEAD:source/Tutorials/Advanced/ROS2-Tracing-Trace-and-Analyze.rst
 Install ROS 2 on Linux by following the :doc:`installation instructions <../../Installation>`.
+=======
+Install ROS 2 on Linux by following the :doc:`installation instructions <../../../../Get-Started/Installation>`.
+>>>>>>> d017208 (3di | Toc update - restructure 'Analysis and Introspection' section (#7098)):source/Developer-Tools/Introspection-and-analysis/Tracing/ROS2-Tracing-Trace-and-Analyze.rst
 
 .. note::
 
@@ -174,7 +178,7 @@ Running the cell that does the trace processing might take a few minutes on the 
 
 You should get a plot that looks similar to this:
 
-.. image:: ./images/ros2_tracing_guide_result_plot.png
+.. image:: ../images/ros2_tracing_guide_result_plot.png
   :alt: callback durations result plot
   :align: center
 

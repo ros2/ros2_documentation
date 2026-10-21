@@ -23,7 +23,11 @@ Prerequisites
 
 This tutorial uses concepts like ROS 2 topics and CLI tools covered in the following tutorial:
 
+<<<<<<< HEAD:source/Tutorials/Intermediate/Publishing-Messages-Using-YAML-Files.rst
 - :doc:`Understanding topics <../Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics>`
+=======
+- :doc:`Understanding topics <../../../ROS-Framework/interfaces/topics/Understanding-ROS2-Topics/Understanding-ROS2-Topics>`
+>>>>>>> d017208 (3di | Toc update - restructure 'Analysis and Introspection' section (#7098)):source/Developer-Tools/Introspection-and-analysis/Publishing-Messages-Using-YAML-Files.rst
 
 Tasks
 -----
@@ -108,4 +112,8 @@ By executing the same command as before, we publish three different messages to 
 Next steps
 ----------
 
+<<<<<<< HEAD:source/Tutorials/Intermediate/Publishing-Messages-Using-YAML-Files.rst
 If you are interested in publishing multiple topics using the CLI, you can take a look at the :doc:`Recording and playing back data <../Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data>` tutorial.
+=======
+If you are interested in publishing multiple topics using the CLI, you can take a look at the :doc:`Recording and playing back data <../../../../ROS-Framework/interfaces/Working-with-interfaces/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data>` tutorial.
+>>>>>>> d017208 (3di | Toc update - restructure 'Analysis and Introspection' section (#7098)):source/Developer-Tools/Introspection-and-analysis/Publishing-Messages-Using-YAML-Files.rst

@@ -33,9 +33,15 @@ Prerequisites
 * (Recommended) Previous security tutorials completion.
   In particular:
 
+<<<<<<< HEAD:source/Tutorials/Advanced/Security/Deployment-Guidelines.rst
     * :doc:`Introducing-ros2-security`
     * :doc:`The-Keystore`
     * :doc:`Access-Controls`
+=======
+    * :doc:`../../Launch/Security/Introducing-ros2-security`
+    * :doc:`../The-Keystore`
+    * :doc:`../../Launch/Security/Access-Controls`
+>>>>>>> d017208 (3di | Toc update - restructure 'Analysis and Introspection' section (#7098)):source/Developer-Tools/Build/Deployment-Guidelines/Deployment-Guidelines.rst
 
 General Guidelines
 ------------------

@@ -12,7 +12,9 @@ Humble Hawksbill (``humble``)
    :depth: 2
    :local:
 
-*Humble Hawksbill* is the eighth release of ROS 2.
+.. short-description::
+  *Humble Hawksbill* is the eighth release of ROS 2.
+
 What follows is highlights of the important changes and features in Humble Hawksbill since the last release.
 For a list of all of the changes since Galactic, see the `long form changelog <Humble-Hawksbill-Complete-Changelog>`.
 
@@ -324,7 +326,11 @@ launch_ros
 Passing ROS arguments to node actions
 """""""""""""""""""""""""""""""""""""
 
+<<<<<<< HEAD
 It is now possible to provide `ROS-specific node arguments <../../How-To-Guides/Node-arguments>` directly, without needing to use ``args`` with a leading ``--ros-args`` flag:
+=======
+It is now possible to provide `ROS-specific node arguments </Developer-Tools/Launch/Node-arguments>` directly, without needing to use ``args`` with a leading ``--ros-args`` flag:
+>>>>>>> d017208 (3di | Toc update - restructure 'Analysis and Introspection' section (#7098))
 
 .. tabs::
 
