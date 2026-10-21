@@ -304,7 +304,11 @@ Alternatively, if your node of interest is being launched in these files directl
 
   In this case you may need to remap or provide parameter files to this node if it was previously provided by the launch file.
   Using ``--ros-args`` you can give it the path to the new parameters file, remaps, or names.
+<<<<<<< HEAD:source/How-To-Guides/Getting-Backtraces-in-ROS-2.rst
   See :doc:`this tutorial <../../How-To-Guides/Node-arguments>` for the commandline arguments required.
+=======
+  See :doc:`this tutorial <../Launch/Node-arguments>` for the commandline arguments required.
+>>>>>>> d017208 (3di | Toc update - restructure 'Analysis and Introspection' section (#7098)):source/Developer-Tools/Debugging/Getting-Backtraces-in-ROS-2.rst
 
   We understand this can be a pain, so it might encourage you to rather have each node possible as a separately included launch file to make debugging easier.
   An example set of arguments might be ``--ros-args -r __node:=<node_name> --params-file /absolute/path/to/params.yaml`` (as a template).

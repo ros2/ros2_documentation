@@ -4,8 +4,29 @@
     Guides/Node-arguments
     Tutorials/Node-arguments
 
+<<<<<<<< HEAD:source/How-To-Guides/Node-arguments.rst
 Passing ROS arguments to nodes via the command-line
 ===================================================
+========
+.. meta::
+   :contentType: how-to
+   :experience: beginner, intermediate, expert
+   :area: node-management
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+Passing ROS arguments to nodes via the command-line - how-to
+============================================================
+
+.. short-description::
+   ROS nodes accept command-line arguments that reconfigure names, namespaces, remappings, logging, and parameters.
+   This article describes how to pass ROS-specific arguments after the ``--ros-args`` flag.
+   After you follow these examples, you can rename nodes, remap topics, configure logging, and set parameters from the command line or YAML files.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+>>>>>>>> d017208 (3di | Toc update - restructure 'Analysis and Introspection' section (#7098)):source/Tutorials/Intermediate/Launch/Node-arguments.rst
 
 .. contents:: Table of Contents
    :depth: 2
@@ -69,7 +90,11 @@ Logger configuration
 
 The per-node logging level can be specified using the ``--log-level`` command line argument.
 The executable log file name prefix, which includes all nodes in the executable, can be specified using ``--log-file-name`` command line argument.
+<<<<<<<< HEAD:source/How-To-Guides/Node-arguments.rst
 For more information please see :doc:`the logging page <../Tutorials/Demos/Logging-and-logger-configuration>`.
+========
+For more information please see :doc:`the logging page <../Introspection-and-analysis/Logging-and-logger-configuration>`.
+>>>>>>>> d017208 (3di | Toc update - restructure 'Analysis and Introspection' section (#7098)):source/Tutorials/Intermediate/Launch/Node-arguments.rst
 
 Parameters
 ----------
