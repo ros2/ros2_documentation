@@ -8,6 +8,10 @@
 Package documentation
 =====================
 
+.. short-description::
+   Package documentation is essential for others to understand and use the package you've developed.
+   This article summarizes the tools and guidance available to help with creating documentation for ROS packages.
+
 .. showmeta::
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
@@ -17,9 +21,6 @@ Package documentation
    :hidden:
 
    Package-documentation/Documenting-a-ROS-2-Package
-
-Package documentation is essential for others to understand and use the package you've developed.
-This article summarizes the tools and guidance available to help with creating documentation for ROS packages.
 
 .. contents:: Table of Contents
    :local:
