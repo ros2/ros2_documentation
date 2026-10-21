@@ -1,5 +1,5 @@
 .. meta::
-   :contentType:
+   :contentType: about
    :experience: intermediate
    :area: debugging
    :distribution: {DISTRO}
@@ -7,6 +7,13 @@
 
 Debugging
 =========
+.. short-description::
+   Sometimes your robot won't behave as you expected.
+   This article summarizes the ROS developer tools and guidance available to help with debugging.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 .. toctree::
    :maxdepth: 1
@@ -17,11 +24,6 @@ Debugging
    Debugging/ROS-2-IDEs
    Debugging/Getting-Backtraces-in-ROS-2
    Debugging/Building-ROS-2-with-Tracing
-
-Sometimes your robot won't behave as you expected.
-This article summarizes the ROS developer tools and guidance available to help with debugging.
-
-**Area: debugging, tools | Content-type: about | Experience: beginner, intermediate, expert**
 
 .. contents:: Table of Contents
    :local:

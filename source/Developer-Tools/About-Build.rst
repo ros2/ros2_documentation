@@ -1,5 +1,5 @@
 .. meta::
-   :contentType:
+   :contentType: about
    :experience: intermediate
    :area: builds, tools
    :distribution: {DISTRO}
@@ -7,13 +7,13 @@
 
 Builds
 ======
+.. short-description::
+   The ability to work with multiple packages together is useful for developing complex robotics systems.
+   This article summarizes the ROS developer tools and guidance available to help with builds.
 
 .. showmeta::
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
-
-PLACEHOLDER
-Coming Soon
 
 .. toctree::
    :maxdepth: 1
@@ -42,12 +42,6 @@ Coming Soon
    Build/Building-Realtime-rt_preempt-kernel-for-ROS-2/Building-Realtime-rt_preempt-kernel-for-ROS-2
    Build/Building-ROS2-Package-with-eclipse-2021-06/Building-ROS2-Package-with-eclipse-2021-06
    Build/Single-Package-Define-And-Use-Interface
-
-The ability to work with multiple packages together is useful for developing complex robotics systems.
-This article summarizes the ROS developer tools and guidance available to help with builds.
-
-
-**Area: builds, tools | Content-type: about | Experience: beginner, intermediate, expert**
 
 .. contents:: Table of Contents
    :local:
