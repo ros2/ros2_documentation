@@ -8,6 +8,9 @@
 Working with topics
 ===================
 
+.. short-description::
+   Learn how to work with topics, subscription filtering, and Quality of Service settings in ROS 2.
+
 .. showmeta::
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
@@ -25,4 +28,5 @@ Coming Soon
    Working-with-topics/Topic-Keys/Filtered-Topic-Keys-Tutorial
    Working-with-topics/Content-Filtering-Subscription
    Working-with-topics/Quality-of-Service
+   Working-with-topics/Configuring-QoS-Overrides
    Working-with-topics/Wait-for-Acknowledgment
