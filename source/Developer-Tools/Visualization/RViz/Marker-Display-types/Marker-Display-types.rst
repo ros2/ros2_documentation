@@ -2,8 +2,24 @@
 
     Tutorials/Intermediate/RViz/Marker-Display-types/Marker-Display-types
 
-Marker: Display types
-=====================
+.. meta::
+   :contentType: tutorial
+   :experience: intermediate
+   :area: visualization, tools
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+Using Marker Display Types - tutorial
+=====================================
+
+.. short-description::
+   Marker display types let ROS nodes visualize shapes, lines, text, meshes, and point-based geometry in RViz.
+   This article explains the ``visualization_msgs/msg/Marker`` fields and the available marker object types.
+   After you read it, you can choose the right marker type and set its key rendering parameters.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** This tutorial explains the basic Marker types and how to use them.
 
@@ -14,7 +30,6 @@ Marker: Display types
 .. contents:: Contents
    :depth: 2
    :local:
-
 
 Background
 ----------

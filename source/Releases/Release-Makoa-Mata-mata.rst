@@ -1,9 +1,24 @@
+.. meta::
+   :contentType: release-note
+   :experience: intermediate, expert
+   :area: framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. _upcoming-release:
 
 .. _makoa-release:
 
 Makoa Mata-mata (codename ``makoa``; May, 2027)
 ===============================================
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
+   :depth: 2
+   :local:
 
 .. toctree::
    :hidden:
@@ -22,3 +37,13 @@ New Features in Makoa
 ---------------------
 
 TODO
+
+Changes since the Lyrical release
+---------------------------------
+
+Removed RMW for Fast DDS with dynamic typesupport
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Package ``rmw_fastrtps_dynamic_cpp`` has been removed.
+This means that users will no longer be able to select ``RMW_IMPLEMENTATION=rmw_fastrtps_dynamic_cpp``.
+Users are encouraged to use ``RMW_IMPLEMENTATION=rmw_fastrtps_cpp`` instead.

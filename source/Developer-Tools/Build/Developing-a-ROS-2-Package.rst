@@ -5,8 +5,24 @@
     Tutorials/Developing-a-ROS-2-Package
     How-To-Guides/Developing-a-ROS-2-Package
 
-Developing a ROS 2 package
-##########################
+.. meta::
+   :contentType: tutorial
+   :experience: intermediate
+   :area: builds, tools
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+Developing a ROS package - tutorial
+===================================
+
+.. short-description::
+   Custom packages let developers build their own ROS applications instead of only using existing packages.
+   This article explains how to create a package and configure C++, Python, or combined package layouts.
+   After you follow it, you can add executables, dependencies, launch files, and installation rules to a new package.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 .. contents:: Table of Contents
    :depth: 2
@@ -33,7 +49,7 @@ All ROS 2 packages begin by running the command
 
    $ ros2 pkg create --license Apache-2.0 <pkg-name> --dependencies [deps]
 
-in your workspace (usually ``~/ros2_ws/src``).
+in your workspace (usually ``<workspace-name>/src``, for example ``nav2_ws/src`` or ``my_robot_ws/src``).
 
 To create a package for a specific client library:
 

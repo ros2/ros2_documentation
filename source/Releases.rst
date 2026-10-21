@@ -1,11 +1,30 @@
+.. meta::
+   :contentType: about
+   :experience: beginner, intermediate, expert
+   :area: framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
-    Releases
+    Get-Started/Releases
 
 .. _Releases:
 
 Distributions
 =============
+
+.. short-description::
+   ROS distributions provide stable, versioned sets of packages that help developers choose a supported platform for building and maintaining robotic applications.
+   This article explains what distributions are, lists current and historic releases, and links to release, development, and end-of-life information.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
+   :depth: 2
+   :local:
 
 What is a Distribution?
 -----------------------
@@ -25,7 +44,7 @@ Below is a list of current and historic ROS 2 distributions.
 Rows in the table marked in blue are the currently supported distributions.
 
 .. toctree::
-   :maxdepth: 3
+   :hidden:
 
    Releases/Release-Process
    Releases/Release-Lyrical-Luth
@@ -220,7 +239,6 @@ There is a new ROS 2 distribution released yearly on May 23rd (`World Turtle Day
      - May 2027
      - TBD
      - Dec 2028
-
 
 .. _rolling_distribution:
 

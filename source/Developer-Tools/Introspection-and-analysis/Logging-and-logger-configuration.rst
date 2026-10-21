@@ -4,8 +4,23 @@
     Tutorials/Logging-and-logger-configuration
     Tutorials/Demos/Logging-and-logger-configuration
 
+.. meta::
+   :contentType: about
+   :experience: intermediate
+   :area: introspection
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 Logging
 =======
+
+.. short-description::
+   Logging in ROS helps you understand node behavior, diagnose issues, and control how runtime information is reported.
+   This article explains how to use log statements, configure logger levels, and customize console and file output.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 .. contents:: Table of Contents
    :depth: 2

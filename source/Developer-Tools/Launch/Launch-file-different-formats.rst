@@ -3,8 +3,24 @@
   Guides/Launch-file-different-formats
   How-To-Guides/Launch-file-different-formats
 
-Using XML, YAML, and Python for ROS 2 Launch Files
-==================================================
+.. meta::
+   :contentType: tutorial
+   :experience: intermediate
+   :area: node-management, tools
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+Using XML, YAML, and Python for ROS Launch Files - how-to
+=========================================================
+
+.. short-description::
+   ROS launch files can be written in XML, YAML, or Python depending on the needs of your application.
+   This article compares the three formats by showing how each one performs the same launch tasks.
+   After you follow these examples, you can choose and run the launch file format that best fits your project.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 .. contents:: Table of Contents
    :depth: 2

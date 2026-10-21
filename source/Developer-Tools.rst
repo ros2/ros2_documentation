@@ -1,3 +1,10 @@
+.. meta::
+   :contentType:
+   :experience: intermediate
+   :area: tools
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 Tools
 =====
 

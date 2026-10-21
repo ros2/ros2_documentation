@@ -1,11 +1,21 @@
+.. meta::
+   :contentType: how-to
+   :experience: beginner, intermediate, expert
+   :area: contributing, community
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 Making a pull request (PR) — how-to
 ===================================
 
-Pull requests are used to contribute code and documentation changes to ROS projects.
-This article explains how to prepare and create a pull request from your fork of a ROS repository.
-With this information, you'll be able to submit focused changes in a pull request, ready for review.
+.. short-description::
+   Pull requests are used to contribute code and documentation changes to ROS projects.
+   This article explains how to prepare and create a pull request from your fork of a ROS repository.
+   With this information, you'll be able to submit focused changes in a pull request, ready for review.
 
-**Area: contributing, community | Content-type: how-to | Experience: beginner, intermediate, expert**
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 .. contents:: Table of Contents
    :depth: 2
@@ -29,8 +39,8 @@ Prerequisites
 
    * If your pull request is for a code change:
 
-     * Make sure you've followed the guidance in the :doc:`Developer guide </The-ROS2-Project/Contributing/Developer-Guide>`.
-     * Check that your code complies with the relevant section of the :doc:`Code style guide </The-ROS2-Project/Contributing/Code-Style-Language-Versions>`.
+     * Make sure you've followed the guidance in the :doc:`Developer guide <Developer-Guide>`.
+     * Check that your code complies with the relevant section of the :doc:`Code style guide <Contributing-to-code/Code-Style-Language-Versions>`.
      * Make sure you've :ref:`run the tests <colcon-run-the-tests>` and the appropriate linter for your code changes.
 
    * If your pull request is for a documentation change:

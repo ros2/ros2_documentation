@@ -1,3 +1,10 @@
+.. meta::
+   :contentType: tutorial
+   :experience: beginner
+   :area: client-libraries, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Tutorials/Writing-A-Simple-Cpp-Service-And-Client
@@ -5,8 +12,17 @@
 
 .. _CppSrvCli:
 
-Writing a simple service and client (C++)
-=========================================
+Writing a simple service and client (C++) — tutorial
+====================================================
+
+.. short-description::
+   Services let nodes use request and response communication for tasks such as calculations or queries.
+   This article shows how to create a C++ service node and client node that use ``example_interfaces/srv/AddTwoInts``.
+   After following these steps, you will be able to build and run a package that sends a request and returns a response.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Create and run service and client nodes using C++.
 
@@ -17,6 +33,19 @@ Writing a simple service and client (C++)
 .. contents:: Contents
    :depth: 2
    :local:
+
+Summary
+-------
+
+Create a package named ``cpp_srvcli`` with dependencies on ``rclcpp`` and ``example_interfaces``.
+
+Add two C++ nodes:
+
+* ``add_two_ints_server.cpp`` creates ``minimal_service`` and advertises the ``add_two_ints`` service.
+* ``add_two_ints_client.cpp`` creates ``minimal_client``, waits for the service, sends a request, and logs the result.
+
+Configure ``CMakeLists.txt`` with ``server`` and ``client`` executables.
+Build the package, source the workspace, then run ``ros2 run cpp_srvcli server`` and ``ros2 run cpp_srvcli client``.
 
 Background
 ----------

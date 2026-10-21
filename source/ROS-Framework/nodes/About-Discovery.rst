@@ -2,8 +2,23 @@
 
     Concepts/Basic/About-Discovery
 
+.. meta::
+   :contentType: about
+   :experience: beginner
+   :area: nodes, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 Discovery
 =========
+
+.. short-description::
+   Discovery lets ROS nodes find each other so they can communicate without manual connection setup.
+   This article describes how nodes advertise their presence, respond to matching nodes, and maintain connections within a shared ROS domain.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 .. contents:: Table of Contents
    :local:

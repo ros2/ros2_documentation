@@ -1,7 +1,16 @@
-
+.. meta::
+   :contentType:
+   :experience:
+   :area: framework, tools, capabilities
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
 
 Get started
 ===========
+
+.. contents:: Contents
+   :depth: 2
+   :local:
 
 Coming Soon
 

@@ -1,3 +1,10 @@
+.. meta::
+   :contentType: about
+   :experience: expert
+   :area: client-libraries, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
    Concepts/About-Middleware-Implementations
@@ -5,6 +12,14 @@
 
 ROS 2 middleware implementations
 ================================
+
+.. short-description::
+   Middleware implementations let ROS communicate through different underlying transport protocols and vendor-specific systems.
+   This article describes how middleware packages integrate with core ROS interfaces, and outlines the common packages, patterns, and configuration points used by DDS-based implementations.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 .. contents:: Table of Contents
    :local:

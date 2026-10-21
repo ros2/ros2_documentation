@@ -4,14 +4,24 @@
     Tutorials/Managed-Nodes
     Tutorials/Demos/Managed-Nodes
 
+.. meta::
+   :contentType: example
+   :experience: expert
+   :area: nodes, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 Managing node lifecycles - example
 ==================================
 
-Managed lifecycles for nodes allow greater control over the state of the ROS system.
-This example uses a simple talker/listener pair of managed nodes to show how a managed lifecycle can be implemented and used.
-You can use the example to understand and experiment with managing nodes in this way.
+.. short-description::
+   Managed lifecycles for nodes allow greater control over the state of the ROS system.
+   This example uses a simple talker/listener pair of managed nodes to show how a managed lifecycle can be implemented and used.
+   You can use the example to understand and experiment with managing nodes in this way.
 
-**Area: ROS-framework | Content-type: example | Experience: expert**
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 .. contents:: Contents
    :depth: 2

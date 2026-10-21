@@ -2,10 +2,29 @@
 
   Features
 
+.. meta::
+   :contentType: reference
+   :experience: beginner, intermediate, expert
+   :area: community
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. _Features:
 
 Features status
 ===============
+
+.. short-description::
+   ROS features define the core capabilities, tools, and platform support available in the current release.
+   This article lists supported functionality with links to related concepts, tutorials, demos, and implementation notes so you can understand what ROS provides today.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Table of Contents
+   :depth: 2
+   :local:
 
 The features listed below are available in the current ROS 2 release.
 Unless otherwise specified, the features are available for all supported platforms (Ubuntu 24.04 (Noble), Windows 10), DDS implementations (eProsima Fast DDS, RTI Connext DDS, and Eclipse Cyclone DDS) and programming language client libraries (C++ and Python).

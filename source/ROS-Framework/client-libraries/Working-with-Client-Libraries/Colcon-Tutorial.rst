@@ -1,3 +1,10 @@
+.. meta::
+   :contentType: tutorial
+   :experience: beginner
+   :area: client-libraries, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. _Colcon:
 
 .. redirect-from::
@@ -6,12 +13,36 @@
     Tutorials/Colcon-Tutorial
     Tutorials/Beginner-Client-Libraries/Colcon-Tutorial
 
-Using ``colcon`` to build packages
-==================================
+Using ``colcon`` to build packages — tutorial
+=============================================
+
+.. short-description::
+   ``colcon`` is a build tool for working with ROS workspaces and packages.
+   This tutorial shows how to create a workspace, add example sources, build and test packages, and source the resulting environment.
+   After you follow these steps, you can run executables from your built workspace.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 .. contents:: Table of Contents
    :depth: 2
    :local:
+
+Summary
+-------
+
+A ROS workspace commonly contains a ``src`` directory for package source code.
+``colcon`` builds out of ``source`` and creates ``build``, ``install``, and ``log`` directories alongside src.
+
+Key commands include:
+
+* ``colcon build --symlink-install`` to build the workspace on Linux and macOS.
+* ``colcon build --merge-install`` to build on Windows.
+* ``colcon`` test to run package tests.
+* ``source install/setup.bash`` or the platform equivalent to use the built packages.
+
+Use ``colcon_cd``, tab completion, and mixins to make common workspace tasks faster.
 
 **Goal:** Build a ROS 2 workspace with ``colcon``.
 

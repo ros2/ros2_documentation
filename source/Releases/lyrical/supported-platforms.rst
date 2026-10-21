@@ -1,5 +1,20 @@
+.. meta::
+   :contentType: reference
+   :experience: intermediate, expert
+   :area: framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 Lyrical Luth Supported Platforms
 ================================
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
+   :depth: 2
+   :local:
 
 ROS Lyrical supports the following platforms according to :doc:`the platform support tiers <../../../The-ROS2-Project/Platform-Support-Tiers>`:
 
@@ -87,7 +102,6 @@ The default middleware in ROS Lyrical is **rmw_fastrtps_cpp**.
 +---------------+---------------------------------------------------------------------------------------------------------------+
 | Zenoh         | 1.8.0                                                                                                         |
 +---------------+---------------------------------------------------------------------------------------------------------------+
-
 
 +---------------------------+-------------------------+---------------+-------------------------------+
 | Middleware Library        | Middleware Provider     | Support Level | Architectures                 |

@@ -92,6 +92,9 @@ extensions = [
     'sphinxcontrib.googleanalytics',
     'sphinxcontrib.mermaid',
     'sphinxext.opengraph',
+    'short_description',
+    'showmeta',
+    'ros_related_articles',
 ]
 
 # Intersphinx mapping
@@ -188,6 +191,7 @@ macros = {
     'DISTRO_UBUNTU_DEB_PLATFORM': distro_ubuntu_deb_platform['rolling'],
     'DISTRO_ARM_STATUS_SUFFIX': distro_arm_status_suffix.get('rolling', 'unv8'),
     'REPOS_FILE_BRANCH': 'rolling',
+    'PRODUCT': 'ROS 2',
 }
 
 html_favicon = 'favicon.ico'
@@ -202,7 +206,7 @@ html_sourcelink_suffix = ''
 
 # Relative to html_static_path
 html_css_files = ['custom.css', 'adopters.css']
-html_js_files = ['adopters.js']
+html_js_files = ['adopters.js', 'related_articles.js']
 
 # -- Options for HTMLHelp output ------------------------------------------
 

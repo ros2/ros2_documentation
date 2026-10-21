@@ -2,8 +2,24 @@
 
     Concepts/Basic/About-Launch
 
+.. meta::
+   :contentType: about
+   :experience: beginner
+   :area: node-management, tools
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 Node management
 ===============
+
+.. short-description::
+   Launch files help you start and configure multiple nodes in a ROS system without running each process manually.
+   This article introduces the ROS launch system and explains how it uses launch files to describe, run, and manage system processes.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
 .. toctree::
    :maxdepth: 1
    :hidden:
@@ -16,9 +32,8 @@ Sometimes you need to manage many interconnected nodes at once to reliably start
 Managing multiple interconnected nodes is essential for complex robotic systems effective runtime node management.
 This article summarizes the ROS developer tools and guidance available to help with node management, also referred to as launch or runtime node management.
 
-**Area: node management, tools | Content-type: about | Experience: beginner, intermediate, expert**
-
 .. contents:: Table of Contents
+   :depth: 2
    :local:
    :depth: 2
 

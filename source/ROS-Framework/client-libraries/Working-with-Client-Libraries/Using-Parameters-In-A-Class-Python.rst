@@ -1,3 +1,10 @@
+.. meta::
+   :contentType: tutorial
+   :experience: beginner
+   :area: client-libraries, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Tutorials/Using-Parameters-In-A-Class-Python
@@ -5,8 +12,17 @@
 
 .. _PythonParamNode:
 
-Using parameters in a class (Python)
-====================================
+Using parameters in a class (Python) — tutorial
+===============================================
+
+.. short-description::
+   Parameters let you configure a node without changing its source code.
+   This tutorial shows you how to create a Python class with a custom ROS parameter and set that parameter from the command line or a launch file.
+   After following these steps, you will be able to build and run a configurable Python node.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Create and run a class with ROS parameters using Python.
 

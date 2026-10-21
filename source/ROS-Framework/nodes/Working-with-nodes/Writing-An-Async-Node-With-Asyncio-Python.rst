@@ -1,5 +1,21 @@
-Writing an async node with asyncio (Python)
-===========================================
+.. meta::
+   :contentType: tutorial
+   :experience: intermediate
+   :area: nodes, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+Writing an async node with asyncio (Python) - tutorial
+======================================================
+
+.. short-description::
+   Asyncio is useful when Python nodes need to wait on services, timers, or external libraries without blocking other callbacks.
+   This tutorial shows how to create a package, write an ``AsyncNode`` service and client, and run them together.
+   After following it, you will be able to build nodes that compose naturally with Python async code.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Create and run a service and client using ``AsyncNode``, the asyncio-native node API.
 

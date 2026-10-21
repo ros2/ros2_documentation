@@ -4,8 +4,24 @@
     Tutorials/Launch/Using-Event-Handlers
     Tutorials/Intermediate/Launch/Using-Event-Handlers
 
-Using event handlers
-====================
+.. meta::
+   :contentType: tutorial
+   :experience: intermediate
+   :area: node-management, tools
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+Using event handlers - tutorial
+===============================
+
+.. short-description::
+   Event handlers let launch files react to process events and modify launch behavior while a ROS system is running.
+   This article shows how to register event handlers for process start, output, completion, exit, and shutdown events.
+   After you follow these steps, you can use event handlers to monitor processes and trigger launch actions dynamically.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Learn about event handlers in ROS 2 launch files
 

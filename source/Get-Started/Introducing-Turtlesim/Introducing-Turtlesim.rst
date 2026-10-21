@@ -1,3 +1,10 @@
+.. meta::
+   :contentType: tutorial
+   :experience: beginner
+   :area: framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Tutorials/Turtlesim/Introducing-Turtlesim
@@ -6,6 +13,15 @@
 
 Setting up Turtlesim - how-to
 =============================
+
+.. short-description::
+  Turtlesim is a lightweight simulator that helps beginners explore basic ROS concepts before working with real robots or larger simulations.
+  In this article, you will learn how to install and run turtlesim, use the ``ros2`` command-line tool, and interact with ROS through ``rqt``.
+  After you follow these steps, you will be able to control turtles, call services, and remap topics and actions in the turtlesim simulator.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 Turtlesim is a simple simulator to demonstrate core ROS concepts without any hardware.
 This article walks you through installation of Turtlesim and the rqt GUI.
@@ -86,6 +102,62 @@ The output should list Turtlesim's executables:
   turtlesim turtle_teleop_key
   turtlesim turtlesim_node
 
+2 Start turtlesim
+^^^^^^^^^^^^^^^^^
+
+To start turtlesim, enter the following command in your terminal:
+
+.. code-block:: console
+
+  $ ros2 run turtlesim turtlesim_node
+  [INFO] [turtlesim]: Starting turtlesim with node name /turtlesim
+  [INFO] [turtlesim]: Spawning turtle [turtle1] at x=[5.544445], y=[5.544445], theta=[0.000000]
+
+Under the command, you will see messages from the node.
+There you can see the default turtle's name and the coordinates where it spawns.
+
+The simulator window should appear, with a random turtle in the center.
+
+.. image:: images/turtlesim.png
+
+3 Use turtlesim
+^^^^^^^^^^^^^^^
+
+Open a new terminal and source ROS 2 again.
+
+Now you will run a new node to control the turtle in the first node:
+
+.. code-block:: console
+
+  $ ros2 run turtlesim turtle_teleop_key
+
+At this point you should have three windows open: a terminal running ``turtlesim_node``, a terminal running ``turtle_teleop_key`` and the turtlesim window.
+Arrange these windows so that you can see the turtlesim window, but also have the terminal running ``turtle_teleop_key`` active so that you can control the turtle in turtlesim.
+
+Use the arrow keys on your keyboard to control the turtle.
+It will move around the screen, using its attached "pen" to draw the path it followed so far.
+
+.. note::
+
+  Pressing an arrow key will only cause the turtle to move a short distance and then stop.
+  This is because, realistically, you wouldn't want a robot to continue carrying on an instruction if, for example, the operator lost the connection to the robot.
+
+You can see the nodes, and their associated topics, services, and actions, using the ``list`` subcommands of the respective commands:
+
+.. code-block:: console
+
+  $ ros2 node list
+  $ ros2 topic list
+  $ ros2 service list
+  $ ros2 action list
+
+You will learn more about these concepts in the coming tutorials.
+Since the goal of this tutorial is only to get a general overview of turtlesim, you will use rqt to call some of the turtlesim services and interact with ``turtlesim_node``.
+
+4 Install rqt
+^^^^^^^^^^^^^
+
+Open a new terminal to install ``rqt`` and its plugins:
 2 Install rqt (recommended)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -244,6 +316,7 @@ The following example uses rqt but you can also operate Turtlesim by entering th
 
       $ ros2 run turtlesim turtle_teleop_key --ros-args --remap turtle1/cmd_vel:=turtle2/cmd_vel --remap turtle1/rotate_absolute:=turtle2/rotate_absolute
 
+Now, you can move ``turtle2`` when this terminal is active, and ``turtle1`` when the other terminal running ``turtle_teleop_key`` is active.
    Keep this new terminal active to move ``turtle2``.
    Continue using the original teleoperation terminal to move ``turtle1``.
 

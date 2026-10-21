@@ -2,10 +2,28 @@
 
   ROSCon-Content
 
+.. meta::
+   :contentType: about
+   :experience: beginner, intermediate, expert
+   :area: community
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
 .. _ROSCon:
 
 ROSCon talks
 ============
+
+.. short-description::
+   ROSCon talks provide practical insight into ROS development, project updates, demonstrations, and real-world robotics deployments.
+   This article lists recorded ROSCon presentations by year so you can find videos about ROS features, tooling, middleware, applications, and community work.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Table of Contents
+   :depth: 2
+   :local:
 
 The following `ROSCon <https://roscon.ros.org>`__ talks have been given on ROS 2 and provide information about the workings of ROS 2 and various demos:
 

@@ -1,9 +1,25 @@
+.. meta::
+   :contentType: tutorial
+   :experience: expert
+   :area: simulation, capabilities
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Tutorials/Advanced/Simulators/MVSim/Getting-Started-MVSim
 
-Getting started with MVSim
-==========================
+Getting started with MVSim - tutorial
+=====================================
+
+.. short-description::
+   MVSim demo worlds are a quick way to explore mobile robot simulation and sensor behavior.
+   This tutorial shows how to launch demos from the command line and through ROS, then inspect topics and control simulated robots.
+   After following it, you will be able to run and interact with MVSim examples.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Launch MVSim demo worlds both standalone and with ROS 2, and learn how to interact with simulated robots.
 
@@ -23,13 +39,13 @@ sensor configurations, terrain types, human actors, articulated vehicles and env
 You can run these demos either as a standalone application using the ``mvsim`` CLI,
 or as a ROS 2 node that publishes sensor data and accepts velocity commands through standard ROS 2 topics.
 
-.. image:: Image/mvsim_demos_screenshot.png
+.. image:: Image/mvsim_demos_screenshot.jpg
    :alt: MVSim demo screenshots
 
 Prerequisites
 -------------
 
-You should have MVSim installed following the :doc:`../Webots/Installation-Ubuntu` tutorial.
+You should have MVSim installed following the :doc:`Installation-Ubuntu` tutorial.
 
 Tasks
 -----
@@ -70,6 +86,9 @@ Once a world is running, you can control the robot using:
 
 The GUI also provides controls for camera view, simulation speed, and visualization options.
 You can toggle orthographic/perspective view and enable visualization of sensor data directly in the 3D window.
+Camera sensors show live previews in the GUI.
+The GUI sub-windows can be hidden at startup with ``<show_gui_panels>false</show_gui_panels>`` in the ``<gui>`` section of the world file,
+and the depth preview of RGBD cameras can be disabled per sensor with ``<preview_depth>false</preview_depth>``.
 
 3 Launch with ROS 2
 ^^^^^^^^^^^^^^^^^^^^^
@@ -124,8 +143,8 @@ Some launch files include an ``use_rviz`` option:
 
 Alternatively, open RViz2 manually and add displays for the topics of interest (e.g., ``LaserScan``, ``PointCloud2``, ``Image``, ``Odometry``).
 
-.. image:: Image/mvsim_depth_camera_demo.png
-   :alt: MVSim depth camera visualization
+.. image:: Image/mvsim_rviz_warehouse.jpg
+   :alt: MVSim warehouse demo sensors visualized in RViz2
 
 6 Headless mode
 ^^^^^^^^^^^^^^^

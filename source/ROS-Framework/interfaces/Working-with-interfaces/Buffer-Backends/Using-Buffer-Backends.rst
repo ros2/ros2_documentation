@@ -1,5 +1,21 @@
-Using ``rosidl::Buffer`` backends
-=================================
+.. meta::
+   :contentType: how-to
+   :experience: expert
+   :area: interfaces
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+Using ``rosidl::Buffer`` backends - how-to
+==========================================
+
+.. short-description::
+   Buffer backends let generated messages use storage other than ordinary CPU memory while preserving familiar message APIs.
+   This how-to explains default behavior, backend discovery, subscription configuration, and compatibility checks.
+   After following it, you will be able to opt subscribers into supported backends and diagnose fallback behavior.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 .. contents:: Contents
    :depth: 2

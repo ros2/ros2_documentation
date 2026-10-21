@@ -1,5 +1,16 @@
+.. meta::
+   :contentType:
+   :experience:
+   :area: package-documentation, tools
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 Package documentation
 =====================
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 .. toctree::
    :maxdepth: 1
@@ -9,8 +20,6 @@ Package documentation
 
 Package documentation is essential for others to understand and use the package you've developed.
 This article summarizes the tools and guidance available to help with creating documentation for ROS packages.
-
-**Area: package documentation, tools | Content-type: about | Experience: beginner, intermediate, expert**
 
 .. contents:: Table of Contents
    :local:

@@ -1,15 +1,34 @@
+.. meta::
+   :contentType: how-to
+   :experience: intermediate, expert
+   :area: installation
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Working-with-Eclipse-CycloneDDS
     Installation/RMW-Implementations/DDS-Implementations/Working-with-Eclipse-CycloneDDS
 
-Eclipse Cyclone DDS
-===================
+Working with Eclipse Cyclone DDS - how-to
+=========================================
+
+.. short-description::
+   Eclipse Cyclone DDS is an open-source Data Distribution Service (DDS) implementation for ROS systems that need a performant and robust middleware option.
+   This article describes how to install ``rmw_cyclonedds``, select it as your active RMW implementation, and verify that it is working.
+   After you follow these steps, you can run ROS nodes using Eclipse Cyclone DDS.
 
 Eclipse Cyclone DDS is a very performant and robust open-source DDS implementation.
 Cyclone DDS is developed completely in the open as an Eclipse IoT project.
 See also: https://projects.eclipse.org/projects/iot.cyclonedds
 
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
+   :depth: 2
+   :local:
 
 Prerequisites
 -------------
