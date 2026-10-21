@@ -5,7 +5,8 @@ Foxy Fitzroy (``foxy``)
    :depth: 2
    :local:
 
-*Foxy Fitzroy* is the sixth release of ROS 2.
+.. short-description::
+  *Foxy Fitzroy* is the sixth release of ROS 2.
 
 Supported Platforms
 -------------------

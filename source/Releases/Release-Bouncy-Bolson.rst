@@ -9,7 +9,8 @@ Bouncy Bolson (``bouncy``)
    :depth: 2
    :local:
 
-*Bouncy Bolson* is the second release of ROS 2.
+.. short-description::
+  *Bouncy Bolson* is the second release of ROS 2.
 
 Supported Platforms
 -------------------
@@ -118,10 +119,16 @@ Features
 New features in this ROS 2 release
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+<<<<<<< HEAD
 
 * `New launch system <../Tutorials/Intermediate/Launch/Launch-system>` featuring a much more capable and flexible Python API.
 * Parameters can be passed as `command line arguments <../How-To-Guides/Node-arguments>` to C++ executables.
 * Static remapping via `command line arguments <../How-To-Guides/Node-arguments>`.
+=======
+* `New launch system </Developer-Tools/Launch/Launch-system>` featuring a much more capable and flexible Python API.
+* Parameters can be passed as `command line arguments </Developer-Tools/Launch/Node-arguments>` to C++ executables.
+* Static remapping via `command line arguments </Developer-Tools/Launch/Node-arguments>`.
+>>>>>>> d017208 (3di | Toc update - restructure 'Analysis and Introspection' section (#7098))
 * Various improvements to the Python client library.
 * Support for publishing and subscribing to serialized data.
   This is the foundation for the upcoming work towards a native rosbag implementation.
