@@ -27,7 +27,9 @@ Iron Irwini (``iron``)
    :depth: 2
    :local:
 
-*Iron Irwini* is the ninth release of ROS 2.
+.. short-description::
+  *Iron Irwini* is the ninth release of ROS 2.
+
 What follows is highlights of the important changes and features in Iron Irwini since the last release.
 For a list of all of the changes since Humble, see the :doc:`long form changelog <Iron-Irwini-Complete-Changelog>`.
 
