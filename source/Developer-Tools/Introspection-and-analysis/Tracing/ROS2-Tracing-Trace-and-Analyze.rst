@@ -46,7 +46,7 @@ However, the tutorial will work if you are using a non-real-time Linux system.
 Installing and building
 -----------------------
 
-Install ROS 2 on Linux by following the :doc:`installation instructions <../../../../Get-Started/Installation>`.
+Install ROS 2 on Linux by following the :doc:`installation instructions <../../../Get-Started/Installation>`.
 
 .. note::
 

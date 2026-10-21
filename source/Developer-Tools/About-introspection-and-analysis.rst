@@ -29,7 +29,7 @@ Introspection and analysis
    Introspection-and-analysis/Tracing/ROS2-Tracing-Trace-and-Analyze
    Introspection-and-analysis/Logging-and-logger-configuration
    Introspection-and-analysis/Service-Introspection
-   Introspection-and-analysis/Node-arguments
+   Introspection-and-analysis/Examine-Traffic
 
 .. contents:: Table of Contents
    :local:
