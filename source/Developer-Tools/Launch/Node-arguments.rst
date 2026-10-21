@@ -7,7 +7,7 @@
 
 .. meta::
    :contentType: how-to
-   :experience:
+   :experience: beginner, intermediate, expert
    :area: node-management
    :distribution: {DISTRO}
    :product: {PRODUCT}

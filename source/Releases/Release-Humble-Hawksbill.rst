@@ -27,7 +27,9 @@ Humble Hawksbill (``humble``)
    :depth: 2
    :local:
 
-*Humble Hawksbill* is the eighth release of ROS 2.
+.. short-description::
+  *Humble Hawksbill* is the eighth release of ROS 2.
+
 What follows is highlights of the important changes and features in Humble Hawksbill since the last release.
 For a list of all of the changes since Galactic, see the `long form changelog <Humble-Hawksbill-Complete-Changelog>`.
 
