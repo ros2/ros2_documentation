@@ -45,7 +45,6 @@ This article summarizes the ROS developer tools and guidance available to help w
 .. contents:: Table of Contents
    :depth: 2
    :local:
-   :depth: 2
 
 Summary
 -------
