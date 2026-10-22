@@ -39,7 +39,7 @@ ROS offers three main interface types:
 * Services (``.srv`` files)
 * Actions (``.action`` files)
 
-:doc:`Learn more about interfaces </ROS-Framework/Interfaces-Topics-Services-Actions>`
+:doc:`Learn more about interfaces <../../ROS-Framework/Interfaces-Topics-Services-Actions>`
 
 Before creating a custom interface, do the following:
 
@@ -60,8 +60,8 @@ Using custom interfaces involves configuring a node to include the interfaces in
 Prerequisites
 -------------
 
-#. :doc:`Install ROS </Get-Started/Installation>`, and create your :doc:`workspace </ROS-Framework/client-libraries/Working-with-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace>`.
-#. Make sure you understand how to :doc:`create packages </ROS-Framework/client-libraries/Working-with-Client-Libraries/Creating-Your-First-ROS2-Package>`.
+#. :doc:`Install ROS <../../Get-Started/Installation>`, and create your :doc:`workspace <../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace>`.
+#. Make sure you understand how to :doc:`create packages <../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Creating-Your-First-ROS2-Package>`.
 
 Steps
 -----
