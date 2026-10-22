@@ -96,6 +96,13 @@ Sometimes it's useful to replay data to reproduce the results of your tests and 
 
 Complete the recording and playback tutorial: :doc:`ROS-Framework/interfaces/Working-with-interfaces/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data`
 
+7 Learn about data visualization
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+RViz lets you inspect 3D data from a running ROS system, such as shapes, sensor data, and robot models.
+
+Complete the data visualization tutorial: :doc:`Developer-Tools/Visualization/RViz/Marker-Sending-Basic-Shapes/Marker-Sending-Basic-Shapes`
+
 Next steps
 ----------
 
