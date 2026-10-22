@@ -1,10 +1,22 @@
+.. meta::
+   :contentType: how-to
+   :experience: intermediate
+   :area: installation
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. _SnapshotRepository:
 
 Installing from the snapshot repository
 =======================================
 
-The main ROS apt repository only holds the most recent version of each package, so a sync can move your system onto newer packages than the ones you last tested against.
-This article describes how to install ROS from a snapshot of the ROS apt repository, which lets you control exactly when your system moves to a newer sync.
+.. short-description::
+   The main ROS apt repository only holds the most recent version of each package, so a sync can move your system onto newer packages than the ones you last tested against.
+   This article describes how to install ROS from a snapshot of the ROS apt repository, which lets you control exactly when your system moves to a newer sync.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 .. note::
 

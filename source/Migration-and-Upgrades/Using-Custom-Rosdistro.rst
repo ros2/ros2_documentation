@@ -1,6 +1,6 @@
 .. meta::
    :contentType: how-to
-   :experience: TBD
+   :experience: intermediate, expert
    :area: installation, framework
    :distribution: {DISTRO}
    :product: {PRODUCT}
@@ -12,15 +12,17 @@
 Using a custom rosdistro version - how-to
 =========================================
 
+.. short-description::
+    There are occasions where a user would like the assert further control over the index of ROS packages, to add in their own proprietary keys or use a previous state of rosdistro.
+    This guide walks through how to set a version of rosdistro to use on your system.
+
 .. showmeta::
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-
 .. contents:: Contents
    :depth: 2
    :local:
-
 
 Overview
 --------

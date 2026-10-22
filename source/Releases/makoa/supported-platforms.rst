@@ -8,6 +8,11 @@
 Makoa Mata-mata Supported Platforms
 ===================================
 
+.. shortdescription::
+   ROS Makoa Mata-mata supports a range of operating systems and hardware architectures, with different levels of platform support.
+   This article describes the supported platforms, minimum language and dependency requirements, and middleware implementations for ROS Makoa.
+   After reading this article, you will be able to identify a suitable platform and its associated support requirements.
+
 .. showmeta::
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
