@@ -261,6 +261,7 @@ Then, it retrieves and prints the node name.
 Next, we create a ``rclcpp::Node`` as well as a ``rclcpp_lifecycle::LifecycleNode`` class.
 The ``rclcpp_lifecycle::LifecycleNode`` class often includes functions for the state transitions  ``Unconfigured``, ``Inactive``, ``Active``, and ``Finalized``.
 However, they are not included for demonstration purposes.
+To learn how to implement these state transitions and manage lifecycle callbacks, see :doc:`Writing a Lifecycle Node (C++) <Writing-a-Lifecycle-Node>`.
 
 .. code-block:: c++
 
@@ -278,3 +279,8 @@ In the main function, a ``SharedPtr`` to both ``rclcpp_lifecycle::LifecycleNode`
 The function declared above is called once with each node type as an argument.
 
 .. note:: The ``SharedPtr`` needs to be dereferenced as the template accepts a reference to the ``NodeT`` object.
+
+Related content
+---------------
+
+* :doc:`Writing a Lifecycle Node (C++) <Writing-a-Lifecycle-Node>`: Step-by-step tutorial on implementing a lifecycle node, managing states with the CLI, and automating transitions using launch files.
