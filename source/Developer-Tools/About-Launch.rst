@@ -38,34 +38,43 @@ Node management
    Launch/Discovery-Server/Discovery-Server
    Launch/Security/About-Security
 
+Sometimes you need to manage many interconnected nodes at once to reliably start, configure, and shut down your system.
+Managing multiple interconnected nodes is essential for complex robotic systems effective runtime node management.
+This article summarizes the ROS developer tools and guidance available to help with node management, also referred to as launch or runtime node management.
+
 .. contents:: Table of Contents
    :depth: 2
    :local:
 
-A ROS 2 system typically consists of many nodes running across many different processes (and even different machines).
-While it is possible to manually start each of these nodes, it gets cumbersome quite quickly.
+Summary
+-------
 
-The launch system in ROS 2 is meant to automate the running of many nodes with a single command.
-It helps the user describe the configuration of their system and then executes it as described.
-The configuration of the system includes what programs to run, where to run them, what arguments to pass them, and ROS-specific conventions which make it easy to reuse components throughout the system by giving them each a different configuration.
-It is also responsible for monitoring the state of the processes launched, and reporting and/or reacting to changes in the state of those processes.
+Complex robotic systems can include many interconnected nodes, each with different settings and interfaces.
+Runtime node management tools in ROS help you start, configure, and stop multiple nodes together using launch files.
 
-All of the above is specified in a "launch file", which can be written in XML, YAML, or Python.
-This launch file can then be run using the ``ros2 launch`` command, and all of the nodes specified will be run.
+Core ROS packages
+-----------------
 
-To get started writing and using launch files, see `the launch tutorials <Launch/Launch-Main>`.
+* `ros2launch <https://github.com/ros2/launch_ros/tree/{REPOS_FILE_BRANCH}/ros2launch>`_: Command line tool for launching multiple processes and for writing tests involving multiple processes.
 
-For more detailed information, see `the launch documentation <https://docs.ros.org/en/{DISTRO}/p/launch>`__.
+* `launch <{package_link(launch)}>`_: The launch system itself, which describes a system configuration and then executes and monitors it.
 
-Shutting down
--------------
+* `launch_ros <{package_link(launch_ros)}>`_: ROS-specific extensions to the launch system, such as launching nodes and composable nodes.
 
-When ``ros2 launch`` gets ``SIGINT`` (e.g. from ``Ctrl+C``) or ``SIGTERM``, it shuts down all of the processes it started.
-It does this by sending them ``SIGINT``, then ``SIGTERM``, and finally ``SIGKILL``, each time waiting a few seconds for them to exit.
+.. Community-contributed packages:
 
-When you press ``Ctrl+C`` in a terminal, the terminal sends ``SIGINT`` to ``ros2 launch`` and to all of its processes at the same time, so ``ros2 launch`` does not send them another one.
-This means that if something sends ``SIGINT`` to only the ``ros2 launch`` process, e.g. ``kill -INT <pid>`` from a script, then its processes will not start to shut down until they get ``SIGTERM`` a few seconds later.
-To avoid this, send ``SIGTERM`` to ``ros2 launch`` instead, or pass ``--noninteractive`` to ``ros2 launch``, which makes it always send ``SIGINT`` to its processes.
-``--noninteractive`` is the default when stdin is not a terminal.
+.. Related content (placeholder)
+   -----------------------------
 
-For more details, see `the launch signal handling documentation <https://docs.ros.org/en/{DISTRO}/p/launch/signal_handling.html>`__.
+   More articles about node management:
+
+   * Example
+
+   * Example
+
+   FAQs (placeholder)
+   ------------------
+
+   * Example
+
+   * Example
