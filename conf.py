@@ -234,13 +234,34 @@ class RedirectFrom(Directive):
 
     has_content = True
     template_name = 'layout.html'
-    redirections = {}
+
+    # Redirections are stored on the build environment rather than on this
+    # class so that they survive parallel reads, where each reader process
+    # has its own copy of the class. They are keyed by the docname that was
+    # read, then by the source file declaring them, so that purging a doc
+    # also drops entries that came from snippets it includes.
 
     @classmethod
     def register(cls, app):
         app.connect('html-collect-pages', cls.generate)
+        app.connect('env-purge-doc', cls.purge)
+        app.connect('env-merge-info', cls.merge)
         app.add_directive('redirect-from', cls)
         return app
+
+    @staticmethod
+    def purge(app, env, docname):
+        if hasattr(env, 'redirections'):
+            env.redirections.pop(docname, None)
+
+    @staticmethod
+    def merge(app, env, docnames, other):
+        if not hasattr(env, 'redirections'):
+            env.redirections = {}
+        other_redirections = getattr(other, 'redirections', {})
+        for docname in docnames:
+            if docname in other_redirections:
+                env.redirections[docname] = other_redirections[docname]
 
     @classmethod
     def generate(cls, app):
@@ -255,12 +276,13 @@ class RedirectFrom(Directive):
                 window.location.href = '{url}';
             </script>
         """
-        redirections = {
-            os.path.splitext(os.path.relpath(
-                document_path, app.srcdir
-            ))[0]: redirect_urls
-            for document_path, redirect_urls in cls.redirections.items()
-        }
+        redirections = {}
+        for doc_redirections in getattr(app.env, 'redirections', {}).values():
+            for document_path, redirect_urls in doc_redirections.items():
+                canonical_url = os.path.splitext(os.path.relpath(
+                    document_path, app.srcdir
+                ))[0]
+                redirections.setdefault(canonical_url, set()).update(redirect_urls)
         redirection_conflict = next((
             (canon_1, canon_2, redirs_1.intersection(redirs_2))
             for (canon_1, redirs_1), (canon_2, redirs_2)
@@ -308,10 +330,13 @@ class RedirectFrom(Directive):
                 yield (redirect_url, context, cls.template_name)
 
     def run(self):
+        env = self.state.document.settings.env
+        if not hasattr(env, 'redirections'):
+            env.redirections = {}
         document_path = self.state.document.current_source
-        if document_path not in RedirectFrom.redirections:
-            RedirectFrom.redirections[document_path] = set()
-        RedirectFrom.redirections[document_path].update(self.content)
+        env.redirections.setdefault(env.docname, {}).setdefault(
+            document_path, set()
+        ).update(self.content)
         return []
 
 
