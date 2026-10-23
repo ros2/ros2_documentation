@@ -1,0 +1,2 @@
+{#- Pagefind search page. Sphinx's built-in search when pagefind_enabled is off (make serve). -#}
+{%- extends "pagefind-search.html" if pagefind_enabled else "!search.html" %}

@@ -1,0 +1,2 @@
+{#- Pagefind search box. Sphinx's built-in search when pagefind_enabled is off (make serve). -#}
+{%- if pagefind_enabled %}{% include "pagefind-searchbox.html" %}{% else %}{% include "!searchbox.html" %}{% endif %}
