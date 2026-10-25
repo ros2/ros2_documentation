@@ -47,7 +47,7 @@ jobs:
       - name: Install PyYAML
         run: pip install --no-warn-script-location pyyaml
 
-      - name: Ensure documentation enhancements
+      - name: Ensure article metadata
         id: ensure
         continue-on-error: true
         env:
