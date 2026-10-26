@@ -29,8 +29,7 @@ Parameters
    parameters/Working-with-parameters
 
 Parameters are configuration values stored by each node in the ROS graph.
-This article describes parameters and their role in ROS. 
-
+This article describes parameters and their role in ROS.
 
 **[Area: Parameters, Framework | Content-type: Concept | Experience: Beginner]**
 
@@ -47,8 +46,8 @@ Parameters are used to configure nodes at startup and during runtime, without ch
 The ``ros2 param`` command and client libraries allow you to set and change parameters.
 The following client libraries are core to ROS:
 
- * `rclcpp <https://index.ros.org/p/rclcpp/>`_: The C++ client library for ROS. 
- 
+ * `rclcpp <https://index.ros.org/p/rclcpp/>`_: The C++ client library for ROS.
+
  * `rclpy <https://index.ros.org/p/rclpy/>`_: The Python client library for ROS.
 
 Parameters
@@ -58,17 +57,15 @@ Parameters are used to configure nodes at startup and during runtime, without ch
 
 Parameters are addressed by node name, node namespace (optional), parameter name, and parameter namespace.
 
-
-Each parameter consists of: 
+Each parameter consists of:
 
 * a key: A string which functions as the name of the parameter.
 
 * a value: The value must be one of the following types: ``bool``, ``int64``, ``float64``, ``string``, ``byte[]``, ``bool[]``, ``int64[]``, ``float64[]`` or ``string[]``.
 
-* a descriptor: Descriptors are optional and allow you to specify a text description of the parameter and its constraints, such making it read-only, specifying a range, and so on. 
-  By default, all descriptors are empty. 
+* a descriptor: Descriptors are optional and allow you to specify a text description of the parameter and its constraints, such making it read-only, specifying a range, and so on.
+  By default, all descriptors are empty.
   They can be set to contain parameter descriptions, value ranges, type information, and additional constraints.
-
 
 Set and change parameters
 -------------------------
@@ -85,11 +82,11 @@ ROS enables multiple methods to set and change parameters:
       The ``ros2 param`` command is the primary way to interact with parameters for nodes that are already running.
 
    * Client libraries and APIs
-      All client libraries provide APIs to get, set, and react to parameter changes while a node is running. 
+      All client libraries provide APIs to get, set, and react to parameter changes while a node is running.
       The following client libraries are core to ROS:
 
       * **rclcpp**: C++ client library for ROS. To learn more, see :doc:`client-libraries/Working-with-Client-Libraries/Using-Parameters-In-A-Class-CPP` and :doc:`parameters/Working-with-parameters/Monitoring-For-Parameter-Changes-CPP`.
- 
+
       * **rclpy**: Python client library for ROS. To learn more, see :doc:`client-libraries/Working-with-Client-Libraries/Using-Parameters-In-A-Class-Python` and :doc:`parameters/Working-with-parameters/Monitoring-For-Parameter-Changes-Python`.
 
 To learn more about working with parameters, see :doc:`parameters/Working-with-parameters`. For a hands-on tutorial with ROS parameters see :doc:`parameters/Working-with-parameters/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters`.
@@ -111,4 +108,22 @@ Related content
 
 FAQs
 ----
-<placeholder>
+
+What does a parameter consist of?
+   Each parameter has a key, a value, and an optional descriptor.
+   The key is the parameter name, the value holds the data, and the descriptor can describe constraints such as making the parameter read-only.
+
+What types can a parameter value have?
+   A parameter value must be one of the following types: ``bool``, ``int64``, ``float64``, ``string``, ``byte[]``, ``bool[]``, ``int64[]``, ``float64[]``, or ``string[]``.
+
+How can I set or change parameters?
+   You can set initial values at startup through the ROS launch facility, or when you run a node with command-line arguments or YAML files.
+   For nodes that are already running, use the ``ros2 param`` command or the client library APIs.
+
+Can I change parameters while a node is running?
+   Yes.
+   Use ``ros2 param`` from the command line, or use the get, set, and reaction APIs in ``rclcpp`` or ``rclpy``.
+
+What are parameter callbacks for?
+   Parameter callbacks let a node respond when parameter changes are requested or accepted.
+   For example, the set parameter callback can inspect an upcoming change and reject it.
