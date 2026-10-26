@@ -83,7 +83,7 @@ The ROS PMC currently consists of the following constituents:
    * - Michael Carroll
      - `KUKA <https://www.kuka.com/>`_
      - `mjcarroll <https://github.com/mjcarroll>`_
-     - (Interim) Project Leader
+     - Member (former Project Leader)
      - CST (UTC-6)/CDT (UTC-5)
    * - Miguel Company
      - `eProsima <https://www.eprosima.com/>`_
@@ -103,7 +103,7 @@ The ROS PMC currently consists of the following constituents:
    * - Alejandro Hernandez Cordero
      - `Honu Robotics <https://www.honurobotics.com/>`_
      - `ahcorde <https://github.com/ahcorde>`_
-     - Member
+     - Project Leader
      - CET (UTC+1)/CEST (UTC+2)
    * - Emerson Knapp
      - `Polymath Robotics <https://www.polymathrobotics.com/>`_
