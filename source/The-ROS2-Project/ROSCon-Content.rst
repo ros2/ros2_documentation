@@ -48,7 +48,7 @@ The following `ROSCon <https://roscon.ros.org>`__ talks have been given on ROS 2
          - `video <https://vimeo.com/1235288906>`__
        * - Nav2 Semantic & Ground Segmentation for Contextual Cross-Environment Navigation
          - `video <https://vimeo.com/1235288869>`__
-       * - How big is your map? 4 years of indoor scaling: from 1,000 m² to 220,000 m²
+       * - How big is your map (4 years of indoor scaling: from 1,000 m² to 220,000 m²)?
          - `video <https://vimeo.com/1235288814>`__
        * - EasyNav: An open-source framework for navigating everywhere
          - `video <https://vimeo.com/1235288748>`__
@@ -110,7 +110,7 @@ The following `ROSCon <https://roscon.ros.org>`__ talks have been given on ROS 2
          - `video <https://vimeo.com/1233908244>`__
        * - Lightning Talks 2 and Intrinsic (Sponsor)
          - `video <https://vimeo.com/1233907985>`__
-       * - It Is Open Source, You Can Just Do Things! (like pull request reviews)
+       * - It Is Open Source, You Can Just Do Things (like pull request reviews)!
          - `video <https://vimeo.com/1233907982>`__
        * - Introducing iMETRO: NASA's Open Source Facility for Space Robotics Development
          - `video <https://vimeo.com/1233907983>`__
