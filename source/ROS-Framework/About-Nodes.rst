@@ -95,7 +95,7 @@ The discovery process can be summarized as follows:
 .. note::
    Nodes only establish connections with other nodes if they have compatible *quality of service* settings.
    See :doc:`interfaces/topics/Working-with-topics/Quality-of-Service`.
-   
+
    Nodes must also share a ROS domain ID to discover each other.
    See :doc:`nodes/About-Domain-ID`.
 
