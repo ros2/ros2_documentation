@@ -23,7 +23,6 @@ Working with parameters - how-to
 
 .. toctree::
   :maxdepth: 2
-  :hidden:
 
   Working-with-parameters/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters
   Working-with-parameters/Using-ros2-param
@@ -48,16 +47,7 @@ In these cases, the node can be instantiated with ``allow_undeclared_parameters`
 Setting parameter types
 -----------------------
 
-Supported parameter types are:
-  * ``bool``
-  * ``int64``
-  * ``float64``
-  * ``string``
-  * ``byte[]``
-  * ``bool[]``
-  * ``int64[]``
-  * ``float64[]``
-  * ``string[]``
+Each parameter has one of the predefined parameter types listed in :doc:`../About-Parameters`.
 
 By default, attempts to change the type of a declared parameter at runtime will fail.
 This prevents common mistakes, such as putting a boolean value into an integer parameter.
@@ -121,8 +111,6 @@ Setting parameter callbacks
 ---------------------------
 
 A ROS 2 node can register callbacks to be informed when changes are happening to parameters.
-
-To learn more about parameter callbacks, see :doc:`../About-Parameters`.
 
 For a demo example of these callbacks in use, see `set_parameters_callback.cpp <https://github.com/ros2/demos/blob/{DISTRO}/demo_nodes_cpp/src/parameters/set_parameters_callback.cpp>`__.
 

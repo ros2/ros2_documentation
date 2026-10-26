@@ -28,11 +28,6 @@ Parameters
 
    parameters/Working-with-parameters
 
-Parameters are configuration values stored by each node in the ROS graph.
-This article describes parameters and their role in ROS.
-
-**[Area: Parameters, Framework | Content-type: Concept | Experience: Beginner]**
-
 .. contents:: Table of Contents
    :depth: 2
    :local:
@@ -42,21 +37,16 @@ Summary
 
 Parameters are configuration values stored by each node in the ROS graph.
 Parameters are used to configure nodes at startup and during runtime, without changing the code.
-
-The ``ros2 param`` command and client libraries allow you to set and change parameters.
-The following client libraries are core to ROS:
-
- * `rclcpp <https://index.ros.org/p/rclcpp/>`_: The C++ client library for ROS.
-
- * `rclpy <https://index.ros.org/p/rclpy/>`_: The Python client library for ROS.
+You can set and change parameters using launch files, command-line arguments, YAML files, the ``ros2 param`` command, and the client library APIs.
 
 Parameters in ROS
 -----------------
 
 Parameters in ROS are associated with individual nodes.
-Parameters are used to configure nodes at startup and during runtime, without changing the code.
+The lifetime of a parameter is tied to the lifetime of the node (though the node could implement some sort of persistence to reload values after restart).
 
-Parameters are addressed by node name, node namespace (optional), and parameter name.
+Parameters are addressed by node name, node namespace, parameter name, and parameter namespace.
+Providing a parameter namespace is optional.
 
 Each parameter consists of the following:
 
@@ -65,35 +55,35 @@ Each parameter consists of the following:
 * Value: The value of the parameter.
   One of the following types: ``bool``, ``int64``, ``float64``, ``string``, ``byte[]``, ``bool[]``, ``int64[]``, ``float64[]`` or ``string[]``.
 
-* Descriptor: Optional string that allows you to specify a text description of the parameter and its constraints, such as making it read-only, specifying a range, and so on.
+* Descriptor: An optional ``rcl_interfaces/msg/ParameterDescriptor`` that describes the parameter and its constraints, such as a text description, value ranges, type information, or making it read-only.
   By default, all descriptors are empty.
-  Descriptors can be set to contain parameter descriptions, value ranges, type information, and additional constraints.
 
-For example, every node stores a parameter with the key ``use_sim_time`` with a boolean value, but the ``/turtlesim`` node might have the value ``true``.
+For example, every node has a ``use_sim_time`` parameter with a boolean value.
+It defaults to ``false``, but can be set to ``true`` when running in simulation.
 
 Setting and changing parameters
 -------------------------------
 
-In ROS, you can use multiple methods to set and change parameters:
+In ROS, you can use multiple methods to set and change parameters.
 
-* Set parameter values at startup
-   Initial parameter values can be set when initializing the node through the ROS launch facility.
+At startup
+   Initial parameter values can be set when launching nodes through the ROS launch facility.
    For more information about launch, see :doc:`../Developer-Tools/Launch/Launch-Main`.
 
-* Set values at runtime
-   * Command line (CLI)
-      Initial parameter values can be set when running the node either through individual command-line arguments, or through YAML files.
-      For nodes that are already running, the ``ros2 param`` command is the primary way to interact with parameters.
+   Initial parameter values can also be set when running a node, either through individual command-line arguments or through YAML files.
+   See :ref:`NodeArgsParameters`.
 
-   * Client libraries and APIs
-      All client libraries provide APIs to get, set, and react to parameter changes while a node is running.
-      The following client libraries are core to ROS:
+At runtime
+   For nodes that are already running, the ``ros2 param`` command is the primary way to interact with parameters.
 
-      * **rclcpp**: C++ client library for ROS.
-         To learn more, see :doc:`client-libraries/Working-with-Client-Libraries/Using-Parameters-In-A-Class-CPP` and :doc:`parameters/Working-with-parameters/Monitoring-For-Parameter-Changes-CPP`.
+   All client libraries also provide APIs to get, set, and react to parameter changes while a node is running.
+   The following client libraries are core to ROS:
 
-      * **rclpy**: Python client library for ROS.
-         To learn more, see :doc:`client-libraries/Working-with-Client-Libraries/Using-Parameters-In-A-Class-Python` and :doc:`parameters/Working-with-parameters/Monitoring-For-Parameter-Changes-Python`.
+   * `rclcpp <https://index.ros.org/p/rclcpp/>`_: The C++ client library for ROS.
+     To learn more, see :doc:`client-libraries/Working-with-Client-Libraries/Using-Parameters-In-A-Class-CPP` and :doc:`parameters/Working-with-parameters/Monitoring-For-Parameter-Changes-CPP`.
+
+   * `rclpy <https://index.ros.org/p/rclpy/>`_: The Python client library for ROS.
+     To learn more, see :doc:`client-libraries/Working-with-Client-Libraries/Using-Parameters-In-A-Class-Python` and :doc:`parameters/Working-with-parameters/Monitoring-For-Parameter-Changes-Python`.
 
 To learn more about working with parameters, see :doc:`parameters/Working-with-parameters`.
 For a hands-on tutorial with ROS parameters see :doc:`parameters/Working-with-parameters/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters`.
@@ -106,6 +96,15 @@ A ROS node can optionally register three different types of callbacks to be info
 * Pre-set parameter callback: When it is called, it can modify the ``Parameter`` list to change, add, or remove entries.
 * Set parameter callback: This callback gives you the ability to inspect the upcoming change to the parameter and explicitly reject the change.
 * Post-set parameter callback: This callback gives you the ability to react to changes from parameters that have successfully been accepted.
+
+To learn how to register these callbacks, see :doc:`parameters/Working-with-parameters`.
+
+Migrating from ROS 1
+--------------------
+
+The :doc:`Launch file migration guide <../Migration-and-Upgrades/Migrating-from-ROS1/Migrating-Launch-Files>` explains how to migrate ``param`` and ``rosparam`` launch tags from ROS 1 to ROS 2.
+
+The :doc:`Migration guide <../Migration-and-Upgrades/Migrating-from-ROS1/Migrating-Parameters>` explains how to migrate parameters from ROS 1 to ROS 2.
 
 Related content
 ---------------
