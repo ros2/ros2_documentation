@@ -22,12 +22,12 @@ Working with parameters - how-to
    :local:
 
 .. toctree::
-  :maxdepth: 2
+   :maxdepth: 2
 
-  Working-with-parameters/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters
-  Working-with-parameters/Using-ros2-param
-  Working-with-parameters/Monitoring-For-Parameter-Changes-Python
-  Working-with-parameters/Monitoring-For-Parameter-Changes-CPP
+   Working-with-parameters/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters
+   Working-with-parameters/Using-ros2-param
+   Working-with-parameters/Monitoring-For-Parameter-Changes-Python
+   Working-with-parameters/Monitoring-For-Parameter-Changes-CPP
 
 Background
 ----------
@@ -110,7 +110,7 @@ All client libraries provide APIs to get, set, and react to parameter changes wh
 Setting parameter callbacks
 ---------------------------
 
-A ROS 2 node can register callbacks to be informed when changes are happening to parameters.
+A ROS node can register callbacks to be informed when changes are happening to parameters.
 
 For a demo example of these callbacks in use, see `set_parameters_callback.cpp <https://github.com/ros2/demos/blob/{DISTRO}/demo_nodes_cpp/src/parameters/set_parameters_callback.cpp>`__.
 
