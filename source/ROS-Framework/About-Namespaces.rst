@@ -1,11 +1,23 @@
 .. _about-namespaces:
 
+.. include:: ../../global_substitutions.txt
+
+.. meta::
+   :contentType: about
+   :experience: beginner
+   :area: framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 ROS 2 Namespaces
 ================
 
 .. short-description::
-
    Learn how ROS 2 namespaces organize node and topic names using Turtlesim.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 A **namespace** organizes ROS 2 names into a hierarchy. It helps distinguish nodes and topics when running multiple instances of the same application.
 
