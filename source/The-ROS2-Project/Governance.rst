@@ -196,6 +196,10 @@ The ROS committers (who are not also part of the ROS PMC) consists of the follow
      - `McGuire Robotics <https://www.mcguirerobotics.com/>`_
      - `knmcguire <https://github.com/knmcguire>`_
      - CET (UTC+1) / CEST (UTC+2)
+   * - Leonardo Rossetti
+     - `Red Hat <https://www.redhat.com/>`_
+     - `odra <https://github.com/odra>`_
+     - N/A
    * - Martin Pecka
      - `Czech Technical University in Prague <https://cvut.cz/>`_
      - `peci1 <https://github.com/peci1>`_
