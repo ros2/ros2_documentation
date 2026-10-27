@@ -405,6 +405,12 @@ The following Working Groups are currently chartered by the ROS PMC:
      - Chair
      - Charter
      - Resources
+   * - Accelerated Memory Transport
+     - `Alejandro Hernández Cordero <https://github.com/ahcorde>`_
+     - `Charter <https://github.com/openrobotics/osra-policies-and-procedures/blob/main/ros_project_working_group_charter_accelerated_memory_transport.md>`__ (expires 2027-10-07)
+     - * `Meeting agendas and minutes <https://docs.google.com/document/d/1merWB_caagNoTsgCvCjx14uxUebHqk1nLhigJR8PVpk/edit>`__
+       * `Kickoff announcement on Discourse <https://discourse.openrobotics.org/t/accelerated-memory-transport-working-group-announcement/52357>`__
+       * Zulip channel: `#Accelerated Memory Transport Working Group <https://openrobotics.zulipchat.com/#narrow/channel/561011-Accelerated-Memory-Transport-Working-Group>`__
    * - Client Libraries
      - `Alberto Soragna <https://github.com/alsora>`_
      - `Charter <https://github.com/openrobotics/osra-policies-and-procedures/blob/main/ros_project_working_group_charter_client_libraries.md>`__ (expires 2027-09-04)
