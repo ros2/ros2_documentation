@@ -28,6 +28,131 @@ ROSCon talks
 The following `ROSCon <https://roscon.ros.org>`__ talks have been given on ROS 2 and provide information about the workings of ROS 2 and various demos:
 
 .. tabs::
+  .. group-tab:: 2026
+    .. list-table::
+       :header-rows: 1
+
+       * - Title
+         - Links
+       * - ros2-perf-multihost: Automated Coordination Framework for Objective Architecture Evaluation in Distributed Systems
+         - `video <https://vimeo.com/1235679618>`__
+       * - ROS Middleware Survival Guide: Navigating Space, Time, and State
+         - `video <https://vimeo.com/1235678204>`__
+       * - Proton - Lightweight, Portable, Peer to Peer Internal Communication Protocol for Robotics
+         - `video <https://vimeo.com/1235677099>`__
+       * - Breaking through the zero-copy bottleneck with REP-0157
+         - `video <https://vimeo.com/1235676412>`__
+       * - Beyond Datasheets: A Reproducible ROS LiDAR Evaluation Bench
+         - `video <https://vimeo.com/1235675803>`__
+       * - On Use Of Redbull: A Nav2 Feature Speedrun
+         - `video <https://vimeo.com/1235288906>`__
+       * - Nav2 Semantic & Ground Segmentation for Contextual Cross-Environment Navigation
+         - `video <https://vimeo.com/1235288869>`__
+       * - How big is your map (4 years of indoor scaling: from 1,000 m² to 220,000 m²)?
+         - `video <https://vimeo.com/1235288814>`__
+       * - EasyNav: An open-source framework for navigating everywhere
+         - `video <https://vimeo.com/1235288748>`__
+       * - Dynamic Window Pure Pursuit in Nav2 Regulated Pure Pursuit
+         - `video <https://vimeo.com/1235288719>`__
+       * - Articulated Vehicles in ROS
+         - `video <https://vimeo.com/1235288662>`__
+       * - An Open Source Data Model
+         - `video <https://vimeo.com/1234908488>`__
+       * - Zephyr RTOS & Robotics: Will it Blend?
+         - `video <https://vimeo.com/1233910976>`__
+       * - Tour de Hardware: ros2_control hardware interface lifecycle walkthrough and real world examples
+         - `video <https://vimeo.com/1233910905>`__
+       * - Turbocharging ROS development with Bazel
+         - `video <https://vimeo.com/1233910907>`__
+       * - Unleashing Python in Gazebo: Bridging the Gap Between Sim-to-Real, RL, and Custom Physics
+         - `video <https://vimeo.com/1233910906>`__
+       * - Whole-body Mobile Manipulation with MoveIt 2 and ros2_control
+         - `video <https://vimeo.com/1233910908>`__
+       * - Space ROS’s First Flight Mission: Challenges & Safety
+         - `video <https://vimeo.com/1233910756>`__
+       * - The new executor on the block - Is it any good ?
+         - `video <https://vimeo.com/1233910757>`__
+       * - The Legible Node: Patterns and tools for clearer, more declarative ROS applications
+         - `video <https://vimeo.com/1233910755>`__
+       * - Surviving the Cyber Resilience Act: Reproducible, Auditable ROS Stacks
+         - `video <https://vimeo.com/1233910758>`__
+       * - RVizSplat: Rendering Gaussian Splats in RViz2
+         - `video <https://vimeo.com/1233910297>`__
+       * - ros2log new CLI and rcl_logging_implementation for Lyrical Luth
+         - `video <https://vimeo.com/1233910295>`__
+       * - Rosetta: Training LeRobot Policies on ROS Robots
+         - `video <https://vimeo.com/1233910293>`__
+       * - ros-controls Project Update
+         - `video <https://vimeo.com/1233910294>`__
+       * - ROS Project Update
+         - `video <https://vimeo.com/1233908511>`__
+       * - Physical AI SIG: Enabling the ROS Ecosystem for the Physical AI Era
+         - `video <https://vimeo.com/1233908510>`__
+       * - Production diagnostics for ROS 2: fault lifecycle, freeze-frame ring buffer, SOVD REST surface
+         - `video <https://vimeo.com/1233908512>`__
+       * - RoboPlan: Modern Motion Planning in the ROS Ecosystem
+         - `video <https://vimeo.com/1233908509>`__
+       * - Opening Remarks and AMD - Giulio Corradi
+         - `video <https://vimeo.com/1233908363>`__
+       * - Open-RMF Project Update
+         - `video <https://vimeo.com/1233908362>`__
+       * - Next Gen RMF services for Manufacturing and Logistics
+         - `video <https://vimeo.com/1233908360>`__
+       * - Oeros: A Linux Distribution Tuned for Robotic Hardware and Edge AI
+         - `video <https://vimeo.com/1233908361>`__
+       * - Lightning Talks 3
+         - `video <https://vimeo.com/1233908246>`__
+       * - mujoco_ros2_control: High fidelity physics simulator for ROS
+         - `video <https://vimeo.com/1233908245>`__
+       * - MuJoCo+Gazebo+ROS: State-of-the-art robotics manipulation simulation in ROS
+         - `video <https://vimeo.com/1233908247>`__
+       * - Lessons from 7 Years as a ROS Consultant
+         - `video <https://vimeo.com/1233908244>`__
+       * - Lightning Talks 2 and Intrinsic (Sponsor)
+         - `video <https://vimeo.com/1233907985>`__
+       * - It Is Open Source, You Can Just Do Things (like pull request reviews)!
+         - `video <https://vimeo.com/1233907982>`__
+       * - Introducing iMETRO: NASA's Open Source Facility for Space Robotics Development
+         - `video <https://vimeo.com/1233907983>`__
+       * - Infrastructure Project Update
+         - `video <https://vimeo.com/1233907984>`__
+       * - Incident to Root Cause in ROS 2: A Practical Debugging Workflow with MCAP
+         - `video <https://vimeo.com/1233907546>`__
+       * - Gazebo ECM Optimization Deep Dive
+         - `video <https://vimeo.com/1233907544>`__
+       * - Hiroz: A Rust-Native ROS Stack Built on Zenoh
+         - `video <https://vimeo.com/1233907547>`__
+       * - Gazebo Project Update
+         - `video <https://vimeo.com/1233907545>`__
+       * - Evolution of the Standard: What’s New in URDF 1.2
+         - `video <https://vimeo.com/1233903317>`__
+       * - Lightning Talks 1 with Qualcomm (Sponsor)
+         - `video <https://vimeo.com/1233903312>`__
+       * - DICOM to ROS
+         - `video <https://vimeo.com/1233903313>`__
+       * - From Bags to Tensors: Getting ROS Data Ready for Physical AI
+         - `video <https://vimeo.com/1233903311>`__
+       * - Composable action concurrency with rclrs
+         - `video <https://vimeo.com/1233902663>`__
+       * - Cargo dependencies in the buildfarm
+         - `video <https://vimeo.com/1233902660>`__
+       * - Closing Remarks
+         - `video <https://vimeo.com/1233902661>`__
+       * - CCA-ROS: Constrained Robot Manipulation from Intuitive Task Definitions
+         - `video <https://vimeo.com/1233902662>`__
+       * - AsyncNode: Native asyncio Comes to rclpy
+         - `video <https://vimeo.com/1233895039>`__
+       * - CallbackIsolatedExecutor: Per-Callback Real-Time Scheduling for ROS 2
+         - `video <https://vimeo.com/1233895041>`__
+       * - Beyond Waypoints: The Open-RMF Roadmap for Spatial Reservations and Vendor Interoperability
+         - `video <https://vimeo.com/1233895040>`__
+       * - A Working Open Source Stack for Space Autonomy
+         - `video <https://vimeo.com/1233894444>`__
+       * - Accelerated Memory Transports: Hardware accelerated pipelines for physical AI in ROS2 Lyrical
+         - `video <https://vimeo.com/1233894356>`__
+       * - A ROS 2 Toolkit for Industrial-Grade Physical AI: Lessons from the AI for Industry Challenge
+         - `video <https://vimeo.com/1233894355>`__
+
   .. group-tab:: 2025
     .. list-table::
        :header-rows: 1
