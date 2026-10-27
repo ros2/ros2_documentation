@@ -164,29 +164,21 @@ But why does the namespace prefix appear on some names and not others? To unders
 Relative and Absolute Names
 ---------------------------
 
-ROS 2 resolves names differently depending on whether they are relative or absolute.
+As we saw earlier, ROS 2 resolves relative topic names using the node's namespace. But what happens when a topic name starts with /?
 
-A **relative name** does not start with ``/``. ROS 2 resolves it using the node's namespace.
+An absolute name starts with / and specifies a name from the root of the ROS 2 name hierarchy. Unlike a relative name, it is not prefixed by the node's namespace during ordinary name resolution.
 
-For example, the relative topic name ``turtle1/cmd_vel`` resolves to:
-
-.. code-block:: text
-
-   /robot1/turtle1/cmd_vel
-
-when used by a node in the ``/robot1`` namespace. For a node in ``/robot2``, the same relative name resolves to:
+For example, suppose a node in the ``/robot1`` namespace uses the absolute topic name ``/robot2/turtle1/cmd_vel``. The name remains:
 
 .. code-block:: text
 
    /robot2/turtle1/cmd_vel
 
-An **absolute name** starts with ``/``. It specifies a name from the root of the name hierarchy and is not prefixed by the node's namespace during ordinary name resolution.
+ROS 2 does not turn it into ``/robot1/robot2/turtle1/cmd_vel``.
 
-For example, the absolute name ``/shared/cmd_vel`` remains ``/shared/cmd_vel`` even when used by a node in the ``/robot1`` namespace.
+This can be useful when a node needs to refer to a specific topic regardless of its own namespace. However, absolute names can make nodes less flexible: moving a node into another namespace will not change the absolute topic names it uses.
 
-This distinction explains the behavior we observed earlier: relative topic names are resolved using the node's namespace, while absolute topic names specify their location directly.
-
-Namespaces help make nodes reusable because their relative topic names can resolve differently depending on where the nodes are placed in the name hierarchy.
+**In short:** use relative names when you want names to follow the node's namespace. Use absolute names when you want to refer to a specific name in the ROS 2 name hierarchy.
 
 Namespaces and Remapping
 ------------------------
@@ -222,10 +214,72 @@ The resulting fully qualified node name combines the namespace and the remapped 
 
 This example shows that namespaces and remapping can be used together. Namespaces organize nodes within a hierarchy, while remapping allows individual names to be changed without modifying the node's source code.
 
+Communicating Across Namespaces
+-------------------------------
+
+Namespaces organize node and topic names, but they do not prevent nodes in different namespaces from communicating. Nodes can communicate as long as they use the same topic name and compatible message types.
+
+Let's demonstrate this using our two Turtlesim instances. We will run a keyboard controller in the ``/robot1`` namespace but use it to control the turtle in ``/robot2``.
+
+### 1. Start two Turtlesim instances
+
+If they are not already running, open two terminals and start Turtlesim in separate namespaces.
+
+In the first terminal:
+
+.. code-block:: bash
+
+   ros2 run turtlesim turtlesim_node --ros-args -r __ns:=/robot1
+
+In the second terminal:
+
+.. code-block:: bash
+
+   ros2 run turtlesim turtlesim_node --ros-args -r __ns:=/robot2
+
+You should see two Turtlesim windows. Each instance subscribes to its own velocity command topic:
+
+- ``/robot1/turtle1/cmd_vel``
+- ``/robot2/turtle1/cmd_vel``
+
+Normally, a controller in ``/robot1`` would publish to ``/robot1/turtle1/cmd_vel``. We will change this behavior using remapping.
+
+### 2. Connect the controller to the other namespace
+
+Open a third terminal and run:
+
+.. code-block:: bash
+
+   ros2 run turtlesim turtle_teleop_key --ros-args -r __ns:=/robot1 -r turtle1/cmd_vel:=/robot2/turtle1/cmd_vel
+
+This starts the keyboard controller in the ``/robot1`` namespace and remaps its velocity command topic to ``/robot2/turtle1/cmd_vel``.
+
+Click inside the terminal running the keyboard controller and use the arrow keys to move the turtle.
+
+**Observe which Turtlesim window responds.** The turtle in ``/robot2`` should move, even though the controller is running in ``/robot1``.
+
+### 3. Understand what happened
+
+The controller and the turtle use different namespaces, but they communicate through the same fully qualified topic name.
+
+The remapping changes the controller's output topic:
+
+.. code-block:: text
+
+   Original topic:
+   /robot1/turtle1/cmd_vel
+
+   Remapped topic:
+   /robot2/turtle1/cmd_vel
+
+The turtle in ``/robot2`` subscribes to ``/robot2/turtle1/cmd_vel``, so it receives the controller's messages.
+
+Nodes in different namespaces can communicate whenever their publishers and subscribers use the same fully qualified topic name and compatible message types.
+
 Summary
 -------
 
-In this tutorial, you explored namespaces using Turtlesim. You learned how to:
+In this tutorial, we explored namespaces using Turtlesim. We learned how to:
 
 - Inspect a node's fully qualified name using ``ros2 node list``.
 - Set a node's namespace using ``__ns``.
