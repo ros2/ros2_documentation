@@ -14,13 +14,6 @@
 .. _interfaces-topics-services-actions:
 .. _TopicsServicesActions:
 
-.. meta::
-   :contentType: about
-   :experience: beginner
-   :area: framework
-   :distribution: {DISTRO}
-   :product: {PRODUCT}
-
 Interfaces (topics, services, actions)
 ======================================
 
