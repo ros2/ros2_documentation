@@ -110,7 +110,7 @@ Actions allow clients to send goals, receive feedback during the execution, canc
 
 This interface type has the following main characteristics:
 
-* Communication is asynchronous, with feedback and result.
+* Communication is asynchronous, with periodic feedback and a final result.
 * Actions are suitable for operations that take time, such as slow perception routines which take several seconds to terminate, or for initiating a lower-level control mode.
 * Actions should be used for any discrete behaviour that moves a robot or that runs for a longer time but provides feedback during execution.
 * Actions can be preempted (cancelled) and preemption should always be implemented cleanly by action servers.
