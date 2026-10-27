@@ -18,9 +18,9 @@ Interfaces (topics, services, actions)
 ======================================
 
 .. short-description::
-   Interfaces in ROS define how nodes exchange data.
-   This article explains the different types of ROS interface and the differences between them.
-   With this information, you'll be able to select the right interfaces for your purposes.
+   Topics, services, and actions in ROS define how nodes exchange data.
+   This article explains these different types of ROS interface and the differences between them.
+   With this information, you'll be able to select the right interface for your purposes.
 
 .. showmeta::
    :order: area, contentType, experience
@@ -77,25 +77,6 @@ This interface type has the following main characteristics:
 Topic keys identify individual publishers on a topic so nodes and tools can distinguish where messages come from.
 Each topic key makes it easier to track data sources when several publishers share the same topic.
 
-Topic statistics
-^^^^^^^^^^^^^^^^
-
-Topic statistics are built-in measurements that help you understand how messages behave when a subscription receives them.
-When enabled, they automatically track two things:
-
-:Message age: How old a message is when it arrives, based on its timestamp.
-:Message period: The time between incoming messages.
-
-For both message age and period, ROS calculates the average, minimum, maximum, standard deviation, as well as the number of samples, using a moving window that is updated every time a new message arrives.
-These calculations run in constant time and memory using the dedicated utilities.
-When you enable topic statistics for a subscription, ROS publishes the collected data at regular intervals as a ``MetricsMessage`` on a statistics topic.
-This gives you a clear view of timing patterns, delays, and irregularities, making it easier to assess system performance or diagnose problems related to the message flow.
-
-.. tip::
-
-   The default interval is 1 second.
-   The default statistics topic is ``/statistics``.
-
 Services
 --------
 
@@ -106,11 +87,11 @@ A client sends a request, and a server replies with a response.
 
 This interface type has the following main characteristics:
 
-* Communication is synchronous
-* Services are ideal for short-lived operations that require confirmation or provide a result in response to a request
-* Services should be used for remote procedure calls that terminate quickly, such as for querying the state of a node or doing a quick calculation such as IK
+* Communication is synchronous.
+* Services are ideal for short-lived operations that require confirmation or provide a result in response to a request.
+* Services should be used for remote procedure calls that terminate quickly, such as for querying the state of a node or doing a quick calculation such as IK.
 * Services should never be used for longer running processes, in particular processes that might be required to preempt if exceptional situations occur.
-  They should never change or depend on state, to avoid unwanted side effects for other nodes
+  They should never change or depend on state, to avoid unwanted side effects for other nodes.
 
 .. mermaid::
 
@@ -129,10 +110,10 @@ Actions allow clients to send goals, receive feedback during the execution, canc
 
 This interface type has the following main characteristics:
 
-* Communication is asynchronous, with feedback and result
+* Communication is asynchronous, with feedback and result.
 * Actions are suitable for operations that take time, such as slow perception routines which take several seconds to terminate, or for initiating a lower-level control mode.
 * Actions should be used for any discrete behaviour that moves a robot or that runs for a longer time but provides feedback during execution.
-* Actions can be preempted and preemption should always be implemented cleanly by action servers.
+* Actions can be preempted (cancelled) and preemption should always be implemented cleanly by action servers.
 * Actions can keep state for the lifetime of a goal.
   If executing two action goals in parallel on the same server, a separate state instance can be kept for each client because the goal is uniquely identified by its ID.
 * Action support more complex non-blocking background processing, including longer tasks such as execution of robot actions.
