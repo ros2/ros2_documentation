@@ -11,10 +11,6 @@ Working with topics
 .. short-description::
    Learn how to work with topics, subscription filtering, and Quality of Service settings in ROS 2.
 
-.. showmeta::
-   :order: area, contentType, experience
-   :labels: area=Area, contentType=Content type, experience=Level
-
 In this section:
 
 .. contents:: Contents
