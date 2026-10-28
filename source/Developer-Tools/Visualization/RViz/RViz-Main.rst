@@ -12,6 +12,10 @@
 RViz
 ====
 
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
 RViz is a 3D visualizer for the Robot Operating System (ROS) framework.
 
 .. contents:: Contents

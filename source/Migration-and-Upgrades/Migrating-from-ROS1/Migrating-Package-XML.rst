@@ -12,6 +12,10 @@
 Migrating your package.xml to format 2
 ======================================
 
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
 .. contents:: Contents
    :depth: 2
    :local:

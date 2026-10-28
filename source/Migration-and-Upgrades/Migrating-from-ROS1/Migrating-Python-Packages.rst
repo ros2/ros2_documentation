@@ -14,6 +14,10 @@
 Migrating Python Packages Reference
 ===================================
 
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
 This page is a reference on how to migrate Python packages from ROS 1 to ROS 2.
 If this is your first time migrating a Python package, then follow :doc:`this guide to migrate an example Python package <Migrating-Python-Package-Example>` first.
 

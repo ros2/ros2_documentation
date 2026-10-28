@@ -12,6 +12,10 @@
 Migrating a Python Package Example
 ==================================
 
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
 This guide shows how to migrate an example Python package from ROS 1 to ROS 2.
 
 .. contents:: Contents

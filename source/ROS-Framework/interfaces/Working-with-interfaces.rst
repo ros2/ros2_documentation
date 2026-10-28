@@ -8,6 +8,10 @@
 Working with interfaces
 =======================
 
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
 In this section:
 
 .. contents:: Contents

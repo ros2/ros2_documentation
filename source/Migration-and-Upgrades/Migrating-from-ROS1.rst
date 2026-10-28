@@ -12,6 +12,10 @@
 Migrating from ROS 1 to ROS 2
 =============================
 
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
 These guides show how to convert existing ROS 1 packages to ROS 2.
 If you are new to porting between ROS 1 and ROS 2, it is recommended to read through the guides in order.
 
