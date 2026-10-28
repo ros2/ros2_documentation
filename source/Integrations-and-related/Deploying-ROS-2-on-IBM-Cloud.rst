@@ -1,6 +1,6 @@
 .. meta::
    :contentType: tutorial
-   :experience: TBD
+   :experience: beginner, intermediate, expert
    :area: installation
    :distribution: {DISTRO}
    :product: {PRODUCT}
