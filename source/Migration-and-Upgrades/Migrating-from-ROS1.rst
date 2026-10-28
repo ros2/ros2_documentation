@@ -12,6 +12,9 @@
 Migrating from ROS 1 to ROS 2
 =============================
 
+.. short-description::
+   This page is a collection of articles about migrating from ROS 1 to ROS 2.
+
 .. showmeta::
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level

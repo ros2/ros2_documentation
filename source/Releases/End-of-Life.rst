@@ -12,6 +12,9 @@
 End-of-Life Distributions
 =========================
 
+.. short-description::
+   This page is a collection of articles about end-of-life distributions.
+
 .. showmeta::
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level

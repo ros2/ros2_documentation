@@ -8,6 +8,9 @@
 Migration and upgrades
 ======================
 
+.. short-description::
+   This page is a collection of articles about migration and upgrades.
+
 .. showmeta::
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level

@@ -8,6 +8,9 @@
 Community
 =========
 
+.. short-description::
+   This page is a collection of articles about the ROS 2 community.
+
 .. showmeta::
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level

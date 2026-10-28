@@ -8,6 +8,9 @@
 Working with Client libraries
 =============================
 
+.. short-description::
+   This page is a collection of articles about client libraries.
+
 .. showmeta::
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level

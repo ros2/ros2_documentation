@@ -16,6 +16,9 @@
 Releasing a Package
 ===================
 
+.. short-description::
+   This page is a collection of articles about releasing packages.
+
 .. showmeta::
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level

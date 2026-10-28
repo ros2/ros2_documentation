@@ -8,6 +8,9 @@
 Working with parameters
 =======================
 
+.. short-description::
+   This page is a collection of articles about parameters.
+
 .. showmeta::
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level

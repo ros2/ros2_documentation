@@ -8,6 +8,9 @@
 Integrations
 ============
 
+.. short-description::
+   This page is a collection of articles about integrations.
+
 .. showmeta::
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
