@@ -12,6 +12,11 @@
 Migrating a Python Package Example
 ==================================
 
+.. short-description::
+   A worked example helps you practise migrating a Python package before you update your own code.
+   In this article, you will migrate a ``talker_py`` package from ``rospy`` and ``catkin`` to ``rclpy`` and ``ament_python``.
+   After you follow these steps, you can build and run the node with ``colcon`` and use the Python migration reference for your packages.
+
 .. showmeta::
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level

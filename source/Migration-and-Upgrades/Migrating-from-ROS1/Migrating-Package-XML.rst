@@ -12,6 +12,11 @@
 Migrating your package.xml to format 2
 ======================================
 
+.. short-description::
+   ROS requires ``package.xml`` format 2 or higher, so format 1 manifests must be updated before a package can build.
+   In this article, you will learn how to convert dependency tags from format 1 to format 2.
+   After you follow these steps, you will have a valid format 2 ``package.xml`` that you can verify with a ROS 1 build.
+
 .. showmeta::
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level

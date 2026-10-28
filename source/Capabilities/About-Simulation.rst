@@ -8,6 +8,10 @@
 Simulation
 ==========
 
+.. short-description::
+   Simulation capabilities let you test robot software in virtual environments, often with physical accuracy.
+   This article summarizes ROS developer tools and guidance available to enable simulation.
+
 .. showmeta::
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level

@@ -14,6 +14,10 @@
 Migrating Python Packages Reference
 ===================================
 
+.. short-description::
+   Python packages need packaging and API updates when you migrate them from ROS 1 to ROS.
+   This article is a reference for migrating Python packages with ``colcon``, ``ament_python``, and related ROS tooling.
+
 .. showmeta::
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level

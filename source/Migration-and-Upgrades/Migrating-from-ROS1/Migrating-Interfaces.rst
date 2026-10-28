@@ -12,6 +12,11 @@
 Migrating Interfaces
 ====================
 
+.. short-description::
+   Interface files define the messages, services, and actions your nodes exchange, and their layout changes between ROS 1 and ROS.
+   In this article, you will learn how to place interface files, update types, and generate them with ROS build tooling.
+   After you follow these steps, you can migrate an interface package so ROS can build and use its definitions.
+
 .. showmeta::
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level

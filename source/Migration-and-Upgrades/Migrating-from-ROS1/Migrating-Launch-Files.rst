@@ -17,6 +17,11 @@
 Migrating Launch Files
 ======================
 
+.. short-description::
+   Launch files start your nodes and configure how they run together, and the XML tags differ between ROS 1 and ROS.
+   In this article, you will learn how to rewrite ROS 1 launch XML using the ROS launch tag set.
+   After you follow these steps, you can migrate typical launch files to ROS XML (or YAML) with the correct attributes.
+
 .. showmeta::
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level

@@ -12,6 +12,11 @@
 Migrating a C++ Package Example
 ===============================
 
+.. short-description::
+   A worked example helps you practise migrating a C++ package before you update your own code.
+   In this article, you will migrate a ``talker`` package from ``roscpp`` and ``catkin`` to ``rclcpp`` and ``ament_cmake``.
+   After you follow these steps, you can build and run the node with ``colcon`` and use the C++ migration reference for your packages.
+
 .. showmeta::
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level

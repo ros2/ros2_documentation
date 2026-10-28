@@ -10,6 +10,11 @@
 Installing from the snapshot repository
 =======================================
 
+.. short-description::
+   The main ROS apt repository only keeps the latest package versions, so a sync can change what you install.
+   In this article, you will learn how to add a snapshot repository, pin matching rosdistro data, and install fixed package versions.
+   After you follow these steps, you can reproduce a known sync or switch back to the main repository when you choose.
+
 .. showmeta::
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
