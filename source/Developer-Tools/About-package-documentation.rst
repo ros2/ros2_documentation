@@ -23,7 +23,7 @@ Coming Soon
 
    Package-documentation/Documenting-a-ROS-2-Package
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :local:
    :depth: 2
 

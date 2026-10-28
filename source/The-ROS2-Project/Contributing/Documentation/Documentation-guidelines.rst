@@ -65,7 +65,7 @@ Using ``:depth: 2`` will only show sections and subsections in the table of cont
 
 .. code-block:: rst
 
-   .. contents:: Table of Contents
+   .. contents:: Contents
       :depth: 2
       :local:
 

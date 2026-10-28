@@ -26,7 +26,7 @@ Coming Soon
    Debugging/Building-ROS-2-with-Tracing
    Debugging/About-testing
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :local:
    :depth: 2
 

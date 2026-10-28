@@ -23,7 +23,7 @@ Visualization
    Visualization/About-RQt
    Visualization/Rqtbag/Create-An-Rqtbag-Plugin
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :local:
    :depth: 2
 
