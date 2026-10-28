@@ -3,7 +3,7 @@
     How-To-Guides/Migrating-from-ROS1
 
 .. meta::
-   :contentType:
+   :contentType: about
    :experience: beginner, intermediate, expert
    :area: framework
    :distribution: {DISTRO}

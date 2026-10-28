@@ -1,5 +1,5 @@
 .. meta::
-   :contentType:
+   :contentType: about
    :experience: intermediate
    :area: debugging, builds
    :distribution: {DISTRO}

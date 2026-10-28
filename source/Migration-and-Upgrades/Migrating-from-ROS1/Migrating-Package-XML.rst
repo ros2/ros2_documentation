@@ -3,7 +3,7 @@
     How-To-Guides/Migrating-from-ROS1/Migrating-Package-XML
 
 .. meta::
-   :contentType:
+   :contentType: how-to
    :experience: beginner, intermediate, expert
    :area: framework
    :distribution: {DISTRO}

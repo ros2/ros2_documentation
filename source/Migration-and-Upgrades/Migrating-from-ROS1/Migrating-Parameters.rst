@@ -6,7 +6,7 @@
    How-To-Guides/Migrating-from-ROS1/Migrating-Parameters
 
 .. meta::
-   :contentType:
+   :contentType: how-to
    :experience: beginner, intermediate, expert
    :area: framework
    :distribution: {DISTRO}

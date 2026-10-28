@@ -5,7 +5,7 @@
    How-To-Guides/Migrating-from-ROS1/Migrating-Python-Packages
 
 .. meta::
-   :contentType:
+   :contentType: reference
    :experience: beginner, intermediate, expert
    :area: framework
    :distribution: {DISTRO}

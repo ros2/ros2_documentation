@@ -3,7 +3,7 @@
     Tutorials/Intermediate/RViz/RViz-Main
 
 .. meta::
-   :contentType:
+   :contentType: about
    :experience: intermediate
    :area: visualization, tools
    :distribution: {DISTRO}

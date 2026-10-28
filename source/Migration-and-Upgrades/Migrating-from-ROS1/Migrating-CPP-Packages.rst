@@ -6,7 +6,7 @@
    How-To-Guides/Migrating-from-ROS1/Migrating-CPP-Packages
 
 .. meta::
-   :contentType:
+   :contentType: reference
    :experience: beginner, intermediate, expert
    :area: framework
    :distribution: {DISTRO}

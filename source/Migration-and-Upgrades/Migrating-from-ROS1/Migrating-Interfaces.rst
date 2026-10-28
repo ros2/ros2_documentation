@@ -3,7 +3,7 @@
     How-To-Guides/Migrating-from-ROS1/Migrating-Interfaces
 
 .. meta::
-   :contentType:
+   :contentType: how-to
    :experience: beginner, intermediate, expert
    :area: framework
    :distribution: {DISTRO}
