@@ -4,7 +4,7 @@
 
 .. meta::
    :contentType:
-   :experience:
+   :experience: beginner, intermediate, expert
    :area: framework
    :distribution: {DISTRO}
    :product: {PRODUCT}
