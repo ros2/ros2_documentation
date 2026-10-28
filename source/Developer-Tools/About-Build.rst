@@ -77,7 +77,7 @@ It supports the building of source and binary packages, as well as continuous in
 
 `<https://build.ros2.org/>`_
 
-Read more about ROS build farms: :doc:`../The-ROS2-Project/Contributing/Build-Farms`
+Read more about ROS build farms: :doc:`../The-ROS2-Project/Contributing/Contributing-to-code/Build-Farms`
 
 .. Related content (placeholder)
    -----------------------------
