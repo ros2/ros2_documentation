@@ -17,7 +17,7 @@ Summary
 
 ROS is used in many areas of robotics.
 In logistics, it helps robots move goods in warehouses by providing navigation, mapping, motion control, and coordination between multiple robots.
-In manufacturing, it enables advanced tasks such as automated pick-and-place operations using vision systems for accurate handling.
+In manufacturing, it enables advanced tasks such as automated pick-and-place operations using vision systems for accurate handling. In defense, it locates threats to neutralize.
 In healthcare, ROS supports robotic systems that assist with patient care and improve efficiency in clinical workflows.
 
 Watch the `ROS video`_ for a quick introduction.
