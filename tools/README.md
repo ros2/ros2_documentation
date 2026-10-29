@@ -8,7 +8,7 @@ Helpers for ensuring reStructuredText (`.rst`) documentation enhancements on pul
 
 Information for documentation contributors creating or updating `.rst` files.
 
-When you open or update a pull request, the **Enhance** GitHub Actions workflow runs automatically. If your changes include `.rst` files, those files are checked for standard metadata and after-title directives defined in [`enhance.yaml`](enhance.yaml). The tooling is read-only: it never edits your files or posts inline commit suggestions. If anything is missing, you receive a single **Documentation enhancements** review on the pull request and fix the RST yourself.
+When you open or update a pull request, the **Enhance** GitHub Actions workflow runs automatically. If your changes include `.rst` files, those files are checked for standard metadata and after-title directives defined in [`enhance.yaml`](enhance.yaml). The tooling is read-only: it never edits your files or posts inline commit suggestions. If anything is missing, you receive a single **Article metadata** review on the pull request and fix the RST yourself.
 
 ### What gets checked
 
@@ -159,8 +159,8 @@ The [Enhance workflow](../.github/workflows/enhance.yml) runs automatically on e
 
 1. **No `.rst` changes** — The workflow succeeds immediately. Nothing is posted and no enhancement check runs.
 2. **One or more `.rst` files changed** — CI discovers those files and checks each against [`enhance.yaml`](enhance.yaml).
-3. **Everything present** — The workflow succeeds. Any earlier **Documentation enhancements** review from a previous push is marked outdated; no new review is posted.
-4. **Something missing** — CI posts a **Documentation enhancements** review on the pull request **Conversation** tab. The review lists each affected file and what is still missing:
+3. **Everything present** — The workflow succeeds. Any earlier **Article metadata** review from a previous push is marked outdated; no new review is posted.
+4. **Something missing** — CI posts an **Article metadata** review on the pull request **Conversation** tab. The review lists each affected file and what is still missing:
    - `.. meta::` fields labelled **required** (error severity) or **optional** (warning severity), with suggested default values where configured
    - After-title directives (`.. short-description::`, `.. showmeta::`) with brief guidance
 5. **Warning-only gaps** — The workflow job still **succeeds**; treat the review as advisory and fix when you can.
@@ -178,7 +178,7 @@ The [Enhance workflow](../.github/workflows/enhance.yml) runs automatically on e
 
 #### How to fix issues
 
-1. Open the **Documentation enhancements** review on your pull request.
+1. Open the **Article metadata** review on your pull request.
 2. Edit the listed `.rst` files: add or complete the missing `.. meta::` fields and after-title directives (see [Enhancement configuration](#enhancement-configuration) above).
 3. Optionally verify locally before pushing:
 
@@ -271,7 +271,7 @@ The Enhance workflow installs PyYAML in the job; it does not install the full do
 1. Check out the PR **head** (`.rst` content to inspect).
 2. Check out the PR **base** into `.trusted-base/` (Makefile, `ensure_enhancements.py`, `enhance.yaml`, `supersede_enhancement_reviews.sh`).
 3. Install Python 3.12 and PyYAML.
-4. **Ensure documentation enhancements** — `git fetch` the base SHA, then `make -f .trusted-base/Makefile ensure-enhancements` with `TOOLS_DIR=.trusted-base/tools`, `DIFF_BASE`, and `STATUS_FILE=$GITHUB_OUTPUT`. The step uses `continue-on-error: true` so warning-only gaps do not fail the job immediately.
+4. **Ensure article metadata** — `git fetch` the base SHA, then `make -f .trusted-base/Makefile ensure-enhancements` with `TOOLS_DIR=.trusted-base/tools`, `DIFF_BASE`, and `STATUS_FILE=$GITHUB_OUTPUT`. The step uses `continue-on-error: true` so warning-only gaps do not fail the job immediately.
 5. **Verify enhancement check ran** — fail the job if `enhancements_checked` is empty. The ensure step soft-fails by design, so a missing output is the only way to tell a crashed check from a clean run.
 6. **Supersede stale enhancement reviews** (only if `enhancements_checked=true`) — `make -f .trusted-base/Makefile supersede-enhancement-reviews`, which minimises stamped reviews and writes nothing back.
 7. **Post enhancement review comment** — if `has_results`, post the stamped `comment` body via `gh pr review` (Conversation view).
