@@ -45,7 +45,7 @@ REVIEW_MARKER_ID = "ros2-doc-enhance-ensure"
 REVIEW_MARKER = f"<!-- {REVIEW_MARKER_ID} -->"
 
 # Title for pull request review bodies (GitHub Markdown).
-SUMMARY_REVIEW_TITLE = "## Documentation enhancements"
+SUMMARY_REVIEW_TITLE = "## Article metadata"
 
 
 def _unresolved_fields(content: str, rules: dict[str, MetaRule]) -> list[str]:
@@ -390,9 +390,9 @@ def build_review_comment(
     lines = [
         SUMMARY_REVIEW_TITLE,
         "",
-        "This pull request is missing configured documentation enhancements "
-        "or uses values outside the configured vocabulary "
-        "(see `tools/enhance.yaml`).",
+        "This pull request contains articles that are missing metadata or "
+        "articles using metadata values that are not in the configured "
+        "vocabulary (see `tools/enhance.yaml`).",
         "",
     ]
 
