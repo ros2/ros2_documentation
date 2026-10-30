@@ -8,6 +8,9 @@
 Working with nodes
 ==================
 
+.. short-description::
+   This section provides tutorials and guides for creating, configuring, and working with ROS 2 nodes.
+
 .. showmeta::
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
@@ -27,6 +30,7 @@ Coming Soon
    Working-with-nodes/Writing-a-Composable-Node
    Working-with-nodes/Composition
    Working-with-nodes/Using-Node-Interfaces-Template-Class
+   Working-with-nodes/Writing-a-Lifecycle-Node
    Working-with-nodes/Managed-Nodes
    Working-with-nodes/intra-process/Intra-Process-Communication
    Working-with-nodes/Using-callback-groups
