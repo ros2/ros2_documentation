@@ -1,7 +1,23 @@
+.. meta::
+   :contentType: tutorial
+   :experience: beginner
+   :area: nodes, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. _ROS2CliLogging:
 
 Learning about CLI logging - tutorial
 =====================================
+
+.. short-description::
+   Log messages report what a node is doing, and each message has a severity level.
+   This tutorial teaches you to write a small battery monitor node that logs at different severities, then use the ROS CLI to show or hide those messages.
+   After completing it, you will be able to control which log severities appear with ``--log-level``.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 Log messages report what a node is doing, and each message has a severity level.
 This article teaches you to write a small battery monitor node that logs at different severities, then use the ROS CLI to show or hide those messages.
