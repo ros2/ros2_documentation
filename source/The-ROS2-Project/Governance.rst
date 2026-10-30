@@ -209,7 +209,7 @@ The ROS committers (who are not also part of the ROS PMC) consists of the follow
      - `InvincibleRMC <https://github.com/InvincibleRMC>`_
      - PST (UTC-8)/PDT (UTC-7)
    * - Nadav Elkabets
-     - Stealth Startup
+     - Independent
      - `nadavelkabets <https://github.com/nadavelkabets/>`_
      - N/A
    * - Steve Peters
