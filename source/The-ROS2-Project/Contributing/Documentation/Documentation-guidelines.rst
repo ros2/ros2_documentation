@@ -1,7 +1,7 @@
 .. meta::
    :contentType: reference
    :experience: beginner, intermediate, expert
-   :area: community, contributing
+   :area: contributing, community
    :distribution: {DISTRO}
    :product: {PRODUCT}
 
@@ -37,7 +37,8 @@ General formatting guidelines
 
 The ROS documentation website uses the ``reStructuredText`` format, which is the default plaintext markup language used by Sphinx.
 This section is a brief introduction to ``reStructuredText`` concepts, syntax, and best practices.
-When formatting your ``reStructuredText`` file make sure to write only one sentence per line as it makes reviewing and modifying your file much easier.
+When formatting your ``reStructuredText`` file, write only one sentence per line.
+That makes reviewing and modifying the file much easier.
 Also, be mindful of the use of white space in your file!
 The ROS documentation linter will not accept pull requests with trailing white space.
 We recommend that you enable automatic white space highlighting and cleanup if your editor supports it.
@@ -54,23 +55,25 @@ Article metadata provides information about the content of an article, such as i
 Adding metadata to an article also improves search engine optimization (SEO) and web indexing.
 ROS articles also include related directives to manage visible page metadata and article summaries.
 
-Every ROS article must include specific metadata and supporting directives to ensure the documentation builds correctly and renders properly.
+Every ROS article should include specific metadata and supporting directives so that the documentation renders correctly and related content can be generated.
 
 Required metadata
 ~~~~~~~~~~~~~~~~~
 Each ROS article must include the ``.. meta::`` directive, and within that, the ``:area:`` field.
 
-``:area:`` indicates the area of ROS documentation the article belongs to and it's position in the documentation hierarchy.
+``:area:`` indicates the area of ROS documentation the article belongs to and its position in the documentation hierarchy.
 This is essential for enabling search filtering and for building lists of related packages or articles.
 
-For example, ``:area:``: ``contributing``, ``community`` indicates the article belongs to the ``contributing`` subsection, which is inside ``community`` area.
-In this case, ``community`` is the primary value, which used for building lists of related articles and packages.
+List one or more values, ordered **most specific first**.
+For example, ``:area: contributing, community`` means the article belongs to the ``contributing`` subsection inside the ``community`` area.
+The first value (``contributing``) is the primary value used when building lists of related articles and packages.
 
 .. note::
 
-   If the ``:area:`` field is missing or present but the value is empty or incorrect, the documentation build will fail.
+   If the ``:area:`` field is missing, empty, or uses a value outside the allowed vocabulary, the Enhance check on the pull request fails.
 
-To add a value for the ``:area:`` field, use one or more of the following values:
+To add a value for the ``:area:`` field, use one or more of the following values.
+Broader parent areas (such as ``community``, ``framework``, ``tools``, and ``capabilities``) may be listed after more specific subsection values:
 
 .. literalinclude:: ../../../../tools/enhance.yaml
    :language: yaml
@@ -78,10 +81,11 @@ To add a value for the ``:area:`` field, use one or more of the following values
    :end-before: experience:
    :dedent:
 
-Required related directives
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Recommended related directives
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Each ROS article must contain the ``.. showmeta::`` and  ``.. short-description::`` related directives to manage visible page metadata and article summaries.
+Each ROS article should include the ``.. showmeta::`` and ``.. short-description::`` related directives to manage visible page metadata and article summaries.
+Omitting them triggers a warning in the Enhance check rather than failing the pull request.
 
 ``.. showmeta::`` renders the specified metadata at the top of a published article.
 
@@ -97,7 +101,7 @@ Add the following related directive to your article:
 
   Use the following structure to create a short description, making sure your sentences answer each of the questions:
 
-  * Sentence 1 - Context: Why would a user be interested in this reading the article?
+  * Sentence 1 - Context: Why would a user be interested in reading this article?
 
   * Sentence 2 - Purpose: What does the article describe or what will a user get out of reading it?
 
@@ -128,8 +132,8 @@ Short description for :doc:`Using the Node Interfaces Template Class (C++) — t
 Optional metadata
 ~~~~~~~~~~~~~~~~~
 
-Some metadata is optional meaning that omitting it will only trigger a warning rather than cause the documentation build to fail.
-It's best practice to include the optional metadata.
+Some metadata is optional, meaning that omitting it only triggers a warning in the Enhance check rather than failing the pull request.
+It is best practice to include the optional metadata.
 
 In the ``.. meta::`` directive, the following fields and corresponding values are optional.
 
@@ -163,7 +167,7 @@ Add the following value:
 
   * ``{DISTRO}``
 
-* ``:product:``: Identifes which ROS product the article belongs to.
+* ``:product:``: Identifies which ROS product the article belongs to.
 
 Add the following value:
 
@@ -172,9 +176,20 @@ Add the following value:
 Related content
 ^^^^^^^^^^^^^^^
 
-Related content is the packages or articles that are added to an article based on the primary value in the ``:area:`` directive.
+Related content is the packages or articles linked from an article based on the primary (first) value in the ``:area:`` field.
 
-If you want to add related content manually, use the following formatting and naming conventions.
+To generate related articles automatically at build time, add the ``.. ros-related-articles::`` directive.
+Write a short intro line such as ``Related articles:`` above it.
+Matching uses the primary ``:area:`` value: other pages that include that value anywhere in their own ``:area:`` list are listed.
+
+.. code-block:: rst
+
+  Related articles:
+
+  .. ros-related-articles::
+
+You can also add related content manually.
+Use the following formatting and naming conventions.
 You can check :doc:`About client libraries <../../../ROS-Framework/About-Client-Libraries>` for an example.
 
 .. code-block:: rst
@@ -206,8 +221,8 @@ Table of contents
 There are two types of directives used for generating a table of contents: ``.. toctree::`` and ``.. contents::``.
 
 The ``.. toctree::`` directive is used in top-level pages, for example, :doc:`Community <../../../The-ROS2-Project>`, to organize and display the list of subarticles.
-This directive creates both the left-hand navigation pane, and the in-page navigation links to the subarticles.
-It helps readers to understand the structure of the documentation sections and navigate between articles.
+This directive creates both the left-hand navigation pane and the in-page navigation links to the subarticles.
+It helps readers understand the structure of the documentation sections and navigate between articles.
 
 .. code-block:: rst
 
@@ -215,10 +230,10 @@ It helps readers to understand the structure of the documentation sections and n
       :maxdepth: 1
 
 The ``.. contents::`` directive is used for generating the table of contents for a particular article by parsing all headings in the article.
-The table of contents shows readers the structural overview of the content and helps them easily navigate it.
+The table of contents shows readers the structural overview of the content and helps them navigate it.
 
 The ``.. contents::`` directive defines the maximum depth of sections displayed in the article's table of contents.
-The recommended value is ``:depth: 2`` to ensure only an section and subsection headings are displayed.
+The recommended value is ``:depth: 2`` to ensure only section and subsection headings are displayed.
 This is particularly important for large articles with many nested sections, for example, :doc:`Quality Guide <../Quality-Guide>`.
 
 .. code-block:: rst
@@ -252,7 +267,7 @@ We usually use one digit for numbering subsections and two digits (dot separated
 Lists
 ^^^^^
 
-Stars ``*`` are used for listing unordered items using bullet points, and the number sign ``#.``  is used for listing numbered items.
+Stars ``*`` are used for listing unordered items using bullet points, and the number sign ``#.`` is used for listing numbered items.
 Both of them support nested definitions and will render accordingly.
 
 .. code-block:: rst
@@ -298,11 +313,11 @@ Code blocks: ``bash`` vs. ``console``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ``bash`` and ``console`` are similar, but they serve two different purposes.
-Choosing the right one is important to ensure that the content is formatted correctly and that the copy button copies the right content.
-The following section provides an explanation of each one.
-You can skip to the end of this section for a list of use-cases and corresponding examples.
+Choosing the right one ensures that the content is formatted correctly and that the copy button copies the right content.
+The following section explains each one.
+You can skip to the end of this section for a list of use cases and corresponding examples.
 
-``bash`` is meant for scripts, for example, for bash commands from a script file.
+``bash`` is meant for scripts, for example for bash commands from a script file.
 Example result:
 
 .. code-block:: bash
@@ -312,10 +327,11 @@ Example result:
 
 ``console`` is meant for commands to be run in a terminal, optionally including their output.
 This makes it clear that the given commands need to be run in a terminal.
-It also allows for separating command lines from output lines using prompt symbols such as ``$`` or ``#``.
-Command lines are formatted as bash commands while output lines are formatted as normal text.
-The prompt symbol is not selectable, and clicking on the copy button in the upper right-hand corner copies *only* the commands, not the outputs nor the prompt symbols.
-This means that if a ``console`` code block is used without any ``$``, the copy button will not copy any lines.
+It also allows you to separate command lines from output lines using prompt symbols such as ``$`` or ``#``.
+Command lines are formatted as bash commands, while output lines are formatted as normal text.
+The prompt symbol is not selectable.
+Clicking the copy button in the upper right-hand corner copies *only* the commands, not the outputs or the prompt symbols.
+If a ``console`` code block is used without any ``$``, the copy button will not copy any lines.
 Example result:
 
 .. code-block:: console
@@ -335,7 +351,7 @@ Compare the previous example result with a ``bash`` code-block:
    [INFO] [1742150439.026043867] [my_turtle]: Spawning turtle [turtle1] at x=[5.544445], y=[5.544445], theta=[0.000000]
 
 To simplify code blocks, ``bash`` can still be used without ``$`` for commands meant to be run in a terminal if the code block does not include any output lines.
-To help choose between ``bash`` and ``console``, see the following list of use-cases and corresponding examples:
+To help choose between ``bash`` and ``console``, see the following list of use cases and corresponding examples:
 
 * Commands meant to be copied into a script file.
   Use ``.. code-block:: bash`` without ``$``:
@@ -385,7 +401,7 @@ Charts, graphs, and diagrams
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ROS documentation now supports charts, graphs, and diagrams written using `Mermaid Charts. <https://mermaid.js.org/intro/>`__
-We prefer that charts, graphs, and diagrams use Mermaid instead of static image files as it allows us to programmatically update and edit these resources as the project evolves.
+Prefer Mermaid instead of static image files, so these resources can be updated programmatically as the project evolves.
 Full documentation of the Mermaid graph language syntax can be found `on their website. <https://mermaid.js.org/intro/syntax-reference.html>`__
 
 References and links
@@ -416,7 +432,7 @@ Note that the relative path to the file is used.
 
 The ``:ref:`` directive is used for linking to a specific target, for example, a heading, image, or code section, either in the same article, or in another article.
 
-To create an targeted link, place a definition directly above the target you want to link to.
+To create a targeted link, place a definition directly above the target you want to link to.
 In the example below, the target is defined as ``_talker-listener`` one line before the ``Try some examples`` heading.
 
 .. code-block:: rst
@@ -480,9 +496,9 @@ The same file can be used on multiple branches (i.e., for multiple distros) and 
 Content types
 -------------
 
-Content types define patterns in the content of different types of articles, designed to meet a range of information-needs.
-The main purpose of content types is for setting expectations for humans and AI about the expected content range and scope.
-The patterns defined by content types are also very valuable for enabling efficient content creation and maintenance.
+Content types define patterns in the content of different types of articles, designed to meet a range of information needs.
+The main purpose of content types is to set expectations for humans and AI about the expected content range and scope.
+The patterns defined by content types are also valuable for enabling efficient content creation and maintenance.
 To best support information retrieval by both humans and machines, each article contains a single content type.
 
 Most ROS articles should be one of the following content types.
@@ -535,15 +551,15 @@ Use the examples in the following table for guidance about the type of article y
 
        High effort to create and maintain.
 
-       Before making a tutorial, consider if a How-to or Example type article might do the job.
+       Before making a tutorial, consider if a how-to or example type article might do the job.
      - :doc:`Learning about topics - tutorial <../../../ROS-Framework/interfaces/topics/Understanding-ROS2-Topics/Understanding-ROS2-Topics>`
    * - Example
      - Simple article to make a demo example available to search and browse (detail is mainly in the example code in a separate location).
      - Suited to helping people find a demo example that they can use to understand and adapt for their needs.
 
-       Expects a set if commented code in a separate location.
+       Expects a set of commented code in a separate location.
 
-       If you want to provide step by step instructions for implementing and adapting the example, a tutorial is probably better.
+       If you want to provide step-by-step instructions for implementing and adapting the example, a tutorial is probably better.
      - :doc:`Managing node lifecycles - example <../../../ROS-Framework/nodes/Working-with-nodes/Managed-Nodes>`
    * - Reference
      - List and explain the detail of specifications.
@@ -568,8 +584,9 @@ FAQs
 
 What metadata and directives are required in a ROS documentation article?
   Every ROS article must include a ``.. meta::`` directive with an ``:area:`` field.
-  It must also include the ``.. showmeta::`` and ``.. short-description::`` directives.
-  A missing, empty, or incorrect ``:area:`` value causes the documentation build to fail.
+  List ``:area:`` values most specific first; the first value is the primary value used for related content.
+  Each article should also include the ``.. showmeta::`` and ``.. short-description::`` directives.
+  A missing, empty, or disallowed ``:area:`` value causes the Enhance check on the pull request to fail.
 
 How should I format sentences and white space in a ROS reStructuredText file?
   Write only one sentence per line to make the file easier to review and modify.
