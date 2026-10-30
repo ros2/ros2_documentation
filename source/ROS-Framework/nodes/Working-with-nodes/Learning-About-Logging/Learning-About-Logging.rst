@@ -156,9 +156,8 @@ ROS needs an entry point to ensure that ``ros2 run`` can start your node by name
 4 Build and source the workspace
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Build the package to install the new entry point, then source the workspace overlay so that ``ros2 run`` can find it.
-
-Return to the root of your workspace, then run the following:
+You need to build the package to install the new entry point, then source the workspace overlay so that ``ros2 run`` can find it.
+To do this, navigate to the root of your workspace, then run the following:
 
 .. tabs::
 
@@ -234,14 +233,14 @@ To print them, set the log level to ``debug`` when you start the node.
    The node was already creating those messages.
    The CLI log level only controls whether they are printed.
 
-#. Now to set a global log level to ``debug``:
+#. Set a global log level to ``debug``:
 
    .. code-block:: console
 
      $ ros2 run battery_logging battery_monitor --ros-args --log-level debug
 
    A global ``debug`` setting applies to every logger in the process, not only ``battery_monitor``.
-   That includes internal ROS libraries such as ``rcl``, so you may see many extra ``DEBUG`` lines that are unrelated to the battery monitor.
+   Global settings include internal ROS libraries such as ``rcl``, so you may see many extra ``DEBUG`` lines that are unrelated to the battery monitor.
 
 #. If you want global ``DEBUG`` for your own code, set ``rcl`` back to ``info`` to hide the ``rcl`` lines.
 
@@ -273,10 +272,13 @@ The severity you pick in code is what operators see by default.
      $ ros2 run battery_logging battery_monitor
 
    The battery still crosses 30 %, but the low-battery message no longer appears.
-   A real problem logged at ``DEBUG`` stays hidden until someone sets the log level to ``debug``.
-   If you put too many routine messages at ``INFO``, operators may struggle to spot the important ones among them.
 
-#. In ``battery_monitor.py``, change that call back to ``warning``, then rebuild the package and source the overlay.
+   .. note::
+
+      A real problem logged at ``DEBUG`` stays hidden until someone sets the log level to ``debug``.
+      If you put too many routine messages at ``INFO``, operators may struggle to spot the important ones among them.
+
+#. In ``battery_monitor.py``, change the call back to ``warning``, then rebuild the package and source the overlay.
 
 Use this node as a model for when each level fits:
 
@@ -286,8 +288,10 @@ Use this node as a model for when each level fits:
 * ``ERROR``: a serious fault that needs immediate attention.
 * ``FATAL``: the node cannot continue.
 
-Logging ``FATAL`` does not stop the process by itself.
-This example raises ``SystemExit`` after the fatal message so that the node shuts down cleanly.
+.. note::
+
+   Logging ``FATAL`` does not stop the process by itself.
+   This example raises ``SystemExit`` after the fatal message so that the node shuts down cleanly.
 
 8 Inspect the same logs in ``rqt_console``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
