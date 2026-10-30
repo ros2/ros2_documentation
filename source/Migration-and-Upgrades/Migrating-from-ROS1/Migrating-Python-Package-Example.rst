@@ -3,8 +3,8 @@
     How-To-Guides/Migrating-from-ROS1/Migrating-Python-Package-Example
 
 .. meta::
-   :contentType:
-   :experience:
+   :contentType: example
+   :experience: beginner, intermediate, expert
    :area: framework
    :distribution: {DISTRO}
    :product: {PRODUCT}
@@ -12,9 +12,18 @@
 Migrating a Python Package Example
 ==================================
 
+.. short-description::
+   A worked example helps you practise migrating a Python package before you update your own code.
+   In this article, you will migrate a ``talker_py`` package from ``rospy`` and ``catkin`` to ``rclpy`` and ``ament_python``.
+   After you follow these steps, you can build and run the node with ``colcon`` and use the Python migration reference for your packages.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
 This guide shows how to migrate an example Python package from ROS 1 to ROS 2.
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 

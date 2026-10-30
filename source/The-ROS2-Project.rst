@@ -1,5 +1,5 @@
 .. meta::
-  :contentType:
+  :contentType: about
   :experience: beginner, intermediate, expert
   :area: community
   :distribution: {DISTRO}
@@ -8,10 +8,21 @@
 Community
 =========
 
-Check out the resources below to learn more about the advancement of the ROS 2 project.
+.. short-description::
+   This page is a collection of articles about the ROS 2 community.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+In this section:
+
+.. contents:: Contents
+   :depth: 2
+   :local:
 
 .. toctree::
-   :maxdepth: 1
+   :hidden:
 
    The-ROS2-Project/Contributing
    The-ROS2-Project/Features

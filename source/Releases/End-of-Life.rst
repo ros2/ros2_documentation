@@ -1,5 +1,5 @@
 .. meta::
-   :contentType:
+   :contentType: about
    :experience: intermediate, expert
    :area: framework
    :distribution: {DISTRO}
@@ -12,6 +12,9 @@
 End-of-Life Distributions
 =========================
 
+.. short-description::
+   This page is a collection of articles about end-of-life distributions.
+
 .. showmeta::
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
@@ -23,7 +26,7 @@ End-of-Life Distributions
 Below is a list of historic ROS 2 distributions that are no longer supported.
 
 .. toctree::
-   :maxdepth: 1
+   :hidden:
 
    Release-Iron-Irwini
    Release-Galactic-Geochelone

@@ -16,14 +16,14 @@ Introspection and analysis
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 
 Coming Soon
 
 .. toctree::
-   :maxdepth: 3
+   :hidden:
 
    Introspection-and-analysis/About-Command-Line-Tools
    Introspection-and-analysis/Publishing-Messages-Using-YAML-Files

@@ -6,8 +6,8 @@
    How-To-Guides/Migrating-from-ROS1/Migrating-CPP-Packages
 
 .. meta::
-   :contentType:
-   :experience:
+   :contentType: reference
+   :experience: beginner, intermediate, expert
    :area: framework
    :distribution: {DISTRO}
    :product: {PRODUCT}
@@ -15,7 +15,15 @@
 Migrating C++ Packages Reference
 ================================
 
-.. contents:: Table of Contents
+.. short-description::
+   C++ packages need build-system and API updates when you migrate them from ROS 1 to ROS.
+   This article is a reference for migrating C++ packages with ``colcon``, ``ament_cmake``, and related ROS tooling.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
    :depth: 2
    :local:
 

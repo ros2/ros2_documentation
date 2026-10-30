@@ -30,7 +30,7 @@ Setting access controls - tutorial
 
 **Time:** 20 minutes
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 

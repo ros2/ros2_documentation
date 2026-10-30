@@ -1,5 +1,5 @@
 .. meta::
-   :contentType:
+   :contentType: about
    :experience: intermediate
    :area: tools
    :distribution: {DISTRO}
@@ -8,11 +8,21 @@
 Tools
 =====
 
+.. short-description::
+   This page is a collection of articles about tools.
 
-Coming Soon
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+In this section:
+
+.. contents:: Contents
+   :depth: 2
+   :local:
 
 .. toctree::
-   :maxdepth: 3
+   :hidden:
 
    Developer-Tools/About-introspection-and-analysis
    Developer-Tools/About-Launch

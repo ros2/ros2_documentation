@@ -1,6 +1,6 @@
 .. meta::
-   :contentType:
-   :experience:
+   :contentType: about
+   :experience: beginner, intermediate, expert
    :area: framework
    :distribution: {DISTRO}
    :product: {PRODUCT}
@@ -8,15 +8,21 @@
 Integrations
 ============
 
+.. short-description::
+   This page is a collection of articles about integrations.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+In this section:
+
 .. contents:: Contents
    :depth: 2
    :local:
 
-Coming Soon
-
 .. toctree::
    :hidden:
-   :glob:
 
    Integrations-and-related/Simulators/Simulation-Main
    Integrations-and-related/Deploying-ROS-2-on-IBM-Cloud

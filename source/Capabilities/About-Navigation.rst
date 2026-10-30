@@ -8,8 +8,15 @@
 Navigation
 ==========
 
+.. short-description::
+   Navigation capabilities enable a robot to map its position in an environment and plan a path to a new destination.
+   This article summarizes ROS developer tools and guidance available to help with navigation.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
 .. toctree::
-   :maxdepth: 1
    :hidden:
 
 ..   list of child topics here
@@ -19,7 +26,8 @@ This article summarizes ROS developer tools and guidance available to help with 
 
 **Area: navigation, capabilities | Content-type: about | Experience: beginner, intermediate, expert**
 
-.. contents:: Table of Contents
+.. contents:: Contents
+   :depth: 2
    :local:
 
 Summary

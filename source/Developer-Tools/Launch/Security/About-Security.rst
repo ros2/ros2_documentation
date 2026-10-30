@@ -35,7 +35,7 @@ ROS 2 Security
    Security-on-Two
    Access-Controls
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 

@@ -28,8 +28,8 @@ Creating a content filtering subscription — tutorial
 
 **Time:** 15 minutes
 
-.. contents:: Table of Contents
-   :depth: 1
+.. contents:: Contents
+   :depth: 2
    :local:
 
 Overview

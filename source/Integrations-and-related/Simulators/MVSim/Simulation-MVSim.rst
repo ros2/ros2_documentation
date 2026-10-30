@@ -34,7 +34,7 @@ with low computational overhead and fast iteration times.
    :local:
 
 .. toctree::
-   :maxdepth: 1
+   :hidden:
 
    Installation-Ubuntu
    Getting-Started-MVSim

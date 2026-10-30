@@ -1,5 +1,5 @@
 .. meta::
-   :contentType:
+   :contentType: about
    :experience: intermediate, expert
    :area: framework
    :distribution: {DISTRO}
@@ -12,6 +12,9 @@
 Development Distribution
 ========================
 
+.. short-description::
+   This page is a collection of articles about the development distribution.
+
 .. showmeta::
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
@@ -23,6 +26,6 @@ Development Distribution
 Below is the ROS 2 distribution that is currently in development.
 
 .. toctree::
-   :maxdepth: 1
+   :hidden:
 
    Release-Makoa-Mata-mata

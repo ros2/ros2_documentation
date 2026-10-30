@@ -8,19 +8,20 @@
 Working with Client libraries
 =============================
 
-Client libraries are the APIs that allow users to implement their ROS 2 code.
-Using client libraries, users gain access to ROS 2 concepts such as nodes, topics, services, and so on.
+.. short-description::
+   This page is a collection of articles about client libraries.
 
 .. showmeta::
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. contents:: Table of Contents
+In this section:
+
+.. contents:: Contents
    :depth: 2
    :local:
 
 .. toctree::
-   :maxdepth: 1
    :hidden:
 
    Working-with-Client-Libraries/Colcon-Tutorial

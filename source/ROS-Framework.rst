@@ -1,6 +1,6 @@
 .. meta::
-   :contentType:
-   :experience:
+   :contentType: about
+   :experience: beginner, intermediate, expert
    :area: framework
    :distribution: {DISTRO}
    :product: {PRODUCT}
@@ -8,14 +8,21 @@
 Framework
 =========
 
+.. short-description::
+   This page is a collection of articles about the ROS framework.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+In this section:
+
 .. contents:: Contents
    :depth: 2
    :local:
 
-Coming Soon
-
 .. toctree::
-   :maxdepth: 3
+   :hidden:
 
    ROS-Framework/How-ROS-Works
    ROS-Framework/About-Nodes

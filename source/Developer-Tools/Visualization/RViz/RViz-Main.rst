@@ -3,7 +3,7 @@
     Tutorials/Intermediate/RViz/RViz-Main
 
 .. meta::
-   :contentType:
+   :contentType: about
    :experience: intermediate
    :area: visualization, tools
    :distribution: {DISTRO}
@@ -12,14 +12,21 @@
 RViz
 ====
 
+.. short-description::
+   This page is a collection of articles about RViz.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
 RViz is a 3D visualizer for the Robot Operating System (ROS) framework.
 
 .. contents:: Contents
-   :depth: 0
+   :depth: 2
    :local:
 
 .. toctree::
-   :maxdepth: 1
+   :hidden:
 
    RViz-User-Guide/RViz-User-Guide
    Marker-Sending-Basic-Shapes/Marker-Sending-Basic-Shapes

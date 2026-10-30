@@ -35,7 +35,7 @@ This set of tutorials will teach you how to configure different simulators with 
    :local:
 
 .. toctree::
-   :maxdepth: 1
+   :hidden:
 
    Webots/Simulation-Webots
    Gazebo/Simulation-Gazebo

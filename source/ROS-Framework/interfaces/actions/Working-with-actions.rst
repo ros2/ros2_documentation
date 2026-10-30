@@ -8,18 +8,21 @@
 Working with actions
 ====================
 
+.. short-description::
+   This page is a collection of articles about actions.
+
 .. showmeta::
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. contents:: Table of Contents
+In this section:
+
+.. contents:: Contents
    :depth: 2
    :local:
 
-Coming Soon
-
 .. toctree::
-   :maxdepth: 1
+   :hidden:
 
    Working-with-actions/Understanding-ROS2-Actions/Understanding-ROS2-Actions
    Working-with-actions/Action-Introspection

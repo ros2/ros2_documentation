@@ -8,8 +8,15 @@
 Motion planning and manipulation
 ================================
 
+.. short-description::
+   Motion planning and manipulation help you control robot movement and interact with objects in the environment.
+   This article summarizes ROS developer tools and guidance available for motion planning and manipulation.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
 .. toctree::
-   :maxdepth: 1
    :hidden:
 
    Motion-planning/Real-Time-Programming
@@ -20,7 +27,8 @@ This article summarizes ROS developer tools and guidance available to help with 
 
 **Area: motion-planning, manipulation, capabilities | Content-type: about | Experience: beginner, intermediate, expert**
 
-.. contents:: Table of Contents
+.. contents:: Contents
+   :depth: 2
    :local:
 
 Summary

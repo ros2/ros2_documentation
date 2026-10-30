@@ -15,14 +15,14 @@ Working with topics
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. contents:: Table of Contents
+In this section:
+
+.. contents:: Contents
    :depth: 2
    :local:
 
-Coming Soon
-
 .. toctree::
-   :maxdepth: 1
+   :hidden:
 
    Working-with-topics/Topic-Keys/Topic-Keys-Tutorial
    Working-with-topics/Topic-Keys/Filtered-Topic-Keys-Tutorial

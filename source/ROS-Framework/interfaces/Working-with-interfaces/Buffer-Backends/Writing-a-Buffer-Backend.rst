@@ -25,7 +25,7 @@ accelerator memory, ...) can back ``uint8[]`` fields of ROS 2 messages.
 
 **Time:** 60+ minutes
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 

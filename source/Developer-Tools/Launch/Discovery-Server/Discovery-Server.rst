@@ -29,7 +29,7 @@ Using Fast DDS Discovery Server as discovery protocol [community-contributed] - 
 
 **Time:** 20 minutes
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 

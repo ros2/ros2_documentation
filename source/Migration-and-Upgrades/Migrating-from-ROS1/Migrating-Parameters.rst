@@ -6,8 +6,8 @@
    How-To-Guides/Migrating-from-ROS1/Migrating-Parameters
 
 .. meta::
-   :contentType:
-   :experience:
+   :contentType: how-to
+   :experience: beginner, intermediate, expert
    :area: framework
    :distribution: {DISTRO}
    :product: {PRODUCT}
@@ -15,7 +15,16 @@
 Migrating Parameters
 ====================
 
-.. contents:: Table of Contents
+.. short-description::
+   Parameters configure node behaviour at runtime, and ROS stores them per node instead of on a central parameter server.
+   In this article, you will learn how to migrate parameter YAML files and atomic updates from ROS 1 to ROS.
+   After you follow these steps, you can address parameters by node name and apply grouped updates safely.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
    :depth: 2
    :local:
 

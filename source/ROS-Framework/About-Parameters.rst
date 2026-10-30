@@ -23,12 +23,11 @@ Parameters
    :labels: area=Area, contentType=Content type, experience=Level
 
 .. toctree::
-   :maxdepth: 1
    :hidden:
 
    parameters/Working-with-parameters
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 

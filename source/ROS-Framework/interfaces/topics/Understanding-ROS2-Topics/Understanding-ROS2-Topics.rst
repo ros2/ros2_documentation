@@ -31,7 +31,7 @@ This article walks you through using ``rqt_graph`` and other command-line tools 
 A hands-on exercise with Turtlesim helps you understand how data moves around the ROS graph.
 
 .. contents:: Contents
-   :depth: 3
+   :depth: 2
    :local:
 
 Summary

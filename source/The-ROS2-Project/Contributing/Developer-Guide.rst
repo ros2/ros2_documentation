@@ -14,7 +14,7 @@ Contributing to code
 ====================
 
 .. toctree::
-   :maxdepth: 2
+   :hidden:
 
    Contributing-to-code/Source-Control-Best-Practices
    Contributing-to-code/Build-Farms
@@ -30,7 +30,7 @@ Contributing to code
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 

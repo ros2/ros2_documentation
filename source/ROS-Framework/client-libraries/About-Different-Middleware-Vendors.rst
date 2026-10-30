@@ -22,7 +22,8 @@ Different ROS 2 middleware vendors
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. contents:: Table of Contents
+.. contents:: Contents
+   :depth: 2
    :local:
 
 ROS 2 supports multiple middleware implementations which provide discovery, serialisation, and transportation communications.

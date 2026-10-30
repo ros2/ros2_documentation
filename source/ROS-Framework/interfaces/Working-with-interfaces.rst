@@ -8,18 +8,21 @@
 Working with interfaces
 =======================
 
+.. short-description::
+   This page is a collection of articles about interfaces.
+
 .. showmeta::
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. contents:: Table of Contents
+In this section:
+
+.. contents:: Contents
    :depth: 2
    :local:
 
-Coming Soon
-
 .. toctree::
-   :maxdepth: 1
+   :hidden:
 
    Working-with-interfaces/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data
    Working-with-interfaces/Introduction-To-Tf2/Introduction-To-Tf2

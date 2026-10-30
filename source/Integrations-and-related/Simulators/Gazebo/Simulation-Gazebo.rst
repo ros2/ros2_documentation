@@ -28,6 +28,6 @@ This set of tutorials will teach you how to configure the Gazebo simulator with 
    :local:
 
 .. toctree::
-   :maxdepth: 1
+   :hidden:
 
    Gazebo

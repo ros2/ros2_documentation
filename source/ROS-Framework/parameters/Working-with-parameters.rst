@@ -9,22 +9,20 @@ Working with parameters
 =======================
 
 .. short-description::
-   Parameters are configuration values that let you adapt node behavior without changing code.
-   This article describes how parameters are declared, typed, set, queried, and updated in ROS.
-   After reading it, you will understand how to configure nodes with parameters and react to parameter changes.
+   This page is a collection of articles about parameters.
 
 .. showmeta::
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. contents:: Table of Contents
+In this section:
+
+.. contents:: Contents
    :depth: 2
    :local:
 
-Coming Soon
-
 .. toctree::
-   :maxdepth: 1
+   :hidden:
 
    Working-with-parameters/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters
    Working-with-parameters/Using-ros2-param

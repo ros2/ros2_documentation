@@ -4,7 +4,7 @@
 
 .. meta::
    :contentType: how-to
-   :experience:
+   :experience: beginner, intermediate, expert
    :area: visualization, tools
    :distribution: {DISTRO}
    :product: {PRODUCT}
@@ -21,7 +21,7 @@ Documenting a ROS 2 package - how-to
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 
