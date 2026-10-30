@@ -22,6 +22,7 @@ Coming Soon
    :maxdepth: 1
 
    Working-with-nodes/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes
+   Working-with-nodes/Learning-About-Logging/Learning-About-Logging
    Working-with-nodes/Using-Rqt-Console/Using-Rqt-Console
    Working-with-nodes/Launching-Multiple-Nodes/Launching-Multiple-Nodes
    Working-with-nodes/Writing-a-Composable-Node
