@@ -1,3 +1,10 @@
+.. meta::
+   :contentType: tutorial
+   :experience: beginner
+   :area: client-libraries, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Tutorials/Writing-A-Simple-Cpp-Publisher-And-Subscriber
@@ -5,8 +12,17 @@
 
 .. _CppPubSub:
 
-Writing a simple publisher and subscriber (C++)
-===============================================
+Writing a simple publisher and subscriber (C++) — tutorial
+==========================================================
+
+.. short-description::
+   Publishers and subscribers are a common way for ROS nodes to exchange data.
+   This tutorial shows how to create, build, and run a C++ package containing a publisher and subscriber.
+   After you complete it, you will be able to send and receive string messages over a topic.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Create and run a publisher and subscriber node using C++.
 
@@ -17,6 +33,18 @@ Writing a simple publisher and subscriber (C++)
 .. contents:: Contents
    :depth: 2
    :local:
+
+Summary
+-------
+
+Create the package ``cpp_pubsub`` with the ``ament_cmake`` build type.
+Add C++ publisher and subscriber source files, then declare the required dependencies:
+
+* ``rclcpp``
+* ``std_msgs``
+
+Configure ``CMakeLists.txt`` with the ``talker`` and ``listener`` executables so ``ros2 run`` can find them.
+Build the package with ``colcon build``, source the local setup files, and run both nodes to exchange messages on the ``topic`` topic.
 
 Background
 ----------
@@ -143,6 +171,8 @@ Open the file using your preferred text editor.
 The top of the code includes the standard C++ headers you will be using.
 After the standard C++ headers is the ``rclcpp/rclcpp.hpp`` include which allows you to use the most common pieces of the ROS 2 system.
 Last is ``std_msgs/msg/string.hpp``, which includes the built-in message type you will use to publish data.
+
+.. include:: ../../../_internal/Rclcpp-Convenience-Header-Note.rst
 
 .. code-block:: C++
 

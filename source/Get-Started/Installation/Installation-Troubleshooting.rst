@@ -1,15 +1,29 @@
+.. meta::
+   :contentType: how-to
+   :experience: beginner, intermediate, expert
+   :area: installation
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
   Guides/Installation-Troubleshooting
   Troubleshooting/Installation-Troubleshooting
   How-To-Guides/Installation-Troubleshooting
 
-Installation troubleshooting
-============================
+Troubleshooting installation - how-to
+=====================================
 
-Troubleshooting techniques for installation are sorted by the platforms they apply to.
+.. short-description::
+   Installation issues can come from networking, environment setup, dependencies, platform tools, or display configuration.
+   In this article, you will learn how to recognise common ROS installation problems across Linux, macOS, and Windows.
+   After you follow these troubleshooting steps, you will be able to identify likely causes and apply the appropriate fixes.
 
-.. contents:: Platforms
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -44,12 +58,6 @@ If the first command did not return a response similar to:
 
    Received from xx.xxx.xxx.xx:43751: 'Hello World!'
 
-then you will need to update your firewall configuration to allow multicast using `ufw <https://help.ubuntu.com/community/UFW>`__.
-
-.. code-block:: console
-
-   $ sudo ufw allow in proto udp to 224.0.0.0/4
-   $ sudo ufw allow in proto udp from 224.0.0.0/4
 
 
 You can check if the multicast flag is enabled for your network interface using the :code:`ifconfig` tool and looking for :code:`MULTICAST` in the flags section:
@@ -133,6 +141,16 @@ You may be able to workaround this problem by running RViz2 in X11 compatibility
 .. code-block::
 
    QT_QPA_PLATFORM=xcb rviz2
+
+Firewall blocks multicast
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If the multicast test above failed, you may need to update your firewall configuration to allow multicast using `ufw <https://help.ubuntu.com/community/UFW>`__.
+
+.. code-block:: console
+
+   $ sudo ufw allow in proto udp to 224.0.0.0/4
+   $ sudo ufw allow in proto udp from 224.0.0.0/4
 
 .. _macOS-troubleshooting:
 

@@ -2,8 +2,28 @@
 
     Tutorials/Advanced/ROS2-Tracing-Trace-and-Analyze
 
-How to use ros2_tracing to trace and analyze an application
-===========================================================
+.. meta::
+   :contentType: tutorial
+   :experience: expert
+   :area: analysis, introspection
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+Using ros2_tracing to trace and analyze an application - tutorial
+=================================================================
+
+.. short-description::
+   Tracing helps you inspect the runtime behaviour and timing of ROS applications.
+   This article shows how to use ``ros2_tracing`` to trace a performance_test experiment and analyze the resulting data.
+   After you follow these steps, you can validate trace output and plot subscription callback durations in Jupyter Notebook.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Table of Contents
+   :depth: 2
+   :local:
 
 This tutorial shows how to use `ros2_tracing <https://github.com/ros2/ros2_tracing>`_ to trace and analyze a ROS 2 application.
 For this tutorial, the application will be `performance_test <https://gitlab.com/ApexAI/performance_test>`_.
@@ -26,7 +46,7 @@ However, the tutorial will work if you are using a non-real-time Linux system.
 Installing and building
 -----------------------
 
-Install ROS 2 on Linux by following the :doc:`installation instructions <../../../Get-Started/Installation>`.
+Install ROS 2 on Linux by following the :doc:`installation instructions <../../../../Get-Started/Installation>`.
 
 .. note::
 
@@ -183,7 +203,7 @@ Running the cell that does the trace processing might take a few minutes on the 
 
 You should get a plot that looks similar to this:
 
-.. image:: ./images/ros2_tracing_guide_result_plot.png
+.. image:: ../images/ros2_tracing_guide_result_plot.png
   :alt: callback durations result plot
   :align: center
 

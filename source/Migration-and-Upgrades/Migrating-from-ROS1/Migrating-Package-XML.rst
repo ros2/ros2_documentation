@@ -2,6 +2,13 @@
 
     How-To-Guides/Migrating-from-ROS1/Migrating-Package-XML
 
+.. meta::
+   :contentType:
+   :experience:
+   :area: framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 Migrating your package.xml to format 2
 ======================================
 

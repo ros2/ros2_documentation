@@ -5,6 +5,13 @@
    How-To-Guides/Parameters-YAML-files-migration-guide
    How-To-Guides/Migrating-from-ROS1/Migrating-Parameters
 
+.. meta::
+   :contentType:
+   :experience:
+   :area: framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 Migrating Parameters
 ====================
 

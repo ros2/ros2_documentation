@@ -1,5 +1,21 @@
-Installation (Ubuntu)
-=====================
+.. meta::
+   :contentType: tutorial
+   :experience: expert
+   :area: simulation, capabilities
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+Installing MVSim on Ubuntu - tutorial
+=====================================
+
+.. short-description::
+   MVSim provides lightweight mobile robot simulation with native integration for ROS topics and messages.
+   This tutorial shows how to install MVSim on Ubuntu from binary packages or source and verify the installation.
+   After following it, you will be ready to launch MVSim demos and build custom worlds.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Install the ``mvsim`` package on Ubuntu and verify it works.
 

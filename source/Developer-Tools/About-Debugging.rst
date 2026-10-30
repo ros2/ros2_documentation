@@ -1,3 +1,10 @@
+.. meta::
+   :contentType:
+   :experience: intermediate
+   :area: debugging
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 Debugging
 =========
 
@@ -10,3 +17,4 @@ Coming Soon
    Debugging/ROS-2-IDEs
    Debugging/Getting-Backtraces-in-ROS-2
    Debugging/Building-ROS-2-with-Tracing
+   Debugging/About-testing

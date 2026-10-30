@@ -4,8 +4,24 @@
     Tutorials/Launch/Using-Substitutions
     Tutorials/Intermediate/Launch/Using-Substitutions
 
-Using substitutions
-===================
+.. meta::
+   :contentType: tutorial
+   :experience: intermediate
+   :area: node-management, tools
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+Using substitutions - tutorial
+==============================
+
+.. short-description::
+   Substitutions make ROS launch files more flexible by resolving values only when the launch description is executed.
+   This article shows how to use substitutions in XML, YAML, and Python launch files.
+   After you follow these steps, you can pass launch arguments, include launch files, and conditionally run actions.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Learn about substitutions in ROS 2 launch files.
 

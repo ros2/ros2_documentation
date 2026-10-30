@@ -1,5 +1,21 @@
-Writing a ``rosidl::Buffer`` backend
-====================================
+.. meta::
+   :contentType: tutorial
+   :experience: expert
+   :area: interfaces, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+Writing a ``rosidl::Buffer`` backend - tutorial
+===============================================
+
+.. short-description::
+   Custom memory domains need backend plugins when message payloads should remain in GPU, shared, or accelerator memory.
+   This tutorial walks through implementing, registering, packaging, and testing a ``rosidl::Buffer`` backend.
+   After following it, you will understand the plugin contract and the pieces needed for a working backend.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Learn how to implement and package a new ``rosidl::Buffer``
 backend plugin so that a vendor-specific memory domain (GPU, shared memory,
@@ -10,6 +26,7 @@ accelerator memory, ...) can back ``uint8[]`` fields of ROS 2 messages.
 **Time:** 60+ minutes
 
 .. contents:: Table of Contents
+   :depth: 2
    :local:
 
 Introduction

@@ -1,7 +1,20 @@
-
+.. meta::
+   :contentType: how-to
+   :experience: beginner, intermediate, expert
+   :area: interfaces, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
 
 Working with interfaces
 =======================
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Table of Contents
+   :depth: 2
+   :local:
 
 Coming Soon
 

@@ -2,6 +2,13 @@
 
     How-To-Guides/Migrating-from-ROS1
 
+.. meta::
+   :contentType:
+   :experience:
+   :area: framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 Migrating from ROS 1 to ROS 2
 =============================
 

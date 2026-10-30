@@ -1,13 +1,23 @@
+.. meta::
+   :contentType: how-to
+   :experience: beginner, intermediate, expert
+   :area: contributing, community
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. _CreatingOrUpdatingDocs:
 
 Creating or updating documentation — how-to
 ===========================================
 
-Contributing to ROS documentation helps keep guidance accurate, useful, and consistent.
-This article explains how to plan documentation changes, build the site, run checks, and preview your updates.
-With this information, you can prepare documentation updates that are ready to review and publish.
+.. short-description::
+   Contributing to ROS documentation helps keep guidance accurate, useful, and consistent.
+   This article explains how to plan documentation changes, build the site, run checks, and preview your updates.
+   With this information, you can prepare documentation updates that are ready to review and publish.
 
-**Area: contributing, community | Content-type: how-to | Experience: beginner, intermediate, expert**
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 .. contents:: Table of Contents
    :depth: 2

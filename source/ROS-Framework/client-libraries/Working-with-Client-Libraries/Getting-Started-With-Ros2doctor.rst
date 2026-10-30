@@ -1,3 +1,10 @@
+.. meta::
+   :contentType: tutorial
+   :experience: beginner
+   :area: client-libraries, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Tutorials/Getting-Started-With-Ros2doctor
@@ -5,8 +12,17 @@
 
 .. _Ros2Doctor:
 
-Using ``ros2doctor`` to identify issues
-=======================================
+Using ``ros2doctor`` to identify issues — tutorial
+==================================================
+
+.. short-description::
+   When your ROS setup is not running as expected, ros2doctor can check your environment, network, platform, and active system.
+   This article shows how to run ros2doctor, interpret warnings, and generate a report.
+   After following it, you can identify common configuration and communication issues.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Identify issues in your ROS 2 setup using the ``ros2doctor`` tool.
 
@@ -17,6 +33,21 @@ Using ``ros2doctor`` to identify issues
 .. contents:: Contents
    :depth: 2
    :local:
+
+Summary
+-------
+
+Use ``ros2doctor`` to check your ROS setup and any running systems.
+Warnings highlight settings that may need attention, while errors indicate failed checks that should be addressed.
+
+Common checks include:
+
+* Setup, network, environment, and platform configuration
+* Active topic publishers and subscribers in a running system
+* Detailed diagnostics from ``ros2 doctor --report``
+
+Use the report to investigate warnings or share relevant environment details when requesting support.
+``ros2doctor`` does not debug application code or implementation errors.
 
 Background
 ----------

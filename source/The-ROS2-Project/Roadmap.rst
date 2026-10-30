@@ -2,10 +2,25 @@
 
   Roadmap
 
+.. meta::
+   :contentType: about
+   :experience: beginner, intermediate, expert
+   :area: community
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. _Roadmap:
 
 Roadmap
 =======
+
+.. short-description::
+   ROS development roadmaps help users and contributors understand which features and improvements are planned for upcoming distributions.
+   This article describes current roadmap items, planned releases, and contribution resources so you can track future work or get involved in ROS development.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 .. contents:: Table of Contents
    :depth: 2
@@ -19,7 +34,7 @@ Lyrical Luth
 ------------
 
 Lyrical Luth is the ROS 2 release expected in May 2026.
-See the :doc:`release page <../Get-Started/Releases/Release-Lyrical-Luth>` for a detailed timeline.
+See the :doc:`release page <../Releases/Release-Lyrical-Luth>` for a detailed timeline.
 
 Lyrical Roadmap
 ---------------
@@ -34,7 +49,7 @@ If you'd like to take on one of these tasks, please :doc:`get in touch with us <
 Planned releases
 ----------------
 
-Please see the :doc:`Distributions page <../Get-Started/Releases>` for the timeline of and information about future distributions.
+Please see the :doc:`Distributions page <../Releases>` for the timeline of and information about future distributions.
 
 Contributing to ROS 2
 ---------------------

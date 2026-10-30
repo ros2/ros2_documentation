@@ -1,3 +1,10 @@
+.. meta::
+   :contentType: tutorial
+   :experience: expert
+   :area: simulation, capabilities
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Tutorials/Simulators/Ignition/Setting-up-a-Robot-Simulation-Ignition
@@ -5,8 +12,17 @@
     Tutorials/Advanced/Simulators/Gazebo
     Tutorials/Advanced/Simulators/Gazebo/Gazebo
 
-Setting up a robot simulation (Gazebo)
-======================================
+Setting up a robot simulation (Gazebo) - tutorial
+=================================================
+
+.. short-description::
+   Gazebo provides physics-based simulation for testing robot models and environments before using real hardware.
+   This tutorial shows how to install a compatible Gazebo version and verify that it starts correctly.
+   After following it, you will be ready to continue with Gazebo tutorials for building and running simulations.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Launch a Simulation with Gazebo and ROS 2
 

@@ -5,10 +5,26 @@
     Concepts/About-Command-Line-Tools
     Concepts/Basic/About-Command-Line-Tools
 
+.. meta::
+   :contentType: about
+   :experience: beginner
+   :area: introspection
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 Introspection with command line tools
 =====================================
 
+.. short-description::
+   ROS command-line tools let you inspect and interact with nodes, topics, services, packages, and other parts of a running system.
+   This article introduces the ``ros2`` command, its main sub-commands, and the daemon used for faster graph queries.
+   After reading it, you can publish and echo topic data, inspect available tools, and manage the daemon.
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
 .. contents:: Table of Contents
+   :depth: 2
    :local:
 
 ROS 2 includes a suite of command-line tools for introspecting a ROS 2 system.
@@ -80,9 +96,9 @@ To address this, ROS 2 runs a background daemon process that maintains informati
 The ROS 2 daemon is automatically started when you first use command-line tools like ``ros2 node list``, ``ros2 topic list``, or other introspection commands.
 If no daemon is running, these tools will instantiate a new daemon process in the background before executing the requested command.
 
-The daemon communicates using the localhost network interface (127.0.0.1) and uses the :doc:`ROS_DOMAIN_ID <../../ROS-Framework/nodes/About-Domain-ID>` environment variable as a port number offset.
-This means that if you want to control a specific daemon instance (for example, using ``ros2 daemon stop``), you must ensure that your :doc:`ROS_DOMAIN_ID <../../ROS-Framework/nodes/About-Domain-ID>` matches the domain ID used by that daemon.
-Different :doc:`ROS_DOMAIN_ID <../../ROS-Framework/nodes/About-Domain-ID>` values will result in separate daemon instances running on different ports.
+The daemon communicates using the localhost network interface (127.0.0.1) and uses the :doc:`ROS_DOMAIN_ID <../../../ROS-Framework/nodes/About-Domain-ID>` environment variable as a port number offset.
+This means that if you want to control a specific daemon instance (for example, using ``ros2 daemon stop``), you must ensure that your :doc:`ROS_DOMAIN_ID <../../../ROS-Framework/nodes/About-Domain-ID>` matches the domain ID used by that daemon.
+Different :doc:`ROS_DOMAIN_ID <../../../ROS-Framework/nodes/About-Domain-ID>` values will result in separate daemon instances running on different ports.
 
 You can run ``ros2 daemon --help`` for more options for interacting with the daemon, including commands to start, stop, or check the status of the daemon process.
 

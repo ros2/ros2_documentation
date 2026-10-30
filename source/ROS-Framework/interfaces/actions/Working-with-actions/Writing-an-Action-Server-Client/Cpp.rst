@@ -1,3 +1,10 @@
+.. meta::
+   :contentType: tutorial
+   :experience: intermediate
+   :area: interfaces, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Tutorials/Actions/Writing-a-Cpp-Action-Server-Client
@@ -5,8 +12,17 @@
 
 .. _ActionsCpp:
 
-Writing an action server and client (C++)
-=========================================
+Writing an action server and client (C++) — tutorial
+====================================================
+
+.. short-description::
+   Actions let ROS applications handle long-running tasks while reporting progress and results.
+   In this tutorial, you will implement a Fibonacci action server and action client in C++.
+   After you follow these steps, you will be able to build and run communicating action components in a ROS workspace.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Implement an action server and client in C++.
 
@@ -137,6 +153,8 @@ Open up ``custom_action_cpp/src/fibonacci_action_server.cpp``, and put the follo
     :language: c++
 
 The first few lines include all of the headers we need to compile.
+
+.. include:: ../../../../../_internal/Rclcpp-Convenience-Header-Note.rst
 
 Next we create a class that is a derived class of ``rclcpp::Node``:
 

@@ -1,3 +1,10 @@
+.. meta::
+   :contentType: reference
+   :experience: intermediate, expert
+   :area: framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Visualizing-ROS-2-Data-With-Foxglove-Studio
@@ -5,6 +12,14 @@
 
 Visualizing ROS 2 data with Foxglove
 ====================================
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
+   :depth: 2
+   :local:
 
 `Foxglove <https://foxglove.dev/>`__ is a visualization and observability tool for robotics developers.
 It's available in the browser or as a standalone desktop app and is free for individual, small team, and academic use.

@@ -1,11 +1,23 @@
+.. meta::
+   :contentType: how-to
+   :experience: expert
+   :area: installation
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Installation/Maintaining-a-Source-Checkout
 
 .. _MaintainingSource:
 
-Maintain source checkout
-========================
+Maintaining source checkout - how-to
+====================================
+
+.. short-description::
+   Source checkouts can become outdated as ROS repositories change after the initial installation.
+   In this article, you will learn how to update your repository list, fetch new source code, rebuild your workspace, and export the current checkout state.
+   After you follow these steps, your source workspace will match the selected ROS repository versions.
 
 .. ifconfig:: smv_current_version != '' and smv_current_version != 'rolling'
 
@@ -14,7 +26,11 @@ Maintain source checkout
      For instructions on maintaining a source checkout of the **latest development version** of ROS 2, refer to
      `Maintaining a source checkout of ROS 2 Rolling <../../rolling/Installation/Maintaining-a-Source-Checkout.html>`__
 
-.. contents::
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -25,7 +41,6 @@ Update your repository list
 ---------------------------
 
 Each ROS 2 release includes a ``ros2.repos`` file that contains the list of repositories and their version for that release.
-
 
 Latest ROS 2 {DISTRO_TITLE} branches
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -65,7 +80,6 @@ If you wish to checkout the latest code for ROS 2 {DISTRO_TITLE}, you can get th
 
        $ cd \dev\ros2_{DISTRO}
        $ curl https://raw.githubusercontent.com/ros2/ros2/{REPOS_FILE_BRANCH}/ros2.repos -o ros2.repos
-
 
 Update your repositories
 ------------------------

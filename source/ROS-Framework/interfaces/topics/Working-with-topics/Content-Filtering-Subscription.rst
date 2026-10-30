@@ -1,10 +1,26 @@
+.. meta::
+   :contentType: tutorial
+   :experience: intermediate
+   :area: interfaces, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Tutorials/Content-Filtering-Subscription
     Tutorials/Demos/Content-Filtering-Subscription
 
-Creating a content filtering subscription
-=========================================
+Creating a content filtering subscription — tutorial
+====================================================
+
+.. short-description::
+   Content filtering subscriptions help ROS applications receive only relevant topic data when a full data stream is unnecessary.
+   This article explains how to create a content filtering subscription and how filter expressions control received data.
+   After reading, you can run the demo and verify whether filtering is enabled.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Create a content filtering subscription.
 
@@ -128,6 +144,8 @@ https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/topics
     };
 
     }  // namespace demo_nodes_cpp
+
+.. include:: ../../../../_internal/Rclcpp-Convenience-Header-Note.rst
 
 The content filter is defined in the subscription side, publishers don't need to be configured in any special way to allow content filtering.
 The ``ContentFilteringPublisher`` node publishes simulated temperature data starting from -100.0 and ending at 150.0 with a step size of 10.0 every second.

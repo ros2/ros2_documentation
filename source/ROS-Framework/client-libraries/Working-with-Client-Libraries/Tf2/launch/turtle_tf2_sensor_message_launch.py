@@ -32,7 +32,7 @@ def generate_launch_description():
             ]
         ),
         Node(
-            package='turtle_tf2_py',
+            package='learning_tf2_py',
             executable='turtle_tf2_message_broadcaster',
             name='message_broadcaster',
         ),
