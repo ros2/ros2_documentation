@@ -80,7 +80,8 @@ The Single-Threaded Executor is also used by the container process for :doc:`com
 Types of Executors
 ------------------
 
-Currently, rclcpp provides three Executor types, derived from a shared parent class:
+Currently, rclcpp provides three standard Executor types, derived from a shared parent class.
+It also provides the experimental ``EventsExecutor``:
 
 .. graphviz::
 
@@ -88,10 +89,12 @@ Currently, rclcpp provides three Executor types, derived from a shared parent cl
 
       Executor -> SingleThreadedExecutor [dir = back, arrowtail = empty];
       Executor -> MultiThreadedExecutor [dir = back, arrowtail = empty];
+      Executor -> EventsExecutor [dir = back, arrowtail = empty];
       Executor -> EventsCBGExecutor [dir = back, arrowtail = empty];
       Executor  [shape=polygon,sides=4];
       SingleThreadedExecutor  [shape=polygon,sides=4];
       MultiThreadedExecutor  [shape=polygon,sides=4];
+      EventsExecutor  [shape=polygon,sides=4];
       EventsCBGExecutor  [shape=polygon,sides=4];
 
       }
@@ -114,6 +117,35 @@ All executors can be used with multiple nodes by calling ``add_node(..)`` for ea
 
 In the above example, the one thread of a Single-Threaded Executor is used to serve three nodes together.
 In case of a Multi-Threaded Executor, the actual parallelism depends on the callback groups.
+
+The Events Executor
+-------------------
+
+The `EventsExecutor <https://github.com/ros2/rclcpp/blob/{REPOS_FILE_BRANCH}/rclcpp/include/rclcpp/experimental/executors/events_executor/events_executor.hpp>`_
+is an event-driven alternative to the standard executors.
+It uses an events queue to process entities when they become ready and a timers manager to track timer events,
+rather than polling for work through the wait set.
+It is available in the experimental ``rclcpp::experimental::executors`` namespace:
+
+.. code-block:: cpp
+
+   #include <rclcpp/experimental/executors/events_executor/events_executor.hpp>
+
+   rclcpp::experimental::executors::EventsExecutor executor;
+   executor.add_node(node);
+   executor.spin();
+
+The ``EventsExecutor`` is experimental and is not subject to the same API or ABI guarantees as the standard
+executors.
+In current rolling, it is also deprecated in favor of using the single-threaded
+``EventsCBGExecutor``.
+It is a separate implementation from the :ref:`Callback Group Events Executor <TheCallbackGroupEventsExecutor>`;
+the two should not be treated as interchangeable.
+
+In Kilted Kaiju, an experimental Python port is also available as
+`rclpy.experimental.EventsExecutor <https://github.com/ros2/rclpy/blob/kilted/rclpy/rclpy/experimental/events_executor.py>`_.
+It can be constructed with ``EventsExecutor()`` and used with the regular ``add_node(..)`` and ``spin()`` methods.
+The Python implementation is experimental as well and may change in future ROS 2 distributions.
 
 .. _TheCallbackGroupEventsExecutor:
 
