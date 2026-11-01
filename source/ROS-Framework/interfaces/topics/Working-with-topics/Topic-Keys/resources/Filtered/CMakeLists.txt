@@ -45,7 +45,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
 
 ament_export_dependencies(rosidl_default_runtime)
 
-# Prepare liraries
+# Prepare libraries
 add_library(filtered_keyed_sensor_component src/filtered_keyed_sensor.cpp)
 add_library(filtered_keyed_controller_component src/filtered_keyed_controller.cpp)
 

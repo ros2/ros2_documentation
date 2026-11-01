@@ -20,6 +20,25 @@
 #   Logistics/Warehouse, Manufacturing, Marine, Research, Space, Service Robot
 
 adopters:
+  - organization: "Black Coffee Robotics"
+    organization_url: "https://www.blackcoffeerobotics.com"
+    project: "ROS 2-Based Robotics and Automation Systems"
+    project_url: "https://www.blackcoffeerobotics.com/robotics-engineering-projects"
+    domain:
+      - Construction
+      - Consumer Robot
+      - Defense/Government
+      - Healthcare/Medical
+      - Logistics/Warehouse
+      - Manufacturing
+      - Marine
+      - Service Robot
+    date_added: "2026-10-25"
+    country:
+      - IN
+      - US
+    description: "Black Coffee Robotics develops ROS 2-based software for industrial manipulators, autonomous mobile robots, and mobile manipulation systems. Our work includes motion planning, autonomous navigation, perception, simulation, and hardware integration across diverse robotic platforms. Applications include industrial automation, warehouse robotics, autonomous cleaning, agricultural robotics, and assistive manipulation."
+ 
   - organization: "Nathan Shankar"
     organization_url: "https://nathanshankar.github.io/"
     project: "Terminal RViz"

@@ -27,7 +27,9 @@ Jazzy Jalisco (``jazzy``)
    :depth: 2
    :local:
 
-*Jazzy Jalisco* is the tenth release of ROS 2.
+.. short-description::
+  *Jazzy Jalisco* is the tenth release of ROS 2.
+
 What follows is highlights of the important changes and features in Jazzy Jalisco since the last release.
 For a list of all of the changes since Iron, see the :doc:`long form changelog <Jazzy-Jalisco-Complete-Changelog>`
 

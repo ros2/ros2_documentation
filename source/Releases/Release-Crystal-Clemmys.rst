@@ -21,7 +21,8 @@ Crystal Clemmys (``crystal``)
    :depth: 2
    :local:
 
-*Crystal Clemmys* is the third release of ROS 2.
+.. short-description::
+  *Crystal Clemmys* is the third release of ROS 2.
 
 Supported Platforms
 -------------------

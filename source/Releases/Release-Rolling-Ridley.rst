@@ -20,7 +20,8 @@ Rolling Ridley (``rolling``)
    :depth: 2
    :local:
 
-*Rolling Ridley* is a rolling development release of ROS 2.
+.. short-description::
+  *Rolling Ridley* is a rolling development release of ROS 2.
 
 .. warning::
 
