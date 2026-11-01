@@ -19,6 +19,7 @@ Coming Soon
 
    ROS-Framework/How-ROS-Works
    ROS-Framework/About-Nodes
+   ROS-Framework/About-Namespaces
    ROS-Framework/Interfaces-Topics-Services-Actions
    ROS-Framework/About-Parameters
    ROS-Framework/About-Client-Libraries
