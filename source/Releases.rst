@@ -222,7 +222,7 @@ Rows in the table marked in blue are the currently supported distributions.
 Future Distributions
 --------------------
 
-For details on upcoming features see the :doc:`roadmap <../The-ROS2-Project/Roadmap>`.
+For details on upcoming features see the :doc:`roadmap <The-ROS2-Project/Roadmap>`.
 
 There is a new ROS 2 distribution released yearly on May 23rd (`World Turtle Day <https://www.worldturtleday.org/>`_).
 
@@ -257,7 +257,7 @@ As the name implies, Rolling is continuously updated and **can have in-place upd
 We recommend that most people use the most recent stable distribution instead (see :ref:`list_of_distributions`).
 
 Packages released into the Rolling distribution will be automatically released into future stable distributions of ROS 2.
-:doc:`Releasing a ROS 2 package <../Developer-Tools/Build/Releasing/Releasing-a-Package>` into the Rolling distribution follows the same procedures as all other ROS 2 distributions.
+:doc:`Releasing a ROS 2 package <Developer-Tools/Build/Releasing/Releasing-a-Package>` into the Rolling distribution follows the same procedures as all other ROS 2 distributions.
 
 Cross-Distribution Communications
 ---------------------------------
