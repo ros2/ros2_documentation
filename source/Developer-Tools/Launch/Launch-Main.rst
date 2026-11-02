@@ -31,9 +31,6 @@ Working with launch files - tutorial
 
 ROS 2 Launch files allow you to start up and configure a number of executables containing ROS 2 nodes simultaneously.
 
-.. toctree::
-   :hidden:
-
 #. :doc:`Creating a launch file <Creating-Launch-Files>`.
 
    Learn how to create a launch file that will start up nodes and their configurations all at once.

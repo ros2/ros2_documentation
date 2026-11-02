@@ -2,6 +2,7 @@
 
     Concepts/Basic/About-Nodes
     Concepts/Basic/About-Discovery
+    ROS-Framework/nodes/About-Discovery
 
 .. meta::
    :contentType: about
@@ -37,7 +38,7 @@ Summary
 -------
 
 A node is a participant in the ROS graph that handles a specific task.
-The behavior of nodes is configured using parameters.
+The behavior of nodes can be configured using parameters.
 Nodes advertise their presence and establish connections with other compatible nodes through the discovery process.
 Nodes communicate with each other using interfaces, like topics, services, and actions.
 
@@ -68,7 +69,6 @@ See :doc:`parameters <About-Parameters>`.
 Communication between nodes
 ---------------------------
 
-Each node runs separately in its own runtime environment.
 Nodes can communicate with other nodes within the same process, in a different process, or on a different machine.
 
 The ROS client libraries provide an API that allows you to write nodes in multiple programming languages which can communicate with other nodes, even if those nodes are not written in the same language.
@@ -83,6 +83,7 @@ Discovery
 Discovery of nodes happens automatically through the underlying middleware of ROS.
 By default, connections between nodes are established through a distributed discovery process.
 Depending on how the middleware is configured, though, it is possible to configure server-client discovery.
+See :doc:`../Developer-Tools/Launch/Discovery-Server/Discovery-Server`
 
 
 The discovery process can be summarized as follows:
@@ -102,7 +103,6 @@ The discovery process can be summarized as follows:
 The :ref:`talker-listener demo <talker-listener>` provides an example of node discovery.
 The C++ talker node in one terminal publishes messages on a topic, and the Python listener node running in another terminal subscribes to messages on the same topic.
 These nodes discover each other automatically, and begin to exchange messages.
-
 
 Node management
 ---------------
@@ -141,7 +141,7 @@ Subordinate nodes (sub-nodes)
    Subordinate nodes are useful for modular C++ software architecture.
    Internal subsystems or helper libraries running inside the same node process can use a subordinate node to publish or subscribe under scoped topic and service names without creating separate nodes, avoiding additional middleware discovery overhead and multi-node execution management.
 
-   For a practical guide, see the :doc:`Using subordinate nodes tutorial <nodes/Working-with-nodes/Using-Sub-Nodes>`.
+   For a practical guide, see :doc:`nodes/Working-with-nodes/Using-Sub-Nodes`.
 
 Related content
 ---------------
