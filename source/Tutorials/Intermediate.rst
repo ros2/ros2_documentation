@@ -11,6 +11,7 @@ Intermediate
    Intermediate/Writing-a-Composable-Node
    Intermediate/Composition
    Intermediate/Using-Node-Interfaces-Template-Class
+   Intermediate/Using-Sub-Nodes
    Intermediate/Publishing-Messages-Using-YAML-Files
    Intermediate/Monitoring-For-Parameter-Changes-CPP
    Intermediate/Monitoring-For-Parameter-Changes-Python
