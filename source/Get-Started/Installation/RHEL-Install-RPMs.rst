@@ -37,6 +37,7 @@ Resources
 * Status Page:
 
   * ROS 2 {DISTRO_TITLE} (RHEL 10): `amd64 <http://repo.ros2.org/status_page/ros_{DISTRO}_rhel.html>`__
+  * ROS 2 {DISTRO_TITLE} (Fedora 44): `amd64 <http://repo.ros2.org/status_page/ros_{DISTRO}_fedora.html>`__
 * `Jenkins Instance <http://build.ros2.org/>`__
 * `Repositories <http://repo.ros2.org>`__
 
