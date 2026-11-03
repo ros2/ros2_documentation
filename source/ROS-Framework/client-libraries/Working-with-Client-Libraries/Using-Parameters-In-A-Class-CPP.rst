@@ -1,3 +1,10 @@
+.. meta::
+   :contentType: tutorial
+   :experience: beginner
+   :area: client-libraries, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Tutorials/Using-Parameters-In-A-Class-CPP
@@ -5,8 +12,17 @@
 
 .. _CppParamNode:
 
-Using parameters in a class (C++)
-=================================
+Using parameters in a class (C++) — tutorial
+============================================
+
+.. short-description::
+   Parameters let you configure node behaviour without changing and rebuilding code.
+   This article shows how to create a C++ node with a custom ROS parameter, then set that parameter from the command line or a launch file.
+   After completing the steps, you can build, run, and update a parameterised C++ node.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Create and run a class with ROS parameters using C++.
 

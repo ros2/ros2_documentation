@@ -1,12 +1,28 @@
+.. meta::
+   :contentType: tutorial
+   :experience: intermediate
+   :area: client-libraries, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Tutorials/Tf2/Adding-A-Frame-Py
     Tutorials/Intermediate/Tf2/Adding-A-Frame-Py
 
-Adding a frame (Python)
-=======================
+Adding a frame (Python) — tutorial
+==================================
 
-**Goal:** Learn how to to add an extra frame to tf2.
+.. short-description::
+   tf2 lets you define extra local frames for sensors, links, joints, or goals in a ROS system.
+   This article shows how to add fixed and dynamic frames to a tf2 transformation tree using Python.
+   After following these steps, you will be able to make a turtle follow a custom ``carrot1`` frame.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+**Goal:** Learn how to add an extra frame to tf2.
 
 **Tutorial level:** Intermediate
 

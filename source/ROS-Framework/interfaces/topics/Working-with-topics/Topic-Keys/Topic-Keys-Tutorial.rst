@@ -1,11 +1,27 @@
+.. meta::
+   :contentType: tutorial
+   :experience: advanced
+   :area: interfaces, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Tutorials/Advanced/Topic-Keys/Topic-Keys-Tutorial
 
 .. _topic_keys_tutorial:
 
-Topic Keys Tutorial
-===================
+Topic Keys — tutorial
+=====================
+
+.. short-description::
+   Keyed topics help represent multiple data instances on a single ROS topic while preserving per-instance state.
+   This tutorial shows how to define a keyed IDL message, build a demo package, and compare multiple-topic, single-topic, and keyed-topic sensor designs.
+   After completing it, you can use topic keys to reduce resources and recover late-joining instance state.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 This tutorial aims to demonstrate the use of topic keys by simulating a scenario in which multiple sensors are transmitting their readings to a controller that processes them.
 

@@ -3,8 +3,29 @@
    Installation/Prerelease-Testing
    Installation/Testing
 
+.. meta::
+   :contentType: about
+   :experience: intermediate
+   :area: debugging, builds, tools
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 Testing with pre-release binaries
 =================================
+
+.. short-description::
+   Many ROS packages are available as pre-built binaries, including pre-release versions for testing.
+   This article describes how to use testing repositories, binary archives, and nightly Docker images.
+   After you follow these steps, you can test ROS binaries before they are synchronized into the main repository.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Table of Contents
+   :depth: 2
+   :local:
+
 
 Many ROS packages are provided as pre-built binaries.
 Usually, you will get the released version of binaries when following :doc:`../../../Get-Started/Installation`.
@@ -63,19 +84,30 @@ For Debian-based operating systems, you can install binary packages from the **r
       $ sudo apt dist-upgrade
 
 
-RHEL testing repository
------------------------
+RHEL / Fedora testing repository
+--------------------------------
 
-For RHEL you can install binary packages from the **ros-testing** repository, by enabling the testing repository on the source configuration:
+For RHEL and Fedora you can install binary packages from the **ros-testing** repository, by enabling the testing repository on the source configuration:
 
-1. Make sure you have a working ROS 2 installation for rpm packages (see the :doc:`RHEL installation instructions <../../../Get-Started/Installation/RHEL-Install-RPMs>`).
+1. Make sure you have a working ROS 2 installation for rpm packages (see the :doc:`RHEL / Fedora installation instructions <../../../Get-Started/Installation/RHEL-Install-RPMs>`).
 
 2. Enable testing and disable main repository:
 
-   .. code-block:: console
+   .. tabs::
 
-      $ sudo dnf config-manager --set-enabled ros2-testing
-      $ sudo dnf config-manager --set-disabled ros2
+     .. group-tab:: RHEL
+
+       .. code-block:: console
+
+          $ sudo dnf config-manager --set-enabled ros2-testing
+          $ sudo dnf config-manager --set-disabled ros2
+
+     .. group-tab:: Fedora
+
+       .. code-block:: console
+
+          $ sudo dnf config-manager setopt ros2-testing.enabled=1
+          $ sudo dnf config-manager setopt ros2.enabled=0
 
 3. Update the dnf index:
 
@@ -83,18 +115,29 @@ For RHEL you can install binary packages from the **ros-testing** repository, by
 
       $ sudo dnf update
 
-4.  You can now install individual packages from the testing repository, for example:
+4. You can now install individual packages from the testing repository, for example:
 
    .. code-block:: console
 
       $ sudo dnf install ros-{DISTRO}-my-just-released-package
 
-5.  Once you are finished testing, you can switch back to the normal repository by re-enabling the main repository:
+5. Once you are finished testing, you can switch back to the normal repository by re-enabling the main repository:
 
-   .. code-block:: console
+   .. tabs::
 
-      $ sudo dnf config-manager --set-disabled ros2-testing
-      $ sudo dnf config-manager --set-enabled ros2
+     .. group-tab:: RHEL
+
+       .. code-block:: console
+
+          $ sudo dnf config-manager --set-disabled ros2-testing
+          $ sudo dnf config-manager --set-enabled ros2
+
+     .. group-tab:: Fedora
+
+       .. code-block:: console
+
+          $ sudo dnf config-manager setopt ros2-testing.enabled=0
+          $ sudo dnf config-manager setopt ros2.enabled=1
 
    and doing an update and upgrade:
 

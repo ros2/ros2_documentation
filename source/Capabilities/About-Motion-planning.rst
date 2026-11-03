@@ -1,3 +1,10 @@
+.. meta::
+   :contentType: about
+   :experience: intermediate
+   :area: motion-planning, capabilities
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 Motion planning and manipulation
 ================================
 
@@ -41,9 +48,7 @@ Community-contributed packages
 
 * `Search Based Planning Library (SBPL) <https://github.com/sbpl/sbpl>`_: A C++ library providing search-based motion planning algorithms for robotics and automated systems.
 
-* `RoboPlan <https://github.com/open-planning/roboplan>`_: A Rust and C++ library providing a planning framework for robotics and automated systems.
-
-* `pyroboplan <https://pyroboplan.readthedocs.io/en/latest/>`_: A Python library for modeling robot kinematics and dynamics.
+* `RoboPlan <https://github.com/open-planning/roboplan>`_: A C++ library with Python bindings providing a planning framework for robotics and automated systems.
 
 .. Related content (placeholder)
    ------------------------------

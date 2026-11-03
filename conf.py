@@ -92,6 +92,9 @@ extensions = [
     'sphinxcontrib.googleanalytics',
     'sphinxcontrib.mermaid',
     'sphinxext.opengraph',
+    'short_description',
+    'showmeta',
+    'ros_related_articles',
 ]
 
 # Intersphinx mapping
@@ -188,6 +191,7 @@ macros = {
     'DISTRO_UBUNTU_DEB_PLATFORM': distro_ubuntu_deb_platform['rolling'],
     'DISTRO_ARM_STATUS_SUFFIX': distro_arm_status_suffix.get('rolling', 'unv8'),
     'REPOS_FILE_BRANCH': 'rolling',
+    'PRODUCT': 'ROS 2',
 }
 
 html_favicon = 'favicon.ico'
@@ -202,7 +206,54 @@ html_sourcelink_suffix = ''
 
 # Relative to html_static_path
 html_css_files = ['custom.css', 'adopters.css']
-html_js_files = ['adopters.js']
+html_js_files = [
+    ('vendor/pako.min.js', {'defer': ''}),
+    ('vendor/js-yaml.min.js', {'defer': ''}),
+    'adopters.js',
+    'related_packages.js',
+    'related_articles.js',
+]
+
+# Endpoint the browser tries first for the freshest rosdistro cache data, served
+# from the same origin as the docs. This path is not provided in production yet,
+# so the page falls back to the gzip snapshot bundled into _static at build time.
+# Override with ROS_RELATED_PACKAGES_PROXY_URL, or set that to an empty string to
+# use the bundled snapshot only. See plugins/ros_related_packages.md.
+def _normalize_ros_related_packages_proxy_url(raw: str) -> str:
+    """Return a browser-safe proxy template.
+
+    On Windows, GNU make / MSYS (common even when the terminal is PowerShell) can
+    rewrite `/api/...` into `C:/Program Files/Git/api/...`. Recover the
+    intended path on the same origin when that happens.
+    """
+    value = (raw or '').strip()
+    if not value:
+        return ''
+
+    normalized = value.replace('\\', '/')
+    marker = '/api/rosdistro-cache/'
+    idx = normalized.find(marker)
+    if idx != -1:
+        return normalized[idx:]
+
+    if normalized.startswith('api/rosdistro-cache/'):
+        return '/' + normalized
+
+    return value
+
+
+_DEFAULT_ROS_RELATED_PACKAGES_PROXY_URL = (
+    '/api/rosdistro-cache/{distro}-cache.yaml.gz'
+)
+
+ros_related_packages_proxy_url = _normalize_ros_related_packages_proxy_url(
+    os.environ.get(
+        'ROS_RELATED_PACKAGES_PROXY_URL',
+        _DEFAULT_ROS_RELATED_PACKAGES_PROXY_URL,
+    )
+)
+
+extensions.append('ros_related_packages')
 
 # -- Options for HTMLHelp output ------------------------------------------
 

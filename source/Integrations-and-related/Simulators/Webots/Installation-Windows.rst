@@ -1,9 +1,25 @@
+.. meta::
+   :contentType: tutorial
+   :experience: expert
+   :area: simulation, capabilities, installation
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Tutorials/Advanced/Simulators/Webots/Installation-Windows
 
-Installation (Windows)
-======================
+Installing Webots on Windows - tutorial
+=======================================
+
+.. short-description::
+   Windows users can run ROS through WSL while Webots provides the simulator interface.
+   This tutorial shows how to prepare WSL, install ``webots_ros2``, configure Webots paths, and launch an example.
+   After following it, you will have a Windows setup ready for Webots simulation tutorials.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Install the ``webots_ros2`` package and run simulation examples on Windows.
 

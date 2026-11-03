@@ -2,10 +2,29 @@
 
   Features
 
+.. meta::
+   :contentType: reference
+   :experience: beginner, intermediate, expert
+   :area: community
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. _Features:
 
 Features status
 ===============
+
+.. short-description::
+   ROS features define the core capabilities, tools, and platform support available in the current release.
+   This article lists supported functionality with links to related concepts, tutorials, demos, and implementation notes so you can understand what ROS provides today.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Table of Contents
+   :depth: 2
+   :local:
 
 The features listed below are available in the current ROS 2 release.
 Unless otherwise specified, the features are available for all supported platforms (Ubuntu 24.04 (Noble), Windows 10), DDS implementations (eProsima Fast DDS, RTI Connext DDS, and Eclipse Cyclone DDS) and programming language client libraries (C++ and Python).
@@ -66,7 +85,7 @@ For planned future development, see the :doc:`Roadmap <Roadmap>`.
      - `Article <https://design.ros2.org/articles/topic_and_service_names.html>`__
      -
    * - Static remapping of ROS names
-     - :doc:`How-to Guide <../Developer-Tools/Introspection-and-analysis/Node-arguments>`
+     - :doc:`How-to Guide <../Developer-Tools/Launch/Node-arguments>`
      -
    * - Demos of an all-ROS 2 mobile robot
      - `Demo <https://github.com/ros2/turtlebot2_demo>`__

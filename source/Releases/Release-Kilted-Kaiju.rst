@@ -1,6 +1,13 @@
+.. meta::
+   :contentType: release-note
+   :experience: intermediate, expert
+   :area: framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
-    Releases/Release-Kilted-Kaiju
+    Get-Started/Releases/Release-Kilted-Kaiju
 
 .. _kilted-release:
 
@@ -12,11 +19,17 @@ Kilted Kaiju (codename 'kilted'; May, 2025)
 
    Kilted-Kaiju-Complete-Changelog
 
-.. contents:: Table of Contents
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
    :depth: 2
    :local:
 
-*Kilted Kaiju* is the eleventh release of ROS 2.
+.. short-description::
+  *Kilted Kaiju* is the eleventh release of ROS 2.
+
 What follows is highlights of the important changes and features in Kilted Kaiju since the last release.
 For a list of all of the changes since Jazzy, see the :doc:`long form changelog <Kilted-Kaiju-Complete-Changelog>`
 
@@ -468,7 +481,6 @@ You will know if you need to remove the keyword because CMake will emit an error
    All uses of target_link_libraries with a target must be either all-keyword or all-plain.
 
 For more information, see `ament/ament_cmake#580 <https://github.com/ament/ament_cmake/issues/580>`__.
-
 
 ``launch``
 ^^^^^^^^^^

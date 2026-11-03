@@ -1,3 +1,10 @@
+.. meta::
+   :contentType: tutorial
+   :experience: intermediate
+   :area: simulation, capabilities
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Tutorials/URDF/Building-a-Visual-Robot-Model-with-URDF-from-Scratch
@@ -5,8 +12,17 @@
 
 .. _BuildingURDF:
 
-Building a visual robot model from scratch
-==========================================
+Building a visual robot model from scratch — tutorial
+=====================================================
+
+.. short-description::
+   URDF lets you describe a robot model as a tree of links, joints, visual geometry, and materials.
+   This article walks you through building a simple R2D2-like visual model and inspecting each stage in Rviz.
+   After following the steps, you can create and display a multi-link URDF model with shapes, origins, colours, and meshes.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Learn how to build a visual model of a robot that you can view in Rviz
 

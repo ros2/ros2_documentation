@@ -1,3 +1,10 @@
+.. meta::
+   :contentType: how-to
+   :experience: beginner, intermediate
+   :area: installation
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Tutorials/Configuring-ROS2-Environment
@@ -8,10 +15,19 @@
 Setting up your environment - how-to
 ====================================
 
+.. short-description::
+  ROS relies on shell environment setup files to make commands, packages, and workspaces available.
+  In this article, you will learn how to source setup files, make sourcing persistent, and check key environment variables.
+  After you follow these steps, you will be ready to use ROS in new shell sessions.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
 After you install ROS, you need to configure your shell to access the relevant commands and packages.
 This article describes how to access ROS commands and packages by sourcing setup files and configuring environment variables.
 
-**Area: ROS-installation | Content-type: how-to | Experience: beginner, intermediate**
+**Area: ROS-installation | Content-type: how-to | Experience: beginner, Intermediate, intermediate**
 
 .. contents:: Contents
    :depth: 2

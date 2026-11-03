@@ -2,12 +2,28 @@
 
     Tutorials/Advanced/Supplementing-Custom-Rosdep-Keys
 
-Supplementing custom rosdep keys
-================================
+.. meta::
+   :contentType: tutorial
+   :experience: expert
+   :area: builds, tools
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
 
-.. contents:: Contents
-    :depth: 2
-    :local:
+Supplementing custom ``rosdep`` keys - tutorial
+===============================================
+
+.. short-description::
+   Custom rosdep keys let ``rosdep`` resolve dependencies that are not suitable for the shared ``ros/rosdistro`` rules.
+   This article explains how rosdep sources files work and how to add your own YAML rule file.
+   After you follow it, ``rosdep`` can resolve additional local or organization-specific dependency keys.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Table of Contents
+   :depth: 2
+   :local:
 
 Overview and motivation
 -----------------------

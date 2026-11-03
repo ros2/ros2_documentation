@@ -1,3 +1,10 @@
+.. meta::
+   :contentType: about
+   :experience: intermediate
+   :area: simulation, capabilities
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 Simulation
 ==========
 

@@ -1,6 +1,13 @@
+.. meta::
+   :contentType: release-note
+   :experience: intermediate, expert
+   :area: framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
-    Releases/Release-Humble-Hawksbill
+    Get-Started/Releases/Release-Humble-Hawksbill
 
 .. _humble-release:
 
@@ -12,11 +19,17 @@ Humble Hawksbill (``humble``)
 
    Humble-Hawksbill-Complete-Changelog
 
-.. contents:: Table of Contents
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
    :depth: 2
    :local:
 
-*Humble Hawksbill* is the eighth release of ROS 2.
+.. short-description::
+  *Humble Hawksbill* is the eighth release of ROS 2.
+
 What follows is highlights of the important changes and features in Humble Hawksbill since the last release.
 For a list of all of the changes since Galactic, see the `long form changelog <Humble-Hawksbill-Complete-Changelog>`.
 
@@ -78,7 +91,6 @@ Middleware Implementation Support:
 +--------------------------+-------------------------+---------------+----------------------------+-------------------------------+
 | rmw_gurumdds_cpp         | GurumNetworks GurumDDS  | Tier 3        | Ubuntu and Windows         | All Architectures except arm32|
 +--------------------------+-------------------------+---------------+----------------------------+-------------------------------+
-
 
 \" \* \" means default RMW implementation.
 
@@ -328,7 +340,7 @@ launch_ros
 Passing ROS arguments to node actions
 """""""""""""""""""""""""""""""""""""
 
-It is now possible to provide `ROS-specific node arguments </Developer-Tools/Introspection-and-analysis/Node-arguments>` directly, without needing to use ``args`` with a leading ``--ros-args`` flag:
+It is now possible to provide `ROS-specific node arguments </Developer-Tools/Launch/Node-arguments>` directly, without needing to use ``args`` with a leading ``--ros-args`` flag:
 
 .. tabs::
 
@@ -522,7 +534,6 @@ For instance, using the following argument will only print out string messages t
 
 See the `pull request <https://github.com/ros2/ros2cli/pull/654>`__ for more information.
 
-
 rviz2
 ^^^^^
 
@@ -580,7 +591,6 @@ For instance, in Galactic, the directory structure looks like this (reduced for 
     │   ├── node.h
     ├── rclcpp
     │   ├── node.hpp
-
 
 This structure can cause serious problems when trying to use overlays.
 That is, it is very possible to get the wrong set of header files due to include directory order.
@@ -957,7 +967,6 @@ This means that static transforms are unconditionally published to the ``/tf_sta
 This was the default behavior, and the behavior which the ``tf2_ros::TransformListener`` class expected before, so most code will not have to be changed.
 Any code that was relying on ``robot_state_publisher`` to periodically publish static transforms to ``/tf`` will have to be updated to subscribe to ``/tf_static`` as a ``transient_local`` subscription instead.
 
-
 rosidl_cmake
 ^^^^^^^^^^^^
 
@@ -968,13 +977,11 @@ The CMake function ``rosidl_target_interfaces()`` has been deprecated, and now i
 Users wanting to use messages/services/actions in the same ROS package that generated them should instead call ``rosidl_get_typesupport_target()`` and then ``target_link_libraries()`` to make their targets depend on the returned typesupport target.
 See https://github.com/ros2/rosidl/pull/606 for more details, and https://github.com/ros2/demos/pull/529 for an example of using the new function.
 
-
 rviz2
 ^^^^^
 
 * `improved the efficiency of 3-bytes pixel formats <https://github.com/ros2/rviz/pull/743>`__
 * `changed the way inertias are computed to use ignition math rather than Ogre's math libraries <https://github.com/ros2/rviz/pull/751>`__.
-
 
 geometry2
 ^^^^^^^^^

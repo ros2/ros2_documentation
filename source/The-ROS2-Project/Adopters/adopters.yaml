@@ -20,6 +20,25 @@
 #   Logistics/Warehouse, Manufacturing, Marine, Research, Space, Service Robot
 
 adopters:
+  - organization: "Black Coffee Robotics"
+    organization_url: "https://www.blackcoffeerobotics.com"
+    project: "ROS 2-Based Robotics and Automation Systems"
+    project_url: "https://www.blackcoffeerobotics.com/robotics-engineering-projects"
+    domain:
+      - Construction
+      - Consumer Robot
+      - Defense/Government
+      - Healthcare/Medical
+      - Logistics/Warehouse
+      - Manufacturing
+      - Marine
+      - Service Robot
+    date_added: "2026-10-25"
+    country:
+      - IN
+      - US
+    description: "Black Coffee Robotics develops ROS 2-based software for industrial manipulators, autonomous mobile robots, and mobile manipulation systems. Our work includes motion planning, autonomous navigation, perception, simulation, and hardware integration across diverse robotic platforms. Applications include industrial automation, warehouse robotics, autonomous cleaning, agricultural robotics, and assistive manipulation."
+ 
   - organization: "Nathan Shankar"
     organization_url: "https://nathanshankar.github.io/"
     project: "Terminal RViz"
@@ -448,3 +467,55 @@ adopters:
     country:
       - JP
     description: "Ball-Driven Omnidirectional Mobility Platform. Powered by three spheres and three motors, enabling seamless movement in any direction. It solves challenges beyond the reach of conventional robots—navigating steps, irregular floors, millimeter-precise positioning and heavy load transport."
+  - organization: "Agroecology Lab"
+    project: "Sowbot"
+    project_url: "https://sowbot.co.uk/"
+    domain:
+      - Agriculture
+    date_added: "2026-10-08"
+    country:
+      - GB
+    description: "Our mission is to bridge the gap between sustainability and scale by providing researchers and farmers with reproducible, lightweight robotics that reduce labour and environmental impact without proprietary dependencies. The Sowbot Open AgBot is designed to bridge the “prototype gap” in agricultural robotics. It provides a Reference Hardware Design that is accessible to startups and is developing a Production-Ready Software Stack that satisfies the rigorous requirements of research."
+  - organization: "OSTIRION SLU"
+    organization_url: "https://ostirion.net/"
+    project: "Multi-mission industrial mobile platform"
+    domain:
+      - Construction
+      - Defense/Government
+      - Logistics/Warehouse
+      - Manufacturing
+    date_added: "2026-10-08"
+    country:
+      - ES
+    description: "OSTIRION uses ROS 2 as the core software framework of our industrial mobile robot platform and the integration of mission systems such as inspection cameras, RFID antennas and manipulator systems. We use it to integrate navigation, localisation, sensors, payloads and robot control through a modular architecture. ROS 2 allows us to reuse widely supported components, develop application-specific modules and integrate the robot with external systems without relying on multiple software stacks. This openness and modularity are central to our goal of making industrial robotics more flexible, maintainable and affordable."
+  - organization: "NVIDIA"
+    organization_url: "https://www.nvidia.com"
+    project: "Isaac ROS"
+    project_url: "https://developer.nvidia.com/isaac/ros"
+    domain:
+      - Components
+    date_added: "2026-10-09"
+    country:
+      - US
+      - CN
+      - IN
+      - CH
+      - DE
+      - CA
+    description: "NVIDIA Isaac™ ROS is an agent-friendly, open source software foundation for building AI-powered robots with ROS 2. Built on NVIDIA’s upstream contributions to the ROS ecosystem, it combines accelerated computing, optimized robotics software, AI models, workflows, and deployment tools to help developers build, deploy, and scale production-ready robots faster."
+  - organization: "NVIDIA"
+    organization_url: "https://www.nvidia.com/"
+    project: "Isaac Sim"
+    project_url: "https://docs.isaacsim.omniverse.nvidia.com/latest/index.html"
+    domain:
+      - Components
+    date_added: "2026-10-14"
+    country:
+      - US
+      - CN
+      - IN
+      - CH
+      - DE
+      - CA
+      - ES
+    description: "NVIDIA Isaac Sim™ is an open-source reference framework built on NVIDIA Omniverse™ for developing AI-powered robots in physically based virtual environments. It combines robot and environment authoring, synthetic data generation, and software-in-the-loop testing with ROS 2 to help developers validate robot software stacks before real-world deployment."

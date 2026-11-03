@@ -2,13 +2,39 @@
 
   Contributing
 
+.. meta::
+   :contentType: about
+   :experience: beginner, intermediate, expert
+   :area: contributing, community
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. _Contributing:
 
 Contributing
 ============
 
+.. short-description::
+   Contributing to ROS helps improve the ecosystem for developers building robots with different goals, platforms, and constraints.
+   This article describes the main contribution principles, community discussion routes, code contribution process, and path to becoming a maintainer.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. toctree::
+   :maxdepth: 2
+   :hidden:
+
+   Contributing/Developer-Guide
+   Contributing/Contributing-to-documentation
+   Contributing/Reviewing-a-PR
+   Contributing/Making-a-PR
+   Contributing/Triaging-an-issue
+   Contributing/Reporting-an-issue
+
 .. contents:: Table of Contents
-   :depth: 1
+   :depth: 2
    :local:
 
 A few things to remember before you start contributing to the ROS 2 project.
@@ -60,18 +86,12 @@ To get started, you'll want to install from source; follow :ref:`the source inst
 Development Guides
 ^^^^^^^^^^^^^^^^^^
 
-.. toctree::
-   :titlesonly:
-   :maxdepth: 1
-
-   Contributing/Developer-Guide
-   Contributing/Source-Control-Best-Practices
-   Contributing/Code-Style-Language-Versions
-   Contributing/Quality-Guide
-   Contributing/Build-Farms
-   Contributing/Windows-Tips-and-Tricks
-   Contributing/Contributing-to-code
-   Contributing/Contributing-to-documentation
+* :doc:`Contributing/Developer-Guide`
+* :doc:`Contributing/Contributing-to-documentation`
+* :doc:`Contributing/Reviewing-a-PR`
+* :doc:`Contributing/Making-a-PR`
+* :doc:`Contributing/Triaging-an-issue`
+* :doc:`Contributing/Reporting-an-issue`
 
 What to work on
 ^^^^^^^^^^^^^^^

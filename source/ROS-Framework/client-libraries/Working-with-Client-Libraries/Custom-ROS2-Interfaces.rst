@@ -1,3 +1,10 @@
+.. meta::
+   :contentType: tutorial
+   :experience: beginner
+   :area: client-libraries, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Tutorials/Custom-ROS2-Interfaces
@@ -5,8 +12,17 @@
 
 .. _CustomInterfaces:
 
-Creating custom msg and srv files
-=================================
+Creating custom msg and srv files — tutorial
+============================================
+
+.. short-description::
+   Custom interfaces let your nodes exchange application-specific data when standard interfaces are not enough.
+   This article describes how to create ``.msg`` and ``.srv`` files in a dedicated package.
+   After following these steps, you will be able to build, inspect, and use custom interfaces from C++ and Python nodes.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Define custom interface files (``.msg`` and ``.srv``) and use them with Python and C++ nodes.
 

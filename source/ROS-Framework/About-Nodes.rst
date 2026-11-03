@@ -2,8 +2,23 @@
 
     Concepts/Basic/About-Nodes
 
+.. meta::
+   :contentType: about
+   :experience: beginner
+   :area: nodes, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 Nodes
 =====
+
+.. short-description::
+   Nodes are the main units of computation in a ROS graph.
+   This article explains what nodes are, how they communicate, and how they provide functionality to other parts of a ROS system.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 .. toctree::
    :maxdepth: 1
@@ -18,6 +33,9 @@ Nodes
 .. contents:: Table of Contents
    :local:
 
+Overview of nodes
+-----------------
+
 A node is a participant in the ROS 2 graph, which uses a :doc:`client library <About-Client-Libraries>` to communicate with other nodes.
 Nodes can communicate with other nodes within the same process, in a different process, or on a different machine.
 Nodes are typically the unit of computation in a ROS graph; each node should do one logical thing.
@@ -30,3 +48,14 @@ Nodes can provide configurable :doc:`parameters <About-Parameters>` to change be
 Nodes are often a complex combination of publishers, subscribers, service servers, service clients, action servers, and action clients, all at the same time.
 
 Connections between nodes are established through a distributed :doc:`discovery <nodes/About-Discovery>` process.
+
+Subordinate nodes (sub-nodes)
+-----------------------------
+
+In C++ (``rclcpp``), a node can create secondary instances known as **subordinate nodes** (or **sub-nodes**) using ``rclcpp::Node::create_sub_node()``.
+A subordinate node shares the parent node's context, node interfaces (including logging, parameters, timers, and clock), and ROS graph identity, while specifying an additional relative *sub-namespace*.
+
+Subordinate nodes are useful for modular C++ software architecture.
+Internal subsystems or helper libraries running inside the same node process can use a subordinate node to publish or subscribe under scoped topic and service names without creating separate nodes, avoiding additional middleware discovery overhead and multi-node execution management.
+
+For a practical guide, see the :doc:`Using subordinate nodes tutorial <nodes/Working-with-nodes/Using-Sub-Nodes>`.

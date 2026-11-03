@@ -1,13 +1,28 @@
+.. meta::
+   :contentType: reference
+   :experience: intermediate, expert
+   :area: framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
-    Releases/Release-Process
+    Get-Started/Releases/Release-Process
 
 Development process for a release
 =================================
 
-.. contents:: Table of Contents
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
    :depth: 2
    :local:
+
+.. short-description::
+  Each ROS 2 distribution goes through a process of development more than a year long that begins prior to the release of the previous distribution.
+  This article provides a high-level view of this development process.
 
 Each ROS 2 distribution goes through a process of development more than a year long that begins prior to the release of the previous distribution.
 Below is a high-level view of this development process.
