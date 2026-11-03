@@ -22,7 +22,6 @@ Working with nodes
 Coming Soon
 
 .. toctree::
-   :hidden:
 
    Working-with-nodes/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes
    Working-with-nodes/Using-Rqt-Console/Using-Rqt-Console

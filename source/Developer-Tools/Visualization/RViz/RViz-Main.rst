@@ -26,7 +26,6 @@ RViz is a 3D visualizer for the Robot Operating System (ROS) framework.
    :local:
 
 .. toctree::
-   :hidden:
 
    RViz-User-Guide/RViz-User-Guide
    Marker-Sending-Basic-Shapes/Marker-Sending-Basic-Shapes

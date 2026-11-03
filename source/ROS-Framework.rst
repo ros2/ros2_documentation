@@ -22,7 +22,6 @@ In this section:
    :local:
 
 .. toctree::
-   :hidden:
 
    ROS-Framework/How-ROS-Works
    ROS-Framework/About-Nodes

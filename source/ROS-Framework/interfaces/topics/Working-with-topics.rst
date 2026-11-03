@@ -22,7 +22,6 @@ In this section:
    :local:
 
 .. toctree::
-   :hidden:
 
    Working-with-topics/Topic-Keys/Topic-Keys-Tutorial
    Working-with-topics/Topic-Keys/Filtered-Topic-Keys-Tutorial

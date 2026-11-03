@@ -22,7 +22,6 @@ In this section:
    :local:
 
 .. toctree::
-   :hidden:
 
    Working-with-Client-Libraries/Colcon-Tutorial
    Working-with-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace

@@ -22,7 +22,6 @@ In this section:
    :local:
 
 .. toctree::
-   :hidden:
 
    The-ROS2-Project/Contributing
    The-ROS2-Project/Features

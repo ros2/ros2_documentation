@@ -22,7 +22,6 @@ In this section:
    :local:
 
 .. toctree::
-   :hidden:
 
    Integrations-and-related/Simulators/Simulation-Main
    Integrations-and-related/Deploying-ROS-2-on-IBM-Cloud

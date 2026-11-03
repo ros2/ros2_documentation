@@ -22,7 +22,6 @@ In this section:
    :local:
 
 .. toctree::
-   :hidden:
 
    Migration-and-Upgrades/Migrating-from-ROS1
    Migration-and-Upgrades/Using-ros1_bridge-Jammy-upstream

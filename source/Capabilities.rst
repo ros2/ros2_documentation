@@ -22,7 +22,6 @@ In this section:
    :local:
 
 .. toctree::
-   :hidden:
 
    Capabilities/About-Simulation
    Capabilities/About-Motion-planning

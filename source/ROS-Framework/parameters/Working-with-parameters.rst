@@ -22,7 +22,6 @@ In this section:
    :local:
 
 .. toctree::
-   :hidden:
 
    Working-with-parameters/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters
    Working-with-parameters/Using-ros2-param

@@ -27,7 +27,6 @@ Advanced installation options
 A list of alternative ways to install ROS 2 – whether it's by building from source or installing a binary.
 
 .. toctree::
-   :hidden:
 
    Alternatives/Ubuntu-Development-Setup
    Alternatives/Ubuntu-Development-Setup-Pixi

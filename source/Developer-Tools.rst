@@ -22,7 +22,6 @@ In this section:
    :local:
 
 .. toctree::
-   :hidden:
 
    Developer-Tools/About-introspection-and-analysis
    Developer-Tools/About-Launch

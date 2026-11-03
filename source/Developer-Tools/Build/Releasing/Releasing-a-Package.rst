@@ -24,7 +24,6 @@ Releasing a Package
    :labels: area=Area, contentType=Content type, experience=Level
 
 .. toctree::
-   :hidden:
 
    Index-Your-Packages
    First-Time-Release
