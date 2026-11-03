@@ -37,7 +37,8 @@ Formatting
 The ROS documentation website uses the ``reStructuredText`` format, which is the default plaintext markup language used by Sphinx.
 This section is a brief introduction to ``reStructuredText`` concepts, syntax, and best practices.
 
-When formatting your ``reStructuredText`` file, **make sure to write only one sentence per line as it makes reviewing and modifying your file much easier.**
+When formatting your ``reStructuredText`` file, write only one sentence per line.
+That makes reviewing and modifying your file much easier.
 
 You can refer to `reStructuredText User Documentation <https://docutils.sourceforge.io/rst.html>`_ for a detailed technical specification.
 
@@ -48,7 +49,6 @@ The ROS documentation linter will not accept pull requests with trailing white s
 We recommend that you enable automatic white space highlighting and cleanup if your editor supports it.
 
 You must also include a single newline at the end of the file.
-
 
 Headings
 ^^^^^^^^
@@ -121,9 +121,9 @@ Code blocks: ``bash`` vs. ``console``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ``bash`` and ``console`` are similar, but they serve two different purposes.
-Choosing the correct one is important to ensure that the content is formatted correctly and that the copy button copies the right content.
+Choosing the correct one ensures that the content is formatted correctly and that the copy button copies the right content.
 
-* ``bash`` is meant for scripts, e.g., for bash commands from a script file.
+* ``bash`` is meant for scripts, for example for bash commands from a script file.
    The entire code block is copied when the copy button is selected.
 * ``console`` is meant for commands to be run in a terminal, optionally including their output.
    Only lines with a prompt symbol are copied to the clipboard when the copy button is selected.
@@ -146,9 +146,11 @@ We recommend using ``.. code-block:: console`` with ``$`` on all command lines f
 This makes it clear that the given commands need to be run in a terminal.
 
 ``console`` separates command lines from output lines using prompt symbols such as ``$`` or ``#``.
-Lines that begin with a prompt symbol are formatted as bash commands and other lines are formatted as normal text.
-The prompt symbol cannot be selected in the browser, and the copy button in the upper right-hand corner copies *only* the commands, not the outputs nor the prompt symbols.
-This means that if a ``console`` code block does not have any lines with a prompt symbol, the copy button does not copy any lines.
+Lines that begin with a prompt symbol are formatted as bash commands.
+Other lines are formatted as normal text.
+The prompt symbol cannot be selected in the browser.
+The copy button in the upper right-hand corner copies *only* the commands, not the outputs or the prompt symbols.
+If a ``console`` code block does not have any lines with a prompt symbol, the copy button does not copy any lines.
 
 If there is output that needs to be displayed, include it in the same block:
 
@@ -162,7 +164,7 @@ If there is output that needs to be displayed, include it in the same block:
 .. note::
 
    If some output lines start with ``#``, place the output in a separate ``.. code-block:: text``.
-   It is crucial to separate commands from their output because the ``#`` symbol is used to include the content in the clipboard.
+   ``#`` is treated as a prompt, like ``$``, so those lines would otherwise be copied as commands.
 
 Bash and console examples
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -178,7 +180,7 @@ The following code block is ``console``:
    [INFO] [1742150439.022947971] [my_turtle]: Starting turtlesim with node name /my_turtle
    [INFO] [1742150439.026043867] [my_turtle]: Spawning turtle [turtle1] at x=[5.544445], y=[5.544445], theta=[0.000000]
 
-the following code block is ``bash``:
+The following code block is ``bash``:
 
 .. code-block:: bash
 
@@ -316,7 +318,7 @@ An example of the metadata directive is:
    .. meta::
       :contentType: about
       :experience: beginner
-      :area: framework, tools, capabilities, community
+      :area: contributing, community
       :distribution: {DISTRO}
       :product: {PRODUCT}
 
@@ -408,7 +410,10 @@ Add the following related directive to your article:
 Short description directive
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-``.. short-description::``: Provides a two or three sentence explanation about the article's content.
+Each ROS article should include the ``.. short-description::`` directive.
+Omitting it triggers a warning in the metadata check rather than failing the pull request.
+
+``.. short-description::`` provides a two or three sentence explanation about the article's content.
 
   Use the following structure to create a short description, making sure your sentences answer each of the questions:
 
@@ -454,6 +459,16 @@ Matching uses the primary ``:area:`` value: other pages that include that value 
   Related articles:
 
   .. ros-related-articles::
+
+To generate related packages in the browser from the rosdistro cache, add the ``.. ros-related-packages::`` directive.
+Write a short intro line such as ``Related packages:`` above it.
+Matching uses the primary ``:area:`` value against each package's ``<ros2_documentation_area>`` export in ``package.xml``.
+
+.. code-block:: rst
+
+  Related packages:
+
+  .. ros-related-packages::
 
 You can also add related content manually.
 Use the following formatting and naming conventions.
@@ -514,7 +529,8 @@ This is particularly important for large articles with many nested sections, for
 Content types
 -------------
 
-Content types define patterns in the content of different types of articles, designed to meet a range of information needs.
+Content types define patterns in the content of different types of articles.
+They are designed to meet a range of information needs.
 The main purpose of content types is to set expectations for humans and AI about the expected content range and scope.
 The patterns defined by content types are also valuable for enabling efficient content creation and maintenance.
 To best support information retrieval by both humans and machines, each article contains a single content type.
@@ -604,7 +620,7 @@ What metadata and directives are required in a ROS documentation article?
   Every ROS article must include a ``.. meta::`` directive with an ``:area:`` field.
   List ``:area:`` values most specific first; the first value is the primary value used for related content.
   Each article should also include the ``.. showmeta::`` and ``.. short-description::`` directives.
-  A missing, empty, or disallowed ``:area:`` value causes the Enhance check on the pull request to fail.
+  A missing, empty, or disallowed ``:area:`` value causes the metadata check on the pull request to fail.
 
 How should I format sentences and white space in a ROS reStructuredText file?
   Write only one sentence per line to make the file easier to review and modify.
