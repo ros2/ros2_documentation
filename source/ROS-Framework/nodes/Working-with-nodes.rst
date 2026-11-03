@@ -9,7 +9,7 @@ Working with nodes
 ==================
 
 .. short-description::
-   This page is a collection of articles about nodes.
+   Articles and tutorials for creating, configuring, running, and managing ROS 2 nodes.
 
 .. showmeta::
    :order: area, contentType, experience
@@ -29,6 +29,7 @@ Coming Soon
    Working-with-nodes/Writing-a-Composable-Node
    Working-with-nodes/Composition
    Working-with-nodes/Using-Node-Interfaces-Template-Class
+   Working-with-nodes/Using-Sub-Nodes
    Working-with-nodes/Managed-Nodes
    Working-with-nodes/intra-process/Intra-Process-Communication
    Working-with-nodes/Using-callback-groups

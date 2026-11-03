@@ -48,3 +48,14 @@ Nodes can provide configurable :doc:`parameters <About-Parameters>` to change be
 Nodes are often a complex combination of publishers, subscribers, service servers, service clients, action servers, and action clients, all at the same time.
 
 Connections between nodes are established through a distributed :doc:`discovery <nodes/About-Discovery>` process.
+
+Subordinate nodes (sub-nodes)
+-----------------------------
+
+In C++ (``rclcpp``), a node can create secondary instances known as **subordinate nodes** (or **sub-nodes**) using ``rclcpp::Node::create_sub_node()``.
+A subordinate node shares the parent node's context, node interfaces (including logging, parameters, timers, and clock), and ROS graph identity, while specifying an additional relative *sub-namespace*.
+
+Subordinate nodes are useful for modular C++ software architecture.
+Internal subsystems or helper libraries running inside the same node process can use a subordinate node to publish or subscribe under scoped topic and service names without creating separate nodes, avoiding additional middleware discovery overhead and multi-node execution management.
+
+For a practical guide, see the :doc:`Using subordinate nodes tutorial <nodes/Working-with-nodes/Using-Sub-Nodes>`.
