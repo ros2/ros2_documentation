@@ -10,8 +10,7 @@ How ROS works
 
 .. short-description::
    The ROS framework is the “plumbing” which allows for communication between parts of a robot, and within parts of a robot. 
-   This article provides an overview of how the main components work together to enable this
-   This article provides a high-level overview of how ROS works
+   This article provides an overview of how the main components work together to enable this.
 
 .. showmeta::
    :order: area, contentType, experience
@@ -32,9 +31,9 @@ The ROS graph refers to the network of nodes.
 Elements of a ROS system
 ------------------------
 
-The ROS framework comprises multiple elements which allow you to build a complete robotics system that can receive data from sensors and transform that data into robotic actions.
+The ROS framework consists of multiple elements which allow you to build a complete robotics system that can receive data from sensors and transform that data into robotic actions.
 
-A full robotic system is comprised of many nodes working in concert.
+A full robotic system is comprised of many nodes working together.
 In ROS 2, a single executable (C++ program, Python program, etc.) can contain one or more nodes.
 Each node in ROS should be responsible for a single, modular purpose, such as controlling a motor or publishing sensor data.
 ROS nodes can process data concurrently and can communicate with each other.
@@ -42,11 +41,11 @@ See :doc:`About-Nodes`.
 
 Communication between nodes is managed using the middleware interface. 
 See :doc:`nodes/About-Discovery` and :doc:`client-libraries/About-Internal-Interfaces/About-Internal-Interfaces`.
-Each node can send and receive data from other nodes via topic, service, and action interfaces.
+Each node can send data to and receive data from other nodes.
 See :doc:`Interfaces-Topics-Services-Actions`.
 
 Parameters are used to configure nodes.
-Parameters can be set at startup and, depending on how your code is written, they can be modified during runtime.
+Parameters can be set at startup and can be modified during runtime if your code allows it.
 See :doc:`About-Parameters`.
 
 Client libraries are the APIs that allow you to implement your ROS code.
@@ -59,7 +58,7 @@ The ROS graph
 
 The *ROS graph* describes the nodes in a system and their relationship to each other.
 
-For example, in this simplified diagram, multiple nodes communicate with each other through different interfaces including a topic, a service, and and action.
+For example, in this simplified diagram, multiple nodes communicate with each other through different interfaces including a topic, a service, and an action.
 Real systems often combine several of these patterns inside the same nodes.
 
 .. mermaid::
@@ -70,8 +69,8 @@ Real systems often combine several of these patterns inside the same nodes.
       N2 -->|action| N4[Node D]
 
 
-The ROS graph can be visualised in multiple ways. 
-For example, the visualised ROS graph using rqt in :doc:`interfaces/topics/Understanding-ROS2-Topics/Understanding-ROS2-Topics` shows two nodes, ``turtlesim`` and ``teleop_turtle``.
+The ROS graph can be visualized in multiple ways. 
+For example, the visualized ROS graph using rqt in :doc:`interfaces/topics/Understanding-ROS2-Topics/Understanding-ROS2-Topics` shows two nodes, ``turtlesim`` and ``teleop_turtle``.
 The ``/teleop_turtle`` node publishes data to the ``/turtle1/cmd_vel`` topic, and the ``/turtlesim`` node is subscribed to that topic to receive the data.
 
 .. image:: interfaces/topics/Understanding-ROS2-Topics/images/rqt_graph.png
@@ -111,14 +110,14 @@ What is a node in ROS?
    A single executable can contain one or more nodes, and nodes communicate with each other through defined ROS interfaces.
 
 How do ROS nodes communicate with each other?
-   ROS nodes exchange data through topics, services, actions, and parameters.
-
-   Communication between nodes is managed using DDS (Data Distribution Service) middleware, which enables discovery and data exchange across the ROS graph.
+   ROS nodes exchange data through topics, services, and actions.
+   Communication between nodes is handled by the underlying middleware, which also supports discovery across the ROS graph.
+   Parameters configure individual nodes; they are not a communication interface.
 
 Why should I learn the ROS CLI before creating my own nodes?
    The ROS CLI helps you explore and understand a live ROS graph before writing code.
 
-   Using the command-line tools allows you to inspect nodes, topics, services, and other ROS elements, making it easier to understand how components interact before using the ROS API to create your own applications.
+   Using the command line tools allows you to inspect nodes, topics, services, and other ROS elements, making it easier to understand how components interact before using the ROS API to create your own applications.
 
 What is the ROS graph?
    The ROS graph is the network of nodes in a ROS system and the relationships between them.
