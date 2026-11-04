@@ -1,6 +1,11 @@
 .. redirect-from::
 
+   Rosidl-Tutorial
+   Tutorials/Single-Package-Define-And-Use-Interface
+   Tutorials/Beginner-Client-Libraries/Single-Package-Define-And-Use-Interface
    How-To-Guides/Implementing-custom-interfaces
+   ROS-Framework/client-libraries/Working-with-Client-Libraries/Single-Package-Define-And-Use-Interface
+   Developer-Tools/Build/ Single-Package-Define-And-Use-Interface
 
 .. meta::
    :contentType: how-to
@@ -8,6 +13,8 @@
    :area: builds, tools
    :distribution: {DISTRO}
    :product: {PRODUCT}
+
+.. _SinglePkgInterface:
 
 Implementing custom interfaces - how-to
 =======================================
