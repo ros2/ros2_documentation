@@ -1,3 +1,10 @@
+.. meta::
+   :contentType: how-to
+   :experience: beginner, intermediate, expert
+   :area: installation
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. _SnapshotRepository:
 
 Installing from the snapshot repository

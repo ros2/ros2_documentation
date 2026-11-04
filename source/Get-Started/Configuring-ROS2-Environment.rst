@@ -330,7 +330,7 @@ Related articles:
 * :doc:`Introducing turtlesim <Introducing-Turtlesim/Introducing-Turtlesim>`
 
 .. ros-related-articles::
-   
+
 FAQs
 ----
 

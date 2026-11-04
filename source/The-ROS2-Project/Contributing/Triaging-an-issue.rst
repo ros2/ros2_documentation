@@ -84,7 +84,7 @@ Related articles:
 * :doc:`Reporting-an-issue`
 
 .. ros-related-articles::
-   
+
 FAQs
 ----
 

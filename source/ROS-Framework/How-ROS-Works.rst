@@ -46,6 +46,6 @@ Related articles:
 * :doc:`nodes/Working-with-nodes`
 
 .. ros-related-articles::
-   
+
 FAQs
 ----

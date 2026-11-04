@@ -118,7 +118,7 @@ Related articles:
 * :doc:`Triaging-an-issue`
 
 .. ros-related-articles::
-   
+
 FAQs
 ----
 

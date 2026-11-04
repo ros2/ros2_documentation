@@ -36,14 +36,15 @@ Community-contributed packages
 
 Coming soon
 
-.. Related content (placeholder)
-   -----------------------------
+Related content
+---------------
 
-   * Example
+Related articles:
 
-   * Example
+.. ros-related-articles::
 
-   FAQs (placeholder)
+
+..   FAQs (placeholder)
    ------------------
 
    * Example

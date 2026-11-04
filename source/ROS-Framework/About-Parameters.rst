@@ -108,9 +108,11 @@ The :doc:`Migration guide <../Migration-and-Upgrades/Migrating-from-ROS1/Migrati
 
 Related content
 ---------------
+
 Related articles:
 
 .. ros-related-articles::
+
 * :doc:`parameters/Working-with-parameters`
 * :doc:`parameters/Working-with-parameters/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters`
 * :doc:`../Developer-Tools/Launch/Launch-Main`

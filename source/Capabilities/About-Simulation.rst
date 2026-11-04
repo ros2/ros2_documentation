@@ -42,13 +42,15 @@ Community-contributed packages
 
 * `O3DE <https://github.com/o3de/o3de>`_: An open-source, cross-platform 3D game engine for creating immersive experiences.
 
-.. Related content (placeholder)
-   -----------------------------
-   * Example
+Related content
+---------------
 
-   * Example
+Related articles:
 
-   FAQs (placeholder)
+.. ros-related-articles::
+
+
+..   FAQs (placeholder)
    ------------------
    * Example
 

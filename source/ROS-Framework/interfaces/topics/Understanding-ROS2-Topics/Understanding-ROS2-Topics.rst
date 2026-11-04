@@ -624,7 +624,7 @@ Related articles:
 * :doc:`Interfaces (topics, services, actions) <../../../Interfaces-Topics-Services-Actions>`
 
 .. ros-related-articles::
-  
+
 FAQs
 ----
 
