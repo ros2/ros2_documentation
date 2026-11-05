@@ -16,9 +16,6 @@ How ROS works
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. toctree::
-   :hidden:
-
 .. contents:: Table of Contents
    :depth: 2
    :local:
@@ -45,7 +42,7 @@ Each node can send data to and receive data from other nodes.
 See :doc:`Interfaces-Topics-Services-Actions`.
 
 Parameters are used to configure nodes.
-Parameters can be set at startup and can be modified during runtime if your code allows it.
+Parameters can be set at startup and can be modified during runtime.
 See :doc:`About-Parameters`.
 
 Client libraries are the APIs that allow you to implement your ROS code.
@@ -65,8 +62,8 @@ Real systems often combine several of these patterns inside the same nodes.
 
    flowchart LR
       N1[Node A] -->|topic| N2[Node B]
-      N1 -->|service| N3[Node C]
-      N2 -->|action| N4[Node D]
+      N1 <-->|service| N3[Node C]
+      N2 <-->|action| N4[Node D]
 
 
 The ROS graph can be visualized in multiple ways.
@@ -85,7 +82,7 @@ You can build with ROS using the command line and the ROS API.
    You can use the CLI for a variety of tasks including launching or investigating nodes.
 * ROS API:
    The ROS API allows you to build and run complex systems using client libraries.
-   For a more in-depth description of the ROS API, see :doc:`client-libraries/About-Internal-Interfaces/About-Internal-Interfaces`.
+   For a more in-depth description of the ROS API, see :doc:`About-Client-Libraries`.
 
 .. note::
    If you are new to ROS, working with the CLI will help you understand ROS elements and how to interact with them.
@@ -122,4 +119,4 @@ Why should I learn the ROS CLI before creating my own nodes?
 What is the ROS graph?
    The ROS graph is the network of nodes in a ROS system and the relationships between them.
 
-   It represents how nodes communicate through topics, services, and actions, and can be visualised using ROS tools such as ``rqt_graph``.
+   It represents how nodes communicate through topics, services, and actions, and can be visualized using ROS tools such as ``rqt_graph``.

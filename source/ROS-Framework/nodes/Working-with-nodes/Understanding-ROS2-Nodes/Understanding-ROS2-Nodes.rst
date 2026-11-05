@@ -38,8 +38,8 @@ The commands used in this tutorial are:
 
 Prerequisites
 -------------
-* :doc:`ROS Graph <../../../../ROS-Framework/How-ROS-Works>` explains how ROS works at a high level
-* :doc:`nodes <../../../../ROS-Framework/About-Nodes>` explains what nodes are in ROS
+* :doc:`../../../How-ROS-Works` explains how ROS works at a high level
+* :doc:`../../../About-Nodes` explains what nodes are in ROS
 * :doc:`Using turtlesim, ros2, and rqt <../../../../Get-Started/Introducing-Turtlesim/Introducing-Turtlesim>` shows you how to install the ``turtlesim`` package used here.
 
 .. note::
