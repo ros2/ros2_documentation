@@ -8,18 +8,20 @@
 Working with services
 =====================
 
+.. short-description::
+   This page is a collection of articles about services.
+
 .. showmeta::
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. contents:: Table of Contents
+In this section:
+
+.. contents:: Contents
    :depth: 2
    :local:
 
-Coming Soon
-
 .. toctree::
-   :maxdepth: 1
 
    Working-with-services/Understanding-ROS2-Services/Understanding-ROS2-Services
    Working-with-services/Sync-Vs-Async

@@ -1,6 +1,6 @@
 .. meta::
    :contentType: tutorial
-   :experience: advanced
+   :experience: expert
    :area: interfaces, framework
    :distribution: {DISTRO}
    :product: {PRODUCT}
@@ -25,10 +25,9 @@ Topic Keys — tutorial
 
 This tutorial aims to demonstrate the use of topic keys by simulating a scenario in which multiple sensors are transmitting their readings to a controller that processes them.
 
-.. contents::
-    :depth: 2
-    :local:
-    :backlinks: none
+.. contents:: Contents
+   :depth: 2
+   :local:
 
 Background
 ----------

@@ -5,8 +5,8 @@
    How-To-Guides/Migrating-from-ROS1/Migrating-Python-Packages
 
 .. meta::
-   :contentType:
-   :experience:
+   :contentType: reference
+   :experience: beginner, intermediate, expert
    :area: framework
    :distribution: {DISTRO}
    :product: {PRODUCT}
@@ -14,10 +14,18 @@
 Migrating Python Packages Reference
 ===================================
 
+.. short-description::
+   Python packages need packaging and API updates when you migrate them from ROS 1 to ROS.
+   This article is a reference for migrating Python packages with ``colcon``, ``ament_python``, and related ROS tooling.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
 This page is a reference on how to migrate Python packages from ROS 1 to ROS 2.
 If this is your first time migrating a Python package, then follow :doc:`this guide to migrate an example Python package <Migrating-Python-Package-Example>` first.
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 

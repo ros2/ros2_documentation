@@ -15,14 +15,13 @@ Working with nodes
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 
 Coming Soon
 
 .. toctree::
-   :maxdepth: 1
 
    Working-with-nodes/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes
    Working-with-nodes/Using-Rqt-Console/Using-Rqt-Console

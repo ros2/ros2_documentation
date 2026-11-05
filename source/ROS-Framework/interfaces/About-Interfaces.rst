@@ -21,14 +21,13 @@ Interfaces
    :labels: area=Area, contentType=Content type, experience=Level
 
 .. toctree::
-   :maxdepth: 1
    :hidden:
 
    Topics-Services-Actions
    About-Tf2/About-Tf2
    Working-with-interfaces
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 

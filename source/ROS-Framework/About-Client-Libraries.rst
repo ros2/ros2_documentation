@@ -25,7 +25,6 @@ Client libraries
    :labels: area=Area, contentType=Content type, experience=Level
 
 .. toctree::
-   :maxdepth: 1
    :hidden:
 
    client-libraries/About-Different-Middleware-Vendors
@@ -39,8 +38,8 @@ This article explains ``rcl``, the shared core library, and the main C++ and Pyt
 With this information, you can choose the right library for your language and understand how nodes written in different languages work together.
 
 .. contents:: Contents
-    :depth: 2
-    :local:
+   :depth: 2
+   :local:
 
 Summary
 -------

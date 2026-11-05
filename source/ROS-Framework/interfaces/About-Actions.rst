@@ -21,12 +21,12 @@ Actions
    :labels: area=Area, contentType=Content type, experience=Level
 
 .. toctree::
-   :maxdepth: 1
    :hidden:
 
    actions/Working-with-actions
 
-.. contents:: Table of Contents
+.. contents:: Contents
+   :depth: 2
    :local:
 
 In ROS 2, an action refers to a long-running remote procedure call with feedback and the ability to cancel or preempt the goal.

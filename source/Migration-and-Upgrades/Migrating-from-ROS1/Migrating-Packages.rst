@@ -3,8 +3,8 @@
     How-To-Guides/Migrating-from-ROS1/Migrating-Packages
 
 .. meta::
-   :contentType:
-   :experience:
+   :contentType: how-to
+   :experience: beginner, intermediate, expert
    :area: framework
    :distribution: {DISTRO}
    :product: {PRODUCT}
@@ -12,7 +12,16 @@
 Migrating Packages
 ==================
 
-.. contents:: Table of Contents
+.. short-description::
+   Package migration is required when you move existing ROS 1 packages into a ROS workspace.
+   In this article, you will learn the two migration approaches and the package-level changes that apply across languages.
+   After you follow these steps, you can choose a migration strategy and update manifests, dependencies, metapackages, and licensing correctly.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
    :depth: 2
    :local:
 

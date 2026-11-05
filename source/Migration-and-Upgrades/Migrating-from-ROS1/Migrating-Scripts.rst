@@ -3,14 +3,23 @@
     How-To-Guides/Migrating-from-ROS1/Migrating-Scripts
 
 .. meta::
-   :contentType:
-   :experience:
+   :contentType: how-to
+   :experience: beginner, intermediate, expert
    :area: framework
    :distribution: {DISTRO}
    :product: {PRODUCT}
 
 Migrating Scripts
 =================
+
+.. short-description::
+   Scripts and shell commands that drive ROS 1 tools need updates when you move to the unified ``ros2`` CLI.
+   In this article, you will learn how ROS command names and node argument flags map from ROS 1.
+   After you follow these steps, you can rewrite common ``rosrun``-style invocations for ROS.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 ROS CLI
 -------

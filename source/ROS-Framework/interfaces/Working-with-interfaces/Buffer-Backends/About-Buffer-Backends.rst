@@ -17,7 +17,6 @@ About ``rosidl::Buffer`` backends
    :labels: area=Area, contentType=Content type, experience=Level
 
 .. toctree::
-   :maxdepth: 1
    :hidden:
 
    Using-Buffer-Backends
@@ -26,7 +25,7 @@ About ``rosidl::Buffer`` backends
    Writing-a-Buffer-Compatible-Conversions-Package
 
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 

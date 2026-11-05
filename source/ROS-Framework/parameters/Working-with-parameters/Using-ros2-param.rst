@@ -21,8 +21,8 @@ Using the ``ros2 param`` command-line tool — how-to
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. contents:: Table of Contents
-   :depth: 1
+.. contents:: Contents
+   :depth: 2
    :local:
 
 Parameters in ROS 2 can be get, set, listed, and described through a set of services as described in :doc:`the concept document <../../About-Parameters>`.

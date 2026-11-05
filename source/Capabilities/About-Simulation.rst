@@ -8,8 +8,15 @@
 Simulation
 ==========
 
+.. short-description::
+   Simulation capabilities let you test robot software in virtual environments, often with physical accuracy.
+   This article summarizes ROS developer tools and guidance available to enable simulation.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
 .. toctree::
-   :maxdepth: 1
    :hidden:
 
    Simulation/URDF/URDF-Main
@@ -20,7 +27,8 @@ This article summarizes ROS developer tools and guidance available to enable sim
 
 **Area: simulation, capabilities | Content-type: about | Experience: beginner, intermediate, expert**
 
-.. contents:: Table of Contents
+.. contents:: Contents
+   :depth: 2
    :local:
 
 Summary

@@ -20,7 +20,7 @@ ROS (Robot Operating System) is an open-source ecosystem.
 We rely on contributions from our community to help us grow and improve.
 This article introduces the ways in which you can contribute to ROS.
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 

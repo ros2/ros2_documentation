@@ -21,7 +21,6 @@ Node management
    :labels: area=Area, contentType=Content type, experience=Level
 
 .. toctree::
-   :maxdepth: 2
    :hidden:
 
    Launch/Launching-composable-nodes
@@ -38,7 +37,7 @@ Node management
    Launch/Discovery-Server/Discovery-Server
    Launch/Security/About-Security
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 
