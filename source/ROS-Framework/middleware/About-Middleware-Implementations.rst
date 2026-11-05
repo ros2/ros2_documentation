@@ -9,6 +9,7 @@
 
    Concepts/About-Middleware-Implementations
    Concepts/Advanced/About-Middleware-Implementations
+   ROS-Framework/client-libraries/About-Middleware-Implementations
 
 ROS 2 middleware implementations
 ================================

@@ -22,3 +22,4 @@ Coming Soon
    ROS-Framework/Interfaces-Topics-Services-Actions
    ROS-Framework/About-Parameters
    ROS-Framework/About-Client-Libraries
+   ROS-Framework/About-Middleware

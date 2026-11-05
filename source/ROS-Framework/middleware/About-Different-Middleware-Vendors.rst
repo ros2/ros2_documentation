@@ -10,6 +10,8 @@
     DDS-and-ROS-middleware-implementations
     Concepts/About-Different-Middleware-Vendors
     Concepts/Intermediate/About-Different-Middleware-Vendors
+    ROS-Framework/client-libraries/About-Different-Middleware-Vendors
+
 
 Different ROS 2 middleware vendors
 ==================================
