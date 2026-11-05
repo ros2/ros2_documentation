@@ -24,27 +24,13 @@ Learning about nodes - tutorial
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-Nodes are the fundamental building blocks of a robotic system, where each node is responsible for a single task.
-This article walks you through how to run nodes with the ``ros2`` command-line tools and inspect how they are shown on the ROS graph.
-A hands-on exercise gives you practice listing active nodes and examining their connections.
-
-**Area: Nodes, Framework | Content-type: tutorial | Experience: beginner**
-
 .. contents:: Contents
    :depth: 3
    :local:
 
 Summary
 -------
-
-Each node in ROS serves a single, modular purpose in a robotics system.
-For more information, see :doc:`About nodes <../../../About-Nodes>`.
-
-Nodes communicate with other nodes through :doc:`topics, services, actions, and parameters <../../../Interfaces-Topics-Services-Actions>`.
-A single executable can contain one or more nodes.
-For more information, see :doc:`How ROS works <../../../How-ROS-Works>`.
-
-The commands used in this tutorial were:
+The commands used in this tutorial are:
 
 * To run turtlesim, use the command ``ros2 run turtlesim turtlesim_node``.
 * To display the names of all running nodes, use the command ``ros2 node list``.
@@ -52,8 +38,9 @@ The commands used in this tutorial were:
 
 Prerequisites
 -------------
-
-:doc:`Using turtlesim, ros2, and rqt <../../../../Get-Started/Introducing-Turtlesim/Introducing-Turtlesim>` shows you how to install the ``turtlesim`` package used here.
+* :doc:`../../../How-ROS-Works` explains how ROS works at a high level
+* :doc:`../../../About-Nodes` explains what nodes are in ROS
+* :doc:`Using turtlesim, ros2, and rqt <../../../../Get-Started/Introducing-Turtlesim/Introducing-Turtlesim>` shows you how to install the ``turtlesim`` package used here.
 
 .. note::
     Make sure to source ROS in every new terminal you open.
