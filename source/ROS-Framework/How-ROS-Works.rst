@@ -9,7 +9,7 @@ How ROS works
 =============
 
 .. short-description::
-   The ROS framework is the “plumbing” which allows for communication between parts of a robot, and within parts of a robot. 
+   The ROS framework is the “plumbing” which allows for communication between parts of a robot, and within parts of a robot.
    This article provides an overview of how the main components work together to enable this.
 
 .. showmeta::
@@ -39,7 +39,7 @@ Each node in ROS should be responsible for a single, modular purpose, such as co
 ROS nodes can process data concurrently and can communicate with each other.
 See :doc:`About-Nodes`.
 
-Communication between nodes is managed using the middleware interface. 
+Communication between nodes is managed using the middleware interface.
 See :doc:`nodes/About-Discovery` and :doc:`client-libraries/About-Internal-Interfaces/About-Internal-Interfaces`.
 Each node can send data to and receive data from other nodes.
 See :doc:`Interfaces-Topics-Services-Actions`.
@@ -50,7 +50,7 @@ See :doc:`About-Parameters`.
 
 Client libraries are the APIs that allow you to implement your ROS code.
 Client libraries implement code generators which allow you to interact with ROS interface files.
-These interface files then allow nodes written with different client libraries to exchange messages. 
+These interface files then allow nodes written with different client libraries to exchange messages.
 See :doc:`About-Client-Libraries`.
 
 The ROS graph
@@ -69,7 +69,7 @@ Real systems often combine several of these patterns inside the same nodes.
       N2 -->|action| N4[Node D]
 
 
-The ROS graph can be visualized in multiple ways. 
+The ROS graph can be visualized in multiple ways.
 For example, the visualized ROS graph using rqt in :doc:`interfaces/topics/Understanding-ROS2-Topics/Understanding-ROS2-Topics` shows two nodes, ``turtlesim`` and ``teleop_turtle``.
 The ``/teleop_turtle`` node publishes data to the ``/turtle1/cmd_vel`` topic, and the ``/turtlesim`` node is subscribed to that topic to receive the data.
 
@@ -99,7 +99,7 @@ Related content
 * :doc:`About-Client-Libraries`
 * :doc:`About-Parameters`
 * :doc:`Interfaces-Topics-Services-Actions`
-* :doc:`nodes/Working-with-nodes`   
+* :doc:`nodes/Working-with-nodes`
 
 FAQs
 ----
