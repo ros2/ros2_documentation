@@ -43,7 +43,6 @@ Using client libraries, users gain access to ROS 2 concepts such as nodes, topic
    Working-with-Client-Libraries/Recording-A-Bag-From-Your-Own-Node-Py
    Working-with-Client-Libraries/Reading-From-A-Bag-File-CPP
    Working-with-Client-Libraries/Reading-From-A-Bag-File-Python
-   Working-with-Client-Libraries/Creating-An-RMW-Implementation
    Working-with-Client-Libraries/Configure-ZeroCopy-loaned-messages
 
 **[Area: Framework | Content-type: concept | Experience: beginner]**

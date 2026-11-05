@@ -1,7 +1,7 @@
 .. meta::
    :contentType: about
    :experience: intermediate
-   :area: client-libraries, framework
+   :area: middleware, framework
    :distribution: {DISTRO}
    :product: {PRODUCT}
 

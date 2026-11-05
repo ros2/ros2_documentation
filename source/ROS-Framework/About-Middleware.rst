@@ -9,6 +9,7 @@ Middleware
 ==========
 
 .. short-description::
+   This page is a collection of articles about middleware.
 
 .. showmeta::
    :order: area, contentType, experience
@@ -16,8 +17,8 @@ Middleware
 
 .. toctree::
    :maxdepth: 1
-   :hidden:
 
    middleware/About-Middleware-Implementations
    middleware/About-Different-Middleware-Vendors
+   middleware/Creating-An-RMW-Implementation
 
