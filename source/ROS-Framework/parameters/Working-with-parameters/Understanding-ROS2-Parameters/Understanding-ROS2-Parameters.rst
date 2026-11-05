@@ -25,8 +25,6 @@ Learning about parameters - tutorial
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-**Area: Framework | Content-type: tutorial | Experience: beginner**
-
 .. contents:: Contents
    :depth: 2
    :local:

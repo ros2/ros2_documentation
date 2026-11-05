@@ -24,8 +24,6 @@ Learning about nodes - tutorial
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-**Area: Nodes, Framework | Content-type: tutorial | Experience: beginner**
-
 .. contents:: Contents
    :depth: 3
    :local:
