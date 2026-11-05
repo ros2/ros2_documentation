@@ -393,6 +393,11 @@ On the other hand, the ``event_type: REQUEST_RECEIVED`` and ``event_type: RESPON
 Related content
 ---------------
 
-- `service introspection client example (rclcpp) <https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/services/introspection_client.cpp>`__ and `service introspection service example (rclcpp) <https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/services/introspection_service.cpp>`__.
-- `service introspection client and service example (rclpy) <https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_py/demo_nodes_py/services/introspection.py>`__.
-- `Service Introspection REP-2012 <https://github.com/ros-infrastructure/rep/pull/360>`__.
+Related articles:
+
+* `service introspection client example (rclcpp) <https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/services/introspection_client.cpp>`__
+* `service introspection service example (rclcpp) <https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/services/introspection_service.cpp>`__
+* `service introspection client and service example (rclpy) <https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_py/demo_nodes_py/services/introspection.py>`__
+* `Service Introspection REP-2012 <https://github.com/ros-infrastructure/rep/pull/360>`__
+
+.. ros-related-articles::

@@ -273,3 +273,10 @@ Steps
 
             $ install/setup.ps1
             $ ros2 topic echo /address_book
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

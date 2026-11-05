@@ -110,3 +110,10 @@ Contributing to ROS 2 core?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you plan to contribute directly to ROS 2 core packages, you can install the :doc:`latest development from source <Installation/Alternatives/Latest-Development-Setup>` which shares installation instructions with the :ref:`Rolling distribution <rolling_distribution>`.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

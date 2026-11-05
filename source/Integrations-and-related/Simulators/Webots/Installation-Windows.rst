@@ -217,3 +217,10 @@ To use RViz, you can either upgrade WSL or enable X11 forwarding.
             .. code-block:: console
 
                 $ echo "export DISPLAY=$(ip route list default | awk '{print }'):0" >> ~/.bashrc
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

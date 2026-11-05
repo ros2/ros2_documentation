@@ -165,3 +165,10 @@ They are susceptible to deadlock, but will not provide any indication of issue w
 If you must use synchronous calls, the example in section `1 Synchronous calls`_ is a safe method of doing so.
 You should also be aware of the conditions that cause deadlock outlined in section `1.1 Sync deadlock`_.
 We recommend using async service clients instead.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

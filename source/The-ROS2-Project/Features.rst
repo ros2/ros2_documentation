@@ -121,3 +121,10 @@ The following are a few high-profile packages which are available in the latest 
 * `rosbag2 <https://index.ros.org/r/rosbag2/>`__
 * `RQt <https://index.ros.org/r/rqt/>`__
 * `RViz2 <https://index.ros.org/r/rviz/>`__
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

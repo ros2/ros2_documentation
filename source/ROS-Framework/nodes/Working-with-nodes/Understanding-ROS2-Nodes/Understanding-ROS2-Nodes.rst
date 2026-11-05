@@ -215,11 +215,13 @@ To learn how to start multiple nodes at once without opening a separate terminal
 Related content
 ---------------
 
-More articles:
+Related articles:
 
 * :doc:`Learning about topics <../../../interfaces/topics/Understanding-ROS2-Topics/Understanding-ROS2-Topics>`
 * :doc:`Interfaces (topics, services, actions) <../../../Interfaces-Topics-Services-Actions>`
 * :doc:`About nodes <../../../About-Nodes>`
+
+.. ros-related-articles::
 
 FAQs
 ----

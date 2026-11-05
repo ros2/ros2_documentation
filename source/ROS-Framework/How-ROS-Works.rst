@@ -36,11 +36,16 @@ ROS Graph
 
 Related content
 ---------------
+
+Related articles:
+
 * :doc:`nodes/About-Discovery`
 * :doc:`About-Client-Libraries`
 * :doc:`About-Parameters`
 * :doc:`Interfaces-Topics-Services-Actions`
 * :doc:`nodes/Working-with-nodes`
+
+.. ros-related-articles::
 
 FAQs
 ----

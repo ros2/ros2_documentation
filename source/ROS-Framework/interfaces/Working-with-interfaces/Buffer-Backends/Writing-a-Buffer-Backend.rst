@@ -598,3 +598,10 @@ Where to go next
 * :doc:`GPU-Buffer-Transport` -- end-to-end demo of a
   GPU-backed tensor pub/sub pipeline using the CUDA backend and
   ``torch_conversions``.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

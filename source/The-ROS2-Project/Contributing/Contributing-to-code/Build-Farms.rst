@@ -180,3 +180,10 @@ The following links provide more details and insights into the build farms:
    #jobs-and-deployment
 .. _`package manifest`:
    http://wiki.ros.org/Manifest
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

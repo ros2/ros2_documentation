@@ -794,3 +794,10 @@ Summary
 
 In this tutorial you learned how to use sensor data/messages in tf2.
 Specifically speaking, you learned how to publish ``PointStamped`` messages on a topic, and how to listen to the topic and transform the frame of ``PointStamped`` messages with ``tf2_ros::MessageFilter``.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

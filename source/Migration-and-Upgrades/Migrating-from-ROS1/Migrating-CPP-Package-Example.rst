@@ -448,3 +448,10 @@ Conclusion
 
 You have learned how to migrate an example C++ ROS 1 package to ROS 2.
 Use the :doc:`Migrating C++ Packages reference page <Migrating-CPP-Packages>` to help you migrate your own C++ packages from ROS 1 to ROS 2.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

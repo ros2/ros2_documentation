@@ -40,3 +40,10 @@ This will:
 * :doc:`Subsequent Releases <Subsequent-Releases>` - if you are releasing a new version of a package that has already been released
 
 After successfully following the instructions, your package will be released into the ROS ecosystem on the next distro synchronization!
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

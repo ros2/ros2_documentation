@@ -240,8 +240,14 @@ Keep in mind, ``ros2doctor`` is not a debug tool; it won't help with errors in y
 Related content
 ---------------
 
-`ros2doctor's README <https://github.com/ros2/ros2cli/tree/{REPOS_FILE_BRANCH}/ros2doctor>`__ will tell you more about different arguments.
+Related articles:
+
+* `ros2doctor's README <https://github.com/ros2/ros2cli/tree/{REPOS_FILE_BRANCH}/ros2doctor>`__ will tell you more about different arguments.
+
 You might want to take a look around the ``ros2doctor`` repo as well, since it's fairly beginner friendly and a great place to get started with contributing.
+
+.. ros-related-articles::
+
 
 Next steps
 ----------------

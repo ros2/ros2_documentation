@@ -151,3 +151,10 @@ Example ROS 2 ``.gitignore`` files include:
 * `rclcpp <https://github.com/ros2/rclcpp/blob/rolling/.gitignore>`_ (minimalistic example)
 * `rviz <https://github.com/ros2/rviz/blob/rolling/.gitignore>`_ (reasonable example)
 * `message_filters <https://github.com/ros2/message_filters/blob/rolling/.gitignore>`_ (extensive example)
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

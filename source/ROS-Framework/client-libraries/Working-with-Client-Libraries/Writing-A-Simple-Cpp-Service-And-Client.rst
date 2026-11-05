@@ -438,4 +438,8 @@ Next, you'll learn how to :doc:`create custom interfaces <Custom-ROS2-Interfaces
 Related content
 ---------------
 
+Related articles:
+
 * There are several ways you could write a service and client in C++; check out the ``minimal_service`` and ``minimal_client`` packages in the `ros2/examples <https://github.com/ros2/examples/tree/{REPOS_FILE_BRANCH}/rclcpp/services>`_ repo.
+
+.. ros-related-articles::

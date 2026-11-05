@@ -245,3 +245,10 @@ More information
 For the next marker tutorial, continue with :doc:`Marker: Points and Lines <../Marker-Points-and-Lines/Marker-Points-and-Lines>`.
 For more information about marker message fields and the marker types beyond the four shown here, continue with :doc:`Marker: Display types <../Marker-Display-types/Marker-Display-types>`.
 For the full source tree, see the `visualization_tutorials repository <https://github.com/ros-visualization/visualization_tutorials>`_.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

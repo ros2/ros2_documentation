@@ -262,3 +262,10 @@ Where to go next
   guide applied to your own nodes.
 * :doc:`Writing-a-Buffer-Backend` if you want to implement a
   backend for a different memory domain.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

@@ -328,3 +328,10 @@ For instance, the ``Fibonacci`` action definition contains the following:
 
 This is an action definition where the action client is sending a single ``int32`` field representing the number of Fibonacci steps to take, and expecting the action server to produce an array of ``int32`` containing the complete steps.
 Along the way, the action server may also provide an intermediate array of ``int32`` containing the steps accomplished up until a certain point.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

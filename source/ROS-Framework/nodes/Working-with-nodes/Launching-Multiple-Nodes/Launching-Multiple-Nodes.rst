@@ -84,9 +84,13 @@ Two Turtlesim windows open, one for each node defined in the launch file:
 Related content
 ---------------
 
+Related articles:
+
 * :doc:`Creating a launch file <../../../../Developer-Tools/Launch/Creating-Launch-Files>`
 * :doc:`ROS launch tutorials <../../../../Developer-Tools/Launch/Launch-Main>`
 * :doc:`Launch file formats <../../../../Developer-Tools/Launch/Launch-file-different-formats>`
+
+.. ros-related-articles::
 
 FAQs
 ----

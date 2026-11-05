@@ -52,3 +52,10 @@ Alternatives
 ------------
 
 An alternative to cross-compilation is to `build multi-platform Docker images <https://github.com/docker/buildx#building-multi-platform-images>`__ using ``docker buildx``.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

@@ -316,3 +316,10 @@ For example, when generating the docs for Rolling on the ``rolling`` branch:
      - Use {package(rclcpp)}.
 
 The same file can be used on multiple branches (i.e., for multiple distros) and the generated content will be distro-specific.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

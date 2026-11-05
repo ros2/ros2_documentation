@@ -70,3 +70,10 @@ Changing the License
 It is possible to change the license, however you will need to contact all the contributors and get permission.
 For most packages this is likely to be a significant effort and not worth considering.
 If the package has a small set of contributors then this may be feasible.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

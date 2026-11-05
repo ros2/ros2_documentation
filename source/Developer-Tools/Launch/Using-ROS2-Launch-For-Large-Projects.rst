@@ -565,3 +565,10 @@ Summary
 -------
 
 In this tutorial, you learned about various tips and practices of managing large projects using ROS 2 launch files.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

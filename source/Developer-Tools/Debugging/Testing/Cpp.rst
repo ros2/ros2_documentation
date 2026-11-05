@@ -82,3 +82,10 @@ Running Tests
 -------------
 
 See the :doc:`tutorial on how to run tests from the command line <CLI>` for more information on running the tests and inspecting the test results.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

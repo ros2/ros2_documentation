@@ -50,3 +50,10 @@ Actions
 * More complex non-blocking background processing.
   Used for longer tasks like execution of robot actions.
   Semantically for real-world actions.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

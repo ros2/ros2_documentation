@@ -278,3 +278,10 @@ In the main function, a ``SharedPtr`` to both ``rclcpp_lifecycle::LifecycleNode`
 The function declared above is called once with each node type as an argument.
 
 .. note:: The ``SharedPtr`` needs to be dereferenced as the template accepts a reference to the ``NodeT`` object.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

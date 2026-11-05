@@ -462,3 +462,10 @@ Markdown Only
   * A space between the hashes and the header title should be used (such as ``# Heading 1``) to make it easier to visually separate them.
   * Justification for the ATX-style preference comes from the `Google Markdown style guide <https://github.com/google/styleguide/blob/gh-pages/docguide/style.md#atx-style-headings>`__
   * Rationale: ATX-style headers are easier to search and maintain, and make the first two header levels consistent with the other levels.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

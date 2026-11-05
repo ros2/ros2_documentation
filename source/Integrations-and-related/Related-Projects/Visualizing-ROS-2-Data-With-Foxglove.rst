@@ -239,3 +239,10 @@ Edit the template to customize your message before hitting "Publish".
 .. image:: foxglove/publish.png
   :width: 300 px
   :alt: Foxglove's Publish panel
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

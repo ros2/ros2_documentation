@@ -111,3 +111,10 @@ XML, YAML, or Python: Which should I use?
 -----------------------------------------
 
 See the :ref:`discussion <launch-file-different-formats-which>` in :doc:`Launch-file-different-formats` for more information.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

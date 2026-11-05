@@ -262,3 +262,10 @@ Further Reading
 * `rosdoc2 readme <https://github.com/ros-infrastructure/rosdoc2/blob/main/README.md>`_
 * `ROS 2 design document on package documentation <https://design.ros2.org/articles/per_package_documentation.html>`_
 * `The ROS 2 cookbook <https://github.com/mikeferguson/ros2_cookbook/blob/main/pages/rosdoc2.md>`_
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

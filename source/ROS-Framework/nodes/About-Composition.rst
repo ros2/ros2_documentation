@@ -151,3 +151,10 @@ Practical application
 ---------------------
 
 Try the :doc:`Composition demos <Working-with-nodes/Composition>`.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

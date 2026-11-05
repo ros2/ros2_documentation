@@ -112,8 +112,12 @@ Additional information
 Related content
 ---------------
 
+Related articles:
+
 * :doc:`../Contributing`
 * :doc:`Triaging-an-issue`
+
+.. ros-related-articles::
 
 FAQs
 ----

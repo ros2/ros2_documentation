@@ -80,3 +80,10 @@ Summary
 -------
 
 In this tutorial, you have installed Gazebo and set-up your workspace to start with the `Gazebo tutorials <https://gazebosim.org/docs/ionic/tutorials>`__.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

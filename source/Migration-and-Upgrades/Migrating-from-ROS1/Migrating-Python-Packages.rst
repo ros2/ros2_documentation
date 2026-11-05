@@ -183,3 +183,10 @@ In ROS 2:
 
    Do not use ``rclpy.spin_until_future_complete`` in a ROS 2 callback.
    For more details see the :doc:`sync deadlock article <../../ROS-Framework/interfaces/services/Working-with-services/Sync-Vs-Async>`.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

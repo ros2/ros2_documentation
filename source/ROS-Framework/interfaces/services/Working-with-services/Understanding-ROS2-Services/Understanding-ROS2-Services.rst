@@ -483,11 +483,13 @@ The terminal shows events for each request and response as they pass between the
 Related content
 ---------------
 
-More articles:
+Related articles:
 
 * :doc:`Learning about topics <../../../topics/Understanding-ROS2-Topics/Understanding-ROS2-Topics>`
 * :doc:`Learning about nodes <../../../../nodes/Working-with-nodes/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes>`
 * :doc:`Interfaces (topics, services, actions) <../../../../Interfaces-Topics-Services-Actions>`
+
+.. ros-related-articles::
 
 External resources:
 

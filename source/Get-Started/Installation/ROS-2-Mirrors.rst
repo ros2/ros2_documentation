@@ -143,3 +143,10 @@ Mirroring docs.ros.org
 
 Mirroring the documentation site requires specific configuration to prevent search engine fragmentation.
 If you are interested in hosting a regional mirror of the documentation, please **contact the infrastructure team** via Discourse before proceeding.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

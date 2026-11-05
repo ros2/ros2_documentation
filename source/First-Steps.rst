@@ -100,3 +100,10 @@ Next steps
 ----------
 
 To complete your knowledge of the ROS framework, we recommend familiarizing yourself with ROS client libraries: :doc:`ROS-Framework/About-Client-Libraries`
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

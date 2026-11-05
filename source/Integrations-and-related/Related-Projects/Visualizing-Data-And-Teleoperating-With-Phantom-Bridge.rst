@@ -27,3 +27,10 @@ Redirecting to `https://docs.phntm.io/bridge <https://docs.phntm.io/bridge>`_...
    <script type="text/javascript">
         window.location.href = 'https://docs.phntm.io/bridge'
    </script>
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

@@ -76,3 +76,10 @@ Glossary of terms used throughout this documentation:
        The value of ``rclcpp::SubscriptionOptions::acceptable_buffer_backends`` (or ``acceptable_buffer_backends`` in ``rclpy``).
        A comma-separated list of backend names the subscription is willing to receive; ``"cpu"`` (or empty) means CPU-only, ``"any"`` means any installed backend, and CPU is always implicitly acceptable.
        See :doc:`../ROS-Framework/interfaces/Working-with-interfaces/Buffer-Backends/Using-Buffer-Backends`.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

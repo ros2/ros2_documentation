@@ -131,3 +131,10 @@ Now you can build your workspace and run your python node that depends on packag
 .. _rosdep key contribution guide: http://docs.ros.org/en/independent/api/rosdep/html/contributing_rules.html
 
 .. _rosdep documentation: http://docs.ros.org/en/independent/api/rosdep/html/
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

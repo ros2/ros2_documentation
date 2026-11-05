@@ -483,3 +483,10 @@ Replace:
 
 * ``#include <boost/function.hpp>``  with ``#include <functional>``
 * ``boost::function`` with ``std::function``
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

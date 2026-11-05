@@ -48,3 +48,10 @@ Tier 3 platforms are those for which community reports indicate that the release
 The development team does not run the unit test suite or perform any other tests on platforms in Tier 3.
 Installation instructions should be available and up-to-date in order for a platform to be listed in this category.
 Community members may provide assistance with these platforms.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

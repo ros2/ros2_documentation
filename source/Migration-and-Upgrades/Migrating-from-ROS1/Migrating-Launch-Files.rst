@@ -467,3 +467,10 @@ For example:
 
 Some attributes accept more than a single type, for example ``value`` attribute of ``param`` tag.
 It's usual that parameters that are of type ``int`` (or ``float``) also accept an ``str``, that will be later substituted and tried to convert to an ``int`` (or ``float``) by the action.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

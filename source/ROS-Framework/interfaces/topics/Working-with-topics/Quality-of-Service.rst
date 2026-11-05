@@ -202,3 +202,10 @@ When you're done, remember to delete the queueing discipline:
 .. code-block:: console
 
    $ sudo tc qdisc delete dev lo root netem loss 5%
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

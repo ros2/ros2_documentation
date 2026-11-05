@@ -98,3 +98,10 @@ Further Reading
 * ROS 2 Discourse `announcement of porting to ROS 2 <https://discourse.openrobotics.org/t/rqt-in-ros2/6428>`__)
 * `RQt for ROS 1 documentation <https://wiki.ros.org/rqt>`__
 * Brief overview of RQt (from `a Willow Garage intern blog post <http://web.archive.org/web/20130518142837/http://www.willowgarage.com/blog/2012/10/21/ros-gui>`__)
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

@@ -107,3 +107,10 @@ In ROS 1, ``dynamic_reconfigure`` handles parameter groups atomically, meaning a
 In ROS 2, the ``set_parameters`` service processes each parameter individually, which may lead to multiple callback invocations.
 To maintain atomic behavior when migrating from ``dynamic_reconfigure``, use the ``set_parameters_atomically`` service, which validates and applies all parameters as a single operation.
 If any parameter fails validation, no parameters will be updated.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

@@ -114,13 +114,14 @@ In addition to providing Python idiomatic bindings around the ``rcl`` |API| and 
 Related content
 ---------------
 
-Related articles
-~~~~~~~~~~~~~~~~
+Related articles:
 
 * :doc:`How-ROS-Works`
 * :doc:`About-Nodes`
 * :doc:`About-Parameters`
 * :doc:`Interfaces-Topics-Services-Actions`
+
+.. ros-related-articles::
 
 Related packages
 ~~~~~~~~~~~~~~~~

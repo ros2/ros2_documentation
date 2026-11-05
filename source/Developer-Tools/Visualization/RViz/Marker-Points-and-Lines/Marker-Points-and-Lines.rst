@@ -219,3 +219,10 @@ Next steps
 ----------
 For more information about the markers and options supported by RViz, continue with :doc:`Marker: Display types <../Marker-Display-types/Marker-Display-types>`.
 Try out some of the other marker types.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

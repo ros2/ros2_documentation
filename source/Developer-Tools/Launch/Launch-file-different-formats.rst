@@ -123,3 +123,10 @@ Using Python for ROS 2 launch is more flexible because of following two reasons:
 * `ros2/launch <https://github.com/ros2/launch>`_ (general launch features) and `ros2/launch_ros <https://github.com/ros2/launch_ros>`_ (ROS 2 specific launch features) are written in Python and thus you have lower level access to launch features that may not be exposed by XML and YAML.
 
 That being said, a launch file written in Python may be more complex and verbose than one in XML or YAML.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

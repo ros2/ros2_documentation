@@ -53,3 +53,10 @@ Simulation Projects
 References
 ----------
 More updates on NVIDIA Jetson ROS 2 can be found `here <https://nvidia-ai-iot.github.io/ros2_jetson/>`__.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

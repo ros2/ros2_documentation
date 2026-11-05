@@ -189,3 +189,10 @@ you can replace it with
 .. caution::
 
     If you need multi-threading, simply add the ``--executor-type multi-threaded`` argument to your container node.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

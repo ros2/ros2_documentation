@@ -126,3 +126,10 @@ The source code for the ``ros2`` command is available at https://github.com/ros2
 
 The ``ros2`` tool has been implemented as a framework that can be extended via plugins.
 For example, the `sros2 <https://github.com/ros2/sros2>`__ package provides a ``security`` sub-command that is automatically detected by the ``ros2`` tool if the ``sros2`` package is installed.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

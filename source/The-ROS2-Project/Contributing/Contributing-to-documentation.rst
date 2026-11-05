@@ -88,10 +88,12 @@ Contributors to the ROS documentation on GitHub use the standard fork and pull r
 Related content
 ---------------
 
-More articles and information about the ROS docs:
+Related articles:
 
 * :doc:`Documentation/Creating-or-updating-documentation`
 * :doc:`Documentation/Documentation-guidelines`
 * :doc:`/The-ROS2-Project/Contributing`
 * :doc:`/Developer-Tools/Package-documentation/Documenting-a-ROS-2-Package`
 * `Documentation issue list <https://github.com/ros2/ros2_documentation/issues>`__
+
+.. ros-related-articles::

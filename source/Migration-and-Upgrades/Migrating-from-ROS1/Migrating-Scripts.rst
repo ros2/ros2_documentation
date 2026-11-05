@@ -77,3 +77,10 @@ Quick reference
 +------------+-------------+----------------+
 | namespace  | __ns:=foo   | -r __ns:=foo   |
 +------------+-------------+----------------+
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

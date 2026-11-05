@@ -254,3 +254,10 @@ Further information
   Virtual event.
   16 December 2020.
 * Daniel Casini, Tobias Blass, Ingo Lütkebohle, and Björn Brandenburg: `"Response-Time Analysis of ROS 2 Processing Chains under Reservation-Based Scheduling" <https://drops.dagstuhl.de/opus/volltexte/2019/10743/pdf/LIPIcs-ECRTS-2019-6.pdf>`_, Proceedings of 31st ECRTS 2019, Stuttgart, Germany, July 2019.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

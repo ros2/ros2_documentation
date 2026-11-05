@@ -763,3 +763,10 @@ Best practices
 - **Document version requirements**: Clearly document the minimum required versions for specific features in your package documentation.
 - **Test across versions**: If your package needs to support multiple ROS 2 distributions, test it against the minimum supported version.
 - **Use the GTE macro**: Prefer using the ``_VERSION_GTE(major, minor, patch)`` macro for version comparisons, as it provides a cleaner and more readable syntax than manually comparing individual version components.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

@@ -64,3 +64,10 @@ ROS 2 Launch files allow you to start up and configure a number of executables c
 .. note::
 
    If you are coming from ROS 1, you can use the :doc:`ROS Launch Migration guide <../../Migration-and-Upgrades/Migrating-from-ROS1/Migrating-Launch-Files>` to help you migrate your launch files to ROS 2.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

@@ -69,3 +69,10 @@ Run the following commands to build the deb:
   $ fakeroot debian/rules binary
 
 Assuming that all required dependencies are available and that compilation succeeds, the new package will be available in the parent directory of this directory.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

@@ -395,3 +395,10 @@ A few of these tools are listed below.
 
 Ament is highly extensible and ROS users are encouraged to build and use ament tools that make them more productive.
 You can search for other community contributed ament lint tools by using the ``apt search`` or by `searching for ament on ROS Index <https://index.ros.org/?pkgs=ament&search_packages=true>`_.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

@@ -335,3 +335,10 @@ and the lines will be correct relative to the ``frame id`` specified in the head
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 A single marker is always less expensive to render than many markers.
 For example, a single cube list can handle thousands of cubes, where we will not be able to render thousands of individual cube markers.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

@@ -131,3 +131,10 @@ The table below summarizes the differences between ROS interface types:
 +--------------+----------------------+-----------------------+-----------------+--------------------+---------------+
 | **Actions**  | Goal/Feedback/Result | Two-way with feedback | Yes             | Long-running tasks | Supported     |
 +--------------+----------------------+-----------------------+-----------------+--------------------+---------------+
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

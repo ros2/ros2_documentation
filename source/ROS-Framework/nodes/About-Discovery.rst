@@ -38,3 +38,10 @@ Running the C++ talker node in one terminal will publish messages on a topic,
 and the Python listener node running in another terminal  will subscribe to messages on the same topic.
 
 You should see that these nodes discover each other automatically, and begin to exchange messages.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

@@ -634,11 +634,13 @@ The terminal shows events for the goal, feedback, and result traffic:
 Related content
 ---------------
 
-More articles:
+Related articles:
 
 * :doc:`Learning about topics <../../../topics/Understanding-ROS2-Topics/Understanding-ROS2-Topics>`
 * :doc:`Learning about services <../../../services/Working-with-services/Understanding-ROS2-Services/Understanding-ROS2-Services>`
 * :doc:`Interfaces (topics, services, actions) <../../../../Interfaces-Topics-Services-Actions>`
+
+.. ros-related-articles::
 
 External resources:
 

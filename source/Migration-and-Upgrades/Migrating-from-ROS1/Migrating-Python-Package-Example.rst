@@ -870,3 +870,10 @@ Conclusion
 
 You have learned how to migrate an example Python ROS 1 package to ROS 2.
 From now on, refer to the :doc:`Migrating Python Packages reference page <Migrating-Python-Packages>` as you migrate your own Python packages.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
