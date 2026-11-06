@@ -61,42 +61,42 @@ You use Turtlesim so you can see the recorded keyboard input replayed in the sim
 The topic examples use the ``turtlesim`` package.
 Run the ``/turtlesim`` and ``/teleop_turtle`` nodes before recording keyboard input.
 
-Open a new terminal and run:
+#. Open a new terminal and run:
 
-.. code-block:: console
+   .. code-block:: console
 
-    $ ros2 run turtlesim turtlesim_node
+       $ ros2 run turtlesim turtlesim_node
 
-Open another terminal and run:
+#. Open another terminal and run:
 
-.. code-block:: console
+   .. code-block:: console
 
-    $ ros2 run turtlesim turtle_teleop_key
+       $ ros2 run turtlesim turtle_teleop_key
 
-Create a directory to store recordings:
+#. Create a directory to store recordings:
 
-.. tabs::
+   .. tabs::
 
-    .. group-tab:: Linux
+       .. group-tab:: Linux
 
-        .. code-block:: console
+           .. code-block:: console
 
-            $ mkdir bag_files
-            $ cd bag_files
+               $ mkdir bag_files
+               $ cd bag_files
 
-    .. group-tab:: macOS
+       .. group-tab:: macOS
 
-        .. code-block:: console
+           .. code-block:: console
 
-            $ mkdir bag_files
-            $ cd bag_files
+               $ mkdir bag_files
+               $ cd bag_files
 
-    .. group-tab:: Windows
+       .. group-tab:: Windows
 
-        .. code-block:: console
+           .. code-block:: console
 
-            $ md bag_files
-            $ cd bag_files
+               $ md bag_files
+               $ cd bag_files
 
 
 2 Choose a topic to record
@@ -359,30 +359,29 @@ To see how often position data is published, run:
 You can split recorded topics across separate bags to distribute the recording workload.
 For example, record ``/turtle1/cmd_vel`` and ``/turtle1/pose`` in separate terminals.
 
-In the first terminal, run:
+#. In the first terminal, run:
 
-.. code-block:: console
+   .. code-block:: console
 
-    $ ros2 bag record -o subset_cmd_vel --topics /turtle1/cmd_vel
+       $ ros2 bag record -o subset_cmd_vel --topics /turtle1/cmd_vel
 
-In the second terminal, run:
+#. In the second terminal, run:
 
-.. code-block:: console
+   .. code-block:: console
 
-    $ ros2 bag record -o subset_pose --topics /turtle1/pose
+       $ ros2 bag record -o subset_pose --topics /turtle1/pose
 
-Move the turtle around, then stop both recordings with :kbd:`Ctrl-C`.
+#. Move the turtle around, then stop both recordings with :kbd:`Ctrl-C`.
+#. To play these recordings together with correct timing, pass ``-i <bag_name>`` for each bag:
 
-To play these recordings together with correct timing, pass ``-i <bag_name>`` for each bag:
+   .. code-block:: console
 
-.. code-block:: console
+       $ ros2 bag play -i subset_cmd_vel -i subset_pose
 
-    $ ros2 bag play -i subset_cmd_vel -i subset_pose
-
-This plays the ``subset_cmd_vel`` and ``subset_pose`` recordings together, with playback synced to replicate the original message order.
-The optional argument ``--message-order {received,sent}`` sets whether messages are sequenced by receive time or publish time.
-The default is ``received``.
-This option also applies when playing a single bag.
+   This plays the ``subset_cmd_vel`` and ``subset_pose`` recordings together, with playback synced to replicate the original message order.
+   The optional argument ``--message-order {received,sent}`` sets whether messages are sequenced by receive time or publish time.
+   The default is ``received``.
+   This option also applies when playing a single bag.
 
 Record, inspect, and play back services
 ---------------------------------------
