@@ -1,6 +1,6 @@
 .. meta::
    :contentType: how-to
-   :experience: TBD
+   :experience: intermediate, expert
    :area: installation, framework
    :distribution: {DISTRO}
    :product: {PRODUCT}
@@ -12,15 +12,17 @@
 Using a custom rosdistro version - how-to
 =========================================
 
+.. short-description::
+    There are occasions where a user would like the assert further control over the index of ROS packages, to add in their own proprietary keys or use a previous state of rosdistro.
+    This guide walks through how to set a version of rosdistro to use on your system.
+
 .. showmeta::
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-
 .. contents:: Contents
    :depth: 2
    :local:
-
 
 Overview
 --------
@@ -36,7 +38,7 @@ The motivating example that this guide will use is a desire to use a previous ve
 It is possible that during transition periods from one operating system to another, Rolling on the older operating system may become unusable due to support shifting to a new OS (i.e. moving from Ubuntu 22.04 to 24.04).
 Thus, we wish to set a prior version of rosdistro that aligns with a working Rolling distribution on a given operating system to keep our systems functioning before upgrading to the new operating system.
 
-To achieve this with package binaries, take a look at the :doc:`snapshot repository </Get-Started/Installation/Snapshot-Repository>`.
+To achieve this with package binaries, take a look at the :doc:`snapshot repository <../Get-Started/Installation/Snapshot-Repository>`.
 
 Important Preliminaries
 -----------------------

@@ -8,6 +8,11 @@
 Lyrical Luth Supported Platforms
 ================================
 
+.. short-description::
+   ROS Lyrical Luth supports a range of operating systems and hardware architectures, with different levels of platform support.
+   This article describes the supported platforms, minimum language and dependency requirements, and middleware implementations for ROS Lyrical.
+   After reading this article, you will be able to identify a suitable platform and its associated support requirements.
+
 .. showmeta::
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
@@ -16,7 +21,7 @@ Lyrical Luth Supported Platforms
    :depth: 2
    :local:
 
-ROS Lyrical supports the following platforms according to :doc:`the platform support tiers <../../../The-ROS2-Project/Platform-Support-Tiers>`:
+ROS Lyrical supports the following platforms according to :doc:`the platform support tiers <../../The-ROS2-Project/Platform-Support-Tiers>`:
 
 +--------------+-------------------+-------------------+---------------+-------------------+-----------+-----------------+----------------+
 | Architecture | Ubuntu Resolute   | Ubuntu Noble*     | Windows 11    | RHEL 10           | macOS     | Debian Trixie*  | OpenEmbedded / |
@@ -29,7 +34,7 @@ ROS Lyrical supports the following platforms according to :doc:`the platform sup
 | arm32        | Tier 3            | Tier 3            |               |                   |           | Tier 3          | Tier 3         |
 +--------------+-------------------+-------------------+---------------+-------------------+-----------+-----------------+----------------+
 
-* ``*`` Early EOL per :doc:`the platform EOL policy <../../../The-ROS2-Project/Platform-EOL-Policy>`
+* ``*`` Early EOL per :doc:`the platform EOL policy <../../The-ROS2-Project/Platform-EOL-Policy>`
     * Ubuntu Noble is supported until ``2029-06-01``
     * Debian Trixie is supported until ``2028-08-09``
 * ``[d]`` You may install ROS Lyrical on this platform using Distribution-specific packaegs (Debian, RPM, etc.).
