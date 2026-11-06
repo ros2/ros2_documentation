@@ -5,14 +5,14 @@
 
 .. _ROS2Bag:
 
-Recording and playing back data - how-to
-========================================
+Recording and playing back data - tutorial
+==========================================
 
 ``ros2 bag`` records data from topics, services, and actions in a ROS system so you can save and replay it later.
 This article shows you how to record, inspect, and play back that data with the ``ros2 bag`` command-line tools.
 Hands-on exercises walk you through the same pattern for topics, services, and actions.
 
-**Area: Framework | Content-type: how-to | Experience: beginner**
+**Area: Framework | Content-type: tutorial | Experience: beginner**
 
 .. contents:: Contents
    :depth: 2
