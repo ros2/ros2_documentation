@@ -5,7 +5,7 @@
    Tutorials/Beginner-Client-Libraries/Single-Package-Define-And-Use-Interface
    How-To-Guides/Implementing-custom-interfaces
    ROS-Framework/client-libraries/Working-with-Client-Libraries/Single-Package-Define-And-Use-Interface
-   Developer-Tools/Build/ Single-Package-Define-And-Use-Interface
+   Developer-Tools/Build/Single-Package-Define-And-Use-Interface
 
 .. meta::
    :contentType: how-to
