@@ -3,16 +3,26 @@
     Tutorials/Ros2bag/Recording-And-Playing-Back-Data
     Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data
 
+.. meta::
+   :contentType: tutorial
+   :experience: beginner
+   :area: interfaces, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. _ROS2Bag:
 
 Recording and playing back data - tutorial
 ==========================================
 
-``ros2 bag`` records data from topics, services, and actions in a ROS system so you can save and replay it later.
-This article shows you how to record, inspect, and play back that data with the ``ros2 bag`` command-line tools.
-Hands-on exercises walk you through the same pattern for topics, services, and actions.
+.. short-description::
+   ``ros2 bag`` records data from topics, services, and actions so you can save and replay it later.
+   This tutorial shows you how to record, inspect, and play back that data with the ``ros2 bag`` command-line tools.
+   After completing it, you can create bag files, examine their contents, and replay them for debugging or analysis.
 
-**Area: Framework | Content-type: tutorial | Experience: beginner**
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 .. contents:: Contents
    :depth: 2
@@ -22,17 +32,19 @@ Summary
 -------
 
 Use ``ros2 bag record`` to save data from topics, services, and actions, ``ros2 bag info`` to inspect a recording, and ``ros2 bag play`` to replay it.
-Recordings are stored as bag directories that you can share or reuse to reproduce experiments.
+Recordings are stored in bag directories as ``.mcap`` files that you can share or reuse to reproduce experiments.
 
 Prerequisites
 -------------
 
 #. :doc:`Install ROS <../../../../Get-Started/Installation>`.
-#. Get familiar with :doc:`topics <../../topics/Understanding-ROS2-Topics/Understanding-ROS2-Topics>`.
-#. The topic examples use ``turtlesim``.
-   The service examples use ``demo_nodes_cpp``.
-   The action examples use ``action_tutorials_py`` and ``action_tutorials_cpp``.
-   These packages are included in a typical desktop installation.
+#. If you are not already familiar with topics, complete the :doc:`Learning about topics <../../topics/Understanding-ROS2-Topics/Understanding-ROS2-Topics>` tutorial.
+#. This article uses several packages which are included in a typical desktop installation. If you have a custom installation, ensure you have the following:
+
+   * ``turtlesim``
+   * ``demo_nodes_cpp``
+   * ``action_tutorials_py``
+   * ``action_tutorials_cpp``
 
 Steps
 -----
