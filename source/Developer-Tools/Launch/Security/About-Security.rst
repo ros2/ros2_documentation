@@ -33,7 +33,6 @@ ROS 2 Security
 
    Introducing-ros2-security
    Security-on-Two
-   Examine-Traffic
    Access-Controls
 
 .. contents:: Table of Contents

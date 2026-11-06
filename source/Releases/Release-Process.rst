@@ -20,6 +20,10 @@ Development process for a release
    :depth: 2
    :local:
 
+.. short-description::
+  Each ROS 2 distribution goes through a process of development more than a year long that begins prior to the release of the previous distribution.
+  This article provides a high-level view of this development process.
+
 Each ROS 2 distribution goes through a process of development more than a year long that begins prior to the release of the previous distribution.
 Below is a high-level view of this development process.
 There is no specific due date for the items in this process, but in general earlier items should be completed before later items can be completed.
@@ -34,7 +38,7 @@ For the progress through this process for a specific release, see that release's
    * - Item
      - Notes
    * - Find the ROS Boss
-     - The "ROS Boss" is the person in charge of shepherding a distribution through the development, release, update, and EOL'ing stages of its life. They are chosen from the internal ROS 2 team at Open Robotics.
+     - The "ROS Boss" is the person in charge of shepherding a distribution through the development, release, update, and EOL'ing stages of its life. They are chosen from the ROS PMC.
    * - Run process to choose the distribution name
      - The ROS Boss curates the process of choosing the distribution's name, using input from sources such as the community and potential naming conflicts.
    * - Create distribution's documentation page
@@ -42,7 +46,7 @@ For the progress through this process for a specific release, see that release's
    * - Set release timeline
      - The final weeks leading up to release day (usually, World Turtle Day) are hectic and full of deadlines, such as when to freeze the default RMW implementation. These deadlines must be planned well in advance.
    * - Produce roadmap
-     - While every contributor to ROS has their own planned features for each distribution, we try to maintain an overall roadmap of the new features and significant changes we expect to see in the distribution. The ROS Boss and the leader of the ROS 2 development team at Open Robotics work together with the ROS 2 TSC and other interested parties to produce a roadmap that is achievable in the time available and meets the needs of the ROS community.
+     - While every contributor to ROS has their own planned features for each distribution, we try to maintain an overall roadmap of the new features and significant changes we expect to see in the distribution. The ROS Boss and the ROS Project Leader work together with the ROS PMC, the OSRA TGC and other interested parties to produce a roadmap that is achievable in the time available and meets the needs of the ROS community.
    * - Announce roadmap
      - The list of planned features and significant changes is made public, via a GitHub issue that will track the progress on developing each item in the roadmap. Of course, this does not mean that the roadmap is fixed at this point, as development plans can change and we always (and frequently do) welcome new contributions even if they are not on the planned roadmap.
    * - Set target platforms and major dependencies
