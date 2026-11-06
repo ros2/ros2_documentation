@@ -1,11 +1,27 @@
+.. meta::
+   :contentType: tutorial
+   :experience: advanced
+   :area: client-libraries, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Allocator-Template-Tutorial
     Tutorials/Allocator-Template-Tutorial
     Tutorials/Advanced/Allocator-Template-Tutorial
 
-Implementing a custom memory allocator
-======================================
+Implementing a custom memory allocator — tutorial
+=================================================
+
+.. short-description::
+   Real-time robot applications often need deterministic memory behaviour during execution.
+   This article describes how to integrate a custom C++ memory allocator with ROS publishers, subscribers, executors, and intra-process communication.
+   After you follow these steps, you will be able to verify allocator usage and identify remaining runtime allocations.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** This tutorial will show how to use a custom memory allocator when writing ROS 2 C++ code.
 
@@ -19,6 +35,21 @@ Implementing a custom memory allocator
 
 This tutorial will teach you how to integrate a custom allocator for publishers and subscribers so that the default heap allocator is never called while your ROS nodes are executing.
 The code for this tutorial is available `here <https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/topics/allocator_tutorial_pmr.cpp>`__.
+
+Summary
+-------
+
+Use a C++ standard library-compatible allocator, such as one based on ``std::pmr::memory_resource``.
+Pass the allocator to publishers, subscribers, message memory strategies, and message deleters.
+
+To support intra-process communication, create the node with ``use_intra_process_comms(true)`` before constructing publishers and subscribers.
+
+You can verify allocator behaviour by counting calls to:
+
+* Custom ``allocate`` and ``deallocate`` functions.
+* Global ``new`` and ``delete`` operators.
+
+Remaining allocations may originate in the underlying DDS implementation.
 
 Background
 ----------

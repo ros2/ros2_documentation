@@ -1,3 +1,10 @@
+.. meta::
+   :contentType:
+   :experience: intermediate
+   :area: visualization, tools
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 Visualization
 =============
 

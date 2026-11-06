@@ -1,10 +1,26 @@
+.. meta::
+   :contentType: tutorial
+   :experience: intermediate
+   :area: client-libraries, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Tutorials/Tf2/Writing-A-Tf2-Broadcaster-Py
     Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Py
 
-Writing a broadcaster (Python)
-==============================
+Writing a broadcaster (Python) — tutorial
+=========================================
+
+.. short-description::
+   tf2 keeps track of coordinate frames so robot components can understand where they are in relation to each other.
+   This tutorial shows how to write a Python broadcaster that publishes a turtle pose to tf2.
+   After completing it, you can run the broadcaster and inspect the transform with ``tf2_echo``.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Learn how to broadcast the state of a robot to tf2.
 

@@ -6,10 +6,26 @@
    Tutorials/Cross-compilation
    How-To-Guides/Cross-compilation
 
+.. meta::
+   :contentType: about
+   :experience: intermediate
+   :area: builds, tools
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 Cross-compilation
 =================
 
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. short-description::
+   Cross-compilation helps developers build ROS software for target systems that differ from their development machine or require architecture-specific tuning.
+   This article explains why cross-compilation is used, how it works, and what alternatives are available for building software across platforms.
+
 .. contents:: Table of Contents
+   :depth: 2
    :local:
 
 Overview

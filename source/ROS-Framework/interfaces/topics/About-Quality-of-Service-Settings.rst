@@ -1,3 +1,10 @@
+.. meta::
+   :contentType: about
+   :experience: intermediate
+   :area: interfaces, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     About-Quality-of-Service-Settings
@@ -6,6 +13,14 @@
 
 Quality of Service settings
 ===========================
+
+.. short-description::
+   Quality of Service settings in ROS help you tune communication behaviour between nodes when reliability, timeliness, or network conditions affect message delivery.
+   This article describes QoS policies and profiles, how they apply to ROS entities, and how compatibility affects communication.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 .. contents:: Table of Contents
    :local:
@@ -334,3 +349,17 @@ There are demos showing how to use the event:
 
 * rclcpp: `demo code <https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/events/matched_event_detect.cpp>`__
 * rclpy: `demo code <https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_py/demo_nodes_py/events/matched_event_detect.py>`__
+
+.. _about-qos-overrides:
+
+QoS overrides
+-------------
+
+By default, QoS profiles are specified directly in source code when constructing publishers and subscriptions.
+However, ROS 2 also provides a mechanism to override QoS profiles at node startup using ROS 2 parameters.
+
+When a node opts in to QoS overrides, it declares read-only parameters under the ``qos_overrides`` namespace using the structure ``qos_overrides.<topic_name>.<entity_type>[_<id>].<policy_name>``.
+Users can then reconfigure policies such as reliability, history depth, or durability using YAML parameter files or command-line arguments without recompiling or modifying the node source code.
+Additionally, applications can provide validation callbacks to enforce safety constraints on user-supplied overrides.
+
+To learn how to enable and configure QoS overrides with hands-on examples, see the :doc:`Configuring QoS overrides using parameters tutorial <Working-with-topics/Configuring-QoS-Overrides>`.

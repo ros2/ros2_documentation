@@ -2,8 +2,24 @@
 
     How-To-Guides/Using-callback-groups
 
-Using Callback Groups
-=====================
+.. meta::
+   :contentType: how-to
+   :experience: intermediate
+   :area: nodes, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+Using Callback Groups — how-to
+==============================
+
+.. short-description::
+   Callback groups help control how callbacks run when a node uses a Multi-Threaded Executor.
+   This article explains how to assign callbacks to group types and avoid deadlocks caused by synchronous service or action calls.
+   With this information, you can choose callback group configurations that support safe parallel execution.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 When running a node in a Multi-Threaded Executor, ROS 2 offers callback
 groups as a tool for controlling the execution of different callbacks.

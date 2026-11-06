@@ -1,9 +1,25 @@
+.. meta::
+   :contentType: tutorial
+   :experience: intermediate
+   :area: parameters, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Tutorials/Intermediate/Monitoring-For-Parameter-Changes-Python
 
-Monitoring for parameter changes (Python)
-=========================================
+Monitoring for parameter changes (Python) — tutorial
+====================================================
+
+.. short-description::
+   Parameters let nodes adapt their behaviour while a system is running.
+   This article shows how to use the Python ``ParameterEventHandler`` class to monitor local and remote parameter changes.
+   After following the steps, you can trigger callbacks when selected parameters, or any parameter events, are updated.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Learn to use the ParameterEventHandler class to monitor and respond to parameter changes.
 
@@ -15,12 +31,25 @@ Monitoring for parameter changes (Python)
    :depth: 2
    :local:
 
+Summary
+-------
+
+Create the package ``python_parameter_event_handler`` with the ``rclpy`` dependency.
+In ``parameter_event_handler.py``, declare ``an_int_param`` and create a ``ParameterEventHandler`` for the node.
+
+Use callbacks to monitor parameter updates:
+
+* ``add_parameter_callback`` monitors a selected parameter on a local or remote node.
+* ``add_parameter_event_callback`` monitors parameter events from any node.
+
+Save each callback handle so the callback remains registered.
+
 Background
 ----------
 
 Often a node needs to respond to changes to its own parameters or another node's parameters.
-The ParameterEventHandler class makes it easy to listen for parameter changes so that your code can respond to them.
-This tutorial will show you how to use the Python version of the ParameterEventHandler class to monitor for changes to a node's own parameters as well as changes to another node's parameters.
+The ``ParameterEventHandler`` class makes it easy to listen for parameter changes so that your code can respond to them.
+This tutorial will show you how to use the Python version of the ``ParameterEventHandler`` class to monitor for changes to a node's own parameters as well as changes to another node's parameters.
 
 Prerequisites
 -------------

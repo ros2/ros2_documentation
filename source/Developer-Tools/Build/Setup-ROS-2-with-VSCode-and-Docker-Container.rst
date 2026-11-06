@@ -2,14 +2,45 @@
 
     How-To-Guides/Setup-ROS-2-with-VSCode-and-Docker-Container
 
-Setup ROS 2 with VSCode and Docker [community-contributed]
-==========================================================
+.. meta::
+   :contentType: how-to
+   :experience: beginner, intermediate
+   :area: builds, tools
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
 
+Setting up ROS with VSCode and Docker [community-contributed] - how-to
+======================================================================
 
-.. contents:: Contents
+.. short-description::
+   VS Code development containers let you work with a ROS distribution without changing your host operating system or using a virtual machine.
+   This article describes how to install Docker, configure VS Code, and create a workspace container.
+   After following these steps, you will be able to build and test ROS projects inside a Docker-based development environment.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Table of Contents
     :depth: 2
     :local:
 
+Summary
+-------
+
+Install Docker, ``vcstool``, VS Code, and the VS Code Remote Development extension before creating the workspace.
+
+Configure the workspace with:
+
+* A ``.devcontainer`` directory containing ``devcontainer.json`` and ``Dockerfile``.
+
+* A ``src`` directory containing your ROS packages.
+
+* ``YOUR_USERNAME`` replaced with your Linux username.
+
+* ``ROS_DISTRO`` replaced with the ROS distribution used as the base image.
+
+Open the workspace in VS Code, run ``Dev Containers: Reopen in Container``, and test the container by installing and launching ``rviz2``.
 
 Install VS Code and Docker
 --------------------------
@@ -128,15 +159,14 @@ Therefore add the following to ``.devcontainer/devcontainer.json``:
                 "extensions":[
                     "ms-vscode.cpptools",
                     "ms-vscode.cpptools-themes",
-                    "twxs.cmake",
-                    "donjayamanne.python-extension-pack",
+                    "ms-vscode.cmake-tools",
+                    "ms-python.python",
                     "eamodio.gitlens",
-                    "ms-iot.vscode-ros"
+                    "ranch-hand-robotics.rde-pack"
                 ]
             }
         },
         "containerEnv": {
-            "DISPLAY": "unix:0",
             "ROS_AUTOMATIC_DISCOVERY_RANGE": "LOCALHOST",
             "ROS_DOMAIN_ID": "42"
         },
@@ -147,10 +177,10 @@ Therefore add the following to ``.devcontainer/devcontainer.json``:
             "-e", "DISPLAY=${env:DISPLAY}"
         ],
         "mounts": [
-           "source=/tmp/.X11-unix,target=/tmp/.X11-unix,type=bind,consistency=cached",
-           "source=/dev/dri,target=/dev/dri,type=bind,consistency=cached"
+           "source=/tmp/.X11-unix,target=/tmp/.X11-unix,type=bind",
+           "source=/dev/dri,target=/dev/dri,type=bind"
         ],
-        "postCreateCommand": "sudo rosdep update && sudo rosdep install --from-paths src --ignore-src -y && sudo chown -R $(whoami) /home/ws/"
+        "postCreateCommand": "sudo apt-get update && rosdep update && rosdep install --from-paths src --ignore-src -y && sudo chown -R $(whoami) /home/ws/"
     }
 
 
@@ -187,7 +217,7 @@ Open the Dockerfile and add the following contents:
         && chmod 0440 /etc/sudoers.d/$USERNAME
     RUN apt-get update && apt-get upgrade -y
     RUN apt-get install -y python3-pip
-    ENV SHELL /bin/bash
+    ENV SHELL=/bin/bash
 
     # ********************************************************
     # * Anything else you want to do like clean up goes here *
@@ -195,6 +225,8 @@ Open the Dockerfile and add the following contents:
 
     # [Optional] Set the default user. Omit if you want to keep the default as root.
     USER $USERNAME
+    # VS Code overrides the image entrypoint, so source ROS in every interactive shell
+    RUN echo "source /opt/ros/$ROS_DISTRO/setup.bash" >> ~/.bashrc
     CMD ["/bin/bash"]
 
 Replace ``ROS_DISTRO`` with the ROS 2 distribution you wish to use as base image above, for example ``rolling``.
@@ -218,7 +250,6 @@ Inside the terminal do the following:
 .. code-block:: console
 
     $ sudo apt install ros-$ROS_DISTRO-rviz2 -y
-    $ source /opt/ros/$ROS_DISTRO/setup.bash
     $ rviz2
 
 .. Note:: There might be a problem with displaying RVIZ.

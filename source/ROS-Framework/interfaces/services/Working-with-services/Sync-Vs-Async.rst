@@ -1,3 +1,10 @@
+.. meta::
+   :contentType: tutorial
+   :experience: intermediate
+   :area: interfaces, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
   Guides/Sync-Vs-Async
@@ -6,8 +13,17 @@
 
 .. _SyncAsync:
 
-Synchronous vs. asynchronous service clients
-============================================
+Synchronous vs. asynchronous service clients — tutorial
+=======================================================
+
+.. short-description::
+   Service clients can be written synchronously or asynchronously, but synchronous Python calls can block execution and cause deadlock.
+   This article explains how ``call()`` and ``call_async()`` behave, when synchronous calls are unsafe, and why asynchronous calls are recommended.
+   After reading it, you will be able to choose a safer client pattern and recognise common deadlock conditions.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Level:** Intermediate
 

@@ -1,3 +1,10 @@
+.. meta::
+   :contentType: tutorial
+   :experience: expert
+   :area: client-libraries, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Tutorials/Ros2bag/Recording-A-Bag-From-Your-Own-Node-Cpp
@@ -5,8 +12,17 @@
 
 .. _ROS2BagOwnNode:
 
-Recording a bag from a node (C++)
-=================================
+Recording a bag from a node (C++) — tutorial
+============================================
+
+.. short-description::
+   Bags are useful for recording topic data or generated data directly from your own C++ code.
+   This article shows how to use the ``rosbag2_cpp`` API to write bags from a node and from a standalone executable.
+   After following this article, you will be able to record received and synthetic data into bag files.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Record data from your own C++ node to a bag.
 
@@ -118,6 +134,8 @@ Inside the ``ros2_ws/src/bag_recorder_nodes/src`` directory, create a new file c
       rclcpp::shutdown();
       return 0;
     }
+
+.. include:: ../../../_internal/Rclcpp-Convenience-Header-Note.rst
 
 2.1 Examine the code
 ~~~~~~~~~~~~~~~~~~~~
@@ -526,7 +544,9 @@ Inside the ``ros2_ws/src/bag_recorder_nodes/src`` directory, create a new file c
 
     #include <chrono>
 
-    #include <rclcpp/rclcpp.hpp>  // For rclcpp::Clock, rclcpp::Duration and rclcpp::Time
+    #include <rclcpp/clock.hpp>
+    #include <rclcpp/duration.hpp>
+    #include <rclcpp/time.hpp>
     #include <example_interfaces/msg/int32.hpp>
 
     #include <rosbag2_cpp/writer.hpp>

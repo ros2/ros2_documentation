@@ -1,9 +1,25 @@
+.. meta::
+   :contentType: tutorial
+   :experience: intermediate
+   :area: simulation, capabilities
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Tutorials/Intermediate/URDF/Exporting-an-URDF-File
 
-Generating an URDF File
-=======================
+Generating an URDF File — tutorial
+==================================
+
+.. short-description::
+   Robot models often begin in CAD or 3D modelling tools before they are used in simulation or visualisation.
+   This article lists URDF export, conversion, and viewing tools for common design workflows.
+   After reading it, you can choose a suitable tool for generating or inspecting an URDF file.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Learn how to Export an URDF File
 
@@ -35,6 +51,7 @@ However, we figured it would be helpful to produce a list of available URDF expo
  * `FusionSDF: Fusion 360 to SDF exporter <https://github.com/andreasBihlmaier/FusionSDF>`_
  * `OnShape URDF Exporter <https://github.com/Rhoban/onshape-to-robot>`_
  * `SolidWorks URDF Exporter <https://github.com/ros/solidworks_urdf_exporter>`_
+ * `sw2robot (SolidWorks mate-based exporter + cross-platform URDF editor) <https://github.com/jsk-ros-pkg/solidworks_urdf_exporter2>`_
  * `ExportURDF Library (Fusion360, OnShape, Solidworks) <https://github.com/daviddorf2023/ExportURDF>`_
 
 **Other URDF Export and Conversion Tools**

@@ -4,6 +4,13 @@
    The-ROS2-Project/Contributing/Migration-Guide-Python
    How-To-Guides/Migrating-from-ROS1/Migrating-Python-Packages
 
+.. meta::
+   :contentType:
+   :experience:
+   :area: framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 Migrating Python Packages Reference
 ===================================
 
