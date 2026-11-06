@@ -829,7 +829,7 @@ More articles:
 * :doc:`Understanding topics <../../topics/Understanding-ROS2-Topics/Understanding-ROS2-Topics>`
 * :doc:`Understanding services <../../services/Working-with-services/Understanding-ROS2-Services/Understanding-ROS2-Services>`
 * :doc:`Understanding actions <../../actions/Working-with-actions/Understanding-ROS2-Actions/Understanding-ROS2-Actions>`
-* :doc:`Overriding QoS policies for recording and playback <../../../../Developer-Tools/Testing/Overriding-QoS-Policies-For-Recording-And-Playback>`
+* :doc:`Overriding QoS policies for recording and playback <../../../../Developer-Tools/Debugging/Testing/Overriding-QoS-Policies-For-Recording-And-Playback>`
 
 External resources:
 
