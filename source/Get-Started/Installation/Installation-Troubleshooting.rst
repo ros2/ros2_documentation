@@ -16,7 +16,7 @@ Troubleshooting installation - how-to
 
 .. short-description::
    Installation issues can come from networking, environment setup, dependencies, platform tools, or display configuration.
-   In this article, you will learn how to recognise common ROS installation problems across Linux, macOS, and Windows.
+   In this article, you will learn how to recognize common ROS installation problems across Linux, macOS, and Windows.
    After you follow these troubleshooting steps, you will be able to identify likely causes and apply the appropriate fixes.
 
 .. showmeta::
