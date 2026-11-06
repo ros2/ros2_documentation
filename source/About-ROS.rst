@@ -64,7 +64,7 @@ ROS consists of the following basic components:
 * :doc:`Client libraries<ROS-Framework/About-Client-Libraries>`
 * Middleware
 
-:doc:`Learn more about the ROS framework<ROS-Framework>` 
+:doc:`Learn more about the ROS framework<ROS-Framework>`
 
 Tools
 -----
