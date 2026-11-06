@@ -39,7 +39,7 @@ The Markers display allows programmatic addition of various primitive shapes to 
 
 .. image:: images/marker_overview.png
 
-Start with :doc:`Marker: Sending Basic Shapes <../Marker-Sending-Basic-Shapes/Marker-Sending-Basic-Shapes>` for a minimal publisher example that introduces the marker message used throughout this page.
+Start with :doc:`Learning about data visualization <../Marker-Sending-Basic-Shapes/Marker-Sending-Basic-Shapes>` for a minimal publisher example that introduces the marker message used throughout this page.
 
 The Marker Message
 ------------------
