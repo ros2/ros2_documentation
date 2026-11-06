@@ -350,7 +350,9 @@ If you want to get involved in promoting ROS, why not train or mentor others, or
 
 * Support people with working through the tutorials, starting with `First steps with ROS <https://docs.ros.org/en/rolling/First-Steps.html>`_
 
-* Be part of our community on social media: <Placeholder: LINK TO LIST OF SOCIALS TO BE PROVIDED>
+* Be part of our community on social media:
+
+   * `ROS.org on Twitter <https://twitter.com/ROSOrg>`__
 
 Become an OSRA member
 ---------------------
