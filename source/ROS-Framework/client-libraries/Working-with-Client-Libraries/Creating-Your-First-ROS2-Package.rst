@@ -16,7 +16,7 @@ Creating a package — tutorial
 =============================
 
 .. short-description::
-   Packages organise ROS code so it can be built, installed, and shared.
+   Packages organize ROS code so it can be built, installed, and shared.
    This tutorial shows you how to create a CMake or Python package, build it with ``colcon``, and run its executable.
    After following these steps, you will have a working package ready for custom code.
 
