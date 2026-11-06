@@ -78,7 +78,7 @@ Use Turtlesim to familiarize yourself with the main communication components and
 Introspection enables you to see information about how a system is operating.
 Nodes use logs to output messages concerning events and status in a variety of ways.
 
-To see introspection through logs in action, complete the CLI logging tutorial: :doc:`ROS-Framework/nodes/Working-with-nodes/Learning-About-Logging/Learning-About-Logging`
+To see introspection through logs in action, complete the CLI logging tutorial: [coming soon]
 
 5 Learn about using launch files
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
