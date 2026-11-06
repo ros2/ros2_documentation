@@ -19,14 +19,14 @@ Lyrical Luth Supported Platforms
 ROS Lyrical supports the following platforms according to :doc:`the platform support tiers <../../The-ROS2-Project/Platform-Support-Tiers>`:
 
 +--------------+-------------------+-------------------+---------------+-------------------+-----------+-----------------+----------------+
-| Architecture | Ubuntu Resolute   | Ubuntu Noble*     | Windows 11    | RHEL 10           | macOS     | Debian Trixie*  | OpenEmbedded / |
-|              | (26.04)           | (24.04)           | (VS2022)      |                   |           | (13)            | Yocto Project  |
+| Architecture | Ubuntu Resolute   | RHEL 10           | Windows 11    | Ubuntu Noble*     | macOS     | Debian Trixie*  | OpenEmbedded / |
+|              | (26.04)           |                   | (VS2022)      | (24.04)           |           | (13)            | Yocto Project  |
 +==============+===================+===================+===============+===================+===========+=================+================+
-| amd64        | Tier 1 [d][a]     | Tier 3            | Tier 1 [a]    | Tier 2 [d][a]     | Tier 3    | Tier 3          | Tier 3         |
+| amd64        | Tier 1 [d][a]     | Tier 1 [d][a]     | Tier 1 [a]    | Tier 3            | Tier 3    | Tier 3          | Tier 3         |
 +--------------+-------------------+-------------------+---------------+-------------------+-----------+-----------------+----------------+
-| arm64        | Tier 1 [d][a]     | Tier 3            |               |                   |           | Tier 3          | Tier 3         |
+| arm64        | Tier 1 [d][a]     |                   |               | Tier 3            |           | Tier 3          | Tier 3         |
 +--------------+-------------------+-------------------+---------------+-------------------+-----------+-----------------+----------------+
-| arm32        | Tier 3            | Tier 3            |               |                   |           | Tier 3          | Tier 3         |
+| arm32        | Tier 3            |                   |               | Tier 3            |           | Tier 3          | Tier 3         |
 +--------------+-------------------+-------------------+---------------+-------------------+-----------+-----------------+----------------+
 
 * ``*`` Early EOL per :doc:`the platform EOL policy <../../The-ROS2-Project/Platform-EOL-Policy>`
