@@ -10,7 +10,7 @@
 .. meta::
    :contentType: how-to
    :experience: beginner, intermediate
-   :area: builds, tools
+   :area: interfaces, tools
    :distribution: {DISTRO}
    :product: {PRODUCT}
 
@@ -111,7 +111,8 @@ Steps
 
    .. code-block:: xml
 
-      <build_depend>rosidl_default_generators</build_depend>
+      <depend>rclcpp</depend>
+      <buildtool_depend>rosidl_default_generators</buildtool_depend>
       <exec_depend>rosidl_default_runtime</exec_depend>
       <depend>geometry_msgs</depend>
       <member_of_group>rosidl_interface_packages</member_of_group>
@@ -135,6 +136,7 @@ Steps
    .. code-block:: c++
 
       #include <chrono>
+      #include <iostream>
       #include <memory>
 
       #include "rclcpp/rclcpp.hpp"
