@@ -31,6 +31,8 @@ Rolling Ridley (``rolling``)
 
 For more information see `REP-2002 <https://reps.openrobotics.org/rep-2002/>`_
 
+.. _CurrentSupportedPlatforms:
+
 Currently Supported Platforms
 -----------------------------
 
