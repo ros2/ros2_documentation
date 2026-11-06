@@ -429,7 +429,7 @@ c. **Use auto-complete**:
 
     $ ros2 topic pub /turtle1/cmd_vel geometry_msgs/msg/Twist \'
 
-  The terminal does not recognise an unescaped single quote as part of the auto-complete string, so you need to escape it with ``\'``.
+  The terminal does not recognize an unescaped single quote as part of the auto-complete string, so you need to escape it with ``\'``.
 
   The final auto-completed string should look like this:
 

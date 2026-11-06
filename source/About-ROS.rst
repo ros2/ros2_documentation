@@ -91,7 +91,7 @@ These packages allow developers to add advanced behaviours without starting from
 
 For example, manipulation packages can control robotic arms for tasks like picking and placing objects in automated workflows.
 Motion planning packages allow robots to move from one point to another by calculating safe paths in their environment.
-Perception packages enable robots to detect and recognise objects or people, supporting tasks such as retrieving objects or working in environments where the robot needs to respond to what it sees.
+Perception packages enable robots to detect and recognize objects or people, supporting tasks such as retrieving objects or working in environments where the robot needs to respond to what it sees.
 Different implementations of the same capabilities allow developers to switch implementations and experiment to find the best implementation for their needs.
 
 .. note::
