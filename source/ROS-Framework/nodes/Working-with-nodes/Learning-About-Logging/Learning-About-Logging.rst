@@ -19,12 +19,6 @@ Learning about CLI logging - tutorial
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-Log messages report what a node is doing, and each message has a severity level.
-This article teaches you to write a small battery monitor node that logs at different severities, then use the ROS CLI to show or hide those messages.
-A hands-on exercise shows why ``DEBUG`` is hidden by default and how ``--log-level`` reveals it.
-
-**Area: Nodes, Framework | Content-type: tutorial | Experience: beginner**
-
 .. contents:: Contents
    :depth: 2
    :local:
