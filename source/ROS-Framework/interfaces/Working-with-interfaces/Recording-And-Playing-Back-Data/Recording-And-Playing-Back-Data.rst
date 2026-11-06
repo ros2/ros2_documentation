@@ -666,7 +666,7 @@ While recording is active, open another terminal and run the action client with 
 The client sends a goal, receives feedback, then exits.
 To capture more action traffic, run the client again while recording is still active.
 
-Optionally, in another terminal, verify introspection while the client runs:
+In another terminal, verify introspection while the client runs:
 
 .. code-block:: console
 
@@ -733,7 +733,7 @@ You should see output similar to:
 Keep ``fibonacci_action_server`` running.
 Playback sends action goal requests from the bag file to that server.
 
-Optionally, in another terminal, start introspection before playback:
+In another terminal, start introspection before playback:
 
 .. code-block:: console
 
