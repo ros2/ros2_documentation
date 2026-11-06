@@ -59,3 +59,14 @@ Subordinate nodes are useful for modular C++ software architecture.
 Internal subsystems or helper libraries running inside the same node process can use a subordinate node to publish or subscribe under scoped topic and service names without creating separate nodes, avoiding additional middleware discovery overhead and multi-node execution management.
 
 For a practical guide, see the :doc:`Using subordinate nodes tutorial <nodes/Working-with-nodes/Using-Sub-Nodes>`.
+
+Related content
+---------------
+* :doc:`nodes/About-Discovery`
+* :doc:`About-Client-Libraries`
+* :doc:`About-Parameters`
+* :doc:`Interfaces-Topics-Services-Actions`
+* :doc:`nodes/Working-with-nodes`
+
+FAQs
+----

@@ -3,8 +3,8 @@
     How-To-Guides/Migrating-from-ROS1/Migrating-Interfaces
 
 .. meta::
-   :contentType:
-   :experience:
+   :contentType: how-to
+   :experience: beginner, intermediate, expert
    :area: framework
    :distribution: {DISTRO}
    :product: {PRODUCT}
@@ -12,7 +12,16 @@
 Migrating Interfaces
 ====================
 
-.. contents:: Table of Contents
+.. short-description::
+   Interface files define the messages, services, and actions your nodes exchange, and their layout changes between ROS 1 and ROS.
+   In this article, you will learn how to place interface files, update types, and generate them with ROS build tooling.
+   After you follow these steps, you can migrate an interface package so ROS can build and use its definitions.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -28,7 +37,7 @@ Actions files must end in ``.action`` and must be located in the subfolder ``act
 These files might need to be updated to comply with the `ROS Interface definition <http://design.ros2.org/articles/legacy_interface_definition.html>`__.
 Some primitive types have been removed and the types ``duration`` and ``time`` which were builtin types in ROS 1 have been replaced with normal message definitions and must be used from the `builtin_interfaces <https://github.com/ros2/rcl_interfaces/tree/{REPOS_FILE_BRANCH}/builtin_interfaces>`__ package.
 Also some naming conventions are stricter than in ROS 1.
-There is additional information in the :doc:`conceptual article <../../ROS-Framework/interfaces/About-Interfaces>`.
+There is additional information in the :doc:`conceptual article <../../ROS-Framework/interfaces/Working-with-interfaces/Interface-specifications>`.
 
 Building interfaces
 -------------------
