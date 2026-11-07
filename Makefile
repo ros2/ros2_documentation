@@ -28,10 +28,22 @@ help:
 	@$(BUILD) -M help "$(SOURCE)" "$(OUT)" $(OPTS)
 	@echo "  multiversion to build documentation for all branches"
 
+# Pagefind static search index (requires Node.js / npx).
+PAGEFIND_VERSION ?= 1.5.2
+pagefind:
+	@command -v npx >/dev/null || { echo "make pagefind needs Node.js 18+ (npx)"; exit 1; }
+	npx -y pagefind@$(PAGEFIND_VERSION) --site "$(OUT)/html"
+
+# Docs builds use the Pagefind search UI (pagefind_enabled defaults on), then index the output.
+html: Makefile
+	@$(BUILD) -M html "$(SOURCE)" "$(OUT)" $(OPTS)
+	$(MAKE) pagefind
+
 multiversion: Makefile
 	sphinx-multiversion $(OPTS) "$(SOURCE)" build/html
 	@echo "<html><head><meta http-equiv=\"refresh\" content=\"0; url=lyrical/index.html\" /></head></html>" > build/html/index.html
 	$(PYTHON) make_sitemapindex.py
+	$(MAKE) pagefind
 
 %: Makefile
 	@$(BUILD) -M $@ "$(SOURCE)" "$(OUT)" $(OPTS)
@@ -95,7 +107,8 @@ linkcheck:
 	@echo
 	@echo "Check finished. Report is in $(LINKCHECKDIR)."
 
+# Live preview keeps Sphinx search. Pagefind's index is not rebuilt on each save.
 serve:
-	sphinx-autobuild --host $(LIVE_HOST) --port $(LIVE_PORT) -c . $(SOURCE) $(OUT)/html
+	sphinx-autobuild --host $(LIVE_HOST) --port $(LIVE_PORT) -c . -D pagefind_enabled=0 $(SOURCE) $(OUT)/html
 
-.PHONY: help Makefile multiversion test test-tools linkcheck serve lint spellcheck check-dictionaries sort-dictionaries ensure-enhancements supersede-enhancement-reviews $(MAKEFILE_LIST)
+.PHONY: help Makefile html multiversion pagefind test test-tools linkcheck serve lint spellcheck check-dictionaries sort-dictionaries ensure-enhancements supersede-enhancement-reviews $(MAKEFILE_LIST)
