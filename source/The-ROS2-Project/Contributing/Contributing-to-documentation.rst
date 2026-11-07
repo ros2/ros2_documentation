@@ -21,11 +21,6 @@ Contributing to documentation
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-ROS documentation is maintained by the community and helps users learn, build, and contribute effectively.
-This article describes where the documentation source lives, how it is structured, and how contributors submit changes.
-
-**Area: contributing, community | Content-type: about | Experience: beginner, intermediate, expert**
-
 .. toctree::
    :hidden:
    :maxdepth: 2
@@ -58,6 +53,44 @@ For more information about using these tools to make updates to the documentatio
 
 * :doc:`Documentation/Creating-or-updating-documentation`
 * :doc:`Documentation/Documentation-guidelines`
+
+Metadata
+--------
+
+Every article carries metadata, such as its topic ``area`` and content type, in a ``.. meta::`` block at the top of the file.
+The metadata is summarized near the top of the page, and it powers the search and related content features.
+A check on each pull request flags any article that is missing metadata or that uses a value that is not allowed.
+
+For the metadata values to use, and how to add them to an article, see :doc:`Documentation/Documentation-guidelines`.
+
+Search
+------
+
+The site search is built from the metadata on each article.
+When the site is built, the pages are indexed for search.
+The metadata fields become filters, so that readers can narrow results by distribution, area, content type, and experience level, among others.
+Results start filtered to the distribution the reader is viewing, which they can change or clear.
+
+Related articles
+----------------
+
+A *Related articles* list links to other articles that share the same ``area`` as the page.
+The list is generated when the site is built, so the links are part of the published HTML.
+Entries are ordered by content type and then title, and a long list is collapsed behind a *Show more* control.
+
+To learn how to add a related articles list to an article, see :doc:`Documentation/Documentation-guidelines`.
+
+Related packages
+----------------
+
+A *Related packages* list shows the ROS packages relevant to the page.
+Unlike related articles, which are built into the page when the site is built, these lists are built in the reader's browser.
+When a reader opens the page, the browser downloads the latest snapshot of the ROS package index, keeps only the packages whose own metadata matches the page's ``area``, and fills in the list.
+If it cannot reach the latest snapshot, it falls back to one saved when the site was built.
+This keeps the lists current between documentation builds.
+A package opts in to these lists through metadata in its ``package.xml``.
+
+To learn how to add a related packages list to an article, see :doc:`Documentation/Documentation-guidelines`.
 
 Branch structure
 ----------------
