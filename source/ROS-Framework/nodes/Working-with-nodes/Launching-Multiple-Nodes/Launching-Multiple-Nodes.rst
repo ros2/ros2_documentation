@@ -4,7 +4,7 @@
     Tutorials/Beginner-CLI-Tools/Launching-Multiple-Nodes/Launching-Multiple-Nodes
 
 .. meta::
-   :contentType: tutorial
+   :contentType: how-to
    :experience: beginner
    :area: nodes, framework
    :distribution: {DISTRO}
@@ -12,8 +12,8 @@
 
 .. _ROS2Launch:
 
-Launching multiple nodes — tutorial - how-to
-============================================
+Launching multiple nodes - how-to
+=================================
 
 .. short-description::
    As robotic systems become more complex, starting each node in a separate terminal becomes difficult to manage.
