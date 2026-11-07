@@ -24,12 +24,6 @@ Learning about services - tutorial
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-**Goal:** Learn about services in ROS 2 using command line tools.
-
-Services are one of the communication types used to exchange data in a ROS system.
-This article walks you through using command-line tools to examine and call services between nodes.
-A hands-on exercise with Turtlesim helps you understand how the call-and-response model works in the ROS graph.
-
 .. contents:: Contents
    :depth: 2
    :local:
