@@ -27,8 +27,8 @@ Installing on RHEL / Fedora (RPM packages) - how-to
    :local:
 
 RPM packages for ROS 2 {DISTRO_TITLE_FULL} are currently available for RHEL 10 and supported Fedora releases.
-Supported Fedora versions can vary by ROS distribution.
-Before installing, check the supported Fedora version for your ROS distribution: :doc:`Lyrical <../../Releases/lyrical/supported-platforms>` or :doc:`Rolling <../../Releases/Release-Rolling-Ridley>`.
+The supported Fedora version depends on the ROS distribution and may change over time.
+Before installing, check the target platforms listed on your distribution's page in :doc:`Distributions <../../Releases>`.
 Most people will want to use a stable ROS distribution.
 
 Resources
