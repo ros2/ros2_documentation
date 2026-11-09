@@ -1,13 +1,20 @@
 .. redirect-from::
 
+   Rosidl-Tutorial
+   Tutorials/Single-Package-Define-And-Use-Interface
+   Tutorials/Beginner-Client-Libraries/Single-Package-Define-And-Use-Interface
    How-To-Guides/Implementing-custom-interfaces
+   ROS-Framework/client-libraries/Working-with-Client-Libraries/Single-Package-Define-And-Use-Interface
+   Developer-Tools/Build/Single-Package-Define-And-Use-Interface
 
 .. meta::
    :contentType: how-to
    :experience: beginner, intermediate
-   :area: builds, tools
+   :area: interfaces, tools
    :distribution: {DISTRO}
    :product: {PRODUCT}
+
+.. _SinglePkgInterface:
 
 Implementing custom interfaces - how-to
 =======================================
@@ -60,8 +67,8 @@ Using custom interfaces involves configuring a node to include the interfaces in
 Prerequisites
 -------------
 
-#. Install :doc:`ROS 2 <../../Get-Started/Installation>`, and create your :doc:`workspace <../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace>`.
-#. Make sure you understand how to :doc:`create packages <../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Creating-Your-First-ROS2-Package>`.
+#. :doc:`Install ROS </Get-Started/Installation>`, and create your :doc:`workspace </ROS-Framework/client-libraries/Working-with-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace>`.
+#. Make sure you understand how to :doc:`create packages </ROS-Framework/client-libraries/Working-with-Client-Libraries/Creating-Your-First-ROS2-Package>`.
 
 Steps
 -----
@@ -104,7 +111,8 @@ Steps
 
    .. code-block:: xml
 
-      <build_depend>rosidl_default_generators</build_depend>
+      <depend>rclcpp</depend>
+      <buildtool_depend>rosidl_default_generators</buildtool_depend>
       <exec_depend>rosidl_default_runtime</exec_depend>
       <depend>geometry_msgs</depend>
       <member_of_group>rosidl_interface_packages</member_of_group>
@@ -128,6 +136,7 @@ Steps
    .. code-block:: c++
 
       #include <chrono>
+      #include <iostream>
       #include <memory>
 
       #include "rclcpp/rclcpp.hpp"
