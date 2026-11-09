@@ -815,4 +815,4 @@ You can learn more about it in :doc:`About ROS 2 interfaces <../../interfaces/Ab
 Next steps
 ----------
 
-The :doc:`next tutorial <Single-Package-Define-And-Use-Interface>` covers more ways to use interfaces in ROS 2.
+:doc:`../../interfaces/Working-with-interfaces/Single-Package-Define-And-Use-Interface` covers more ways to use interfaces in ROS 2.
