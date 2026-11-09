@@ -24,12 +24,6 @@ Learning about nodes - tutorial
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-Nodes are the fundamental building blocks of a robotic system, where each node is responsible for a single task.
-This article walks you through how to run nodes with the ``ros2`` command-line tools and inspect how they are shown on the ROS graph.
-A hands-on exercise gives you practice listing active nodes and examining their connections.
-
-**Area: Nodes, Framework | Content-type: tutorial | Experience: beginner**
-
 .. contents:: Contents
    :depth: 3
    :local:
