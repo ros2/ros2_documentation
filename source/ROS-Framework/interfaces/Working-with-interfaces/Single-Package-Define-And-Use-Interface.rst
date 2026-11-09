@@ -67,8 +67,8 @@ Using custom interfaces involves configuring a node to include the interfaces in
 Prerequisites
 -------------
 
-#. Install :doc:`ROS 2 <../../Get-Started/Installation>`, and create your :doc:`workspace <../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace>`.
-#. Make sure you understand how to :doc:`create packages <../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Creating-Your-First-ROS2-Package>`.
+#. :doc:`Install ROS </Get-Started/Installation>`, and create your :doc:`workspace </ROS-Framework/client-libraries/Working-with-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace>`.
+#. Make sure you understand how to :doc:`create packages </ROS-Framework/client-libraries/Working-with-Client-Libraries/Creating-Your-First-ROS2-Package>`.
 
 Steps
 -----
