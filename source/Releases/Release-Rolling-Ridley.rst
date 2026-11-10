@@ -20,7 +20,8 @@ Rolling Ridley (``rolling``)
    :depth: 2
    :local:
 
-*Rolling Ridley* is a rolling development release of ROS 2.
+.. short-description::
+  *Rolling Ridley* is a rolling development release of ROS 2.
 
 .. warning::
 
@@ -29,6 +30,8 @@ Rolling Ridley (``rolling``)
   We recommend that most users of ROS 2 use the latest `stable distribution <latest-release>`.
 
 For more information see `REP-2002 <https://reps.openrobotics.org/rep-2002/>`_
+
+.. _CurrentSupportedPlatforms:
 
 Currently Supported Platforms
 -----------------------------

@@ -229,16 +229,18 @@ There is a new ROS 2 distribution released yearly on May 23rd (`World Turtle Day
 .. list-table::
    :class: future-distros
    :header-rows: 1
-   :widths: 35 30 20 15
+   :widths: 35 25 30 20 10
 
    * - Distro
      - Release date
      - Logo
      - EOL date
+     - ROS Boss
    * - :doc:`Makoa Mata-mata <Releases/Release-Makoa-Mata-mata>`
      - May 2027
      - TBD
      - Dec 2028
+     - `Christophe Bédard <https://github.com/christophebedard>`_
 
 .. _rolling_distribution:
 

@@ -31,7 +31,6 @@ Using client libraries, users gain access to ROS 2 concepts such as nodes, topic
    Working-with-Client-Libraries/Writing-A-Simple-Cpp-Service-And-Client
    Working-with-Client-Libraries/Writing-A-Simple-Py-Service-And-Client
    Working-with-Client-Libraries/Custom-ROS2-Interfaces
-   Working-with-Client-Libraries/Single-Package-Define-And-Use-Interface
    Working-with-Client-Libraries/Using-Parameters-In-A-Class-CPP
    Working-with-Client-Libraries/Using-Parameters-In-A-Class-Python
    Working-with-Client-Libraries/Getting-Started-With-Ros2doctor

@@ -20,7 +20,8 @@ Eloquent Elusor (``eloquent``)
    :depth: 2
    :local:
 
-*Eloquent Elusor* is the fifth release of ROS 2.
+.. short-description::
+   *Eloquent Elusor* is the fifth release of ROS 2.
 
 Supported Platforms
 -------------------

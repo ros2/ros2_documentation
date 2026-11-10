@@ -23,7 +23,9 @@ Lyrical Luth (codename 'lyrical'; May, 2026)
    lyrical/release-timeline.rst
    lyrical/supported-platforms.rst
 
-*Lyrical Luth* is the twelfth release of ROS 2.
+.. short-description::
+  *Lyrical Luth* is the twelfth release of ROS 2.
+
 It is a Long Term Support (LTS) release, and it is supported until May 2031.
 
 * `Install Lyrical Luth <../../lyrical/Installation.html>`_
