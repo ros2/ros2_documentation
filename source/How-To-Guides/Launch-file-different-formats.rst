@@ -93,11 +93,14 @@ To test that the remapping is working, you can control the turtles by running th
 XML, YAML, or Python: Which should I use?
 -----------------------------------------
 
+<<<<<<< HEAD:source/How-To-Guides/Launch-file-different-formats.rst
 .. note::
 
   Launch files in ROS 1 were written in XML, so XML may be the most familiar to people coming from ROS 1.
   To see what's changed, you can visit :doc:`Migrating-from-ROS1/Migrating-Launch-Files`.
 
+=======
+>>>>>>> 8fb419d (3di | TOC update - remove "Migrating from ROS 1 to ROS 2" section and articles   (#7186)):source/Developer-Tools/Launch/Launch-file-different-formats.rst
 For most applications the choice of which ROS 2 launch format comes down to developer preference.
 However, if your launch file requires flexibility that you cannot achieve with XML or YAML, you can use Python to write your launch file.
 Using Python for ROS 2 launch is more flexible because of following two reasons:
