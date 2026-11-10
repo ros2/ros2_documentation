@@ -4,7 +4,7 @@
 
 .. meta::
    :contentType: how-to
-   :experience:
+   :experience: intermediate
    :area: visualization, tools
    :distribution: {DISTRO}
    :product: {PRODUCT}
@@ -27,7 +27,7 @@ Documenting a ROS 2 package - how-to
 
 This guide introduces the standard way to create documentation for ROS 2 packages.
 For packages with binary releases this also results in the docs being hosted at ``docs.ros.org/en/<distro>/p/<package>/``.
-For information on how to contribute to the documentation on docs.ros.org, see :doc:`/The-ROS2-Project/Contributing/Contributing-to-documentation`.
+For information on how to contribute to the documentation on docs.ros.org, see :doc:`../../The-ROS2-Project/Contributing/Contributing-to-documentation`.
 
 Prerequisites
 -------------
@@ -255,6 +255,39 @@ It is not required to tag a new release to update the hosted documentation.
 To view the status of your package's documentation build, search for ``doc__<package_name>`` on `<https://build.ros2.org>`__.
 One job is created for every distribution for which the package is released.
 On each job page, you can see when a build was last triggered, as well as the status and logs of each build.
+
+Related packages metadata
+-------------------------
+
+Add metadata to your package's ``package.xml`` to label the areas of ROS documentation it relates to.
+Articles on docs.ros.org use this metadata to list your package in their *Related packages* section so that readers can discover it from related topics.
+
+Add the metadata as exports in the ``<export>`` section of ``package.xml``.
+In this example, ``nodes`` and ``framework`` are area values taken from the allowed vocabulary.
+Replace them with the areas that apply to your package:
+
+.. code-block:: xml
+
+    <package>
+        <!-- [...] -->
+        <export>
+            <!-- [...] -->
+            <ros2_documentation_area>nodes, framework</ros2_documentation_area>
+            <ros2_documentation_related_scope>core</ros2_documentation_related_scope>
+        </export>
+    </package>
+
+``<ros2_documentation_area>`` is required for the package to be listed.
+It takes one or more area values, most specific first, using the same vocabulary as an article's ``:area:`` metadata.
+A package is listed on an article when that article's primary (first) area appears anywhere in this list.
+
+``<ros2_documentation_related_scope>`` is optional.
+It is either ``core`` or ``federation``, and decides whether the package is grouped under *Core ROS packages* or *Community packages*.
+Any other value, or no value at all, is treated as ``federation``.
+
+The package's ``<description>`` is shown next to its name so that readers can see what the package does.
+
+For the list of allowed area values and how to choose them, see :doc:`/The-ROS2-Project/Contributing/Documentation/Documentation-guidelines`.
 
 Further Reading
 ---------------
