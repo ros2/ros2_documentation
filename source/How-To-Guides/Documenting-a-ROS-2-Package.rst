@@ -1,5 +1,30 @@
+<<<<<<< HEAD:source/How-To-Guides/Documenting-a-ROS-2-Package.rst
 Documenting a ROS 2 package
 ###########################
+=======
+.. redirect-from::
+
+    How-To-Guides/Documenting-a-ROS-2-Package
+
+.. meta::
+   :contentType: how-to
+   :experience: intermediate
+   :area: visualization, tools
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+Documenting a ROS 2 package - how-to
+====================================
+
+.. short-description::
+   Package documentation helps users find API references, tutorials, and project-specific guidance for released ROS packages.
+   This article explains how ``rosdoc`` builds package documentation and how to configure Sphinx, Doxygen, and hosted documentation.
+   After you follow it, you can build package docs locally and prepare them for publication on docs.ros.org.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+>>>>>>> c87d735 (3di | TOC updates to "Contributing to ROS" and "Contact" articles (#7094)):source/Developer-Tools/Package-documentation/Documenting-a-ROS-2-Package.rst
 
 .. contents:: Table of Contents
    :depth: 2
@@ -8,7 +33,11 @@ Documenting a ROS 2 package
 
 This guide introduces the standard way to create documentation for ROS 2 packages.
 For packages with binary releases this also results in the docs being hosted at ``docs.ros.org/en/<distro>/p/<package>/``.
+<<<<<<< HEAD:source/How-To-Guides/Documenting-a-ROS-2-Package.rst
 For information on how to contribute to this documentation on docs.ros.org, see :doc:`Contributing to ROS 2 Documentation <../The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation>`.
+=======
+For information on how to contribute to the documentation on docs.ros.org, see :doc:`../../The-ROS2-Project/Contributing/Contributing-to-documentation`.
+>>>>>>> c87d735 (3di | TOC updates to "Contributing to ROS" and "Contact" articles (#7094)):source/Developer-Tools/Package-documentation/Documenting-a-ROS-2-Package.rst
 
 Prerequisites
 -------------
