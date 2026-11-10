@@ -27,7 +27,9 @@ Kilted Kaiju (codename 'kilted'; May, 2025)
    :depth: 2
    :local:
 
-*Kilted Kaiju* is the eleventh release of ROS 2.
+.. short-description::
+  *Kilted Kaiju* is the eleventh release of ROS 2.
+
 What follows is highlights of the important changes and features in Kilted Kaiju since the last release.
 For a list of all of the changes since Jazzy, see the :doc:`long form changelog <Kilted-Kaiju-Complete-Changelog>`
 
@@ -222,7 +224,7 @@ This allows to instrospect an action with the command line.
 Using ``ros2cli`` tools: ``ros2 action echo <action name>``.
 
 See https://github.com/ros2/ros2cli/pull/978 for more information.
-Visit :ref:`ros2 action echo <understanding-actions-ros2-action-echo>` and :doc:`Action Introspection <../../ROS-Framework/interfaces/actions/Working-with-actions/Action-Introspection>` to learn more about this feature.
+Visit :ref:`ros2 action echo <understanding-actions-ros2-action-echo>` and :doc:`Action Introspection <../ROS-Framework/interfaces/actions/Working-with-actions/Action-Introspection>` to learn more about this feature.
 
 ``rclcpp``
 ^^^^^^^^^^

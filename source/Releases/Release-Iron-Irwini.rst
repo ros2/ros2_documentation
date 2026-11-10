@@ -27,7 +27,9 @@ Iron Irwini (``iron``)
    :depth: 2
    :local:
 
-*Iron Irwini* is the ninth release of ROS 2.
+.. short-description::
+  *Iron Irwini* is the ninth release of ROS 2.
+
 What follows is highlights of the important changes and features in Iron Irwini since the last release.
 For a list of all of the changes since Humble, see the :doc:`long form changelog <Iron-Irwini-Complete-Changelog>`.
 
@@ -963,7 +965,7 @@ In Iron, the tracing instrumentation and tracepoints are included by default; th
 Note that this only applies to Linux.
 
 See https://github.com/ros2/ros2_tracing/pull/31 and https://github.com/ros2/ros2/issues/1177 for more information.
-See :doc:`this how-to guide to remove the instrumentation (or add the instrumentation with Humble and older) <../../Developer-Tools/Debugging/Building-ROS-2-with-Tracing>`.
+See :doc:`this how-to guide to remove the instrumentation (or add the instrumentation with Humble and older) <../Developer-Tools/Debugging/Building-ROS-2-with-Tracing>`.
 
 New tracepoints for ``rclcpp`` intra-process are added
 """"""""""""""""""""""""""""""""""""""""""""""""""""""

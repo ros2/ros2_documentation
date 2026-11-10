@@ -76,26 +76,6 @@ This interface type has the following main characteristics:
 Topic keys identify individual publishers on a topic so nodes and tools can distinguish where messages come from.
 Each topic key makes it easier to track data sources when several publishers share the same topic.
 
-Topic statistics
-----------------
-Topic statistics are built-in measurements that help you understand how messages behave when a subscription receives them.
-When enabled, they automatically track two things:
-
-:Message age: How old a message is when it arrives, based on its timestamp.
-:Message period: The time between incoming messages.
-
-For both message age and period, ROS calculates the average, minimum, maximum, standard deviation, and the number of samples, using a moving window that updates every time a new message arrives.
-These calculations run in constant time and memory using the dedicated utilities.
-When you enable topic statistics for a subscription, ROS publishes the collected data at regular intervals as a ``MetricsMessage`` on a statistics topic.
-This gives you a clear view of timing patterns, delays, and irregularities, making it easier to assess system performance or diagnose problems related to the message flow.
-
-.. tip::
-
-   The default interval is 1 second.
-   The default statistics topic is ``/statistics``.
-
-:doc:`Learn how to enable topic statistics <../Developer-Tools/Introspection-and-analysis/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial>`
-
 Services
 --------
 

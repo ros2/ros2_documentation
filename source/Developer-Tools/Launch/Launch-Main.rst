@@ -31,15 +31,6 @@ Working with launch files - tutorial
 
 ROS 2 Launch files allow you to start up and configure a number of executables containing ROS 2 nodes simultaneously.
 
-.. toctree::
-   :hidden:
-
-   Creating-Launch-Files
-   Launch-system
-   Using-Substitutions
-   Using-Event-Handlers
-   Using-ROS2-Launch-For-Large-Projects
-
 #. :doc:`Creating a launch file <Creating-Launch-Files>`.
 
    Learn how to create a launch file that will start up nodes and their configurations all at once.
@@ -60,7 +51,3 @@ ROS 2 Launch files allow you to start up and configure a number of executables c
 
    Structure launch files for large projects so they may be reused as much as possible in different situations.
    See usage examples of different launch tools like parameters, YAML files, remappings, namespaces, default arguments, and RViz configs.
-
-.. note::
-
-   If you are coming from ROS 1, you can use the :doc:`ROS Launch Migration guide <../../Migration-and-Upgrades/Migrating-from-ROS1/Migrating-Launch-Files>` to help you migrate your launch files to ROS 2.

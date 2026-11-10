@@ -27,7 +27,9 @@ Humble Hawksbill (``humble``)
    :depth: 2
    :local:
 
-*Humble Hawksbill* is the eighth release of ROS 2.
+.. short-description::
+  *Humble Hawksbill* is the eighth release of ROS 2.
+
 What follows is highlights of the important changes and features in Humble Hawksbill since the last release.
 For a list of all of the changes since Galactic, see the `long form changelog <Humble-Hawksbill-Complete-Changelog>`.
 
@@ -338,7 +340,7 @@ launch_ros
 Passing ROS arguments to node actions
 """""""""""""""""""""""""""""""""""""
 
-It is now possible to provide `ROS-specific node arguments </Developer-Tools/Introspection-and-analysis/Node-arguments>` directly, without needing to use ``args`` with a leading ``--ros-args`` flag:
+It is now possible to provide `ROS-specific node arguments </Developer-Tools/Launch/Node-arguments>` directly, without needing to use ``args`` with a leading ``--ros-args`` flag:
 
 .. tabs::
 
@@ -481,7 +483,7 @@ ros2cli
 """"""""""""""""""""""""""""""""""""""""""""""""""
 
 This allows passing a prefix to all executables in a launch file, which is useful in many debugging situations.
-See the associated `pull request <https://github.com/ros2/launch_ros/pull/254>`__, as well as the :ref:`tutorial <launch-prefix-example>` for more information.
+See the associated `pull request <https://github.com/ros2/launch_ros/pull/254>`__ for more information.
 
 Relatedly, the ``--launch-prefix-filter`` command-line option was added to selectively add the prefix from ``--launch-prefix`` to executables.
 See the `pull request <https://github.com/ros2/launch_ros/pull/261>`__ for more information.
@@ -698,7 +700,7 @@ ROS_DISABLE_LOANED_MESSAGES environment variable added
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 
 This environment variable can be used to disable loaned messages support, independently if the rmw supports them or not.
-For more details, see the guide :doc:`Configure Zero Copy Loaned Messages <../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Configure-ZeroCopy-loaned-messages>`.
+For more details, see the guide :doc:`Configure Zero Copy Loaned Messages <../ROS-Framework/client-libraries/Working-with-Client-Libraries/Configure-ZeroCopy-loaned-messages>`.
 
 rclcpp
 ^^^^^^
@@ -875,7 +877,7 @@ ros1_bridge
 ^^^^^^^^^^^
 
 Since there is no official ROS 1 distribution on Ubuntu Jammy and forward, ``ros1_bridge`` is now compatible with the Ubuntu-packaged versions of ROS 1.
-More details about using ``ros1_bridge`` with Jammy packages are available in :doc:`the how-to guides <../../Migration-and-Upgrades/Using-ros1_bridge-Jammy-upstream>`.
+More details about using ``ros1_bridge`` with Jammy packages are available in :doc:`the how-to guides <../Migration-and-Upgrades/Using-ros1_bridge-Jammy-upstream>`.
 
 ros2cli
 ^^^^^^^
@@ -1083,7 +1085,7 @@ Known Issues
   It is *particularly* important to make sure that ``systemd`` and ``udev`` are updated to the latest available version otherwise installing ``ros-humble-desktop``, which depends on ``libudev1``, could cause the removal of system critical packages.
   Details can be found in `ros2/ros2#1272 <https://github.com/ros2/ros2/issues/1272>`_ and `Launchpad #1974196 <https://bugs.launchpad.net/ubuntu/+source/systemd/+bug/1974196>`_
 
-* When ROS 2 apt repositories are available, ROS 1 packages in Ubuntu are not installable.  See the :doc:`ros1_bridge on Ubuntu Jammy <../../Migration-and-Upgrades/Using-ros1_bridge-Jammy-upstream>` document for more information.
+* When ROS 2 apt repositories are available, ROS 1 packages in Ubuntu are not installable.  See the :doc:`ros1_bridge on Ubuntu Jammy <../Migration-and-Upgrades/Using-ros1_bridge-Jammy-upstream>` document for more information.
 
 * Some major Linux distributions have started patching Python to install packages to ``/usr/local``, which is breaking some parts of ``ament_package`` and builds with ``colcon``.
   In particular, using Ubuntu Jammy with ``setuptools`` installed from pip will manifest this misbehavior, and is therefore not recommended.

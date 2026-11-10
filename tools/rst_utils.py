@@ -63,8 +63,10 @@ def _extract_field_values(block_inner: str) -> dict[str, str]:
         Mapping from field or option name to body text (may be empty).
     """
     fields: dict[str, str] = {}
+    # [ \t]* stays on this line. \s would include the line break, so a blank
+    # field such as ":experience:" would swallow the next ":area:" line.
     for field_match in re.finditer(
-        r"^[ \t]+:([^:\n]+?):\s*(.*)$",
+        r"^[ \t]+:([^:\n]+?):[ \t]*(.*)$",
         block_inner,
         re.MULTILINE,
     ):
