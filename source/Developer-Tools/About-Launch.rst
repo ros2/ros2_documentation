@@ -38,7 +38,7 @@ Node management
    Launch/Discovery-Server/Discovery-Server
    Launch/Security/About-Security
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 
