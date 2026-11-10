@@ -24,7 +24,7 @@ Cross-compilation
    Cross-compilation helps developers build ROS software for target systems that differ from their development machine or require architecture-specific tuning.
    This article explains why cross-compilation is used, how it works, and what alternatives are available for building software across platforms.
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 
