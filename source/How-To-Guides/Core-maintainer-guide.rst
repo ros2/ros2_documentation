@@ -54,7 +54,11 @@ A pull request can be merged if all of the following are true:
 * The CI build reports a passing result on all platforms
 * The PR has been reviewed and approved by at least one maintainer
 
+<<<<<<< HEAD:source/How-To-Guides/Core-maintainer-guide.rst
 For more information about what happens when a PR is reviewed, see :doc:`/The-ROS2-Project/Contributing/Contributing-to-code/Reviewing-a-PR`.
+=======
+For more information about what happens when a PR is reviewed, see :doc:`../../The-ROS2-Project/Contributing/Reviewing-a-PR`.
+>>>>>>> c87d735 (3di | TOC updates to "Contributing to ROS" and "Contact" articles (#7094)):source/Developer-Tools/Build/Core-maintainer-guide.rst
 
 After a PR is merged, it will automatically get built with the next `nightlies <https://ci.ros2.org/view/nightly>`__.
 It is highly recommended to check the nightlies after merging pull requests to ensure no regressions have occurred.
