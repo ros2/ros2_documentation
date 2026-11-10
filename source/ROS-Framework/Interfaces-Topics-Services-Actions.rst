@@ -1,8 +1,8 @@
 .. redirect-from::
 
     About-ROS-Interfaces
-    Concepts/Basic/About-Interfaces
     How-To-Guides/Topics-Services-Actions
+    ROS-Framework/interfaces/Topics-Services-Actions
 
 .. meta::
    :contentType: about
@@ -45,7 +45,7 @@ Summary
 ROS nodes typically communicate through the following three types of interfaces:
 
 * :doc:`Topics <interfaces/About-Topics>`: For continuous data streams.
-* :doc:`Services <interfaces/About-Services>`: For synchronous request/response interactions (short tasks which happen immediately).
+* :doc:`Services <interfaces/About-Services>`: For request/response interactions (short tasks that return a result quickly).
 * :doc:`Actions <interfaces/About-Actions>`: For long-running tasks with feedback (tasks that may take some time to complete).
 
 For consistent communication, each interface uses definitions provided in ``.msg``, ``.srv``, or ``.action`` files.
@@ -65,7 +65,7 @@ This interface type has the following main characteristics:
   The publisher decides when data is sent.
   Data might be published and subscribed at any time, independent of any senders/receivers.
   Callbacks receive data when it is available.
-* Multiple publishers and subscribers can share the same topic
+* Multiple publishers and subscribers can share the same topic.
 
 .. mermaid::
 
@@ -80,18 +80,20 @@ Each topic key makes it easier to track data sources when several publishers sha
 Services
 --------
 
-The service interface is meant for synchronous request/response interactions, for example, when you want to send a query requesting the configuration of a specific robot.
+The service interface is meant for request/response interactions, for example, when you want to send a query requesting the configuration of a specific robot.
 Service definitions are stored in ``.srv`` files.
 Services implement a request/response pattern.
 A client sends a request, and a server replies with a response.
 
 This interface type has the following main characteristics:
 
-* Communication is synchronous.
-* Services are ideal for short-lived operations that require confirmation or provide a result in response to a request.
-* Services should be used for remote procedure calls that terminate quickly, such as for querying the state of a node or doing a quick calculation such as IK.
-* Services should never be used for longer running processes, in particular processes that might be required to preempt if exceptional situations occur.
-  They should never change or depend on state, to avoid unwanted side effects for other nodes.
+* Communication is two-way: each request receives one response.
+  Client libraries let you wait for the response asynchronously, or block until it arrives.
+  Blocking on a service call from inside a callback can deadlock your node.
+  See :doc:`interfaces/services/Working-with-services/Sync-Vs-Async`.
+* Services are ideal for remote procedure calls that terminate quickly and return a result or confirmation, such as querying the state of a node or doing a quick calculation such as IK.
+* Services should not be used for longer running processes, in particular processes that might need to be preempted if exceptional situations occur.
+  Use an action instead.
 
 .. mermaid::
 
@@ -110,13 +112,11 @@ Actions allow clients to send goals, receive feedback during the execution, canc
 
 This interface type has the following main characteristics:
 
-* Communication is asynchronous, with periodic feedback and a final result.
-* Actions are suitable for operations that take time, such as slow perception routines which take several seconds to terminate, or for initiating a lower-level control mode.
-* Actions should be used for any discrete behaviour that moves a robot or that runs for a longer time but provides feedback during execution.
+* Communication is asynchronous, with feedback during execution and a final result.
+* Actions are suitable for any discrete behavior that takes time and provides feedback during execution, such as moving a robot, slow perception routines that take several seconds to terminate, or initiating a lower-level control mode.
 * Actions can be preempted (cancelled) and preemption should always be implemented cleanly by action servers.
 * Actions can keep state for the lifetime of a goal.
   If executing two action goals in parallel on the same server, a separate state instance can be kept for each client because the goal is uniquely identified by its ID.
-* Action support more complex non-blocking background processing, including longer tasks such as execution of robot actions.
 
 .. mermaid::
 
@@ -124,7 +124,7 @@ This interface type has the following main characteristics:
     participant c as Action client
     participant s as Action server
     c->>s: Sends a goal
-    s-->>c: Provides feedback (periodic)
+    s-->>c: Provides feedback
     s-->>c: Sends a result
 
 Key differences between ROS interfaces
@@ -163,7 +163,7 @@ When should I use a topic?
    Topics use a publish/subscribe pattern, and multiple publishers and subscribers can share the same topic.
 
 When should I use a service?
-   Use a service for a short, synchronous request/response interaction that returns a result quickly, such as querying configuration or running a quick calculation.
+   Use a service for a short request/response interaction that returns a result quickly, such as querying configuration or running a quick calculation.
    Do not use services for long-running processes that might need to be cancelled.
 
 When should I use an action?

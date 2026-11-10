@@ -1,7 +1,12 @@
+.. redirect-from::
+
+    Concepts/Basic/About-Interfaces
+    ROS-Framework/interfaces/About-Interfaces
+
 .. meta::
    :contentType: reference
    :experience: intermediate
-   :area: framework
+   :area: interfaces, framework
    :distribution: {DISTRO}
    :product: {PRODUCT}
 

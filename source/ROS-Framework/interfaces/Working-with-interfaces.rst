@@ -9,7 +9,8 @@ Working with interfaces
 =======================
 
 .. short-description::
-   This page is a collection of articles about interfaces.
+   These articles show you how to define, use, record, and transform the data that ROS nodes exchange through interfaces.
+   They cover interface specifications, recording and playing back data, tf2 coordinate frames, and buffer backends.
 
 .. showmeta::
    :order: area, contentType, experience
@@ -18,6 +19,7 @@ Working with interfaces
 In this section:
 
 .. toctree::
+   :maxdepth: 1
 
    Working-with-interfaces/Interface-specifications
    Working-with-interfaces/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data
