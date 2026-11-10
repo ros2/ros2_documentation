@@ -1,6 +1,6 @@
 .. meta::
    :contentType: tutorial
-   :experience: advanced
+   :experience: expert
    :area: client-libraries, framework
    :distribution: {DISTRO}
    :product: {PRODUCT}
