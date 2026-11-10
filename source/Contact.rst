@@ -8,8 +8,30 @@ Contact
 Support
 -------
 
+<<<<<<< HEAD
 Different types of questions or discussions correspond to different avenues of communication;
 check the descriptions below to ensure you choose the right method.
+=======
+You can contact the ROS community in the following ways:
+
+* `Stack Exchange <https://robotics.stackexchange.com/>`__: Ask for support or discuss a problem
+
+* Issue tracker: Report an issue or suggest an enhancement.
+  More information is in :doc:`Reporting an issue — how-to <The-ROS2-Project/Contributing/Reporting-an-issue>`.
+
+* :ref:`Discourse discussion boards <discussion-boards>`: Share ideas or discuss best practices
+
+* `Zulip chat <https://openrobotics.zulipchat.com/Recent>`_: Chat to other ROS community members, including maintainers, in real time in the ``General`` or ``ROS General`` topics.
+
+* `Email <mailto:ros@openrobotics.org>`_: Contact us directly if you have a private or sensitive issue
+
+* `Email (security) <mailto:security@openrobotics.org>`_: Contact us directly if you have a security concern
+
+.. _asking-for-support:
+
+Asking for support
+------------------
+>>>>>>> c87d735 (3di | TOC updates to "Contributing to ROS" and "Contact" articles (#7094))
 
 Need help troubleshooting your system?
 First, search `Robotics Stack Exchange <https://robotics.stackexchange.com/>`__ to see if others have had similar issues, and if their solution works for you.
@@ -23,8 +45,15 @@ The community can't see question or answer(s) not asked or answered publicly.
 Open Source development works best when the entire community participates in discussions and helps to answer questions.
 It's better to send all questions to `Robotics Stack Exchange <https://robotics.stackexchange.com/>`__ and report all issues to the issue tracker.
 
+<<<<<<< HEAD
 Contributing support
 ^^^^^^^^^^^^^^^^^^^^
+=======
+.. note::
+
+   If you can provide support to others, please do.
+   More information is in :ref:`Contributing to ROS <provide-support>`.
+>>>>>>> c87d735 (3di | TOC updates to "Contributing to ROS" and "Contact" articles (#7094))
 
 ROS 2 users come from a wide range of technical backgrounds, use a variety of different operating systems, and don't necessarily have any prior experience with ROS (1 or 2).
 So, it's important for users with any amount of experience to contribute support.
@@ -36,7 +65,11 @@ Simply say so, and other community members will jump in if necessary.
 Issues
 ------
 
+<<<<<<< HEAD
 If you identify bugs, have suggestions for improvements, or a question specific to one package, you can open an issue on GitHub.
+=======
+More information is in :doc:`Reporting an issue — how-to <The-ROS2-Project/Contributing/Reporting-an-issue>`.
+>>>>>>> c87d735 (3di | TOC updates to "Contributing to ROS" and "Contact" articles (#7094))
 
 For example, if you are following the :doc:`tutorials here <Tutorials>` and come across an instruction that doesn't work on your system,
 you can open an issue in the `ros2_documentation <https://github.com/ros2/ros2_documentation>`__ repo.
@@ -91,7 +124,24 @@ Discussions about ROS 2 development and plans are happening on the `Open Robotic
 Participating in these discussions is an important way to have a say on how different features of ROS 2 will work and be implemented.
 
 The diverse community behind the ROS ecosystem is one of its greatest assets.
+<<<<<<< HEAD
 We encourage all members of the ROS community to participate in these design discussions so that we can leverage the experience of community members, and keep the varied use cases of ROS in mind.
+=======
+We encourage all members of the ROS community to participate in these design discussions so that we can leverage the experience of community members, and keep the varied use cases of ROS in mind when design decisions are made.
+
+Offering help
+-------------
+
+If you are in a position to support others, share your knowledge and help fellow users work through challenges.
+
+More information is in :ref:`Contributing to ROS <provide-support>`.
+
+Contacting us privately
+-----------------------
+
+If you'd like to contact us privately, for example, if your question contains information sensitive to your organization or project, you can email us directly at `ros@openrobotics.org <mailto:ros@openrobotics.org>`__.
+If your message is regarding a security issue, email `security@openrobotics.org <mailto:security@openrobotics.org>`__.
+>>>>>>> c87d735 (3di | TOC updates to "Contributing to ROS" and "Contact" articles (#7094))
 
 Etiquette
 ----------

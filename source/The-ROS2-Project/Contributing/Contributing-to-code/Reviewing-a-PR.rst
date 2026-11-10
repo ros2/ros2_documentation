@@ -57,7 +57,11 @@ Steps
      * Follow the :doc:`Code style guide <../Code-Style-Language-Versions>`.
      * Include tests for the new feature or bug fix.
 
+<<<<<<< HEAD:source/The-ROS2-Project/Contributing/Contributing-to-code/Reviewing-a-PR.rst
    * For documentation changes, ensure the changes follow the :doc:`documentation guidance </The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation>`.
+=======
+   * For documentation changes, ensure the changes follow the :doc:`documentation guidance <Contributing-to-documentation>`.
+>>>>>>> c87d735 (3di | TOC updates to "Contributing to ROS" and "Contact" articles (#7094)):source/The-ROS2-Project/Contributing/Reviewing-a-PR.rst
    * Confirm that the Continuous Integration (CI) run for the pull request passes cleanly.
 
 #. Provide your review comments.
@@ -117,7 +121,7 @@ When you are satisfied with the changes and they are ready to be merged, approve
 * A pull request must have at least one approval, and in most cases, two approvals, from a developer (other than the author) before it can be merged to the target branch.
 * Only a Committer for the target repository can merge an approved pull request.
 
-  * See the :doc:`current ROS Committers </The-ROS2-Project/Governance>` for the list of people with merge permissions for the target repository.
+  * See the :doc:`current ROS Committers <../Governance>` for the list of people with merge permissions for the target repository.
 
 * If the pull request has any dependencies, ensure that dependent pull requests are merged in the correct order.
 
