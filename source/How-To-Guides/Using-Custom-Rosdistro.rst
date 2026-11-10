@@ -1,5 +1,25 @@
+<<<<<<< HEAD:source/How-To-Guides/Using-Custom-Rosdistro.rst
 Using Custom Rosdistro Version
 ==============================
+=======
+.. meta::
+   :contentType: how-to
+   :experience: intermediate
+   :area: installation, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+.. redirect-from::
+
+    How-To-Guides/Using-Custom-Rosdistro
+
+Using a custom rosdistro version - how-to
+=========================================
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+>>>>>>> 1c5c20c (Fix missing and invalid page metadata (#7443)):source/Migration-and-Upgrades/Using-Custom-Rosdistro.rst
 
 
 .. contents:: Contents

@@ -1,7 +1,16 @@
 .. redirect-from::
 
+<<<<<<< HEAD:source/How-To-Guides/Cross-compilation.rst
   Guides/Cross-compilation
   Tutorials/Cross-compilation
+=======
+.. meta::
+   :contentType: about
+   :experience: intermediate
+   :area: builds, tools
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+>>>>>>> 1c5c20c (Fix missing and invalid page metadata (#7443)):source/Developer-Tools/Build/Cross-compilation.rst
 
 Cross-compilation
 =================
