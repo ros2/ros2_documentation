@@ -29,7 +29,8 @@ Using Marker Points and Lines (C++) - tutorial
 
 .. note::
 
-   This tutorial assumes that you have completed :doc:`Learning about data visualization <../Marker-Sending-Basic-Shapes/Marker-Sending-Basic-Shapes>`.
+   This tutorial assumes that you have completed :doc:`Learning about data visualization <../Marker-Sending-Basic-Shapes/Marker-Sending-Basic-Shapes>`, and that you are comfortable writing ROS 2 C++ nodes and building packages with ``colcon``.
+   It also assumes you know the fields of the marker message, which are described in :doc:`Marker: Display types <../Marker-Display-types/Marker-Display-types>`.
 
 Intro
 -----
@@ -53,7 +54,8 @@ You can read it in `points_and_lines.cpp <https://github.com/ros-visualization/v
 
 The code explained
 ^^^^^^^^^^^^^^^^^^
-Now let's break down the code, skipping things that were explained in the previous tutorial.
+Now let's break down the code.
+For details of each field in the marker message, see the "The Marker Message" section of :doc:`Marker: Display types <../Marker-Display-types/Marker-Display-types>`.
 The overall effect created is a rotating helix with lines sticking upwards from each vertex.
 
 We start with the headers used by the node, including ``cmath`` for the helix and the messages used for markers and points.
@@ -72,7 +74,6 @@ We start with the headers used by the node, including ``cmath`` for the helix an
 
 .. include:: ../../../../_internal/Rclcpp-Convenience-Header-Note.rst
 
-This should look familiar.
 We initialize ROS 2, create a node, create a publisher on the ``visualization_marker`` topic, and set the loop rate.
 
 .. code-block:: c++

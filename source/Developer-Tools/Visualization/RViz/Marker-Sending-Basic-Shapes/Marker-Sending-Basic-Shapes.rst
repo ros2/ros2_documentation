@@ -15,9 +15,9 @@ Learning about data visualization - tutorial
 ============================================
 
 .. short-description::
-   Markers let a ROS node display simple geometry in RViz without creating a custom display plugin.
-   This article explains how to publish visualization_msgs/msg/Marker messages for basic shapes.
-   After you follow it, you can show cubes, spheres, arrows, and cylinders in RViz.
+   RViz is the 3D visualizer for ROS, and lets you inspect data such as shapes, sensor readings, and robot models from a running system.
+   In this tutorial, you run a sample node that publishes basic shapes, then view them in RViz by setting the fixed frame, adding a Marker display, and moving the camera.
+   After you follow it, you can use RViz to look at 3D data from your own ROS system.
 
 .. showmeta::
    :order: area, contentType, experience
@@ -41,7 +41,6 @@ Prerequisites
 
 #. :doc:`Install ROS <../../../../Get-Started/Installation>` and :doc:`set up your environment <../../../../Get-Started/Configuring-ROS2-Environment>`.
 #. :doc:`Create a workspace <../../../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace>`.
-#. Familiarize yourself with the :doc:`RViz User Guide <../RViz-User-Guide/RViz-User-Guide>`.
 
 Steps
 -----
@@ -127,6 +126,7 @@ In the **Displays** list, expand **Global Options** if needed, then set **Fixed 
 Type the name without a leading slash.
 
 The marker node publishes messages in the ``my_frame`` frame, and that name is the fixed frame.
+The sample code sets the frame as ``/my_frame``, with a leading slash, but frame names in ROS 2 do not start with a slash, so RViz removes it.
 It does not publish transforms, so RViz must use that same frame.
 
 If **Fixed Frame** stays at ``map``, the marker will not show in the 3D view.
@@ -148,9 +148,12 @@ You need to subscribe to the marker messages to include them in the 3D view.
 
    .. image:: ../RViz-User-Guide/images/add-display-dialog.png
 
-#. In the list, find ``rviz_default_plugins``.
-   **Marker** is further down that group, after **TF** and **TwistStamped**.
-   Scroll to **Marker**, select it, then select **OK**.
+#. Select the **By topic** tab.
+   It lists the topics that are currently being published, with the displays that can show each one.
+#. Under ``/visualization_marker``, select **Marker**, then select **OK**.
+   RViz adds a Marker display that subscribes to ``/visualization_marker``.
+
+   If ``/visualization_marker`` is not listed, check that ``basic_shapes`` is still running in the other terminal.
 
    You should now see a green marker at the origin that changes shape about once every second: cube, sphere, arrow, then cylinder.
 
@@ -159,7 +162,7 @@ You need to subscribe to the marker messages to include them in the 3D view.
    .. note::
       The Marker display status should be **OK**.
       **Global Status** can stay at **Warn** because nothing is publishing transforms.
-      If the Marker status is a warning or error, expand the Marker entry and check the topic name and the fixed frame.
+      If the Marker status is a warning or error, expand the Marker entry and check that the topic is ``/visualization_marker`` and that **Fixed Frame** is ``my_frame``.
 
 6 Change the view
 ^^^^^^^^^^^^^^^^^
@@ -218,8 +221,7 @@ Use the **Orbit** camera type to rotate, pan, and zoom around the marker in the 
 8 Clean up
 ^^^^^^^^^^
 
-When you are done, stop ``basic_shapes`` and RViz so they do not keep running.
-To stop ``basic_shapes`` and RViz, in each of their terminals, press :kbd:`Ctrl+C`.
+When you are done, stop ``basic_shapes`` and RViz by pressing :kbd:`Ctrl+C` in each of their terminals.
 You can also close the terminals instead.
 
 Related content
