@@ -118,7 +118,7 @@ Community
 Community in ROS is the global network of developers, researchers, companies, and contributors who help our library of open-source software grow and improve.
 People can contribute to plumbing, tools, and capabilities, and thanks to the community, it is easy to share code, exchange ideas, and work together on projects.
 
-:doc:`Learn more about community contributions and how you can get involved<Contributing-To-ROS>`
+:doc:`Learn more about community contributions and how you can get involved <The-ROS2-Project/Contributing>`
 
 Integrations
 ------------

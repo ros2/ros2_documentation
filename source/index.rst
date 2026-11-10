@@ -40,7 +40,6 @@ ROS 2 Documentation
    The-ROS2-Project
    Contact
    Citations
-   Contributing-To-ROS
 
 :ref:`Learn more about ROS <AboutROS>`
 
