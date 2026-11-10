@@ -8,6 +8,10 @@
 Releasing a Package
 ===================
 
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
 .. toctree::
    :hidden:
 

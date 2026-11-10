@@ -1,3 +1,12 @@
+<<<<<<< HEAD:source/Related-Projects.rst
+=======
+.. meta::
+   :contentType: about
+   :experience: beginner, intermediate, expert
+   :area: framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+>>>>>>> 1c5c20c (Fix missing and invalid page metadata (#7443)):source/Integrations-and-related/Related-Projects.rst
 
 Related Projects
 ================

@@ -1,3 +1,17 @@
+<<<<<<< HEAD:source/Tutorials/Advanced/Topic-Keys/Topic-Keys-Tutorial.rst
+=======
+.. meta::
+   :contentType: tutorial
+   :experience: expert
+   :area: interfaces, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+.. redirect-from::
+
+    Tutorials/Advanced/Topic-Keys/Topic-Keys-Tutorial
+
+>>>>>>> 1c5c20c (Fix missing and invalid page metadata (#7443)):source/ROS-Framework/interfaces/topics/Working-with-topics/Topic-Keys/Topic-Keys-Tutorial.rst
 .. _topic_keys_tutorial:
 
 Topic Keys Tutorial
