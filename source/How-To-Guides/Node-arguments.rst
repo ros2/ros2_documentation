@@ -7,7 +7,7 @@
 Passing ROS arguments to nodes via the command-line
 ===================================================
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 

@@ -6,7 +6,7 @@
 Quality guide: ensuring code quality
 ====================================
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 

@@ -15,7 +15,11 @@ Setting up security
 **Time:** 15 minutes
 
 .. contents:: Contents
+<<<<<<< HEAD:source/Tutorials/Advanced/Security/Introducing-ros2-security.rst
    :depth: 3
+=======
+   :depth: 2
+>>>>>>> 4c7f582 (Standardise in-page contents title (#7442)):source/Developer-Tools/Launch/Security/Introducing-ros2-security.rst
    :local:
 
 

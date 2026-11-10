@@ -7,7 +7,19 @@
 Code style and language versions
 ================================
 
+<<<<<<< HEAD:source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst
 .. contents:: Table of Contents
+=======
+.. short-description::
+   Consistent code style and language version choices make ROS packages easier to read, review, maintain, and integrate.
+   This article describes the coding standards, naming conventions, formatting expectations, and recommended tooling for C, C++, Python, and related ROS development workflows.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
+>>>>>>> 4c7f582 (Standardise in-page contents title (#7442)):source/The-ROS2-Project/Contributing/Contributing-to-code/Code-Style-Language-Versions.rst
    :depth: 2
    :local:
 

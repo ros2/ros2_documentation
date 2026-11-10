@@ -5,7 +5,20 @@
 Tf2
 ===
 
+<<<<<<< HEAD:source/Concepts/Intermediate/About-Tf2.rst
 .. contents:: Table of Contents
+=======
+.. short-description::
+   tf2 in ROS tracks coordinate frames over time, making it possible to understand where robot parts, sensors, and objects are relative to one another.
+   This article explains how tf2 represents transforms, publishes frame relationships, and supports coordinate conversions for position, velocity, and sensor data.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
+   :depth: 2
+>>>>>>> 4c7f582 (Standardise in-page contents title (#7442)):source/ROS-Framework/interfaces/Working-with-interfaces/About-Tf2/About-Tf2.rst
    :local:
 
 Overview

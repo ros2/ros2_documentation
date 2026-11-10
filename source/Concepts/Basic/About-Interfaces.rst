@@ -6,7 +6,12 @@
 Interfaces
 ==========
 
+<<<<<<< HEAD:source/Concepts/Basic/About-Interfaces.rst
 .. contents:: Table of Contents
+=======
+.. contents:: Contents
+   :depth: 2
+>>>>>>> 4c7f582 (Standardise in-page contents title (#7442)):source/ROS-Framework/interfaces/Working-with-interfaces/Interface-specifications.rst
    :local:
 
 Background

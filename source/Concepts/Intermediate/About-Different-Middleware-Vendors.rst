@@ -6,7 +6,19 @@
 Different ROS 2 middleware vendors
 ==================================
 
+<<<<<<< HEAD:source/Concepts/Intermediate/About-Different-Middleware-Vendors.rst
 .. contents:: Table of Contents
+=======
+.. short-description::
+   ROS supports different middleware implementations to help robotic applications communicate across varied networks, platforms, and deployment needs.
+   This article describes the available middleware vendors and explains the key considerations for choosing an implementation for your ROS system.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
+>>>>>>> 4c7f582 (Standardise in-page contents title (#7442)):source/ROS-Framework/client-libraries/About-Different-Middleware-Vendors.rst
    :local:
 
 ROS 2 supports multiple middleware implementations which provide discovery, serialisation, and transportation communications.

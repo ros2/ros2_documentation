@@ -1,7 +1,7 @@
 Using the ``ros2 param`` command-line tool
 ==========================================
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 1
    :local:
 

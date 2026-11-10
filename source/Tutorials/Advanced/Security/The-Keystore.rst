@@ -4,8 +4,26 @@
 
 .. _The-Keystore:
 
+<<<<<<< HEAD:source/Tutorials/Advanced/Security/The-Keystore.rst
 Understanding the security keystore
 ===================================
+=======
+Understanding the security keystore - tutorial
+==============================================
+
+.. short-description::
+   The ROS security keystore contains the certificates, keys, and policy files that enable secure communication between nodes.
+   This article describes the public, private, governance, and enclave files created by the ``sros2`` utilities.
+   After reading it, you will understand which files must be protected, shared, validated, or restored.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
+   :depth: 2
+   :local:
+>>>>>>> 4c7f582 (Standardise in-page contents title (#7442)):source/Developer-Tools/Build/The-Keystore.rst
 
 **Goal:** Explore files located in the ROS 2 security keystore.
 

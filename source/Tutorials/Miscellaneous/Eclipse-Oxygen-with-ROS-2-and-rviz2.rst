@@ -6,8 +6,13 @@
 Using Eclipse Oxygen with ``rviz2`` [community-contributed]
 ===========================================================
 
+<<<<<<< HEAD:source/Tutorials/Miscellaneous/Eclipse-Oxygen-with-ROS-2-and-rviz2.rst
 .. contents:: Table of Contents
    :depth: 1
+=======
+.. contents:: Contents
+   :depth: 2
+>>>>>>> 4c7f582 (Standardise in-page contents title (#7442)):source/Developer-Tools/Build/Eclipse-Oxygen-with-ROS-2-and-rviz2/Eclipse-Oxygen-with-ROS-2-and-rviz2.rst
    :local:
 
 Setup

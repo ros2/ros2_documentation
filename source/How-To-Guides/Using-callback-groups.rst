@@ -7,7 +7,7 @@ This page is meant as a guide on how to use callback groups efficiently.
 It is assumed that the reader has a basic understanding
 about the concept of :doc:`executors <../Concepts/Intermediate/About-Executors>`.
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :local:
 
 Basics of callback groups

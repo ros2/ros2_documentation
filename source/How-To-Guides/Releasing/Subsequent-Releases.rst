@@ -1,5 +1,37 @@
+<<<<<<< HEAD:source/How-To-Guides/Releasing/Subsequent-Releases.rst
 Subsequent Releases
 ===================
+=======
+.. redirect-from::
+
+    How-To-Guides/Releasing/Subsequent-Releases
+
+.. meta::
+   :contentType: how-to
+   :experience: intermediate
+   :area: builds, tools
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+Releasing subsequent package versions - how to
+==============================================
+
+.. short-description::
+   Releasing an updated ROS package requires the release repository, changelog, package version, and ``rosdistro`` pull request to be prepared correctly.
+   This guide describes the process for releasing new versions of packages that have already been released.
+   After you follow these steps, you can run Bloom and submit the next package release.
+
+.. showmeta::
+    :order: area, contentType, experience
+    :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
+   :depth: 2
+   :local:
+
+Summary
+-------
+>>>>>>> 4c7f582 (Standardise in-page contents title (#7442)):source/Developer-Tools/Build/Releasing/Subsequent-Releases.rst
 
 This guide explains how to release new versions of ROS packages that have already been released before.
 

@@ -1,7 +1,25 @@
 Actions
 =======
 
+<<<<<<< HEAD:source/Concepts/Basic/About-Actions.rst
 .. contents:: Table of Contents
+=======
+.. short-description::
+   Actions in ROS support long-running tasks where a node sends a goal, receives progress feedback, and can cancel the request before it completes.
+   This article explains when to use actions and describes how action clients and action servers work together.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. toctree::
+   :maxdepth: 1
+   :hidden:
+
+   actions/Working-with-actions
+
+.. contents:: Contents
+>>>>>>> 4c7f582 (Standardise in-page contents title (#7442)):source/ROS-Framework/interfaces/About-Actions.rst
    :local:
 
 In ROS 2, an action refers to a long-running remote procedure call with feedback and the ability to cancel or preempt the goal.

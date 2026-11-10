@@ -6,7 +6,7 @@
 Using quality-of-service settings for lossy networks
 ====================================================
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 

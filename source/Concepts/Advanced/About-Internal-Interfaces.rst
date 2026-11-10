@@ -5,7 +5,19 @@
 Internal ROS 2 interfaces
 =========================
 
+<<<<<<< HEAD:source/Concepts/Advanced/About-Internal-Interfaces.rst
 .. contents:: Table of Contents
+=======
+.. short-description::
+   Internal ROS interfaces provide the lower-level APIs used to build client libraries and connect the ROS stack to middleware implementations.
+   This article describes the ``rmw`` and ``rcl`` interfaces, how they fit into the client library architecture, and when developers might need to work with them.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
+>>>>>>> 4c7f582 (Standardise in-page contents title (#7442)):source/ROS-Framework/client-libraries/About-Internal-Interfaces/About-Internal-Interfaces.rst
    :local:
 
 .. include:: ../../../global_substitutions.txt

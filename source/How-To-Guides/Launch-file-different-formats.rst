@@ -5,7 +5,7 @@
 Using XML, YAML, and Python for ROS 2 Launch Files
 ==================================================
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 

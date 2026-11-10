@@ -12,7 +12,7 @@ Unlocking the potential of Fast DDS middleware [community-contributed]
 
 **Time:** 20 minutes
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 

@@ -1,7 +1,7 @@
 Release Team / Repository
 =========================
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 

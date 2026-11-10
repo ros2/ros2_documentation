@@ -1,6 +1,21 @@
 Add Your Project
 ================
 
+<<<<<<< HEAD
+=======
+.. short-description::
+  Sharing your ROS project helps the community understand where ROS is being used and which organizations are adopting it.
+  This article explains how to generate an adopters YAML entry and submit it to the documentation repository for review.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
+   :depth: 2
+   :local:
+
+>>>>>>> 4c7f582 (Standardise in-page contents title (#7442))
 Use the form below to generate the YAML entry for your organization or project.
 Once generated, you can copy the YAML snippet and submit a pull request to the
 `adopters.yaml <https://github.com/ros2/ros2_documentation/blob/rolling/source/The-ROS2-Project/Adopters/adopters.yaml>`__

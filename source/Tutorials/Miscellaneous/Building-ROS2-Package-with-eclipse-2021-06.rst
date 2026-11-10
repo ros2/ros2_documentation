@@ -5,7 +5,7 @@
 Building a package with Eclipse 2021-06
 =======================================
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 

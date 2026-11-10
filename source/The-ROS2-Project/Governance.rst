@@ -7,7 +7,19 @@
 Project Governance
 ==================
 
+<<<<<<< HEAD
 .. contents:: Table of Contents
+=======
+.. short-description::
+   ROS governance defines how technical decisions are made and how community members can participate in project oversight.
+   This article introduces the OSRA, the Technical Governance Committee, the ROS Project Management Committee, and the meeting process used to coordinate ROS development.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
+>>>>>>> 4c7f582 (Standardise in-page contents title (#7442))
    :depth: 2
    :local:
 

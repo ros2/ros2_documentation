@@ -8,8 +8,21 @@
 ROS Build Farms
 ===============
 
+<<<<<<< HEAD:source/The-ROS2-Project/Contributing/Build-Farms.rst
 .. contents:: Table of Contents
    :depth: 1
+=======
+.. short-description::
+   ROS build farms provide shared infrastructure for building, testing, and distributing packages across the ROS ecosystem.
+   This article explains the hosted build farm services, the job types they run, and where to find related deployment, status, and troubleshooting information.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
+   :depth: 2
+>>>>>>> 4c7f582 (Standardise in-page contents title (#7442)):source/The-ROS2-Project/Contributing/Contributing-to-code/Build-Farms.rst
    :local:
 
 The ROS build farms are an important infrastructure to support the ROS ecosystem, provided and

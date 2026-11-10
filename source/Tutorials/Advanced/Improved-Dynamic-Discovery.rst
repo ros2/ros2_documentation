@@ -9,7 +9,7 @@ Improved Dynamic Discovery
 
 **Time:** 15 minutes
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 
