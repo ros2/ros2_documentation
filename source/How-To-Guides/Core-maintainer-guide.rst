@@ -3,8 +3,33 @@
   Guides/Package-maintainer-guide
   How-To-Guides/Package-maintainer-guide
 
+<<<<<<< HEAD:source/How-To-Guides/Core-maintainer-guide.rst
 ROS 2 Core Maintainer Guide
 ===========================
+=======
+.. meta::
+   :contentType: how-to
+   :experience: intermediate
+   :area: builds, tools
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+Maintaining ROS Core Packages - how-to
+======================================
+
+.. short-description::
+   Core package maintainers are responsible for reviews, releases, CI health, backports, and issue triage.
+   This article describes the main responsibilities and decision points for maintaining ROS core repositories.
+   After you read it, you can review pull requests, run CI, make releases, and handle issues consistently.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
+   :depth: 2
+   :local:
+>>>>>>> 4c7f582 (Standardise in-page contents title (#7442)):source/Developer-Tools/Build/Core-maintainer-guide.rst
 
 Each package in the ROS 2 core has one or more maintainers that are responsible for the general health of the package.
 This guide gives some information about the responsibilities of a ROS 2 core package maintainer.

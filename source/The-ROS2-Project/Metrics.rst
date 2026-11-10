@@ -3,7 +3,19 @@
 Metrics
 =======
 
+<<<<<<< HEAD
 .. contents:: Table of Contents
+=======
+.. short-description::
+   ROS community metrics help track project activity, ecosystem health, and the impact of ongoing development work.
+   This article provides links to live project dashboards, package download data, citation information, and historical metrics reports so you can explore how the ROS community is measured over time.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
+>>>>>>> 4c7f582 (Standardise in-page contents title (#7442))
    :depth: 2
    :local:
 

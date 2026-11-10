@@ -1,6 +1,21 @@
 Platform Support Tiers
 ======================
 
+<<<<<<< HEAD
+=======
+.. short-description::
+   ROS platform support tiers help users understand how each operating system, architecture, and RMW implementation is tested and maintained.
+   This article explains the differences between Tier 1, Tier 2, and Tier 3 platforms so you can assess expected reliability, support, and release impact.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
+   :depth: 2
+   :local:
+
+>>>>>>> 4c7f582 (Standardise in-page contents title (#7442))
 Platforms are defined as a combination of the OS, the architecture, and the RMW implementation.
 If a platform / operating system provides multiple variants, (e.g. Ubuntu Desktop)  the ROS distro will be built for the desktop variant unless otherwise specified.
 ROS 2 variants are defined in `REP 2001 <https://www.ros.org/reps/rep-2001.html>`_.

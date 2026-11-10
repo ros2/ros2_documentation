@@ -15,7 +15,11 @@ Managing large projects
 **Time:** 20 minutes
 
 .. contents:: Contents
+<<<<<<< HEAD:source/Tutorials/Intermediate/Launch/Using-ROS2-Launch-For-Large-Projects.rst
    :depth: 3
+=======
+   :depth: 2
+>>>>>>> 4c7f582 (Standardise in-page contents title (#7442)):source/Developer-Tools/Launch/Using-ROS2-Launch-For-Large-Projects.rst
    :local:
 
 Background

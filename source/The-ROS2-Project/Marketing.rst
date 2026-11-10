@@ -7,6 +7,21 @@
 Marketing
 =========
 
+<<<<<<< HEAD
+=======
+.. short-description::
+   Marketing materials help ROS contributors and advocates share consistent branding, artwork, and promotional resources with their communities.
+   This article provides links to approved ROS artwork, merchandise, and brochure materials for use in outreach, events, and adoption efforts.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
+   :depth: 2
+   :local:
+
+>>>>>>> 4c7f582 (Standardise in-page contents title (#7442))
 General Use ROS Artwork
 -----------------------
 

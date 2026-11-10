@@ -7,7 +7,7 @@ After reading this article, you'll be able to ensure changes in a pull request m
 
 **Area: contributing, community | Content-type: how-to | Experience: beginner, intermediate, expert**
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 

@@ -1,8 +1,13 @@
 Using ``ros1_bridge`` with upstream ROS on Ubuntu 22.04
 =======================================================
 
+<<<<<<< HEAD:source/How-To-Guides/Using-ros1_bridge-Jammy-upstream.rst
 .. contents:: Table of Contents
    :depth: 1
+=======
+.. contents:: Contents
+   :depth: 2
+>>>>>>> 4c7f582 (Standardise in-page contents title (#7442)):source/Migration-and-Upgrades/Using-ros1_bridge-Jammy-upstream.rst
    :local:
 
 The release of ROS 2 Humble (and Rolling) on Ubuntu 22.04 Jammy Jellyfish marks the first ROS 2 release on a platform with no official ROS 1 release.

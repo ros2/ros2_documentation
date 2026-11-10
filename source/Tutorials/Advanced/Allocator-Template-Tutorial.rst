@@ -12,7 +12,7 @@ Implementing a custom memory allocator
 
 **Time:** 20 minutes
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 

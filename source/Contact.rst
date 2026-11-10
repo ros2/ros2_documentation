@@ -5,7 +5,27 @@ Contact
 
 .. _Using Robotics Stack Exchange:
 
+<<<<<<< HEAD
 Support
+=======
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
+   :depth: 2
+   :local:
+
+Contact the ROS community to ask for support, offer help, or suggest ways we can improve.
+This article introduces the ways in which you can contact us.
+
+**Area: community | content-type: about | experience: beginner, intermediate, expert**
+
+.. contents:: Contents
+   :local:
+
+Summary
+>>>>>>> 4c7f582 (Standardise in-page contents title (#7442))
 -------
 
 Different types of questions or discussions correspond to different avenues of communication;

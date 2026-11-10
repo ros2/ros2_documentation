@@ -6,7 +6,19 @@
 Quality of Service settings
 ===========================
 
+<<<<<<< HEAD:source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst
 .. contents:: Table of Contents
+=======
+.. short-description::
+   Quality of Service settings in ROS help you tune communication behaviour between nodes when reliability, timeliness, or network conditions affect message delivery.
+   This article describes QoS policies and profiles, how they apply to ROS entities, and how compatibility affects communication.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
+>>>>>>> 4c7f582 (Standardise in-page contents title (#7442)):source/ROS-Framework/interfaces/topics/About-Quality-of-Service-Settings.rst
    :local:
 
 Overview

@@ -7,8 +7,13 @@ Deploying on IBM Cloud Kubernetes [community-contributed]
 =========================================================
 
 
+<<<<<<< HEAD:source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst
 .. contents:: Table of Contents
    :depth: 3
+=======
+.. contents:: Contents
+   :depth: 2
+>>>>>>> 4c7f582 (Standardise in-page contents title (#7442)):source/Integrations-and-related/Deploying-ROS-2-on-IBM-Cloud.rst
    :local:
 
 About

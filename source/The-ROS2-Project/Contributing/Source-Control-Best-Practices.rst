@@ -6,7 +6,20 @@
 Source Control Best Practices
 =============================
 
+<<<<<<< HEAD:source/The-ROS2-Project/Contributing/Source-Control-Best-Practices.rst
 .. contents:: Table of Contents
+=======
+.. short-description::
+   Good source control hygiene helps keep ROS repositories reviewable and free of generated files.
+   This article describes common files to exclude, where to place ignore rules, and how to handle credentials when contributing.
+   After reading it, you will know how to avoid committing workspace artifacts, temporary files, and sensitive authentication material.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
+>>>>>>> 4c7f582 (Standardise in-page contents title (#7442)):source/The-ROS2-Project/Contributing/Contributing-to-code/Source-Control-Best-Practices.rst
    :depth: 2
    :local:
 

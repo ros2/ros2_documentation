@@ -3,8 +3,33 @@
   Guides/DDS-tuning
   Troubleshooting/DDS-tuning
 
+<<<<<<< HEAD:source/How-To-Guides/DDS-tuning.rst
 DDS tuning information
 ======================
+=======
+.. meta::
+   :contentType: how-to
+   :experience: intermediate
+   :area: builds, tools
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+Addressing common DDS tuning issues - how-to
+============================================
+
+.. short-description::
+   Data Distribution Service (DDS) tuning can improve communication reliability and performance in systems that send large messages or use lossy networks.
+   This article describes Linux kernel, QoS, and vendor-specific parameters for common DDS issues.
+   After you read it, you can choose starting values for tuning Fast RTPS, Cyclone DDS, and RTI Connext.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
+   :depth: 2
+   :local:
+>>>>>>> 4c7f582 (Standardise in-page contents title (#7442)):source/Developer-Tools/Build/DDS-tuning.rst
 
 This page provides some guidance on parameter tunings that were found to address issues faced while using various DDS implementations on Linux in real-world situations.
 It is possible that the issues we identified on Linux or while using one vendor may occur for other platforms and vendors not documented here.

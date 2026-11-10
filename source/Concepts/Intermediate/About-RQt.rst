@@ -7,7 +7,12 @@
 Overview and usage of RQt
 =========================
 
+<<<<<<< HEAD:source/Concepts/Intermediate/About-RQt.rst
 .. contents:: Table of Contents
+=======
+.. contents:: Contents
+   :depth: 2
+>>>>>>> 4c7f582 (Standardise in-page contents title (#7442)):source/Developer-Tools/Visualization/About-RQt.rst
    :local:
 
 Overview

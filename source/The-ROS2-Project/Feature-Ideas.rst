@@ -7,7 +7,19 @@
 Feature Ideas
 =============
 
+<<<<<<< HEAD
 .. contents:: Table of Contents
+=======
+.. short-description::
+   Feature ideas help contributors find areas where their work can improve the ROS ecosystem.
+   This article lists potential design, infrastructure, tooling, and documentation improvements, and explains how to get guidance before starting a new contribution.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
+>>>>>>> 4c7f582 (Standardise in-page contents title (#7442))
    :depth: 2
    :local:
 

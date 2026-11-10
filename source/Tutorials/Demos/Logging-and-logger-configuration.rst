@@ -6,7 +6,19 @@
 Logging
 =======
 
+<<<<<<< HEAD:source/Tutorials/Demos/Logging-and-logger-configuration.rst
 .. contents:: Table of Contents
+=======
+.. short-description::
+   Logging in ROS helps you understand node behavior, diagnose issues, and control how runtime information is reported.
+   This article explains how to use log statements, configure logger levels, and customize console and file output.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
+>>>>>>> 4c7f582 (Standardise in-page contents title (#7442)):source/Developer-Tools/Introspection-and-analysis/Logging-and-logger-configuration.rst
    :depth: 2
    :local:
 

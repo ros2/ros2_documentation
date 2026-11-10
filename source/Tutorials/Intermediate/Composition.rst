@@ -6,7 +6,7 @@
 Composing multiple nodes in a single process
 ============================================
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 

@@ -1,7 +1,36 @@
 .. BuildFarmTesting:
 
+<<<<<<< HEAD:source/Tutorials/Intermediate/Testing/BuildFarmTesting.rst
 Testing Your Code with the ROS Build Farm
 =========================================
+=======
+    Tutorials/Intermediate/Testing/BuildFarmTesting
+
+.. meta::
+   :contentType: tutorial
+   :experience: intermediate
+   :area: debugging, builds, tools
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+.. _BuildFarmTesting:
+
+Testing Your Code with the ROS Build Farm - tutorial
+====================================================
+
+.. short-description::
+   The ROS Build Farm can test pull requests before they are merged.
+   This article describes how to configure GitHub access, webhooks, and ``rosdistro`` settings for pull request testing.
+   After you follow these steps, your ROS packages can be built and tested automatically on the build farm.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
+   :depth: 2
+   :local:
+>>>>>>> 4c7f582 (Standardise in-page contents title (#7442)):source/Developer-Tools/Debugging/Testing/BuildFarmTesting.rst
 
 The `ROS 2 Build Farm <https://build.ros2.org/>`_ is incredibly powerful.
 In addition to creating binaries, it will also test pull requests by compiling and running all the tests for your ROS packages before the PR is merged.
