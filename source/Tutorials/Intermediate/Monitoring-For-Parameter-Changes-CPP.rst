@@ -458,6 +458,7 @@ Summary
 You created a node with a parameter and used the ParameterEventHandler class to set a callback to monitor changes to that parameter.
 You also used the same class to monitor changes to a remote node, and to monitor all parameters in a single event callback.
 The ParameterEventHandler is a convenient way to monitor for parameter changes so that you can then respond to the updated values.
+<<<<<<< HEAD:source/Tutorials/Intermediate/Monitoring-For-Parameter-Changes-CPP.rst
 
 Related content
 ---------------
@@ -465,3 +466,5 @@ Related content
 To learn how to adapt ROS 1 parameter files for ROS 2, see the :doc:`Migrating YAML parameter files from ROS 1 to ROS2 <../../How-To-Guides/Migrating-from-ROS1/Migrating-Parameters>` tutorial.
 
 
+=======
+>>>>>>> 8fb419d (3di | TOC update - remove "Migrating from ROS 1 to ROS 2" section and articles   (#7186)):source/ROS-Framework/parameters/Working-with-parameters/Monitoring-For-Parameter-Changes-CPP.rst
