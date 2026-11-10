@@ -29,7 +29,7 @@ When creating content for the ROS documentation, write in reStructuredText (RST)
 
 .. note::
    This article relates to contributing to the ROS documentation site.
-   For more information about creating or updating package documentation, see :doc:`/Developer-Tools/Package-documentation/Documenting-a-ROS-2-Package`.
+   For more information about creating or updating package documentation, see :doc:`../../../Developer-Tools/Package-documentation/Documenting-a-ROS-2-Package`.
 
 Formatting
 ----------
@@ -124,12 +124,13 @@ Code blocks: ``bash`` vs. ``console``
 Choosing the correct one ensures that the content is formatted correctly and that the copy button copies the right content.
 
 * ``bash`` is meant for scripts, for example for bash commands from a script file.
-   The entire code block is copied when the copy button is selected.
+  The entire code block is copied when the copy button is selected.
 * ``console`` is meant for commands to be run in a terminal, optionally including their output.
-   Only lines with a prompt symbol are copied to the clipboard when the copy button is selected.
+  Only lines with a prompt symbol are copied to the clipboard when the copy button is selected.
 
 bash
 ~~~~
+
 Use ``.. code-block:: bash`` without ``$``:
 
 .. code-block:: bash
@@ -180,7 +181,9 @@ The following code block is ``console``:
    [INFO] [1742150439.022947971] [my_turtle]: Starting turtlesim with node name /my_turtle
    [INFO] [1742150439.026043867] [my_turtle]: Spawning turtle [turtle1] at x=[5.544445], y=[5.544445], theta=[0.000000]
 
-The following code block is ``bash``:
+The following code block uses ``bash`` with ``$`` prompts and output lines.
+This is **incorrect**: the copy button copies everything, including the prompts and the output.
+It is shown here only for comparison.
 
 .. code-block:: bash
 
@@ -211,7 +214,7 @@ Therefore, when using ``:target:`` to add a hyperlink to the image file, use a r
 Charts, graphs, and diagrams
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-ROS documentation now supports charts, graphs, and diagrams written using `Mermaid Charts. <https://mermaid.js.org/intro/>`__
+ROS documentation supports charts, graphs, and diagrams written using `Mermaid Charts. <https://mermaid.js.org/intro/>`__
 Prefer Mermaid instead of static image files, so these resources can be updated programmatically as the project evolves.
 Full documentation of the Mermaid graph language syntax can be found `on their website. <https://mermaid.js.org/intro/syntax-reference.html>`__
 
@@ -355,23 +358,24 @@ It is best practice to include the optional metadata.
 
 In the ``.. meta::`` directive, the following fields and corresponding values are optional.
 
-``:contentType:``: The type of content in the article.
-
+``:contentType:``
+   The type of content in the article.
    The value for this field helps structure search results and allows readers to filter content to find the information they need.
    For more information on content types, see :ref:`Content types <ContentTypes>`.
 
    Add one of the following values:
 
-      * ``about``
-      * ``how-to``
-      * ``tutorial``
-      * ``reference``
-      * ``example``
-      * ``learning-path``
-      * ``process-overview``
-      * ``release-note``
+   * ``about``
+   * ``how-to``
+   * ``tutorial``
+   * ``reference``
+   * ``example``
+   * ``learning-path``
+   * ``process-overview``
+   * ``release-note``
 
-``:experience:``: The level of experience required to understand the article.
+``:experience:``
+   The level of experience required to understand the article.
 
    Add one or more of the following values:
 
@@ -379,17 +383,18 @@ In the ``.. meta::`` directive, the following fields and corresponding values ar
    * ``intermediate``
    * ``expert``
 
-``:distribution:``: Enables the documentation to work across multiple ROS distributions.
+``:distribution:``
+   Enables the documentation to work across multiple ROS distributions.
 
-   Add the following value:
+   Always use the ``{DISTRO}`` macro as the value.
+   It is replaced with the name of the distribution the documentation is built for, for example ``rolling``.
 
-   * ``{DISTRO}``
+``:product:``
+   Identifies the product that the documentation site describes, so that search engines and tools can tell ROS documentation apart from documentation for other projects.
+   It does not refer to individual packages or projects such as Gazebo or RViz.
 
-``:product:``: Identifies which ROS product the article belongs to.
-
-   Add the following value:
-
-   * ``{PRODUCT}``
+   Always use the ``{PRODUCT}`` macro as the value.
+   It is replaced with the product name, ``ROS 2``, which is defined in ``conf.py``.
 
 Show metadata directive
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -401,11 +406,11 @@ Omitting it triggers a warning in the metadata check rather than failing the pul
 
 Add the following related directive to your article:
 
- .. code-block:: rst
+.. code-block:: rst
 
-    .. showmeta::
-       :order: area, contentType, experience
-       :labels: area=Area, contentType=Content type, experience=Level
+   .. showmeta::
+      :order: area, contentType, experience
+      :labels: area=Area, contentType=Content type, experience=Level
 
 Short description directive
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -415,14 +420,14 @@ Omitting it triggers a warning in the metadata check rather than failing the pul
 
 ``.. short-description::`` provides a two or three sentence explanation about the article's content.
 
-  Use the following structure to create a short description, making sure your sentences answer each of the questions:
+Use the following structure to create a short description, making sure your sentences answer each of the questions:
 
-  * Sentence 1 - Context: Why would a user be interested in reading this article?
+* Sentence 1 - Context: Why would a user be interested in reading this article?
 
-  * Sentence 2 - Purpose: What does the article describe or what will a user get out of reading it?
+* Sentence 2 - Purpose: What does the article describe or what will a user get out of reading it?
 
-  * Sentence 3 - Outcome: What will the user be able to do after reading the article or following the guidance?
-    For ``about`` type articles, this sentence is optional.
+* Sentence 3 - Outcome: What will the user be able to do after reading the article or following the guidance?
+  For ``about`` type articles, this sentence is optional.
 
 You can use the following examples to guide you.
 
@@ -430,20 +435,18 @@ Short description for :doc:`About ROS<../../../About-ROS>`:
 
 .. code-block:: rst
 
-  .. short-description::
-
-   ROS (Robot Operating System) is an open-source ecosystem that provides the framework, tools, and libraries for building, deploying, running, and maintaining robotic applications.
-   This article introduces the main areas of the ecosystem and outlines their intended use.
+   .. short-description::
+      ROS (Robot Operating System) is an open-source ecosystem that provides the framework, tools, and libraries for building, deploying, running, and maintaining robotic applications.
+      This article introduces the main areas of the ecosystem and outlines their intended use.
 
 Short description for :doc:`Using the Node Interfaces Template Class (C++) — tutorial<../../../ROS-Framework/nodes/Working-with-nodes/Using-Node-Interfaces-Template-Class>`:
 
 .. code-block:: rst
 
    .. short-description::
-
-   Different ROS node types can expose the same capabilities through different C++ classes.
-   This tutorial explains how to use ``rclcpp::node_interfaces::NodeInterfaces<>`` to write functions that accept both standard and lifecycle nodes.
-   After completing it, you can pass node interfaces compactly and retrieve node information reliably.
+      Different ROS node types can expose the same capabilities through different C++ classes.
+      This tutorial explains how to use ``rclcpp::node_interfaces::NodeInterfaces<>`` to write functions that accept both standard and lifecycle nodes.
+      After completing it, you can pass node interfaces compactly and retrieve node information reliably.
 
 Related content
 ^^^^^^^^^^^^^^^
@@ -476,26 +479,26 @@ You can check :doc:`About client libraries <../../../ROS-Framework/About-Client-
 
 .. code-block:: rst
 
-  Related content
-  ---------------
+   Related content
+   ---------------
 
-  Related articles
-  ~~~~~~~~~~~~~~~~
+   Related articles
+   ^^^^^^^^^^^^^^^^
 
-  * Related article here
+   * Related article here
 
-  Related packages
-  ~~~~~~~~~~~~~~~~
+   Related packages
+   ^^^^^^^^^^^^^^^^
 
-  Core ROS packages
-  ^^^^^^^^^^^^^^^^^
+   Core ROS packages
+   ~~~~~~~~~~~~~~~~~
 
-  * Package here
+   * Package here
 
-  Community packages
-  ^^^^^^^^^^^^^^^^^^
+   Community packages
+   ~~~~~~~~~~~~~~~~~~
 
-  * Package here
+   * Package here
 
 Table of contents
 -----------------
@@ -574,7 +577,7 @@ Use the examples in the following table for guidance about the type of article y
      - Describe steps and options for a task but without tying explanations to a specific target goal.
 
        Best suited to explaining what to do and where to do it rather than exactly how to do it and why to do it that way.
-     - :doc:`Implementing custom interfaces - how-to <../../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Single-Package-Define-And-Use-Interface>`
+     - :doc:`Implementing custom interfaces - how-to <../../../ROS-Framework/interfaces/Working-with-interfaces/Single-Package-Define-And-Use-Interface>`
 
        :doc:`Installing on Ubuntu - how-to <../../../Get-Started/Installation/Ubuntu-Install-Debs>`
    * - Tutorial
@@ -629,7 +632,7 @@ How should I format sentences and white space in a ROS reStructuredText file?
 When should I use bash instead of console for a code block?
   Use bash for commands or content intended to be copied into a script file.
   Use console for commands that readers should run in a terminal, especially when you also need to show terminal output.
-  In console blocks, prefix command lines with $ or # so the copy button copies commands rather than output.
+  In console blocks, prefix command lines with ``$`` so the copy button copies commands rather than output.
 
 When should I use ``:doc:`` and ``:ref:`` for internal links?
   Use ``:doc:`` to link to another article in the ROS documentation, using its relative path.
