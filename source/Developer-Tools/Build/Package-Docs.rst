@@ -4,7 +4,7 @@
 
 .. meta::
    :contentType: about
-   :experience:
+   :experience: beginner, intermediate, expert
    :area: package-documentation, tools
    :distribution: {DISTRO}
    :product: {PRODUCT}

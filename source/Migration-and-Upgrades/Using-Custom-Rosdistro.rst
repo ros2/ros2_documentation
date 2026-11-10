@@ -1,6 +1,6 @@
 .. meta::
    :contentType: how-to
-   :experience: TBD
+   :experience: intermediate
    :area: installation, framework
    :distribution: {DISTRO}
    :product: {PRODUCT}

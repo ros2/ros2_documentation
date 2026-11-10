@@ -47,6 +47,10 @@ Migrating from ROS 1 to ROS 2
    The guides for migrating packages from ROS 1 to ROS 2 are no longer maintained in this version of the documentation.
    This article points you to the latest version of the documentation that still includes them.
 
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
 The ROS 1 to ROS 2 migration guides are not maintained in this version of the documentation.
 They are still available in the :doc:`Lyrical Luth <../Releases/Release-Lyrical-Luth>` documentation:
 
