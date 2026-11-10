@@ -22,7 +22,7 @@ Using Subordinate Nodes (C++) — tutorial
 
 **Time:** 10 minutes
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 

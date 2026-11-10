@@ -20,7 +20,7 @@ This article summarizes ROS developer tools and guidance available to enable sim
 
 **Area: simulation, capabilities | Content-type: about | Experience: beginner, intermediate, expert**
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :local:
 
 Summary
