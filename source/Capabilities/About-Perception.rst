@@ -8,6 +8,10 @@
 Perception
 ==========
 
+.. short-description::
+   Perception capabilities help your robot to understand and interpret the world.
+   This article summarizes ROS developer tools and guidance available to help with perception.
+
 .. showmeta::
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
@@ -17,11 +21,6 @@ Perception
    :hidden:
 
 ..   list of child topics here
-
-Perception capabilities help your robot to understand and interpret the world.
-This article summarizes ROS developer tools and guidance available to help with perception.
-
-**Area: perception, capabilities | Content-type: about | Experience: beginner, intermediate, expert**
 
 .. contents:: Contents
    :local:
