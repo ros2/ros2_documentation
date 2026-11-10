@@ -15,8 +15,17 @@ Migrating from ROS 1 to ROS 2
 These guides show how to convert existing ROS 1 packages to ROS 2.
 If you are new to porting between ROS 1 and ROS 2, it is recommended to read through the guides in order.
 
+<<<<<<< HEAD
 .. toctree::
    :maxdepth: 1
+=======
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+The ROS 1 to ROS 2 migration guides are not maintained in this version of the documentation.
+They are still available in the :doc:`Lyrical Luth <../Releases/Release-Lyrical-Luth>` documentation:
+>>>>>>> 1c5c20c (Fix missing and invalid page metadata (#7443))
 
    Migrating-from-ROS1/Migrating-Packages
    Migrating-from-ROS1/Migrating-Package-XML
