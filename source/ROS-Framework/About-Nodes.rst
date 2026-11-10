@@ -60,9 +60,8 @@ In a ROS system, there is typically a complex network of nodes as publishers, su
 This network of nodes and the connections between them is known as the ROS graph.
 See :doc:`How-ROS-Works`.
 
-ROS is based on object-oriented programming principles.
-Individual nodes are written as subclasses of the Node class, inheriting properties from it as defined by ROS.
-Configurable parameters enable you to control node behaviour during runtime.
+Each client library provides a node type that you either create directly or, in object-oriented languages such as C++ and Python, subclass to add your own behavior.
+Configurable parameters enable you to control node behavior during runtime.
 For example, a node controlling a motor may have a parameter that controls the motor's maximum speed, while a topic might be used to set a robot's current speed.
 See :doc:`parameters <About-Parameters>`.
 
@@ -81,24 +80,29 @@ Discovery
 ^^^^^^^^^
 
 Discovery of nodes happens automatically through the underlying middleware of ROS.
-By default, connections between nodes are established through a distributed discovery process.
-Depending on how the middleware is configured, though, it is possible to configure server-client discovery.
-See :doc:`../Developer-Tools/Launch/Discovery-Server/Discovery-Server`
+How discovery works depends on the :doc:`middleware (RMW) implementation <client-libraries/About-Middleware-Implementations>` and how it is configured.
+With the default DDS-based middleware, nodes find each other through a distributed discovery process, with no central server.
+Other configurations use server-client discovery instead, for example, a Fast DDS discovery server, or the router that ``rmw_zenoh`` uses by default.
+See :doc:`../Developer-Tools/Launch/Discovery-Server/Discovery-Server` and :doc:`../Get-Started/Installation/RMW-Implementations/Non-DDS-Implementations/Working-with-Zenoh`.
 
-
-The discovery process can be summarized as follows:
+The distributed discovery process can be summarized as follows:
 
 #. When a node is started, it advertises its presence to other nodes on the network with the same ROS domain (set with the ``ROS_DOMAIN_ID`` environment variable).
    Nodes respond to this advertisement with information about themselves so that the appropriate connections can be made and the nodes can communicate.
 #. Nodes periodically advertise their presence so that connections can be made with new-found entities, even after the initial discovery period.
-#. Nodes advertise to other nodes when they go offline.
+#. Nodes advertise to other nodes when they shut down cleanly.
+   If a node stops unexpectedly, for example because it crashed, other nodes notice it is gone when it stops sending its periodic advertisements.
+
+Nodes must share a ROS domain ID to discover each other.
+See :doc:`nodes/About-Domain-ID`.
+You can also limit how far discovery reaches, for example to the local host only, with ``ROS_AUTOMATIC_DISCOVERY_RANGE`` and ``ROS_STATIC_PEERS``.
+See :doc:`../Developer-Tools/Launch/Improved-Dynamic-Discovery`.
 
 .. note::
-   Nodes only establish connections with other nodes if they have compatible *quality of service* settings.
+   Discovering each other does not guarantee that two nodes exchange data.
+   Quality of service (QoS) compatibility is checked separately for each pair of endpoints, for example, a publisher and a subscription on the same topic.
+   If their QoS settings are incompatible, that pair does not connect, even though both nodes are visible in the ROS graph.
    See :doc:`interfaces/topics/Working-with-topics/Quality-of-Service`.
-
-   Nodes must also share a ROS domain ID to discover each other.
-   See :doc:`nodes/About-Domain-ID`.
 
 The :ref:`talker-listener demo <talker-listener>` provides an example of node discovery.
 The C++ talker node in one terminal publishes messages on a topic, and the Python listener node running in another terminal subscribes to messages on the same topic.
@@ -127,10 +131,10 @@ Special types of nodes
 
 Composable nodes
    A composable node is written as a component which, at runtime, is loaded into a container process that can host several components at once.
-   Because multiple components share the container, they can also share a process and memory.
+   Components loaded into the same container run in a single process, and can use intra-process communication to exchange messages without copying them.
    To learn more about how to write a composable node, see :doc:`nodes/About-Composition`, and :doc:`nodes/Working-with-nodes/Writing-a-Composable-Node`.
-Lifecycle nodes, also known as managed nodes
-   These nodes can be used to ensure that resources are correctly initialized, activated, deactivated, and cleaned up as the node moves between lifecycle states.
+Lifecycle nodes
+   Lifecycle nodes can be used to ensure that resources are correctly initialized, activated, deactivated, and cleaned up as the node moves between lifecycle states.
 
    A common use case is nodes that control hardware, where devices such as cameras, lidars, motor drivers, and other sensors and actuators must be started, configured, and shut down in a controlled order.
    See :doc:`nodes/Working-with-nodes/Managed-Nodes`.
@@ -158,22 +162,28 @@ FAQs
 
 What is the difference between a node and an executable?
    A node is a participant on the ROS graph.
-   An executable is the process you start, for example with ``ros2 run``.
-   One executable can contain one or more nodes.
+   An executable is the program you run, for example with ``ros2 run``, which starts a process.
+   One process can contain one or more nodes.
 
 How do nodes find each other?
    Through discovery.
-   When a node starts, it advertises its presence to other nodes on the same ROS domain.
-   Compatible nodes can then form connections automatically.
+   When a node starts, the middleware advertises its presence to other nodes on the same ROS domain.
+   Their publishers, subscriptions, and other endpoints can then connect automatically.
 
 Do all nodes in a system need to use the same programming language?
    No.
    Client libraries provide a common way to communicate, so a C++ node can talk to a Python node over the same interfaces.
 
 Why might two nodes fail to connect?
-   They must be on the same ROS domain, and their quality of service settings must be compatible.
-   If either of those conditions is not met, the nodes do not establish a connection.
+   Common causes are:
+
+   * The nodes use different ROS domain IDs.
+   * Discovery is limited, for example, ``ROS_AUTOMATIC_DISCOVERY_RANGE`` is set to ``LOCALHOST`` and the nodes are on different machines.
+   * The nodes use different, incompatible middleware (RMW) implementations.
+   * The topic, service, or action names or types do not match.
+   * The QoS settings of a publisher and a subscription are incompatible.
+   * A firewall or network configuration blocks discovery or data traffic.
 
 What is the difference between composable nodes and lifecycle nodes?
-   Composable nodes are components that can share a process and memory.
+   Composable nodes are components that can run together in a single process.
    Lifecycle nodes move through defined states so resources are started and shut down in a controlled order.
