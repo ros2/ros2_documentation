@@ -11,8 +11,13 @@ Configure service introspection
 
 **Time:** 15 minutes
 
+<<<<<<< HEAD:source/Tutorials/Demos/Service-Introspection.rst
 .. contents:: Table of Contents
    :depth: 1
+=======
+.. contents:: Contents
+   :depth: 2
+>>>>>>> 4c7f582 (Standardise in-page contents title (#7442)):source/Developer-Tools/Introspection-and-analysis/Service-Introspection.rst
    :local:
 
 Overview

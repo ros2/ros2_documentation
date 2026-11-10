@@ -7,7 +7,20 @@
 Introspection with command line tools
 =====================================
 
+<<<<<<< HEAD:source/Concepts/Basic/About-Command-Line-Tools.rst
 .. contents:: Table of Contents
+=======
+.. short-description::
+   ROS command-line tools let you inspect and interact with nodes, topics, services, packages, and other parts of a running system.
+   This article introduces the ``ros2`` command, its main sub-commands, and the daemon used for faster graph queries.
+   After reading it, you can publish and echo topic data, inspect available tools, and manage the daemon.
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
+   :depth: 2
+>>>>>>> 4c7f582 (Standardise in-page contents title (#7442)):source/Developer-Tools/Introspection-and-analysis/About-Command-Line-Tools.rst
    :local:
 
 ROS 2 includes a suite of command-line tools for introspecting a ROS 2 system.

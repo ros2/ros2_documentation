@@ -8,7 +8,7 @@
 Using ``colcon`` to build packages
 ==================================
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 

@@ -1,8 +1,13 @@
 Using ROS 2 launch to launch composable nodes
 =============================================
 
+<<<<<<< HEAD:source/How-To-Guides/Launching-composable-nodes.rst
 .. contents:: Table of Contents
    :depth: 1
+=======
+.. contents:: Contents
+   :depth: 2
+>>>>>>> 4c7f582 (Standardise in-page contents title (#7442)):source/Developer-Tools/Launch/Launching-composable-nodes.rst
    :local:
 
 In the :doc:`Composition tutorial <../Tutorials/Intermediate/Composition>`, you learned about composable nodes and how to use them from the command-line.

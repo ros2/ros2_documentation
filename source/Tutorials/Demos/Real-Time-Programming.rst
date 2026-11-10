@@ -6,7 +6,7 @@
 Understanding real-time programming
 ===================================
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 

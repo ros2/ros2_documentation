@@ -7,7 +7,19 @@
 Roadmap
 =======
 
+<<<<<<< HEAD
 .. contents:: Table of Contents
+=======
+.. short-description::
+   ROS development roadmaps help users and contributors understand which features and improvements are planned for upcoming distributions.
+   This article describes current roadmap items, planned releases, and contribution resources so you can track future work or get involved in ROS development.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
+>>>>>>> 4c7f582 (Standardise in-page contents title (#7442))
    :depth: 2
    :local:
 

@@ -7,8 +7,12 @@
 Contributing
 ============
 
+<<<<<<< HEAD
 .. contents:: Table of Contents
    :depth: 1
+=======
+.. contents:: Contents
+>>>>>>> 4c7f582 (Standardise in-page contents title (#7442))
    :local:
 
 A few things to remember before you start contributing to the ROS 2 project.

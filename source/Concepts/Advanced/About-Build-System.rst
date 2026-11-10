@@ -5,7 +5,20 @@
 The build system
 ================
 
+<<<<<<< HEAD:source/Concepts/Advanced/About-Build-System.rst
 .. contents:: Table of Contents
+=======
+.. short-description::
+   Building robotic applications requires a consistent way to compile packages, manage dependencies, and prepare code for development or deployment.
+   This article describes the ROS build system, including build tools, build helpers, and meta-build tools, and explains how package manifests support the build process.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
+   :depth: 2
+>>>>>>> 4c7f582 (Standardise in-page contents title (#7442)):source/Developer-Tools/Build/About-Build-System.rst
    :local:
 
 .. include:: ../../../global_substitutions.txt

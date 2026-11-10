@@ -3,8 +3,21 @@
 Platform EOL Policy
 ===================
 
+<<<<<<< HEAD
 .. contents:: Table of Contents
    :depth: 1
+=======
+.. short-description::
+   Platform end-of-life dates affect whether ROS distributions can continue to deliver updated packages safely.
+   This article explains what users should expect when a supported platform reaches end-of-life and outlines the steps ROS Bosses should take before and after platform support ends.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
+   :depth: 2
+>>>>>>> 4c7f582 (Standardise in-page contents title (#7442))
    :local:
 
 :doc:`ROS distributions <../Releases>` do not support end-of-life (EOL) platforms, even if the ROS distribution is still active.

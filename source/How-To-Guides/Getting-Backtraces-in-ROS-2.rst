@@ -10,7 +10,32 @@ Getting Backtraces in ROS 2
 
 **Time:** 15 minutes
 
+<<<<<<< HEAD:source/How-To-Guides/Getting-Backtraces-in-ROS-2.rst
 The following steps show ROS 2 users how to get backtraces when they encounter a problem.
+=======
+.. contents:: Contents
+   :depth: 2
+   :local:
+
+Summary
+-------
+
+Build C++ packages with debug symbols before collecting backtraces, using ``--cmake-args -DCMAKE_BUILD_TYPE=Debug`` or suitable compiler flags.
+
+Use GDB in the situation that matches your system:
+
+* For a single node, run ``ros2 run --prefix 'gdb -ex run --args' <pkg> <node>``.
+
+* For launch files, add ``prefix=['gdb -ex run --args']`` or ``prefix=['xterm -e gdb -ex run --args']`` to the target node.
+
+* For larger systems, isolate the failing node and launch it separately.
+
+* For tests, run the test executable directly with GDB.
+
+At the ``(gdb)`` prompt, enter ``backtrace`` and read from the bottom upward.
+
+The following steps show ROS users how to get backtraces when they encounter a problem.
+>>>>>>> 4c7f582 (Standardise in-page contents title (#7442)):source/Developer-Tools/Debugging/Getting-Backtraces-in-ROS-2.rst
 
 Overview
 --------

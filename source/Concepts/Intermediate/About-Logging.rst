@@ -6,7 +6,7 @@
 Logging and logger configuration
 ================================
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :local:
 
 Overview

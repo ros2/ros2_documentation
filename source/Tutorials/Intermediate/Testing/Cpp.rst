@@ -1,7 +1,27 @@
 .. TestingCpp:
 
+<<<<<<< HEAD:source/Tutorials/Intermediate/Testing/Cpp.rst
 Writing Basic Tests with C++ with GTest
 =======================================
+=======
+.. _TestingCpp:
+
+Writing Basic Tests with C++ with GTest - tutorial
+==================================================
+
+.. short-description::
+   Basic C++ tests help verify package behavior as you develop and maintain ROS code.
+   This article shows how to add a GTest test file to an ``ament_cmake`` package.
+   After you follow these steps, you can declare test dependencies, register the test in CMake, and run it with the standard test tools.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
+   :depth: 2
+   :local:
+>>>>>>> 4c7f582 (Standardise in-page contents title (#7442)):source/Developer-Tools/Debugging/Testing/Cpp.rst
 
 Starting point: we'll assume you have a :ref:`basic ament_cmake package<CreatePkg>` set up already and you want to add some tests to it.
 

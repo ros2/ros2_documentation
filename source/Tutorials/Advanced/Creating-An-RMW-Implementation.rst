@@ -7,7 +7,7 @@ Creating an ``rmw`` implementation
 
 **Time:** 30+ minutes
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :local:
 
 Introduction

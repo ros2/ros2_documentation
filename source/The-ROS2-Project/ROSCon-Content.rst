@@ -7,6 +7,21 @@
 ROSCon Talks
 ============
 
+<<<<<<< HEAD
+=======
+.. short-description::
+   ROSCon talks provide practical insight into ROS development, project updates, demonstrations, and real-world robotics deployments.
+   This article lists recorded ROSCon presentations by year so you can find videos about ROS features, tooling, middleware, applications, and community work.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
+   :depth: 2
+   :local:
+
+>>>>>>> 4c7f582 (Standardise in-page contents title (#7442))
 The following `ROSCon <https://roscon.ros.org>`__ talks have been given on ROS 2 and provide information about the workings of ROS 2 and various demos:
 
 .. tabs::

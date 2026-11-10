@@ -15,6 +15,13 @@ Managing Dependencies with rosdep
 
 **Time:** 5 minutes
 
+<<<<<<< HEAD:source/Tutorials/Intermediate/Rosdep.rst
+=======
+.. contents:: Contents
+   :depth: 2
+   :local:
+
+>>>>>>> 4c7f582 (Standardise in-page contents title (#7442)):source/ROS-Framework/client-libraries/Working-with-Client-Libraries/Rosdep.rst
 This tutorial will explain how to manage external dependencies using ``rosdep``.
 
 .. warning::

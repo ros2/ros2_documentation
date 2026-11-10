@@ -5,7 +5,7 @@
 Building ROS 2 with tracing
 ===========================
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 

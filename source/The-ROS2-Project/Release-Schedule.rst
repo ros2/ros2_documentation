@@ -1,6 +1,21 @@
 Release Schedule
 ================
 
+<<<<<<< HEAD
+=======
+.. short-description::
+   ROS distributions follow a regular release schedule to balance access to new features with long-term platform stability.
+   This article describes release frequency, target platforms, support lifetimes, and version numbering so you can understand how ROS releases are planned and maintained.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
+   :depth: 2
+   :local:
+
+>>>>>>> 4c7f582 (Standardise in-page contents title (#7442))
 Frequency
 ---------
 New ROS 2 releases are produced every **every 12 months**.

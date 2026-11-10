@@ -5,7 +5,19 @@
 The ROS_DOMAIN_ID
 =================
 
+<<<<<<< HEAD:source/Concepts/Intermediate/About-Domain-ID.rst
 .. contents:: Table of Contents
+=======
+.. short-description::
+   ROS Domain IDs separate groups of nodes that share the same physical network.
+   This article explains how Domain IDs affect discovery, communication, UDP port selection, and platform-specific constraints.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
+>>>>>>> 4c7f582 (Standardise in-page contents title (#7442)):source/ROS-Framework/nodes/About-Domain-ID.rst
    :local:
 
 Overview
