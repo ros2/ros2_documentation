@@ -50,7 +50,7 @@ Despite its name, ROS is actually not an operating system in the traditional sen
 Framework
 ---------
 
-The ROS framework is the “plumbing” which allows for communication between parts of a robot, and within parts of a robot.
+The ROS Framework is the “plumbing” which allows for communication between parts of a robot, and within parts of a robot.
 It includes messaging, standard interfaces, and support for multiple programming languages and platforms.
 
 For example, the framework handles sending data from a camera to a processing node or passing commands from a planning system to a motor controller.
@@ -58,10 +58,13 @@ It also provides the structure for sharing software across systems, so developer
 
 ROS consists of the following basic components:
 
-* Nodes
-* Interfaces (topics, services and actions)
-* Parameters
-* Client libraries
+* :doc:`Nodes<ROS-Framework/About-Nodes>`
+* :doc:`Interfaces (topics, services and actions)<ROS-Framework/Interfaces-Topics-Services-Actions>`
+* :doc:`Parameters<ROS-Framework/About-Parameters>`
+* :doc:`Client libraries<ROS-Framework/About-Client-Libraries>`
+* Middleware
+
+:doc:`Learn more about the ROS framework<ROS-Framework>`
 
 Tools
 -----
@@ -75,13 +78,15 @@ Data recording and playback tools allow you to register robot behaviour for late
 
 The core set of tools provided by ROS allows you to handle the following elements of the development workflow:
 
-* Introspection
-* Analysis
-* Node management
-* Debugging
-* Builds
-* Visualization
-* Package documentation
+* :doc:`Introspection<Developer-Tools/About-introspection-and-analysis>`
+* :doc:`Analysis<Developer-Tools/About-introspection-and-analysis>`
+* :doc:`Runtime Node management<Developer-Tools/About-Launch>`
+* :doc:`Debugging<Developer-Tools/About-Debugging>`
+* :doc:`Builds<Developer-Tools/About-Build>`
+* :doc:`Visualization<Developer-Tools/About-visualization>`
+* :doc:`Package documentation<Developer-Tools/About-package-documentation>`
+
+:doc:`Learn more about ROS developer tools<Developer-Tools>`
 
 Capabilities
 ------------
@@ -91,7 +96,7 @@ These packages allow developers to add advanced behaviours without starting from
 
 For example, manipulation packages can control robotic arms for tasks like picking and placing objects in automated workflows.
 Motion planning packages allow robots to move from one point to another by calculating safe paths in their environment.
-Perception packages enable robots to detect and recognise objects or people, supporting tasks such as retrieving objects or working in environments where the robot needs to respond to what it sees.
+Perception packages enable robots to detect and recognize objects or people, supporting tasks such as retrieving objects or working in environments where the robot needs to respond to what it sees.
 Different implementations of the same capabilities allow developers to switch implementations and experiment to find the best implementation for their needs.
 
 .. note::
@@ -99,17 +104,21 @@ Different implementations of the same capabilities allow developers to switch im
 
 ROS offers the following core capabilities either out of the box, or through supported third-party solutions:
 
-* Simulation
-* Motion planning
-* Navigation
+* :doc:`Simulation<Capabilities/About-Simulation>`
+* :doc:`Motion planning<Capabilities/About-Motion-planning>`
+* :doc:`Navigation<Capabilities/About-Navigation>`
 * Manipulation
-* Perception
+* :doc:`Perception<Capabilities/About-Perception>`
+
+:doc:`Learn more about the capabilities of ROS<Capabilities>`
 
 Community
 ---------
 
 Community in ROS is the global network of developers, researchers, companies, and contributors who help our library of open-source software grow and improve.
 People can contribute to plumbing, tools, and capabilities, and thanks to the community, it is easy to share code, exchange ideas, and work together on projects.
+
+:doc:`Learn more about community contributions and how you can get involved<Contributing-To-ROS>`
 
 Integrations
 ------------
@@ -126,6 +135,8 @@ ROS works with other Open Robotics platforms to make development and deployment 
 
 These integrations make it simpler to design, test, and manage robots in complex environments on any budget and with any team size.
 
+:doc:`Learn more about integrations with ROS<Integrations-and-related>`
+
 ROS distributions
 -----------------
 
@@ -136,12 +147,14 @@ This makes it easier for developers to work with a consistent codebase and keep 
 ROS has two main versions:
 
 * `ROS 1`_: The original framework.
-* ROS 2: The current and actively developed version.
+* :doc:`ROS 2<Releases>`: The current and actively developed version.
 
 .. _ROS 1: https://index.ros.org/
 
 ROS 1 has reached the end of development, with no new releases planned, while ROS 2 continues to be developed and releases new distributions every year.
 These distributions include updates and improvements, so developers can choose between stability and the latest features.
+
+:doc:`Learn more about ROS 2 releases<Releases>`
 
 Supported systems
 -----------------
@@ -152,4 +165,4 @@ ROS on macOS is supported by the community, and we do not recommended it for new
 Ubuntu support depends on the ROS distribution, with each distribution requiring a specific Ubuntu LTS (long-term support) release.
 Other platforms may require building from source or using containers.
 
-:doc:`See full details of currently supported platforms and support tiers <../../Releases/Release-Rolling-Ridley>`
+:ref:`See full details of currently supported platforms and support tiers <CurrentSupportedPlatforms>`
