@@ -37,8 +37,8 @@ You can contact the ROS community in the following ways:
 
 * `Stack Exchange <https://robotics.stackexchange.com/>`__: Ask for support or discuss a problem
 
-* Issue tracker: Report an issue or suggest and enhancement.
-  More information is in :doc:`Reporting an issue — how to <The-ROS2-Project/Contributing/Reporting-an-issue>`
+* Issue tracker: Report an issue or suggest an enhancement.
+  More information is in :doc:`Reporting an issue — how-to <The-ROS2-Project/Contributing/Reporting-an-issue>`.
 
 * :ref:`Discourse discussion boards <discussion-boards>`: Share ideas or discuss best practices
 

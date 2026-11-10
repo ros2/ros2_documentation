@@ -1,6 +1,7 @@
 .. redirect-from::
 
   Contributing
+  Contributing-To-ROS
 
 .. meta::
    :contentType: about
@@ -79,7 +80,7 @@ Contribute to ROS development
 -----------------------------
 
 Anyone can contribute to the development of ROS.
-If you are a complete beginner looking for an entry point, start with a simple contribution such as fixing a small issue from the `good first issues list <https://github.com/ros2/ros2_documentation/issues?q=state%3Aopen%20label%3A%22good%20first%20issue%22>`_
+If you are a complete beginner looking for an entry point, start with a simple contribution such as fixing a small issue from the `good first issues list <https://github.com/search?q=user%3Aament+user%3Aros2+is%3Aopen+label%3A%22good+first+issue%22&type=Issues>`__.
 If you are a more experienced developer, consider contributing at a deeper level by designing new features, reviewing code from other developers, or fixing complex bugs.
 
 .. _review-code:
@@ -92,6 +93,14 @@ Anyone can review a pull request.
 If you are a beginner, reviewing a pull request is a great way to learn the codebase and ask questions where something is unclear.
 If you are a more experienced developer, you can contribute by identifying design, performance, or security issues and ensuring overall code quality.
 
+**Ready to contribute?**
+
+1. Familiarize yourself with how to review a pull request.
+
+   More information is in :doc:`Reviewing a pull request (PR) — how-to <Contributing/Reviewing-a-PR>`.
+
+2. Pick a pull request to review from the `open pull requests across the ROS repositories <https://github.com/search?q=user%3Aament+user%3Aros2+is%3Aopen+is%3Apr&type=Issues>`__.
+
 .. _contribute-to-code:
 
 Contribute to code
@@ -103,28 +112,25 @@ Contributing to our open source code involves reviewing an existing project and 
 
 1. Familiarize yourself with our developer guidelines and tools.
 
-   More information is in `our developer guide <https://docs.ros.org/en/lyrical/The-ROS2-Project/Contributing/Developer-Guide.html>`_.
+   More information is in :doc:`our developer guide <Contributing/Developer-Guide>`.
 
-2. Pick an issue from one of the issue lists:
+2. Set up your development environment by following :ref:`the source installation instructions <building-from-source>` for your platform.
 
-   * `Good first issues <https://github.com/ros2/ros2_documentation/issues?q=state%3Aopen%20label%3A%22good%20first%20issue%22>`_
+3. Pick an issue from one of the issue lists:
 
-   * `Help wanted issues <https://github.com/search?q=user%3Aament+user%3Aros2+is%3Aopen+label%3A%22help+wanthttps://github.com/ros2/ros2_documentation/pullsed%22&type=Issues>`_
+   * `Good first issues <https://github.com/search?q=user%3Aament+user%3Aros2+is%3Aopen+label%3A%22good+first+issue%22&type=Issues>`__
 
-3. Fix the issue and submit the pull request.
+   * `Help wanted issues <https://github.com/search?q=user%3Aament+user%3Aros2+is%3Aopen+label%3A%22help+wanted%22&type=Issues>`__
+
+   Comment on the issue to let others know that you are working on it.
+   For larger changes, or changes to APIs, discuss your proposal on `Open Robotics Discourse <https://discourse.openrobotics.org/c/ros/111>`__ before you start, to check whether someone else is already working on something similar.
+
+4. Fix the issue and submit the pull request.
 
    More information is in :doc:`Making a pull request — how-to <Contributing/Making-a-PR>`.
 
-**Ready to contribute?**
-
-1. Familiarize yourself with how to review a pull request.
-
-   More information is in :doc:`Reviewing a pull request (PR) — how-to <Contributing/Reviewing-a-PR>`.
-
-2. Pick an issue from the pull request list: `Pull request list <https://github.com/ros2/ros2_documentation/pulls>`_.
-
 Contribute to QA
-~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~
 
 .. _triage-an-issue:
 
@@ -157,7 +163,7 @@ If you are a more experienced contributor, you can also provide relevant technic
 
 * Report your first issue.
 
-More information is in :doc:`Reporting an issue — how-to <Contributing/Reporting-an-issue>`.
+  More information is in :doc:`Reporting an issue — how-to <Contributing/Reporting-an-issue>`.
 
 Report security vulnerabilities
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -196,9 +202,9 @@ Don't forget to check the existing list of requests first!
 
    * `ROS Ideas category at Discourse <https://discourse.openrobotics.org/c/ros/ros-ideas/114>`_
 
-   * `Future ROS releases idea list <https://docs.ros.org/en/{DISTRO}/The-ROS2-Project/Feature-Ideas.html>`_
+   * :doc:`Future ROS releases idea list <Feature-Ideas>`
 
-   *  Enhancement issues on GitHub.
+   * Enhancement issues on GitHub.
       For example, take a look at the project list, where you can `view project enhancement requests <https://github.com/orgs/ros2/projects?query=is%3Aopen>`_.
 
 2. Talk to the community about your suggested enhancement in the `ROS Ideas category at Discourse <https://discourse.openrobotics.org/c/ros/ros-ideas/114>`__.
@@ -218,7 +224,7 @@ This helps to shape a more intuitive and user-friendly design.
 
 * Submit a UI improvement, for example, your suggestion or your design work.
 
-   More information is in :doc:`Reporting an issue — how-to <Contributing/Reporting-an-issue>`.
+  More information is in :doc:`Reporting an issue — how-to <Contributing/Reporting-an-issue>`.
 
 * Implement a UI improvement.
 
@@ -267,6 +273,14 @@ Review a documentation pull request
 Reviewing a pull request involves carefully checking proposed documentation changes to make sure the content is clear and correct.
 Anyone can review a pull request.
 Reviewing a pull request is a great way to learn about ROS and ask questions where something is unclear.
+
+**Ready to contribute?**
+
+1. Familiarize yourself with how to review a pull request.
+
+   More information is in :doc:`Reviewing a pull request (PR) — how-to <Contributing/Reviewing-a-PR>`.
+
+2. Pick a pull request to review from the `documentation pull request list <https://github.com/ros2/ros2_documentation/pulls>`__.
 
 Write and update documentation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -333,10 +347,9 @@ Here are some ways you can join in:
 
 * Attend events, from local informal meetings to our annual developer conference, `ROSCon <https://roscon.ros.org>`_:
 
-   * Community organized events: `View the calendar <https://calendar.google.com/calendar/u/0/newembed?
-     src=c_3fc5c4d6ece9d80d49f136c1dcd54d7f44e1acefdbe87228c92ff268e85e2ea0@group.calendar.google.com&ctz=Etc/UTC/>`__.
+  * Community organized events: `View the calendar <https://calendar.google.com/calendar/u/0/newembed?src=c_3fc5c4d6ece9d80d49f136c1dcd54d7f44e1acefdbe87228c92ff268e85e2ea0@group.calendar.google.com&ctz=Etc/UTC>`__.
 
-   * Official Open Robotics events: `View the calendar <https://calendar.google.com/calendar/u/0/embed?src=agf3kajirket8khktupm9go748@group.calendar.google.com&ctz=Etc%2FUTC/>`__.
+  * Official Open Robotics events: `View the calendar <https://calendar.google.com/calendar/u/0/embed?src=agf3kajirket8khktupm9go748@group.calendar.google.com&ctz=Etc%2FUTC>`__.
 
 * Host an online community group event: `Fill in the form to add your event to the calendar <https://docs.google.com/forms/d/e/1FAIpQLSdIhzm7-DnAlBIUSsU6lITnV6SHpl1Oo8otnhUKp3pUqUAhSA/viewform>`_.
 
@@ -344,13 +357,13 @@ Here are some ways you can join in:
 
 * Host a local meet-up: `Fill in the form to add your meet-up to the calendar <https://docs.google.com/forms/d/e/1FAIpQLSdIhzm7-DnAlBIUSsU6lITnV6SHpl1Oo8otnhUKp3pUqUAhSA/viewform>`_.
 
- .. (Help with hosting local meet-up link to be provided)
+  .. (Help with hosting local meet-up link to be provided)
 
 * Join discussion groups and chats:
 
-    * `Discussions <https://discourse.openrobotics.org/c/ros/111>`_
+  * `Discussions <https://discourse.openrobotics.org/c/ros/111>`_
 
-    * `Developer chat <https://openrobotics.zulipchat.com/>`_
+  * `Developer chat <https://openrobotics.zulipchat.com/>`_
 
 Promote ROS
 -----------
