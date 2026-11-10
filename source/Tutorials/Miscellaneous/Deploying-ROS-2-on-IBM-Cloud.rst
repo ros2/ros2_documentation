@@ -1,3 +1,13 @@
+<<<<<<< HEAD:source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst
+=======
+.. meta::
+   :contentType: tutorial
+   :experience: beginner, intermediate, expert
+   :area: installation
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+>>>>>>> 1c5c20c (Fix missing and invalid page metadata (#7443)):source/Integrations-and-related/Deploying-ROS-2-on-IBM-Cloud.rst
 .. redirect-from::
 
     Deploying-ROS2-on-IBM-Cloud

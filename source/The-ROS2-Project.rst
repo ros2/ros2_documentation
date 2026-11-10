@@ -1,5 +1,21 @@
+<<<<<<< HEAD
 The ROS 2 Project
 =================
+=======
+.. meta::
+  :contentType: about
+  :experience: beginner, intermediate, expert
+  :area: community
+  :distribution: {DISTRO}
+  :product: {PRODUCT}
+
+Community
+=========
+>>>>>>> 1c5c20c (Fix missing and invalid page metadata (#7443))
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 Check out the resources below to learn more about the advancement of the ROS 2 project.
 

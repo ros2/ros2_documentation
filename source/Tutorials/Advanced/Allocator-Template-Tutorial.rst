@@ -1,3 +1,13 @@
+<<<<<<< HEAD:source/Tutorials/Advanced/Allocator-Template-Tutorial.rst
+=======
+.. meta::
+   :contentType: tutorial
+   :experience: expert
+   :area: client-libraries, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+>>>>>>> 1c5c20c (Fix missing and invalid page metadata (#7443)):source/ROS-Framework/client-libraries/Working-with-Client-Libraries/Allocator-Template-Tutorial.rst
 .. redirect-from::
 
     Allocator-Template-Tutorial

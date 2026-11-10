@@ -1,7 +1,37 @@
 .. redirect-from::
 
+<<<<<<< HEAD:source/Package-Docs.rst
 Package Docs
 ============
+=======
+    Package-Docs
+
+.. meta::
+   :contentType: about
+   :experience: beginner, intermediate, expert
+   :area: package-documentation, tools
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+Finding package documentation
+=============================
+
+.. short-description::
+   ROS package documentation is published in several places depending on the package type and scope.
+   This article explains where to find package pages, ROS Index metadata, larger project websites, and API documentation.
+   After you read it, you can locate documentation for released ROS packages and client libraries.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
+   :depth: 2
+   :local:
+
+Summary
+-------
+>>>>>>> 1c5c20c (Fix missing and invalid page metadata (#7443)):source/Developer-Tools/Build/Package-Docs.rst
 
 ROS package documentation, that is to say documentation for specific packages you install via apt or some other tool, can be found in multiple places.
 Here is a brief list of where to look for specific ROS package documentation.

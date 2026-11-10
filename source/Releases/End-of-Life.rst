@@ -1,3 +1,17 @@
+<<<<<<< HEAD
+=======
+.. meta::
+   :contentType: about
+   :experience: intermediate, expert
+   :area: framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+.. redirect-from::
+
+    Get-Started/Releases/End-of-Life
+
+>>>>>>> 1c5c20c (Fix missing and invalid page metadata (#7443))
 End-of-Life Distributions
 =========================
 

@@ -1,0 +1,24 @@
+.. meta::
+   :contentType: about
+   :experience: intermediate
+   :area: debugging
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+Debugging
+=========
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+Coming Soon
+
+.. toctree::
+   :maxdepth: 3
+
+   Debugging/Debugging-Tf2-Problems/Debugging-Tf2-Problems
+   Debugging/ROS-2-IDEs
+   Debugging/Getting-Backtraces-in-ROS-2
+   Debugging/Building-ROS-2-with-Tracing
+   Debugging/About-testing
