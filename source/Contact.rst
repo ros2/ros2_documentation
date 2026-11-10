@@ -27,7 +27,7 @@ This article introduces the ways in which you can contact us.
 
 **Area: community | content-type: about | experience: beginner, intermediate, expert**
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :local:
 
 Summary
