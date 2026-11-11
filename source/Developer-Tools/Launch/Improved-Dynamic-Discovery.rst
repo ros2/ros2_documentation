@@ -288,3 +288,10 @@ For example, the following commands will limit the ROS 2 communication only with
 
         $ setx ROS_AUTOMATIC_DISCOVERY_RANGE LOCALHOST
         $ setx ROS_STATIC_PEERS 192.168.0.1;remote.com
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

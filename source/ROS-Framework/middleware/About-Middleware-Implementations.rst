@@ -1,7 +1,7 @@
 .. meta::
    :contentType: about
    :experience: expert
-   :area: client-libraries, framework
+   :area: middleware, framework
    :distribution: {DISTRO}
    :product: {PRODUCT}
 
@@ -9,6 +9,7 @@
 
    Concepts/About-Middleware-Implementations
    Concepts/Advanced/About-Middleware-Implementations
+   ROS-Framework/client-libraries/About-Middleware-Implementations
 
 ROS 2 middleware implementations
 ================================
@@ -30,7 +31,7 @@ ROS middleware implementations are sets of |packages| that provide the underlyin
 These packages interact with core ROS 2 interfaces such as the ``rmw``, ``rcl``, and ``rosidl`` |APIs| to integrate with external protocols like Zenoh, DDS, or others.
 For example, ``rmw_fastrtps_cpp`` adapts eProsima's Fast DDS implementation to ROS 2's middleware |API|, while ``rmw_zenoh_cpp`` provides similar integration for the Zenoh protocol.
 
-For a more practical in-depth overview of how ROS 2 integrates with different middleware implementations, see :doc:`the middleware implementation tutorial <Working-with-Client-Libraries/Creating-An-RMW-Implementation>`.
+For a more practical in-depth overview of how ROS 2 integrates with different middleware implementations, see :doc:`the middleware implementation tutorial <Creating-An-RMW-Implementation>`.
 
 Common Packages for DDS Middleware Implementations
 --------------------------------------------------
@@ -123,3 +124,9 @@ When a server is created, a liveliness token of type ``SS`` is declared.
 
 The RMW implementation for ``Zenoh`` is on |GitHub|_ at `ros2/rmw_zenoh <https://github.com/ros2/rmw_zenoh/tree/rolling>`_.
 
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

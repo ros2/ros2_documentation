@@ -12,15 +12,15 @@
 RViz
 ====
 
+.. short-description::
+   RViz is a 3D visualizer for the Robot Operating System (ROS) framework.
+   These articles show you how to use RViz, display markers, and extend RViz with custom displays and panels.
+
 .. showmeta::
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-RViz is a 3D visualizer for the Robot Operating System (ROS) framework.
-
-.. contents:: Contents
-   :depth: 0
-   :local:
+In this section:
 
 .. toctree::
    :maxdepth: 1

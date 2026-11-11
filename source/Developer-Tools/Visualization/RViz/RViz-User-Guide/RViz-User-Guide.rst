@@ -406,3 +406,10 @@ The time panel also lets you reset the visualizer's internal time state, which r
 
 If you are not running in simulation, the time panel is mostly useless.
 In most cases it can be closed and you will probably not even notice (other than having a bit more screen real estate for the rest of rviz).
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

@@ -370,9 +370,13 @@ avoiding undesired cross communication.
 Related content
 ---------------
 
+Related articles:
+
 * :doc:`Why automatic tests? <../About-testing>`
 * :doc:`C++ unit testing with GTest <Cpp>`
   and :doc:`Python unit testing with Pytest <Python>`
 * `launch_pytest documentation <https://docs.ros.org/en/{DISTRO}/p/launch_pytest/index.html>`_,
   an alternative launch integration testing package to ``launch_testing``
 * `WaitForTopics documentation <https://docs.ros.org/en/{DISTRO}/p/launch_testing_ros/launch_testing_ros.wait_for_topics.html>`_ for more advanced usage patterns
+
+.. ros-related-articles::

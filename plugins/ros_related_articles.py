@@ -48,6 +48,9 @@ from typing import List, Set, TypedDict
 from docutils import nodes
 from docutils.parsers.rst import directives
 from sphinx.util.docutils import SphinxDirective
+from sphinx.util import logging
+
+logger = logging.getLogger(__name__)
 
 # Article order by content type.
 CONTENT_TYPE_ORDER = (
@@ -229,6 +232,19 @@ def _append_article_items(
         para += link
         entry += para
         bullet_list += entry
+
+
+def _warn_empty(node: nodes.Node, area: str) -> None:
+    """Warn that the directive produced no links, so the page shows an empty section."""
+    logger.warning(
+        'ros-related-articles: no other page has the area %r, so this page would '
+        'show an empty related articles section. Remove the directive and its '
+        'intro, or add the area to related pages.',
+        area,
+        location=node,
+        type='ros-related-articles',
+        subtype='empty',
+    )
 
 
 def _absorb_bullet_list(
@@ -450,6 +466,7 @@ class RosRelatedArticlesDirective(SphinxDirective):
             )
 
         node = RosRelatedArticlesNode()
+        self.set_source_info(node)
         node['area'] = page['area']
         node['experience'] = page['experience']
         node['content_type'] = page['content_type']
@@ -524,6 +541,8 @@ def resolve_related_articles(app, doctree, fromdocname) -> None:
                 _absorb_bullet_list(prev_list, next_list)
                 next_list.replace_self([])
             if not pieces:
+                if prev_list is None and next_list is None:
+                    _warn_empty(node, ', '.join(area_tokens))
                 node.replace_self([])
                 continue
             # Keep any manual list; append generated sections after the directive.
@@ -548,6 +567,8 @@ def resolve_related_articles(app, doctree, fromdocname) -> None:
             if prev_list is not None and next_list is not None:
                 _absorb_bullet_list(prev_list, next_list)
                 next_list.replace_self([])
+            if prev_list is None and next_list is None:
+                _warn_empty(node, primary_area)
             node.replace_self([])
             continue
 

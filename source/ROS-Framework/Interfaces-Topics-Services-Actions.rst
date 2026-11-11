@@ -146,10 +146,14 @@ The following table summarizes the differences between ROS interface types:
 Related content
 ---------------
 
+Related articles:
+
 * :doc:`interfaces/Working-with-interfaces/Interface-specifications`
 * :doc:`interfaces/About-Topics`
 * :doc:`interfaces/About-Services`
 * :doc:`interfaces/About-Actions`
+
+.. ros-related-articles::
 
 FAQs
 ----

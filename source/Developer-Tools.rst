@@ -8,15 +8,18 @@
 Tools
 =====
 
+.. short-description::
+   ROS provides tools that support each stage of robot software development.
+   These articles cover the tools for introspection and analysis, launch, debugging, builds, visualization, and package documentation.
+
 .. showmeta::
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-
-Coming Soon
+In this section:
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 1
 
    Developer-Tools/About-introspection-and-analysis
    Developer-Tools/About-Launch

@@ -120,5 +120,9 @@ Your changes may also be backported to older distributions of ROS.
 Related content
 ---------------
 
+Related articles:
+
 * :ref:`ROS development general principles <general-principles>`
 * :doc:`Reviewing-a-PR`
+
+.. ros-related-articles::

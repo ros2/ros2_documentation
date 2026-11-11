@@ -37,3 +37,10 @@ This set of tutorials will teach you how to configure the Webots simulator with 
    Setting-Up-Simulation-Webots-Advanced
    Simulation-Reset-Handler
    Simulation-Supervisor
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

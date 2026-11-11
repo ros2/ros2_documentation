@@ -264,7 +264,7 @@ For non-DDS RMW implementations such as ``rmw_zenoh_cpp``, the ``Endpoint count`
       Liveliness: AUTOMATIC
       Liveliness lease duration: Infinite
 
-To learn more about different RMW implementations, see :doc:`About Different Middleware Vendors <../../../../client-libraries/About-Different-Middleware-Vendors>`.
+To learn more about different RMW implementations, see :doc:`About Different Middleware Vendors <../../../../middleware/About-Different-Middleware-Vendors>`.
 
 5 Find services of a specific type
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -477,11 +477,13 @@ The terminal shows events for each request and response as they pass between the
 Related content
 ---------------
 
-More articles:
+Related articles:
 
 * :doc:`Learning about topics <../../../topics/Understanding-ROS2-Topics/Understanding-ROS2-Topics>`
 * :doc:`Learning about nodes <../../../../nodes/Working-with-nodes/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes>`
 * :doc:`Interfaces (topics, services, actions) <../../../../Interfaces-Topics-Services-Actions>`
+
+.. ros-related-articles::
 
 External resources:
 

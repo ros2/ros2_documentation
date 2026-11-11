@@ -192,3 +192,10 @@ It has slow, medium and fast flow controllers (seen in the Connext QoS profile l
 The medium flow controller produced the best results for our case.
 However, the controllers will still need to be tuned for the particular machine/network/environment they are operating in.
 The Connext flow controllers can be used to tune bandwidth and its aggressiveness for sending out data, though once the bandwidth of a particular setup is passed, performance will start to drop.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

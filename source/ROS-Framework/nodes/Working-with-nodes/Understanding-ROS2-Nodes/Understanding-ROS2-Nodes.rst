@@ -31,23 +31,20 @@ Learning about nodes - tutorial
 Summary
 -------
 
-Each node in ROS serves a single, modular purpose in a robotics system.
-For more information, see :doc:`About nodes <../../../About-Nodes>`.
-
-Nodes communicate with other nodes through :doc:`topics, services, actions, and parameters <../../../Interfaces-Topics-Services-Actions>`.
-A single executable can contain one or more nodes.
-For more information, see :doc:`How ROS works <../../../How-ROS-Works>`.
-
-The commands used in this tutorial were:
+The commands used in this tutorial are:
 
 * To run turtlesim, use the command ``ros2 run turtlesim turtlesim_node``.
 * To display the names of all running nodes, use the command ``ros2 node list``.
+* To start a teleoperation node, use the command ``ros2 run turtlesim turtle_teleop_key``.
 * To reassign the name of the ``/turtlesim`` node using remapping, use the command ``ros2 run turtlesim turtlesim_node --ros-args --remap __node:=my_turtle``.
+* To display the publishers, subscribers, services, and actions of a node, use the command ``ros2 node info <node_name>``.
 
 Prerequisites
 -------------
 
-:doc:`Using turtlesim, ros2, and rqt <../../../../Get-Started/Introducing-Turtlesim/Introducing-Turtlesim>` shows you how to install the ``turtlesim`` package used here.
+* :doc:`How ROS works <../../../How-ROS-Works>` explains how ROS works at a high level.
+* :doc:`About nodes <../../../About-Nodes>` explains what nodes are in ROS.
+* :doc:`Using turtlesim, ros2, and rqt <../../../../Get-Started/Introducing-Turtlesim/Introducing-Turtlesim>` shows you how to install the ``turtlesim`` package used here.
 
 .. note::
     Make sure to source ROS in every new terminal you open.
@@ -209,11 +206,13 @@ To learn how to start multiple nodes at once without opening a separate terminal
 Related content
 ---------------
 
-More articles:
+Related articles:
 
 * :doc:`Learning about topics <../../../interfaces/topics/Understanding-ROS2-Topics/Understanding-ROS2-Topics>`
 * :doc:`Interfaces (topics, services, actions) <../../../Interfaces-Topics-Services-Actions>`
 * :doc:`About nodes <../../../About-Nodes>`
+
+.. ros-related-articles::
 
 FAQs
 ----

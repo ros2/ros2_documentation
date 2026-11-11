@@ -299,3 +299,10 @@ You can use a macro and some simple math to reduce the amount of code you have t
   In the case that you change the size of your robot, changing a property with some math to calculate the joint offset will save a lot of trouble.
 * Common Trick 3: Using a reflect parameter, and setting it to 1 or -1.
   See how we use the reflect parameter to put the legs on either side of the body in the base_to_${prefix}_leg origin.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

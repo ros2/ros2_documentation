@@ -15,11 +15,7 @@ Working with nodes
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. contents:: Contents
-   :depth: 2
-   :local:
-
-Coming Soon
+In this section:
 
 .. toctree::
    :maxdepth: 1
@@ -36,3 +32,10 @@ Coming Soon
    Working-with-nodes/intra-process/Intra-Process-Communication
    Working-with-nodes/Using-callback-groups
    Working-with-nodes/Writing-An-Async-Node-With-Asyncio-Python
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

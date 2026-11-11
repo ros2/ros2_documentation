@@ -865,3 +865,10 @@ Generate html for easy visualization and annotation of covered lines.
 
     $ mkdir -p coverage
     $ genhtml ~/ros2_coverage.info --output-directory coverage
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

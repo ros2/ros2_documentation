@@ -51,3 +51,10 @@ ROS 2 Launch files allow you to start up and configure a number of executables c
 
    Structure launch files for large projects so they may be reused as much as possible in different situations.
    See usage examples of different launch tools like parameters, YAML files, remappings, namespaces, default arguments, and RViz configs.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

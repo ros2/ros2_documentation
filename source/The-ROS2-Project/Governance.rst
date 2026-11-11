@@ -491,3 +491,10 @@ If you have an individual event or series of events that you'd like to post, ple
       </div>
     </div>
     <br>
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

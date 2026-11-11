@@ -102,6 +102,10 @@ To learn how to register these callbacks, see :doc:`parameters/Working-with-para
 Related content
 ---------------
 
+Related articles:
+
+.. ros-related-articles::
+
 * :doc:`parameters/Working-with-parameters`
 * :doc:`parameters/Working-with-parameters/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters`
 * :doc:`../Developer-Tools/Launch/Launch-Main`

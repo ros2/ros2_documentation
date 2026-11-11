@@ -199,3 +199,10 @@ To remove the repository configuration run
 .. code-block:: console
 
    $ sudo dnf remove ros2-release
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

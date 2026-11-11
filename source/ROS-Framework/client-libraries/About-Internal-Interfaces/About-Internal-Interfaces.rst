@@ -164,7 +164,7 @@ The ``rmw`` |package| contains the C headers which define the interface, the imp
 
 For a definition of the ``rmw`` |API|, see `the rmw docs <http://docs.ros.org/en/{DISTRO}/p/rmw/>`_.
 
-For a more practical in-depth overview of how ROS 2 integrates with different middleware implementations, see :doc:`the middleware implementation tutorial <../Working-with-Client-Libraries/Creating-An-RMW-Implementation>`.
+For a more practical in-depth overview of how ROS 2 integrates with different middleware implementations, see :doc:`the middleware implementation tutorial <../../middleware/Creating-An-RMW-Implementation>`.
 
 The ``rosidl`` repository
 -------------------------
@@ -254,3 +254,10 @@ These are mainly used for error handling, commandline argument parsing, and logg
 The ``rcutils`` |API| and implementation are located in the `ros2/rcutils <https://github.com/ros2/rcutils>`_ repository on |GitHub|_ which contains the interface as C headers.
 
 For a complete definition of the ``rcutils`` |API|, see `the rcutils docs <https://docs.ros.org/en/{DISTRO}/p/rcutils/>`_.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

@@ -281,11 +281,13 @@ The Turtlesim window should appear as usual, but with the purple background you 
 Related content
 ---------------
 
-More articles:
+Related articles:
 
 * :doc:`Learning about nodes <../../../nodes/Working-with-nodes/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes>`
 * :doc:`Learning about services <../../../interfaces/services/Working-with-services/Understanding-ROS2-Services/Understanding-ROS2-Services>`
 * :doc:`About parameters <../../../About-Parameters>`
+
+.. ros-related-articles::
 
 FAQs
 ----

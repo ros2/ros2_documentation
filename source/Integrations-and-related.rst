@@ -8,19 +8,18 @@
 Integrations
 ============
 
+.. short-description::
+   ROS works with many simulators, cloud platforms, and related projects.
+   These articles show you how to use ROS with simulators such as Gazebo and Webots, deploy ROS in the cloud, and find related projects.
+
 .. showmeta::
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. contents:: Contents
-   :depth: 2
-   :local:
-
-Coming Soon
+In this section:
 
 .. toctree::
-   :hidden:
-   :glob:
+   :maxdepth: 1
 
    Integrations-and-related/Simulators/Simulation-Main
    Integrations-and-related/Deploying-ROS-2-on-IBM-Cloud

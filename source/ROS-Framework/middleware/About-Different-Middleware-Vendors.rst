@@ -1,7 +1,7 @@
 .. meta::
    :contentType: about
    :experience: intermediate
-   :area: client-libraries, framework
+   :area: middleware, framework
    :distribution: {DISTRO}
    :product: {PRODUCT}
 
@@ -10,6 +10,7 @@
     DDS-and-ROS-middleware-implementations
     Concepts/About-Different-Middleware-Vendors
     Concepts/Intermediate/About-Different-Middleware-Vendors
+    ROS-Framework/client-libraries/About-Different-Middleware-Vendors
 
 Different ROS 2 middleware vendors
 ==================================
@@ -129,3 +130,10 @@ Cross-Vendor Communication among DDS middleware
 For many cases you will find that nodes using different DDS middleware implementations are able to communicate, however this is not true under all circumstances.
 While the different DDS implementations may be compatible in limited circumstances, this is not guaranteed.
 Thus it is suggested that users ensure that all parts of a distributed system are using the same ROS version and the same RMW implementation.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

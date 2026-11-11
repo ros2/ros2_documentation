@@ -8,6 +8,11 @@
 Motion planning and manipulation
 ================================
 
+.. short-description::
+   Motion planning enables you to control a robot's movements to achieve an intended goal.
+   Manipulation capabilities enable robots to analyze their environment and perform tasks like picking and placing objects.
+   This article summarizes ROS developer tools and guidance available to help with motion planning and manipulation.
+
 .. showmeta::
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
@@ -17,12 +22,6 @@ Motion planning and manipulation
    :hidden:
 
    Motion-planning/Real-Time-Programming
-
-Motion planning enables you to control a robot's movements to achieve an intended goal.
-Manipulation capabilities enable robots to analyze their environment and perform tasks like picking and placing objects.
-This article summarizes ROS developer tools and guidance available to help with motion planning and manipulation.
-
-**Area: motion-planning, manipulation, capabilities | Content-type: about | Experience: beginner, intermediate, expert**
 
 .. contents:: Contents
    :local:
@@ -54,13 +53,15 @@ Community-contributed packages
 
 * `RoboPlan <https://github.com/open-planning/roboplan>`_: A C++ library with Python bindings providing a planning framework for robotics and automated systems.
 
-.. Related content (placeholder)
-   ------------------------------
-   * Example
+Related content
+---------------
 
-   * Example
+Related articles:
 
-   FAQs (placeholder)
+.. ros-related-articles::
+
+
+..   FAQs (placeholder)
    ------------------
    * Example
 

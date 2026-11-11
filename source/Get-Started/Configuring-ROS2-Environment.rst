@@ -321,13 +321,15 @@ If you set optional ``ROS_DOMAIN_ID`` or ``ROS_AUTOMATIC_DISCOVERY_RANGE`` value
 Related content
 ---------------
 
-More articles:
+Related articles:
 
 * :doc:`Installing on Ubuntu (deb packages) <Installation/Ubuntu-Install-Debs>`
 * :doc:`Installing on Windows <Installation/Windows-Install-Binary>`
 * :doc:`Installing on RHEL (RPM packages) <Installation/RHEL-Install-RPMs>`
 * :doc:`Creating a workspace <../ROS-Framework/client-libraries/Working-with-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace>`
 * :doc:`Introducing turtlesim <Introducing-Turtlesim/Introducing-Turtlesim>`
+
+.. ros-related-articles::
 
 FAQs
 ----

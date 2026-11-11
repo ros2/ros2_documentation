@@ -299,3 +299,10 @@ Uninstall
    .. code-block:: console
 
       $ rmdir /s /q C:\dev\{DISTRO}
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

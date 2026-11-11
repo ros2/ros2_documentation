@@ -335,3 +335,10 @@ Summary
 
 Congratulations!
 You have created a ``JointState`` publisher node and coupled it with ``robot_state_publisher`` to simulate a walking robot.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

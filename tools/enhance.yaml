@@ -26,6 +26,7 @@ meta:
       - interfaces
       - parameters
       - client-libraries
+      - middleware
       - tools
       - introspection
       - analysis

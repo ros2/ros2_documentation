@@ -112,3 +112,10 @@ Run the ``talker`` and ``listener`` nodes to verify your installation:
 If the nodes communicate successfully, your installation is working correctly.
 
 .. note:: Remember to source your ROS 2 setup script before running these commands.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

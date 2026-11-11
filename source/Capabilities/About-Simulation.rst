@@ -8,6 +8,10 @@
 Simulation
 ==========
 
+.. short-description::
+   Simulation capabilities allow you to test your robot's software in physically accurate simulated environments.
+   This article summarizes ROS developer tools and guidance available to enable simulation.
+
 .. showmeta::
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
@@ -18,11 +22,6 @@ Simulation
 
    Simulation/URDF/URDF-Main
    Simulation/dummy-robot/dummy-robot-demo
-
-Simulation capabilities allow you to test your robot's software in virtual environments, often with physical accuracy.
-This article summarizes ROS developer tools and guidance available to enable simulation.
-
-**Area: simulation, capabilities | Content-type: about | Experience: beginner, intermediate, expert**
 
 .. contents:: Contents
    :local:
@@ -46,13 +45,15 @@ Community-contributed packages
 
 * `O3DE <https://github.com/o3de/o3de>`_: An open-source, cross-platform 3D game engine for creating immersive experiences.
 
-.. Related content (placeholder)
-   -----------------------------
-   * Example
+Related content
+---------------
 
-   * Example
+Related articles:
 
-   FAQs (placeholder)
+.. ros-related-articles::
+
+
+..   FAQs (placeholder)
    ------------------
    * Example
 

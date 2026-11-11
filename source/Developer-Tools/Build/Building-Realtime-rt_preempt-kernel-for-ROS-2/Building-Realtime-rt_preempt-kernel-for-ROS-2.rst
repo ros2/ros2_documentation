@@ -182,3 +182,10 @@ And check the new kernel version:
 
    $ uname -a
    Linux ros2host 5.4.78-rt44 #1 SMP PREEMPT_RT Fri Nov 6 10:37:59 CET 2020 x86_64 xx
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
