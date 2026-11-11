@@ -39,14 +39,6 @@ Community-contributed packages
 
 Coming soon
 
-Related content
----------------
-
-Related articles:
-
-.. ros-related-articles::
-
-
 ..   FAQs (placeholder)
    ------------------
 
