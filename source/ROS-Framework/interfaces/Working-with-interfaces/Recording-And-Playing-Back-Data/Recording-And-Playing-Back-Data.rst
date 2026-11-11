@@ -408,6 +408,7 @@ Record, inspect, and play back services
 ---------------------------------------
 
 This section walks you through recording service request and response data, inspecting the bag, and playing those interactions back.
+
 .. note::
 
    Recording and playing back services requires a ROS distribution of Jazzy or later.
