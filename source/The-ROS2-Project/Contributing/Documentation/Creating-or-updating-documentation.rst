@@ -364,10 +364,7 @@ See :doc:`../../../Developer-Tools/Build/Setup-ROS-2-with-VSCode-and-Docker-Cont
 Making a PR
 ^^^^^^^^^^^
 
-<<<<<<< HEAD
 When you've finished your documentation changes, submit them by :doc:`making a pull request <../Making-a-PR>`.
-=======
-When you've finished your documentation changes, submit them by :ref:`making a pull request <DeveloperGuidePullRequests>`.
 
 Related content
 ---------------
@@ -375,4 +372,3 @@ Related content
 Related articles:
 
 .. ros-related-articles::
->>>>>>> 5ff6b51 (3di | Add Related articles directive to the docs set (#7390))
