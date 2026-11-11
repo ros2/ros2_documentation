@@ -4,6 +4,7 @@
 
 .. meta::
    :contentType: how-to
+   :experience: beginner, intermediate
    :experience: intermediate
    :area: visualization, tools
    :distribution: {DISTRO}

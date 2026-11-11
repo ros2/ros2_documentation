@@ -1,5 +1,6 @@
 .. meta::
    :contentType: about
+   :contentType: about
    :experience: intermediate
    :area: builds, tools
    :distribution: {DISTRO}
@@ -42,9 +43,9 @@ Builds
    Build/Building-Realtime-rt_preempt-kernel-for-ROS-2/Building-Realtime-rt_preempt-kernel-for-ROS-2
    Build/Building-ROS2-Package-with-eclipse-2021-06/Building-ROS2-Package-with-eclipse-2021-06
 
-.. contents:: Contents
-   :depth: 2
+.. contents:: Table of Contents
    :local:
+   :depth: 2
 
 Summary
 -------
@@ -59,17 +60,36 @@ Core ROS packages
 
 * `CMake <https://cmake.org/>`_: A supported tool for building complex C++ projects.
 
-* :doc:`ament_cmake <Build/Ament-CMake-Documentation>`: A CMake library to facilitate inter-package dependencies in ROS.
+* :doc:`ament_cmake <Build/Ament-CMake-Documentation>`: A CMake library to facilitate inter package dependencies in ROS.
 
 Community-contributed packages
 ------------------------------
 
 * `Cargo <https://github.com/rust-lang/cargo>`_: A build and package management tool for Rust-based robotics software.
 
-ROS build farm
---------------
+* `Rust <https://github.com/rust-lang>`_: Programming language used to develop high-performance, reliable robotics software and tools.
+
+
+ROS build farm location
+-----------------------
 
 The ROS build farm is critical infrastructure maintained by Open Robotics.
-It builds source and binary packages, and runs continuous integration, testing, and analysis for ROS packages: `build.ros2.org <https://build.ros2.org/>`_.
+It supports the building of source and binary packages, as well as continuous integration, testing, and analysis for ROS packages:
+
+`<https://build.ros2.org/>`_
 
 Read more about ROS build farms: :doc:`../The-ROS2-Project/Contributing/Contributing-to-code/Build-Farms`
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
+
+.. FAQs (placeholder)
+   ------------------
+
+   * Example
+
+   * Example

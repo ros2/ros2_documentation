@@ -1,5 +1,6 @@
 .. meta::
    :contentType: about
+   :contentType: about
    :experience: intermediate
    :area: visualization, tools
    :distribution: {DISTRO}
@@ -23,9 +24,9 @@ Visualization
    Visualization/About-RQt
    Visualization/Rqtbag/Create-An-Rqtbag-Plugin
 
-.. contents:: Contents
-   :depth: 2
+.. contents:: Table of Contents
    :local:
+   :depth: 2
 
 Summary
 -------
@@ -37,14 +38,30 @@ Core ROS packages
 -----------------
 
 * :doc:`RViz <Visualization/RViz/RViz-User-Guide/RViz-User-Guide>`: Provides a 3D visualization of the robot's perspective, including sensor data and intentions.
-  See `rviz <https://github.com/ros2/rviz>`__ and `rviz default plugins <https://github.com/ros2/rviz/tree/{REPOS_FILE_BRANCH}/rviz_default_plugins>`__.
 
-* :doc:`rqt <Visualization/About-RQt>`: Plugin-based framework for the ROS integrated graphical user interface.
-  See `rqt_gui and dependent packages <https://index.ros.org/p/rqt_gui/#{DISTRO}-deps>`__.
+  See `rviz <https://github.com/ros2/rviz>`_ and `rviz default plugins <https://github.com/ros2/rviz/tree/{REPOS_FILE_BRANCH}/rviz_default_plugins>`_.
+
+*  `rviz <https://github.com/ros2/rviz>`_ and `rviz default plugins <https://github.com/ros2/rviz/tree/{REPOS_FILE_BRANCH}/rviz_default_plugins>`_: 3D robot visualization tool for the ROS framework
+
+* `rqt <Visualization/About-RQt>`_ and `rqt_gui and dependent packages <https://index.ros.org/p/rqt_gui/#{DISTRO}-deps>`_: Plugin-based framework for the ROS integrated graphical user interface.
 
 Community-contributed packages
 ------------------------------
 
-* `Foxglove <https://foxglove.dev/>`__: A collection of tools for visualizing and debugging robot data throughout the development lifecycle.
+* `Foxglove <https://foxglove.dev/>`_: A collection of tools visualizing and debugging robot data throughout the development lifecycle.
 
-* `Rerun <https://github.com/rerun-io/rerun>`__: Tool to visualize, query, and debug data from robotics, computer vision, and physical AI systems.
+* `Rerun <https://github.com/rerun-io/rerun>`_: Tool to visualize, query, and debug data from robotics, computer vision, and physical AI systems.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
+
+.. FAQs (placeholder)
+   ------------------
+
+   * Example
+
+   * Example
