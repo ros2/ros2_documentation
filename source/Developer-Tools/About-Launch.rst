@@ -56,3 +56,10 @@ This launch file can then be run using the ``ros2 launch`` command, and all of t
 To get started writing and using launch files, see `the launch tutorials <Launch/Launch-Main>`.
 
 For more detailed information, see `the launch documentation <https://docs.ros.org/en/{DISTRO}/p/launch>`__.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

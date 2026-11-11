@@ -249,3 +249,10 @@ Documentation
 
 Additional documentation/examples of launch capabilities are forthcoming.
 See the source code (https://github.com/ros2/launch and https://github.com/ros2/launch_ros) in the meantime.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

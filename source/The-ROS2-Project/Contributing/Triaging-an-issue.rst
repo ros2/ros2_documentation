@@ -78,8 +78,12 @@ After you've confirmed the issue is a genuine issue, and reproduced it, assign a
 Related content
 ---------------
 
+Related articles:
+
 * :doc:`../Contributing`
 * :doc:`Reporting-an-issue`
+
+.. ros-related-articles::
 
 FAQs
 ----

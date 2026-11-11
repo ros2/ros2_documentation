@@ -618,9 +618,13 @@ Use the examples in the following table for guidance about the type of article y
 Related content
 ---------------
 
+Related articles:
+
 * :doc:`Contributing to documentation <../Contributing-to-documentation>`
 
 * :doc:`Creating or updating documentation <Creating-or-updating-documentation>`
+
+.. ros-related-articles::
 
 FAQs
 ----

@@ -188,3 +188,10 @@ Other nodes will be able to retrieve the parameter values, e.g.:
   wildcard_full
   wildcard_namespace
   wildcard_nodename_root_namespace
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

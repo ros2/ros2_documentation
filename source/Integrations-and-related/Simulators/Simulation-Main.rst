@@ -40,3 +40,10 @@ This set of tutorials will teach you how to configure different simulators with 
    Webots/Simulation-Webots
    Gazebo/Simulation-Gazebo
    MVSim/Simulation-MVSim
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

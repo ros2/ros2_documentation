@@ -110,4 +110,8 @@ If not, it will print a message indicating that not all subscribers acknowledged
 Related content
 ---------------
 
-- `Wait-for-Acknowledgment example with rclpy <https://github.com/ros2/examples/blob/{REPOS_FILE_BRANCH}/rclpy/topics/minimal_publisher/examples_rclpy_minimal_publisher/publisher_member_function_with_wait_for_all_acked.py>`__.
+Related articles:
+
+* `Wait-for-Acknowledgment example with rclpy <https://github.com/ros2/examples/blob/{REPOS_FILE_BRANCH}/rclpy/topics/minimal_publisher/examples_rclpy_minimal_publisher/publisher_member_function_with_wait_for_all_acked.py>`__
+
+.. ros-related-articles::

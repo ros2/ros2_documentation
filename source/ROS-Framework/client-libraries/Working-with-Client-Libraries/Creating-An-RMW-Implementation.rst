@@ -512,3 +512,10 @@ Footnotes
 
 .. [#fn_ts_dynamic]
     For example, the C++ message introspection code generated for {interface(std_msgs/msg/Header)} is at ``std_msgs/rosidl_typesupport_introspection_cpp/std_msgs/msg/detail/header__type_support.cpp`` under the ``build/`` directory.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

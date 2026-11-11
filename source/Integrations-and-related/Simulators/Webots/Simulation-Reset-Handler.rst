@@ -211,3 +211,10 @@ Summary
 In this tutorial, you learned how to implement a reset handler in a robot simulation using Webots.
 The reset handler allows you to restart specific nodes or perform additional actions when the reset button in Webots is pressed.
 You explored different approaches based on the complexity of your simulation and the requirements of your nodes.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

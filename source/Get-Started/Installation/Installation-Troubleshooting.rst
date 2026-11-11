@@ -380,3 +380,10 @@ One possible solution to this is to force RViz to use software rendering:
    $ export LIBGL_ALWAYS_SOFTWARE=true
    $ rviz2
    [INFO] [1695823660.091830699] [rviz2]: Stereo is NOT SUPPORTED
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

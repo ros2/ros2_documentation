@@ -122,6 +122,8 @@ Related articles
 * :doc:`About-Parameters`
 * :doc:`Interfaces-Topics-Services-Actions`
 
+.. ros-related-articles::
+
 Related packages
 ^^^^^^^^^^^^^^^^
 
