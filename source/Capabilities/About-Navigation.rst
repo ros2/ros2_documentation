@@ -9,7 +9,7 @@ Navigation
 ==========
 
 .. short-description::
-   Navigation capabilities enable a robot to map its position in an environment and plan the path to a new destination.
+   Navigation capabilities enable a mobile robot to map its position in an environment and plan the path to a new destination.
    This article summarizes ROS developer tools and guidance available to help with navigation.
 
 .. showmeta::

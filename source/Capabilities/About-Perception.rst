@@ -9,7 +9,7 @@ Perception
 ==========
 
 .. short-description::
-   Perception capabilities help your robot to understand and interpret the world.
+   Perception capabilities help your robot to understand and interpret the world using sensors like cameras, LIDAR, depth sensors, and RADAR.
    This article summarizes ROS developer tools and guidance available to help with perception.
 
 .. showmeta::

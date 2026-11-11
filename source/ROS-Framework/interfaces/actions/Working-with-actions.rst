@@ -9,7 +9,7 @@ Working with actions
 ====================
 
 .. short-description::
-   Actions let a node run long-running tasks that provide feedback and can be cancelled.
+   Actions let a node perform asynchronous long-running tasks that provide feedback and can be cancelled.
    These articles show you how to use actions from the command line, introspect them, and write your own action servers and clients in C++ and Python.
 
 .. showmeta::
