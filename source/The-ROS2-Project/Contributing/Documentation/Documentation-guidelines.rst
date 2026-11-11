@@ -18,7 +18,7 @@ Documentation guidelines
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -361,7 +361,7 @@ In the ``.. meta::`` directive, the following fields and corresponding values ar
 ``:contentType:``
    The type of content in the article.
    The value for this field helps structure search results and allows readers to filter content to find the information they need.
-   For more information on content types, see :ref:`Content types <ContentTypes>`.
+   For a definition of each content type, and help choosing between similar types such as a how-to and a tutorial, see :ref:`Content types <ContentTypes>`.
 
    Add one of the following values:
 
@@ -523,7 +523,7 @@ This is particularly important for large articles with many nested sections, for
 
 .. code-block:: rst
 
-   .. contents:: Table of Contents
+   .. contents:: Contents
       :depth: 2
       :local:
 
@@ -608,6 +608,12 @@ Use the examples in the following table for guidance about the type of article y
 
        The main reference docs will be API docs for packages.
      - This article
+   * - Release note
+     - Summary of what changed in a ROS distribution release, such as new features, changes in behavior, and known issues.
+     - Use for describing a single distribution release or development milestone.
+
+       Useful for all levels of experience, particularly for users upgrading between distributions.
+     - :doc:`Kilted Kaiju <../../../Releases/Release-Kilted-Kaiju>`
 
 Related articles
 ----------------
