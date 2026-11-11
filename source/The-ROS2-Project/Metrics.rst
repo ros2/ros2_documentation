@@ -63,3 +63,10 @@ Historical Metrics Reports
 * `2013 <http://download.ros.org/downloads/metrics/metrics-report-2013-08.pdf>`_
 * `2012 <http://download.ros.org/downloads/metrics/metrics-report-2012-07.pdf>`_
 * `2011 <http://download.ros.org/downloads/metrics/metrics-report-2011-08.pdf>`_
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

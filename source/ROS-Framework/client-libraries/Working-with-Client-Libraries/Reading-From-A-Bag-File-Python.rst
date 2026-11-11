@@ -278,3 +278,10 @@ Summary
 You created a Python node that reads data from a bag.
 You tested reading a bag using the node, and publishing the data by playing back the bag.
 This approach can be used to read and publish the data with additional data from the bag file, for example modifying the original data stored in the bag file.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

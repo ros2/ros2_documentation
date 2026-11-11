@@ -87,3 +87,10 @@ For each ROS distro that you want pull request testing for, you must enable the 
    `Documented in REP 143 <http://docs.ros.org/en/independent/api/rep/html/rep-0143.html#distribution-file>`_.
 
 Note that after the pull request has been added, the job will usually not be created until the nightly Jenkins reconfiguration.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

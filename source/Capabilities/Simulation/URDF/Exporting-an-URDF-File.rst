@@ -70,3 +70,10 @@ However, we figured it would be helpful to produce a list of available URDF expo
  * `Jupyterlab URDF Viewer <https://github.com/IsabelParedes/jupyterlab-urdf>`_
 
 If you have an URDF tool you like please consider adding it to the list above!
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

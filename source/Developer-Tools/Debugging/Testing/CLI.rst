@@ -66,3 +66,10 @@ Debugging tests with GDB
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 For detailed guidance on debugging tests using GDB, refer to the :doc:`GDB Tutorial <../Getting-Backtraces-in-ROS-2>`.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

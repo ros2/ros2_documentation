@@ -418,3 +418,10 @@ A few things to remember before you start contributing to the ROS project.
   Think about the bigger picture.
   There are developers building different robots with different constraints.
   ROS needs to accommodate requirements of the whole community.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

@@ -159,3 +159,10 @@ Further reading
 
 - https://docs.ros.org/en/independent/api/rosdep/html/rosdep_yaml_format.html
 - https://docs.ros.org/en/independent/api/rosdep/html/contributing_rules.html
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

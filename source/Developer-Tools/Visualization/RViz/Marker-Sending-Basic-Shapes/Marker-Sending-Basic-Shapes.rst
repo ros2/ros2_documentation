@@ -227,12 +227,14 @@ You can also close the terminals instead.
 Related content
 ---------------
 
-More articles:
+Related articles:
 
 * :doc:`RViz User Guide <../RViz-User-Guide/RViz-User-Guide>`
 * :doc:`Marker: Display types <../Marker-Display-types/Marker-Display-types>`
 * :doc:`Marker: Points and Lines <../Marker-Points-and-Lines/Marker-Points-and-Lines>`
 * :doc:`Learning about topics <../../../../ROS-Framework/interfaces/topics/Understanding-ROS2-Topics/Understanding-ROS2-Topics>`
+
+.. ros-related-articles::
 
 FAQs
 ----

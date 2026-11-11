@@ -326,5 +326,9 @@ You can see the message ``Content filter is not enabled`` because underlying RMW
 Related content
 ---------------
 
-- `content filtering examples <https://github.com/ros2/examples/blob/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_subscriber/content_filtering.cpp>`__ that covers all interfaces for content filtering subscription.
-- `content filtering design PR <https://github.com/ros2/design/pull/282>`__
+Related articles:
+
+* `content filtering examples <https://github.com/ros2/examples/blob/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_subscriber/content_filtering.cpp>`__ that covers all interfaces for content filtering subscription.
+* `content filtering design PR <https://github.com/ros2/design/pull/282>`__
+
+.. ros-related-articles::
