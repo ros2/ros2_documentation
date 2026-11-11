@@ -29,7 +29,7 @@ Using event handlers - tutorial
 
 **Time:** 15 minutes
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -149,3 +149,10 @@ Summary
 
 In this tutorial, you learned about using event handlers in launch files.
 You learned about their syntax and usage examples to define a complex set of rules to dynamically modify launch files.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

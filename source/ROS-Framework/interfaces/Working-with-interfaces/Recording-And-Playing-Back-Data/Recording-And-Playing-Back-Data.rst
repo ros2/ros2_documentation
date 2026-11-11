@@ -847,13 +847,15 @@ If you started ``ros2 action echo`` before playback, the output shows the action
 Related content
 ---------------
 
-More articles:
+Related articles:
 
 * :doc:`Learning about nodes <../../../nodes/Working-with-nodes/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes>`
 * :doc:`Understanding topics <../../topics/Understanding-ROS2-Topics/Understanding-ROS2-Topics>`
 * :doc:`Understanding services <../../services/Working-with-services/Understanding-ROS2-Services/Understanding-ROS2-Services>`
 * :doc:`Understanding actions <../../actions/Working-with-actions/Understanding-ROS2-Actions/Understanding-ROS2-Actions>`
 * :doc:`Overriding QoS policies for recording and playback <../../../../Developer-Tools/Debugging/Testing/Overriding-QoS-Policies-For-Recording-And-Playback>`
+
+.. ros-related-articles::
 
 External resources:
 

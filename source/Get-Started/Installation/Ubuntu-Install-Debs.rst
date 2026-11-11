@@ -195,10 +195,12 @@ We recommend that you get familiar with key ROS concepts and check out the tutor
 Related content
 ---------------
 
-More articles:
+Related articles:
 
 * :doc:`Create a workspace <../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace>`
-* :doc:`About ROS </About-ROS>`
+* :doc:`About ROS <../../About-ROS>`
+
+.. ros-related-articles::
 
 Packages/reference:
 

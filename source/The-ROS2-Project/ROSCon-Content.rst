@@ -21,7 +21,7 @@ ROSCon talks
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -783,3 +783,10 @@ The following `ROSCon <https://roscon.ros.org>`__ talks have been given on ROS 2
          - `slides <https://www.osrfoundation.org/wordpress2/wp-content/uploads/2015/04/ROSCON-2014-Why-you-want-to-use-ROS-2.pdf>`__ / `video <https://vimeo.com/107531013>`__
        * - Next-generation ROS: Building on DDS
          - `slides <https://roscon.ros.org/2014/wp-content/uploads/2014/07/ROSCON-2014-Next-Generation-of-ROS-on-top-of-DDS.pdf>`__ / `video <https://vimeo.com/106992622>`__
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

@@ -21,7 +21,7 @@ Building a package with Eclipse 2021-06 - tutorial
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -142,3 +142,10 @@ Right-click on the project and select "Build Project".
 .. image:: images/eclipse_c++_build_project_with_colcon.png
    :target: ../../../_images/eclipse_c++_build_project_with_colcon.png
    :alt: eclipse_c++_build_project_with_colcon
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

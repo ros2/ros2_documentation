@@ -208,3 +208,10 @@ You will need to reboot the machine after modifying this file to have the change
 
 This solution is edited from the RTI Connext community forum.
 See the `original post <https://community.rti.com/kb/osx510>`__ for a more detailed explanation.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

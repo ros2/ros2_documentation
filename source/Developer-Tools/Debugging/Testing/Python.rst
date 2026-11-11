@@ -110,3 +110,10 @@ To see the pytest output while running the tests, use these flags:
 .. code-block:: console
 
   $ colcon test --event-handlers console_cohesion+
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

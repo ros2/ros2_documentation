@@ -21,7 +21,7 @@ The build system
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -166,3 +166,10 @@ This is a piece of software that knows how to topologically order a group of pac
 This software will call into the Build Tool to do the actual work of compiling, testing, and installing the package.
 
 In ROS 2, the tool named `colcon <https://colcon.readthedocs.io/en/released/>`__ is used for this.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

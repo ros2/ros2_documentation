@@ -21,7 +21,7 @@ Indexing Your Packages - how-to
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -121,3 +121,10 @@ Once the pull request meets the review guidelines it will be merged, and your pa
 
 You've completed an important step toward releasing your package.
 Proceed to the next guide: :doc:`First Time Release <First-Time-Release>`.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

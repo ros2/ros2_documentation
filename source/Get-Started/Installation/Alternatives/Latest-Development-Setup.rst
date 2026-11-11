@@ -50,3 +50,10 @@ Follow the links below for the latest setup instructions for your platform:
 * :doc:`macOS <macOS-Development-Setup>`
 
 For keeping your source code up-to-date, see :doc:`Maintain a source checkout <Maintaining-a-Source-Checkout>`.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

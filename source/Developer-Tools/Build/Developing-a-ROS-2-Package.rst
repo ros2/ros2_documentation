@@ -24,7 +24,7 @@ Developing a ROS package - tutorial
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -169,3 +169,10 @@ Combined C++ and Python Packages
 
 When writing a package with both C++ and Python code, the ``setup.py`` file and ``setup.cfg`` file are not used.
 Instead, use :doc:`ament_cmake_python <Ament-CMake-Python-Documentation>`.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

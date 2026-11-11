@@ -24,7 +24,7 @@ Passing ROS arguments to nodes via the command-line - how-to
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -188,3 +188,10 @@ Other nodes will be able to retrieve the parameter values, e.g.:
   wildcard_full
   wildcard_namespace
   wildcard_nodename_root_namespace
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

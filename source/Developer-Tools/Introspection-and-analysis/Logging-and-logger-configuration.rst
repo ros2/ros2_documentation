@@ -22,7 +22,7 @@ Logging
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -540,3 +540,10 @@ You can change the log file name prefix to one of your choice using the ``--log-
    $ ros2 run demo_nodes_cpp talker --ros-args --log-file-name filename
 
 This configures the log file name prefix to ``filename``, instead of the executable file name (which is ``talker`` in this case).
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

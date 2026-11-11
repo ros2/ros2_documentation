@@ -21,7 +21,7 @@ Setting up ROS with VSCode and Docker [community-contributed] - how-to
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. contents:: Table of Contents
+.. contents:: Contents
     :depth: 2
     :local:
 
@@ -256,3 +256,10 @@ Inside the terminal do the following:
           Please make sure to allow the user to access X window system with ``xhost +local:<USERNAME>``.
           If no window still pops up, then check the value of ``echo $DISPLAY`` - if the output is 1, you can fix this problem with ``echo "export DISPLAY=unix:1" >> /etc/bash.bashrc`` and then test it again.
           You can also change the DISPLAY value in the devcontainer.json and rebuild it.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

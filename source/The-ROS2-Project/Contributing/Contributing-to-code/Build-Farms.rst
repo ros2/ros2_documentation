@@ -22,7 +22,7 @@ ROS build farms
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -180,3 +180,10 @@ The following links provide more details and insights into the build farms:
    #jobs-and-deployment
 .. _`package manifest`:
    http://wiki.ros.org/Manifest
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

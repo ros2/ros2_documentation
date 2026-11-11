@@ -4,7 +4,7 @@
     Tutorials/Beginner-CLI-Tools/Launching-Multiple-Nodes/Launching-Multiple-Nodes
 
 .. meta::
-   :contentType: tutorial
+   :contentType: how-to
    :experience: beginner
    :area: nodes, framework
    :distribution: {DISTRO}
@@ -12,8 +12,8 @@
 
 .. _ROS2Launch:
 
-Launching multiple nodes — tutorial - how-to
-============================================
+Launching multiple nodes - how-to
+=================================
 
 .. short-description::
    As robotic systems become more complex, starting each node in a separate terminal becomes difficult to manage.
@@ -84,9 +84,13 @@ Two Turtlesim windows open, one for each node defined in the launch file:
 Related content
 ---------------
 
+Related articles:
+
 * :doc:`Creating a launch file <../../../../Developer-Tools/Launch/Creating-Launch-Files>`
 * :doc:`ROS launch tutorials <../../../../Developer-Tools/Launch/Launch-Main>`
 * :doc:`Launch file formats <../../../../Developer-Tools/Launch/Launch-file-different-formats>`
+
+.. ros-related-articles::
 
 FAQs
 ----

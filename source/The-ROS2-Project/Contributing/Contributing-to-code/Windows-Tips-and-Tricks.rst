@@ -21,7 +21,7 @@ Working with Windows - how to
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -186,3 +186,10 @@ PowerShell is the newer, object-based shell that Microsoft recommends for most n
 It understands ``ps1`` files for configuration.
 
 ROS 2 supports both ``cmd.exe`` and PowerShell, so any changes (especially to things like ``ament`` or ``colcon``) should be tested on both.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

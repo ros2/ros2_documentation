@@ -22,7 +22,7 @@ Quality of Service settings
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :local:
 
 Overview
@@ -363,3 +363,10 @@ Users can then reconfigure policies such as reliability, history depth, or durab
 Additionally, applications can provide validation callbacks to enforce safety constraints on user-supplied overrides.
 
 To learn how to enable and configure QoS overrides with hands-on examples, see the :doc:`Configuring QoS overrides using parameters tutorial <Working-with-topics/Configuring-QoS-Overrides>`.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

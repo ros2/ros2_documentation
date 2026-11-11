@@ -27,7 +27,7 @@ Creating an ``rmw`` implementation — tutorial
 
 **Time:** 30+ minutes
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :local:
 
 Summary
@@ -209,7 +209,7 @@ For instance, DDS natively supports all of it for pub/sub through DDS sample inf
 Type support
 ^^^^^^^^^^^^
 
-To bridge the gap between ROS 2 :doc:`interfaces <../../interfaces/About-Interfaces>` (specifically :doc:`custom interfaces <Custom-ROS2-Interfaces>`) and the underlying middleware, some glue code is needed.
+To bridge the gap between ROS 2 :doc:`interfaces <../../interfaces/Working-with-interfaces/Interface-specifications>` (specifically :doc:`custom interfaces <Custom-ROS2-Interfaces>`) and the underlying middleware, some glue code is needed.
 This is referred to as :ref:`type support <Type Specific Interfaces>`.
 When publishing a message of type {interface(std_msgs/msg/String)}, ``rmw_publish()`` only gets a ``void *`` to the message, which could point to a C++ instance, or a C instance, and so on.
 The pointer will be interpreted based on the type support information provided when the publisher was created.
@@ -512,3 +512,10 @@ Footnotes
 
 .. [#fn_ts_dynamic]
     For example, the C++ message introspection code generated for {interface(std_msgs/msg/Header)} is at ``std_msgs/rosidl_typesupport_introspection_cpp/std_msgs/msg/detail/header__type_support.cpp`` under the ``build/`` directory.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

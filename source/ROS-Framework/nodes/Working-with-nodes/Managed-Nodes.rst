@@ -58,6 +58,10 @@ For more information about how to run it and what's happening, see: `lifecycle R
 Related content
 ---------------
 
+Related articles:
+
+.. ros-related-articles::
+
 Packages/reference:
 
 * `rclcpp_lifecycle <https://index.ros.org/p/rclcpp_lifecycle/>`_ (implementation library): Package containing a prototype for lifecycle implementation.

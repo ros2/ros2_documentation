@@ -16,7 +16,7 @@ Managing Dependencies with rosdep — tutorial
 .. short-description::
    Managing package dependencies is essential when building or sharing ROS workspaces across different platforms.
    This article explains how ``rosdep`` resolves dependencies from ``package.xml`` files and installs the correct system packages.
-   After you follow these steps, you will be able to initialise ``rosdep`` and install workspace dependencies.
+   After you follow these steps, you will be able to initialize ``rosdep`` and install workspace dependencies.
 
 .. showmeta::
    :order: area, contentType, experience
@@ -28,7 +28,7 @@ Managing Dependencies with rosdep — tutorial
 
 **Time:** 5 minutes
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -52,7 +52,7 @@ Common dependency tags include:
 * ``<exec_depend>`` for run-time files.
 * ``<test_depend>`` for tests.
 
-Initialise ``rosdep`` with ``sudo rosdep init`` and ``rosdep update``.
+Initialize ``rosdep`` with ``sudo rosdep init`` and ``rosdep update``.
 Install workspace dependencies with ``rosdep install --from-paths src -y --ignore-src``.
 
 What is rosdep?
@@ -248,3 +248,10 @@ There are additional arguments and options available.
 Use ``rosdep -h`` to see them, or look at the more complete documentation for rosdep at http://docs.ros.org/en/independent/api/rosdep/html/ .
 
 .. [1] "released into the ROS ecosystem" means the package is listed in one or more of the ``<distro>/distribution.yaml`` directories in the `rosdistro database <https://github.com/ros/rosdistro>`_.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

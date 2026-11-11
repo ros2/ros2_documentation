@@ -17,11 +17,11 @@ Using variants - how-to
    This article explains how official variants are defined and how to create project-specific metapackages.
    After you read it, you can propose community variants or build private variants for your own packages.
 
-  .. showmeta::
+.. showmeta::
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -90,3 +90,10 @@ It is possible to use these tools to create platform-dependent variants.
 This approach does not include support for ROS packaging tools and is platform dependent but requires much less infrastructure to produce if you are creating collections of existing packages rather than a mix of public and private ROS packages.
 For example, on Debian or Ubuntu systems you can use the ``equivs`` utilities.
 The Debian Administrator's handbook has a `Section on meta-packages <https://www.debian.org/doc/manuals/debian-handbook/sect.building-first-package.en.html#id-1.18.5.2>`_.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

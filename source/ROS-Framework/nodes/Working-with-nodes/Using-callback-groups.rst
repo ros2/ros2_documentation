@@ -27,7 +27,7 @@ This page is meant as a guide on how to use callback groups efficiently.
 It is assumed that the reader has a basic understanding
 about the concept of :doc:`executors <../../client-libraries/About-Executors/About-Executors>`.
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :local:
 
 Basics of callback groups
@@ -596,3 +596,10 @@ repeatedly and service calls are completed.
 
       client_cb_group = ReentrantCallbackGroup()
       timer_cb_group = None
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

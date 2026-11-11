@@ -4,7 +4,7 @@
 
 .. meta::
    :contentType: about
-   :experience:
+   :experience: beginner, intermediate, expert
    :area: package-documentation, tools
    :distribution: {DISTRO}
    :product: {PRODUCT}
@@ -21,7 +21,7 @@ Finding package documentation
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -61,3 +61,10 @@ Adding Your Package to docs.ros.org
 
 All released ROS 2 packages are automatically added to docs.ros.org and `ROS Index <https://index.ros.org/>`_.
 If you would like to enable or configure your own package please see: :doc:`../Package-documentation/Documenting-a-ROS-2-Package`.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
