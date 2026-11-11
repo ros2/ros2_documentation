@@ -1,5 +1,5 @@
 .. meta::
-   :contentType:
+   :contentType: about
    :experience: intermediate
    :area: tools
    :distribution: {DISTRO}
@@ -7,6 +7,10 @@
 
 Tools
 =====
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 
 Coming Soon

@@ -18,7 +18,7 @@ Documentation guidelines
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -40,7 +40,7 @@ We recommend that you enable automatic white space highlighting and cleanup if y
 You can refer to `reStructuredText User Documentation <https://docutils.sourceforge.io/rst.html>`_ for a detailed technical specification.
 
 This article relates to contributing to the ROS documentation site.
-For more information about creating or updating package documentation, see :doc:`/Developer-Tools/Package-documentation/Documenting-a-ROS-2-Package`.
+For more information about creating or updating package documentation, see :doc:`../../../Developer-Tools/Package-documentation/Documenting-a-ROS-2-Package`.
 
 Table of contents
 -----------------
@@ -65,7 +65,7 @@ Using ``:depth: 2`` will only show sections and subsections in the table of cont
 
 .. code-block:: rst
 
-   .. contents:: Table of Contents
+   .. contents:: Contents
       :depth: 2
       :local:
 
