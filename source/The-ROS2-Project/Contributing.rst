@@ -374,7 +374,13 @@ If you want to get involved in promoting ROS, why not train or mentor others, or
 
 * Support people with working through the tutorials, starting with :doc:`First steps with ROS <../First-Steps>`.
 
-.. * Be part of our community on social media: <Placeholder: LINK TO LIST OF SOCIALS TO BE PROVIDED>
+* Be part of our community on social media:
+
+   * `ROS.org on Twitter <https://x.com/ROSOrg>`__
+   * `Open Robotics on Twitter <https://x.com/openroboticsorg>`__
+   * `Open Robotics LinkedIn <https://www.linkedin.com/company/open-source-robotics-foundation/>`__
+   * `Open Robotics on BlueSky <https://bsky.app/profile/openrobotics.bsky.social>`__
+   * `Open Robotics on Mastodon <https://hachyderm.io/@openrobotics>`__
 
 Become an OSRA member
 ---------------------
