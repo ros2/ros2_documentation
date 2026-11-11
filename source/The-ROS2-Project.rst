@@ -8,11 +8,15 @@
 Community
 =========
 
+.. short-description::
+   Learn how the ROS 2 project is run and how you can take part.
+   These articles cover contributing, features and roadmap, governance, platform support and release policies, events, marketing, metrics, and adopters.
+
 .. showmeta::
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-Check out the resources below to learn more about the advancement of the ROS 2 project.
+In this section:
 
 .. toctree::
    :maxdepth: 1
