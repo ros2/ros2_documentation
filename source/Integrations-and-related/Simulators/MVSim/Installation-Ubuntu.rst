@@ -138,3 +138,10 @@ Summary
 
 You have installed MVSim and verified it works by launching a demo world.
 In the next tutorial, you will learn how to launch different demo scenarios and interact with them through ROS 2 topics.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

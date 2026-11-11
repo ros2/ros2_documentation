@@ -126,3 +126,10 @@ We can see the results with ``ros2 topic``
 .. code-block:: console
 
     $ ros2 topic echo --qos-reliability best_effort /talker std_msgs/String
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

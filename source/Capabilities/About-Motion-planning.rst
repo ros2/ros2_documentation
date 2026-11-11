@@ -53,13 +53,15 @@ Community-contributed packages
 
 * `RoboPlan <https://github.com/open-planning/roboplan>`_: A C++ library with Python bindings providing a planning framework for robotics and automated systems.
 
-.. Related content (placeholder)
-   ------------------------------
-   * Example
+Related content
+---------------
 
-   * Example
+Related articles:
 
-   FAQs (placeholder)
+.. ros-related-articles::
+
+
+..   FAQs (placeholder)
    ------------------
    * Example
 

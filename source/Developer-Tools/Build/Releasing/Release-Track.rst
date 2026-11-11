@@ -264,3 +264,10 @@ Release Repository Push URL
       [None]:
 
 Can be left as the default in most cases.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

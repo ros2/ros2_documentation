@@ -413,3 +413,10 @@ This will look something like this:
 It's hard to pause both images at the same time so the images may not line up, but the important thing to notice is that the ``image_pipeline_all_in_one`` image view shows the same address for each step.
 This means that the intra-process zero-copy is preserved even when an external view is subscribed as well.
 You can also see that the inter-process image view has different process IDs for the first two lines of text and the process ID of the standalone image viewer in the third line of text.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

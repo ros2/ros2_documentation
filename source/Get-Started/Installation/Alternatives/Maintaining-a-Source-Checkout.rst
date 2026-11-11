@@ -168,3 +168,10 @@ If you wish to know the versions of the set of repositories in your workspace, y
        $ vcs export src > my_ros2.repos
 
 This ``my_ros2.repos`` file can then be shared with others so that they can reproduce the state of the repositories in your workspace.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

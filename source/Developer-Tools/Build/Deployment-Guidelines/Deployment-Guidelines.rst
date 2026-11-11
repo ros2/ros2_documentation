@@ -244,3 +244,10 @@ Note that:
 .. note::
 
   For the sake of simplicity, the same CA is used within this enclave for both identity and permissions.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

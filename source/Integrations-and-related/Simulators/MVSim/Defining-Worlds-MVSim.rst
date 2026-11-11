@@ -361,3 +361,10 @@ Further resources
 - `MVSim documentation <https://mvsimulator.readthedocs.io/>`__
 - `MVSim GitHub repository <https://github.com/MRPT/mvsim>`__
 - `MVSim paper (SoftwareX) <https://doi.org/10.1016/j.softx.2023.101443>`__
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

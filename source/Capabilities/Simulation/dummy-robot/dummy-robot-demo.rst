@@ -104,3 +104,10 @@ It parses the given URDF file, extracts the robot model and listens to the incom
 With this information, it publishes TF values for our robot which we visualize in RViz.
 
 Hooray!
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

@@ -359,4 +359,8 @@ Now you can see the action communication between ``FibonacciActionServer`` and `
 Related content
 ---------------
 
-- `Action Introspection REP-2018 <https://github.com/ros-infrastructure/rep/pull/405>`__.
+Related articles:
+
+* `Action Introspection REP-2018 <https://github.com/ros-infrastructure/rep/pull/405>`__
+
+.. ros-related-articles::

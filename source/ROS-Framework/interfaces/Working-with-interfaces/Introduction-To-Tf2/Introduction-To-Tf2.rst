@@ -187,3 +187,10 @@ Let's look at our turtle frames using ``rviz2`` by starting it with a configurat
 
 In the side bar you will see the frames broadcast by tf2.
 As you drive the turtle around you will see the frames move in rviz.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

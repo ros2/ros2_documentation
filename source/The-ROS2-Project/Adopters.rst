@@ -38,3 +38,10 @@ To add your organization or project, see :doc:`Adopters/Add-Your-Project`.
    Adopters/Add-Your-Project
 
 .. adopters-table::
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

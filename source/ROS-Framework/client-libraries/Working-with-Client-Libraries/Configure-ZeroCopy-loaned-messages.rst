@@ -292,3 +292,10 @@ To enable *Loaned Messages* on subscription, you need to set the environment var
       .. code-block:: console
 
         $ setx ROS_DISABLE_LOANED_MESSAGES 0
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

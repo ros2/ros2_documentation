@@ -17,7 +17,7 @@ The `.. ros-related-articles::` directive is replaced **during the Sphinx build*
 | **When** | At documentation build time, after every page has been read |
 | **Which pages** | Only pages that include `.. ros-related-articles::` and declare a non-empty `area` |
 | **What is listed** | Other pages whose `area` contains this page's **primary** (first) `area` value |
-| **When nothing is emitted** | No other page shares that primary area, and there is no adjacent hand-written list to keep |
+| **When nothing is emitted** | No other page shares that primary area, and there is no adjacent hand-written list to keep. The build warns (an error with `-W`), because the page would show an empty section: remove the directive and its intro, or add the area to related pages |
 
 ### Prerequisites
 

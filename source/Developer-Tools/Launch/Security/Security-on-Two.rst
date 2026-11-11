@@ -134,3 +134,10 @@ and launch the listener on ``Alice``:
 Alice will now be receiving encrypted messages from Bob.
 
 With two machines successfully communicating using both encryption and authentication, you can use the same procedure to add more machines to your ROS graph.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
