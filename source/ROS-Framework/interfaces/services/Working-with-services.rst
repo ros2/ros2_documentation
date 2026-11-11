@@ -8,18 +8,25 @@
 Working with services
 =====================
 
+.. short-description::
+   Services let a node send a request to another node and receive a response.
+   These articles show you how to use services from the command line, and how to call them synchronously or asynchronously.
+
 .. showmeta::
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. contents:: Table of Contents
-   :depth: 2
-   :local:
-
-Coming Soon
+In this section:
 
 .. toctree::
    :maxdepth: 1
 
    Working-with-services/Understanding-ROS2-Services/Understanding-ROS2-Services
    Working-with-services/Sync-Vs-Async
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

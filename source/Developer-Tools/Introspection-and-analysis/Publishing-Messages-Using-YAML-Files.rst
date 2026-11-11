@@ -28,7 +28,7 @@ Publishing messages using YAML files - tutorial
 
 **Time:** 5 minutes
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -130,3 +130,10 @@ Next steps
 ----------
 
 If you are interested in publishing multiple topics using the CLI, you can take a look at the :doc:`Recording and playing back data <../../../../ROS-Framework/interfaces/Working-with-interfaces/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data>` tutorial.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

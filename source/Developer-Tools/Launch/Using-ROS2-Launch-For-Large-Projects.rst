@@ -31,7 +31,7 @@ Managing large projects - tutorial
 
 **Time:** 20 minutes
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -565,3 +565,10 @@ Summary
 -------
 
 In this tutorial, you learned about various tips and practices of managing large projects using ROS 2 launch files.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

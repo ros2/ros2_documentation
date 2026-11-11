@@ -23,7 +23,7 @@ Understanding real-time programming — tutorial
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -265,3 +265,10 @@ This script will produce a number of files:
    pendulum_demo_results_plot_minflts.svg
 
 You can view these plots in an image viewer of your choice.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

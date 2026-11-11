@@ -19,7 +19,7 @@ Creating or updating documentation — how-to
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -32,7 +32,7 @@ We recommend that you do this locally, using the available tools in the reposito
 Alternatively, you can also build and test in GitHub Codespaces, or by using a Devcontainer.
 
 This article relates to contributing to the ROS documentation site.
-For more information about creating or updating package documentation, see :doc:`/Developer-Tools/Package-documentation/Documenting-a-ROS-2-Package`.
+For more information about creating or updating package documentation, see :doc:`../../../Developer-Tools/Package-documentation/Documenting-a-ROS-2-Package`.
 
 Prerequisites
 -------------
@@ -379,7 +379,7 @@ Building the site with Devcontainer
 The `ROS Documentation GitHub repository <https://github.com/ros2/ros2_documentation>`__ also supports a ``Devcontainer`` development environment with Visual Studio Code.
 This enables you to build the documentation without changing your operating system.
 
-See :doc:`/Developer-Tools/Build/Setup-ROS-2-with-VSCode-and-Docker-Container` to install VS Code and Docker before the following procedure.
+See :doc:`../../../Developer-Tools/Build/Setup-ROS-2-with-VSCode-and-Docker-Container` to install VS Code and Docker before the following procedure.
 
 #. Clone repository and start VS Code:
 
@@ -420,3 +420,10 @@ To fix anything the check reports, edit the article and push the change to your 
 The check runs again and replaces its earlier comment.
 
 To learn which values each field accepts, see :doc:`Documentation-guidelines`.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

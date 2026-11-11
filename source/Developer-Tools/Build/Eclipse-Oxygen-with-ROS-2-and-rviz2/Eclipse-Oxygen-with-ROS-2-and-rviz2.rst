@@ -23,7 +23,7 @@ Using Eclipse Oxygen with ``rviz2`` [community-contributed] - tutorial
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -244,3 +244,10 @@ Then in eclipse go to "Run->Debug Configurations" and add the following and clic
 
 
 .. image:: images/eclipse-oxygen-35.png
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

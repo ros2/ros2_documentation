@@ -349,3 +349,10 @@ Summary
 
 In this tutorial you learned how to use a systematic approach for debugging tf2 related problems.
 You also learned how to use tf2 debugging tools, such as ``tf2_echo``, ``tf2_monitor``, and ``view_frames`` to help you debug those tf2 problems.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

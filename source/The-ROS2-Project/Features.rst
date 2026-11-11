@@ -22,7 +22,7 @@ Features status
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -39,8 +39,8 @@ For planned future development, see the :doc:`Roadmap <Roadmap>`.
    * - Discovery, transport and serialization over DDS
      - `Article <https://design.ros2.org/articles/ros_on_dds.html>`__
      -
-   * - Support for :doc:`multiple DDS implementations <../ROS-Framework/client-libraries/About-Different-Middleware-Vendors>`, chosen at runtime
-     - :doc:`Concept <../ROS-Framework/client-libraries/About-Different-Middleware-Vendors>`, :doc:`How-to Guide <../Get-Started/Installation/RMW-Implementations/Working-with-multiple-RMW-implementations>`
+   * - Support for :doc:`multiple DDS implementations <../ROS-Framework/middleware/About-Different-Middleware-Vendors>`, chosen at runtime
+     - :doc:`Concept <../ROS-Framework/middleware/About-Different-Middleware-Vendors>`, :doc:`How-to Guide <../Get-Started/Installation/RMW-Implementations/Working-with-multiple-RMW-implementations>`
      - Currently Eclipse Cyclone DDS, eProsima Fast DDS, and RTI Connext DDS are fully supported.
    * - Common core client library that is wrapped by language-specific libraries
      - :doc:`Details <../ROS-Framework/About-Client-Libraries>`
@@ -121,3 +121,10 @@ The following are a few high-profile packages which are available in the latest 
 * `rosbag2 <https://index.ros.org/r/rosbag2/>`__
 * `RQt <https://index.ros.org/r/rqt/>`__
 * `RViz2 <https://index.ros.org/r/rviz/>`__
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

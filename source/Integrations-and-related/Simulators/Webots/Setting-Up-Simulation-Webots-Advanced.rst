@@ -247,3 +247,10 @@ You might want to improve the plugin or create new nodes to change the behavior 
 You can also implement a reset handler to automatically restart your ROS nodes when the simulation is reset from the Webots interface:
 
 * :doc:`Simulation-Reset-Handler`.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

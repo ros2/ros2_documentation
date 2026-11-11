@@ -28,7 +28,7 @@ Contributing to documentation
    Documentation/Creating-or-updating-documentation
    Documentation/Documentation-guidelines
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -41,7 +41,7 @@ You can find the documentation source code on `GitHub <https://github.com/ros2/r
 Use the standard GitHub fork and pull request (PR) workflow when making your docs contributions.
 
 This article relates to contributing to the ROS documentation site.
-For more information about creating or updating package documentation, see :doc:`/Developer-Tools/Package-documentation/Documenting-a-ROS-2-Package`.
+For more information about creating or updating package documentation, see :doc:`../../Developer-Tools/Package-documentation/Documenting-a-ROS-2-Package`.
 
 Tools
 -----
@@ -121,10 +121,12 @@ Contributors to the ROS documentation on GitHub use the standard fork and pull r
 Related content
 ---------------
 
-More articles and information about the ROS docs:
+Related articles:
 
 * :doc:`Documentation/Creating-or-updating-documentation`
 * :doc:`Documentation/Documentation-guidelines`
-* :doc:`/The-ROS2-Project/Contributing`
-* :doc:`/Developer-Tools/Package-documentation/Documenting-a-ROS-2-Package`
+* :doc:`../Contributing`
+* :doc:`../../Developer-Tools/Package-documentation/Documenting-a-ROS-2-Package`
 * `Documentation issue list <https://github.com/ros2/ros2_documentation/issues>`__
+
+.. ros-related-articles::

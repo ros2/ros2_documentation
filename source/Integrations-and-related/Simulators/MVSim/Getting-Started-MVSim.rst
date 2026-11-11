@@ -163,3 +163,10 @@ Summary
 In this tutorial, you launched MVSim demo worlds both standalone and with ROS 2.
 You learned how to control robots with keyboard and ROS 2 topics, inspect the published topics, and visualize data in RViz2.
 The next tutorial covers how to define your own worlds with custom robots and sensors.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

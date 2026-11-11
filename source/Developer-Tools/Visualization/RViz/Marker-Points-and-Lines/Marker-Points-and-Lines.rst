@@ -29,11 +29,12 @@ Using Marker Points and Lines (C++) - tutorial
 
 .. note::
 
-   This tutorial assumes that you have completed :doc:`Marker: Sending Basic Shapes <../Marker-Sending-Basic-Shapes/Marker-Sending-Basic-Shapes>`.
+   This tutorial assumes that you have completed :doc:`Learning about data visualization <../Marker-Sending-Basic-Shapes/Marker-Sending-Basic-Shapes>`, and that you are comfortable writing ROS 2 C++ nodes and building packages with ``colcon``.
+   It also assumes you know the fields of the marker message, which are described in :doc:`Marker: Display types <../Marker-Display-types/Marker-Display-types>`.
 
 Intro
 -----
-In :doc:`Marker: Sending Basic Shapes <../Marker-Sending-Basic-Shapes/Marker-Sending-Basic-Shapes>` you learned how to send simple shapes to RViz using visualization markers.
+In :doc:`Learning about data visualization <../Marker-Sending-Basic-Shapes/Marker-Sending-Basic-Shapes>` you viewed simple shapes in RViz using visualization markers.
 You can send more than just simple shapes, and this tutorial introduces the ``POINTS``, ``LINE_STRIP``, and ``LINE_LIST`` marker types.
 For a full list of types, see :doc:`Marker: Display types <../Marker-Display-types/Marker-Display-types>`.
 
@@ -49,11 +50,12 @@ The code
 ^^^^^^^^
 Get the package from the `visualization_tutorials repository <https://github.com/ros-visualization/visualization_tutorials>`_.
 The code for this tutorial lives in the ``visualization_marker_tutorials`` package.
-You can read it in `points_and_lines.cpp <https://github.com/ros-visualization/visualization_tutorials/blob/ros2/visualization_marker_tutorials/src/points_and_lines.cpp>`_.
+You can read it in `points_and_lines.cpp <https://github.com/ros-visualization/visualization_tutorials/blob/{REPOS_FILE_BRANCH}/visualization_marker_tutorials/src/points_and_lines.cpp>`_.
 
 The code explained
 ^^^^^^^^^^^^^^^^^^
-Now let's break down the code, skipping things that were explained in the previous tutorial.
+Now let's break down the code.
+For details of each field in the marker message, see the "The Marker Message" section of :doc:`Marker: Display types <../Marker-Display-types/Marker-Display-types>`.
 The overall effect created is a rotating helix with lines sticking upwards from each vertex.
 
 We start with the headers used by the node, including ``cmath`` for the helix and the messages used for markers and points.
@@ -72,7 +74,6 @@ We start with the headers used by the node, including ``cmath`` for the helix an
 
 .. include:: ../../../../_internal/Rclcpp-Convenience-Header-Note.rst
 
-This should look familiar.
 We initialize ROS 2, create a node, create a publisher on the ``visualization_marker`` topic, and set the loop rate.
 
 .. code-block:: c++
@@ -219,3 +220,10 @@ Next steps
 ----------
 For more information about the markers and options supported by RViz, continue with :doc:`Marker: Display types <../Marker-Display-types/Marker-Display-types>`.
 Try out some of the other marker types.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

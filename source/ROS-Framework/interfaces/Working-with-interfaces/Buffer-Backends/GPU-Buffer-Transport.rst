@@ -17,7 +17,7 @@ Transporting GPU buffers with ``rosidl::Buffer`` - tutorial
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -262,3 +262,10 @@ Where to go next
   guide applied to your own nodes.
 * :doc:`Writing-a-Buffer-Backend` if you want to implement a
   backend for a different memory domain.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

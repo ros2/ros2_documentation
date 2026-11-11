@@ -236,4 +236,8 @@ Next, let's utilize your newly defined action interface by creating an action se
 Related content
 ---------------
 
-For more detailed information about ROS actions, please refer to the `design article <http://design.ros2.org/articles/actions.html>`__.
+Related articles:
+
+* For more detailed information about ROS actions, please refer to the `design article <http://design.ros2.org/articles/actions.html>`__.
+
+.. ros-related-articles::

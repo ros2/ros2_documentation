@@ -93,3 +93,10 @@ Now run ``talker`` and ``listener`` to test Fast DDS.
 
    $ source /opt/ros/{DISTRO}/setup.bash
    $ ros2 run demo_nodes_cpp listener
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

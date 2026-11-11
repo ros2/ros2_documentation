@@ -24,12 +24,6 @@ Learning about topics - tutorial
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-**Goal:** Use rqt_graph and command line tools to introspect ROS 2 topics.
-
-Topics are one of the main communication types used for moving data around a ROS system.
-This article walks you through using ``rqt_graph`` and other command-line tools to examine how nodes connect over topics.
-A hands-on exercise with Turtlesim helps you understand how data moves around the ROS graph.
-
 .. contents:: Contents
    :depth: 3
    :local:
@@ -617,11 +611,13 @@ Stop them by entering ``Ctrl+C`` in each terminal.
 Related content
 ---------------
 
-More articles:
+Related articles:
 
 * :doc:`Understanding nodes <../../../nodes/Working-with-nodes/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes>`
 * :doc:`Understanding services <../../services/Working-with-services/Understanding-ROS2-Services/Understanding-ROS2-Services>`
 * :doc:`Interfaces (topics, services, actions) <../../../Interfaces-Topics-Services-Actions>`
+
+.. ros-related-articles::
 
 FAQs
 ----

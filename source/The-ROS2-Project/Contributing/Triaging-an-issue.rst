@@ -17,7 +17,7 @@ Triaging an issue — how-to
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -54,7 +54,7 @@ When you have identified an issue for triage, add a comment to the issue to say 
 
 When you have found an issue to triage, confirm that the issue is genuinely an issue (a bug or a request for enhancement) and has been created with the expected information.
 
-For more information about the information the reporter of the issue is expected to provide, see :doc:`./Reporting-an-issue`.
+For more information about the information the reporter of the issue is expected to provide, see :doc:`Reporting-an-issue`.
 
 #. If the issue ``Description`` is actually posing a question, close the issue and add a comment directing the user to the `Robotics Stack Exchange <https://robotics.stackexchange.com/>`__ to get help with their question.
 #. If the issue looks like a genuine issue (bug or enhancement), but is not relevant to the repository it has been raised in, transfer the issue to the appropriate ROS repository (`see the GitHub documentation for guidance about how to transfer between repositories <https://docs.github.com/en/issues/tracking-your-work-with-issues/administering-issues/transferring-an-issue-to-another-repository>`__).
@@ -78,8 +78,12 @@ After you've confirmed the issue is a genuine issue, and reproduced it, assign a
 Related content
 ---------------
 
+Related articles:
+
 * :doc:`../Contributing`
 * :doc:`Reporting-an-issue`
+
+.. ros-related-articles::
 
 FAQs
 ----

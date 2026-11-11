@@ -28,7 +28,7 @@ Managing Dependencies with rosdep — tutorial
 
 **Time:** 5 minutes
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -248,3 +248,10 @@ There are additional arguments and options available.
 Use ``rosdep -h`` to see them, or look at the more complete documentation for rosdep at http://docs.ros.org/en/independent/api/rosdep/html/ .
 
 .. [1] "released into the ROS ecosystem" means the package is listed in one or more of the ``<distro>/distribution.yaml`` directories in the `rosdistro database <https://github.com/ros/rosdistro>`_.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

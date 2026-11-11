@@ -22,7 +22,7 @@ Feature ideas
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -167,3 +167,10 @@ Reducing Technical Debt
 * Address / classify pending tickets
 * Address TODOs in code / docs
 * Remove tinyxml as a dependency
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

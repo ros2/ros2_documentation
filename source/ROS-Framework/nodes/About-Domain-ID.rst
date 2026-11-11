@@ -21,7 +21,7 @@ The ROS_DOMAIN_ID
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :local:
 
 Overview
@@ -177,3 +177,10 @@ Domain ID to UDP Port Calculator
         userUnicastPort.value = PB + (DG * domainID.value) + d3 + (PG * participantID.value);
       }
     </script>
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

@@ -24,7 +24,7 @@ Understanding the security keystore - tutorial
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -292,3 +292,10 @@ Make a backup copy of ``permissions.p7s`` before beginning.
       $ openssl smime -verify -in permissions.p7s -CAfile permissions_ca.cert.pem
 
 Restore your original, properly signed ``permissions.p7s`` file before proceeding to the next tutorial.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

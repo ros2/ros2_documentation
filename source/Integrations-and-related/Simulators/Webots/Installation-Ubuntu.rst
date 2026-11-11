@@ -149,3 +149,10 @@ Use the ROS 2 launch command to start demo packages (e.g. ``webots_ros2_universa
 .. code-block:: console
 
         $ ros2 launch webots_ros2_universal_robot multirobot_launch.py
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

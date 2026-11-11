@@ -22,7 +22,7 @@ Source control best practices
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -151,3 +151,10 @@ Example ROS 2 ``.gitignore`` files include:
 * `rclcpp <https://github.com/ros2/rclcpp/blob/rolling/.gitignore>`_ (minimalistic example)
 * `rviz <https://github.com/ros2/rviz/blob/rolling/.gitignore>`_ (reasonable example)
 * `message_filters <https://github.com/ros2/message_filters/blob/rolling/.gitignore>`_ (extensive example)
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

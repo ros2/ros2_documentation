@@ -21,7 +21,7 @@ Building a Custom RViz Panel - tutorial
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -374,3 +374,10 @@ The panel will also have an updated icon.
 .. image:: images/RViz3.png
    :target: ../../../../_images/RViz3.png
    :alt: screenshot of the RViz panel with custom icon
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

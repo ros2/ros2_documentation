@@ -22,7 +22,7 @@ Marketing
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -55,3 +55,10 @@ Available formats:
 * :download:`A4 (for print) <Marketing/documents/ros2-brochure-a4-print.pdf>`
 * :download:`US Letter (for web/email) <Marketing/documents/ros2-brochure-ltr-web.pdf>`
 * :download:`US Letter (for print) <Marketing/documents/ros2-brochure-ltr-print.pdf>`
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
