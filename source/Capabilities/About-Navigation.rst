@@ -42,8 +42,14 @@ Community-contributed packages
 
 * `EasyNav <https://github.com/EasyNavigation/>`_: A flexible, extensible navigation system for mobile robots.
 
+.. Related content (placeholder)
+   -----------------------------
 
-..   FAQs (placeholder)
+   * Example
+
+   * Example
+
+   FAQs (placeholder)
    ------------------
 
    * Example

@@ -45,10 +45,3 @@ Reference
 ---------
 
 ROS components at: https://wiki.ros.org/IntelROSProject shows the relationship among those packages, which also applies to ROS 2.
-
-Related content
----------------
-
-Related articles:
-
-.. ros-related-articles::

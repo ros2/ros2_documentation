@@ -123,10 +123,3 @@ Learn More
 ----------
 
 For more information and hands-on exercises enabling ROS 2 communications security, see the :doc:`Introducing-ros2-security`.
-
-Related content
----------------
-
-Related articles:
-
-.. ros-related-articles::

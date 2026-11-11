@@ -65,10 +65,3 @@ They are still available in the :doc:`Lyrical Luth <../Releases/Release-Lyrical-
 * `Migrating launch files <https://docs.ros.org/en/lyrical/Migration-and-Upgrades/Migrating-from-ROS1/Migrating-Launch-Files.html>`__
 * `Migrating parameter files <https://docs.ros.org/en/lyrical/Migration-and-Upgrades/Migrating-from-ROS1/Migrating-Parameters.html>`__
 * `Migrating scripts <https://docs.ros.org/en/lyrical/Migration-and-Upgrades/Migrating-from-ROS1/Migrating-Scripts.html>`__
-
-Related content
----------------
-
-Related articles:
-
-.. ros-related-articles::

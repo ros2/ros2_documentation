@@ -337,8 +337,6 @@ Related articles:
 * :doc:`../../ROS-Framework/nodes/Working-with-nodes/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes`
 * :doc:`../../ROS-Framework/interfaces/topics/Understanding-ROS2-Topics/Understanding-ROS2-Topics`
 
-.. ros-related-articles::
-
 Packages/reference:
 
 * `Turtlesim package in ros_tutorials <https://github.com/ros/ros_tutorials/tree/{REPOS_FILE_BRANCH}/turtlesim>`__

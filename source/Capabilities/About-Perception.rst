@@ -39,7 +39,14 @@ Community-contributed packages
 
 Coming soon
 
-..   FAQs (placeholder)
+.. Related content (placeholder)
+   -----------------------------
+
+   * Example
+
+   * Example
+
+   FAQs (placeholder)
    ------------------
 
    * Example

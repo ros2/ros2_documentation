@@ -45,7 +45,5 @@ Related articles:
 * :doc:`Interfaces-Topics-Services-Actions`
 * :doc:`nodes/Working-with-nodes`
 
-.. ros-related-articles::
-
 FAQs
 ----

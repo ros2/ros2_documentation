@@ -107,10 +107,3 @@ Next steps
 The tutorials in this learning path use the ROS command-line interface (CLI) to introduce the core ROS concepts and show you how to interact with them.
 To build your own ROS components, such as nodes written in C++ or Python, you use the ROS client library APIs.
 We recommend getting comfortable with the CLI first, then familiarizing yourself with ROS client libraries: :doc:`ROS-Framework/About-Client-Libraries`
-
-Related content
----------------
-
-Related articles:
-
-.. ros-related-articles::
