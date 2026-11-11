@@ -28,10 +28,8 @@ Client libraries
    :maxdepth: 1
    :hidden:
 
-   client-libraries/About-Different-Middleware-Vendors
    client-libraries/About-Executors/About-Executors
    client-libraries/About-Internal-Interfaces/About-Internal-Interfaces
-   client-libraries/About-Middleware-Implementations
    client-libraries/Working-with-Client-Libraries
 
 Client libraries are the APIs that allow you to implement your ROS code.

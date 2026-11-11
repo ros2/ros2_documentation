@@ -10,7 +10,7 @@ Framework
 
 .. short-description::
    The ROS framework is the set of core concepts that every ROS system is built on.
-   These articles explain how ROS works, and describe nodes, interfaces, parameters, and client libraries.
+   These articles explain how ROS works, and describe nodes, interfaces, parameters, client libraries, and middleware.
 
 .. showmeta::
    :order: area, contentType, experience
@@ -26,3 +26,4 @@ In this section:
    ROS-Framework/Interfaces-Topics-Services-Actions
    ROS-Framework/About-Parameters
    ROS-Framework/About-Client-Libraries
+   ROS-Framework/About-Middleware
