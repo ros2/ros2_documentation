@@ -168,4 +168,15 @@ you can replace it with
 
 .. caution::
 
+<<<<<<< HEAD:source/Tutorials/Intermediate/Writing-a-Composable-Node.rst
     If you need multi-threading, instead of setting your executable to ``component_container``, set it to ``component_container_mt``
+=======
+    If you need multi-threading, simply add the ``--executor-type multi-threaded`` argument to your container node.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
+>>>>>>> 5ff6b51 (3di | Add Related articles directive to the docs set (#7390)):source/ROS-Framework/nodes/Working-with-nodes/Writing-a-Composable-Node.rst

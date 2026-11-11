@@ -419,4 +419,18 @@ You added the dependencies, executables, and a launch file to the package config
 Next steps
 ----------
 
+<<<<<<< HEAD:source/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.rst
 Now that you have some packages and ROS 2 systems of your own, the :doc:`next tutorial <./Getting-Started-With-Ros2doctor>` will show you how to examine issues in your environment and systems in case you have problems.
+=======
+Now that you have some packages and ROS 2 systems of your own, the :doc:`next tutorial <Getting-Started-With-Ros2doctor>` will show you how to examine issues in your environment and systems in case you have problems.
+
+Related content
+---------------
+
+Related articles:
+
+* For more detailed information about using YAML files to load parameters, please refer to :ref:`this section <Parameters>` of Managing large projects tutorial.
+* If you want to learn, how to monitor and respond to parameter changes, check out :doc:`Monitoring for parameter changes (Python) <../../parameters/Working-with-parameters/Monitoring-For-Parameter-Changes-Python>` tutorial.
+
+.. ros-related-articles::
+>>>>>>> 5ff6b51 (3di | Add Related articles directive to the docs set (#7390)):source/ROS-Framework/client-libraries/Working-with-Client-Libraries/Using-Parameters-In-A-Class-Python.rst

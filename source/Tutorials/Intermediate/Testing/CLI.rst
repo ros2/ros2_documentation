@@ -41,4 +41,15 @@ To see the exact test cases which fail, use the ``--verbose`` flag:
 Debugging tests with GDB
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
+<<<<<<< HEAD:source/Tutorials/Intermediate/Testing/CLI.rst
 For detailed guidance on debugging tests using GDB, refer to the :doc:`GDB Tutorial <../../../How-To-Guides/Getting-Backtraces-in-ROS-2>`.
+=======
+For detailed guidance on debugging tests using GDB, refer to the :doc:`GDB Tutorial <../Getting-Backtraces-in-ROS-2>`.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
+>>>>>>> 5ff6b51 (3di | Add Related articles directive to the docs set (#7390)):source/Developer-Tools/Debugging/Testing/CLI.rst

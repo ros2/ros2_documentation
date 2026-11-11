@@ -315,3 +315,45 @@ Developers may subscribe to the following QoS events that are associated with a 
 * Requested incompatible QoS
 
   The subscription has encountered a publisher on the same topic that is offering a QoS profile that does not satisfy the requested QoS profile, resulting in no connection between the subscription and that publisher.
+<<<<<<< HEAD:source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst
+=======
+
+.. _about-qos_matched-events:
+
+Matched events
+--------------
+
+In addition to QoS events, matched events can be generated when any publisher and subscription establishes or drops the connection between them.
+Developers may provide each publisher and subscription with callback functions that are triggered by matched events and handle them in a way they see fit, similar to how messages received on a topic are handled.
+
+Developers can subscribe to this event with a publisher or a subscription.
+
+* publisher: this event happens when it finds a subscription which matches the topic and has compatible QoS or a connected subscription is disconnected
+* subscription: this event happens when it finds a publisher which matches the topic and has compatible QoS or a connected publisher is disconnected
+
+There are demos showing how to use the event:
+
+* rclcpp: `demo code <https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/events/matched_event_detect.cpp>`__
+* rclpy: `demo code <https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_py/demo_nodes_py/events/matched_event_detect.py>`__
+
+.. _about-qos-overrides:
+
+QoS overrides
+-------------
+
+By default, QoS profiles are specified directly in source code when constructing publishers and subscriptions.
+However, ROS 2 also provides a mechanism to override QoS profiles at node startup using ROS 2 parameters.
+
+When a node opts in to QoS overrides, it declares read-only parameters under the ``qos_overrides`` namespace using the structure ``qos_overrides.<topic_name>.<entity_type>[_<id>].<policy_name>``.
+Users can then reconfigure policies such as reliability, history depth, or durability using YAML parameter files or command-line arguments without recompiling or modifying the node source code.
+Additionally, applications can provide validation callbacks to enforce safety constraints on user-supplied overrides.
+
+To learn how to enable and configure QoS overrides with hands-on examples, see the :doc:`Configuring QoS overrides using parameters tutorial <Working-with-topics/Configuring-QoS-Overrides>`.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
+>>>>>>> 5ff6b51 (3di | Add Related articles directive to the docs set (#7390)):source/ROS-Framework/interfaces/topics/About-Quality-of-Service-Settings.rst

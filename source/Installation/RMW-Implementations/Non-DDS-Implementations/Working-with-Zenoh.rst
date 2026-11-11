@@ -96,3 +96,12 @@ Start the Zenoh router
 
 .. note:: Remember to source your ROS 2 setup script before running these commands.
 
+<<<<<<< HEAD:source/Installation/RMW-Implementations/Non-DDS-Implementations/Working-with-Zenoh.rst
+=======
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
+>>>>>>> 5ff6b51 (3di | Add Related articles directive to the docs set (#7390)):source/Get-Started/Installation/RMW-Implementations/Non-DDS-Implementations/Working-with-Zenoh.rst

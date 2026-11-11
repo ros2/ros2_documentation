@@ -209,6 +209,7 @@ Use the ROS 2 launch command to start demo packages (e.g. ``webots_ros2_universa
 
 If Webots is closed or the ROS 2 process is interrupted, the local server will automatically wait for a new package launch and the shared folder will be cleaned for the next run.
 
+<<<<<<< HEAD:source/Tutorials/Advanced/Simulators/Webots/Installation-MacOS.rst
 .. _Preconfigured Images:
 
 Pre-configured Images
@@ -232,3 +233,11 @@ You will need to update it to use the correct path for the host folder:
 .. code-block:: console
 
     export WEBOTS_SHARED_FOLDER=/Users/username/shared:/home/ubuntu/shared
+=======
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
+>>>>>>> 5ff6b51 (3di | Add Related articles directive to the docs set (#7390)):source/Integrations-and-related/Simulators/Webots/Installation-MacOS.rst

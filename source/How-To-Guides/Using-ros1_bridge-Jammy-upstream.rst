@@ -106,3 +106,12 @@ Build ``ros1_bridge``
 
 After building all of ``ros1_bridge``, the remainder of the `ros1_bridge examples <https://github.com/ros2/ros1_bridge#example-1-run-the-bridge-and-the-example-talker-and-listener>`__ should work with your new installation
 
+<<<<<<< HEAD:source/How-To-Guides/Using-ros1_bridge-Jammy-upstream.rst
+=======
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
+>>>>>>> 5ff6b51 (3di | Add Related articles directive to the docs set (#7390)):source/Migration-and-Upgrades/Using-ros1_bridge-Jammy-upstream.rst

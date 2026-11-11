@@ -41,6 +41,7 @@ Tenets
   There are developers building different robots with different constraints.
   ROS needs to accommodate requirements of the whole community.
 
+<<<<<<< HEAD
 There are a number of ways you can contribute to the ROS 2 project.
 
 Discussions and support
@@ -107,3 +108,11 @@ Becoming a maintainer of one or more of those repositories is an invitation-only
 Approximately every 3 months, the ROS 2 team will review the contributions in all of the repositories and send out invitations to new maintainers.
 Once the invitation is accepted, the new maintainer will be asked to go through a short training process on the mechanisms and policies of the ROS 2 repositories.
 After that training process is completed, the new maintainer will be given write access to the appropriate repositories.
+=======
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
+>>>>>>> 5ff6b51 (3di | Add Related articles directive to the docs set (#7390))

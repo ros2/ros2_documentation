@@ -1,0 +1,403 @@
+.. meta::
+   :contentType: tutorial
+   :experience: expert
+   :area: client-libraries, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+.. redirect-from::
+
+    Allocator-Template-Tutorial
+    Tutorials/Allocator-Template-Tutorial
+    Tutorials/Advanced/Allocator-Template-Tutorial
+
+Implementing a custom memory allocator — tutorial
+=================================================
+
+.. short-description::
+   Real-time robot applications often need deterministic memory behaviour during execution.
+   This article describes how to integrate a custom C++ memory allocator with ROS publishers, subscribers, executors, and intra-process communication.
+   After you follow these steps, you will be able to verify allocator usage and identify remaining runtime allocations.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+**Goal:** This tutorial will show how to use a custom memory allocator when writing ROS 2 C++ code.
+
+**Tutorial level:** Advanced
+
+**Time:** 20 minutes
+
+.. contents:: Contents
+   :depth: 2
+   :local:
+
+This tutorial will teach you how to integrate a custom allocator for publishers and subscribers so that the default heap allocator is never called while your ROS nodes are executing.
+The code for this tutorial is available `here <https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/topics/allocator_tutorial_pmr.cpp>`__.
+
+Summary
+-------
+
+Use a C++ standard library-compatible allocator, such as one based on ``std::pmr::memory_resource``.
+Pass the allocator to publishers, subscribers, message memory strategies, and message deleters.
+
+To support intra-process communication, create the node with ``use_intra_process_comms(true)`` before constructing publishers and subscribers.
+
+You can verify allocator behaviour by counting calls to:
+
+* Custom ``allocate`` and ``deallocate`` functions.
+* Global ``new`` and ``delete`` operators.
+
+Remaining allocations may originate in the underlying DDS implementation.
+
+Background
+----------
+
+Suppose you want to write real-time safe code, and you've heard about the many dangers of calling ``new`` during the real-time critical section, because the default heap allocator on most platforms is nondeterministic.
+
+By default, many C++ standard library structures will implicitly allocate memory as they grow, such as ``std::vector``.
+However, these data structures also accept an "Allocator" template argument.
+If you specify a custom allocator to one of these data structures, it will use that allocator instead of the system allocator to grow or shrink the data structure.
+Your custom allocator could have a pool of memory preallocated on the stack, which might be better suited to real-time applications.
+
+In the ROS 2 C++ client library (rclcpp), we are following a similar philosophy to the C++ standard library.
+Publishers, subscribers, and the Executor accept an Allocator template parameter that controls allocations made by that entity during execution.
+
+Writing an allocator
+--------------------
+
+To write an allocator compatible with ROS 2's allocator interface, your allocator must be compatible with the C++ standard library allocator interface.
+
+Since C++17, the standard library provides something called ``std::pmr::memory_resource``.
+This is a class that can be derived from to create a custom allocator that fulfills a minimum set of requirements.
+
+For example, the following declaration for a custom memory resource fulfills the requirements (of course, you would still need to implement the declared functions in this class):
+
+.. code-block:: c++
+
+    class CustomMemoryResource : public std::pmr::memory_resource
+    {
+    private:
+      void * do_allocate(std::size_t bytes, std::size_t alignment) override;
+
+      void do_deallocate(
+        void * p, std::size_t bytes,
+        std::size_t alignment) override;
+
+      bool do_is_equal(
+        const std::pmr::memory_resource & other) const noexcept override;
+    };
+
+To learn about the full capabilities of ``std::pmr::memory_resource``, see https://en.cppreference.com/w/cpp/memory/memory_resource.
+
+Providing an allocator for rcl
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+rclcpp is built on top of the C library rcl, and rclcpp uses rcl to allocate memory for the publishers and subscriptions it creates.
+To route those allocations to a custom allocator, rclcpp needs a C-style ``rcl_allocator_t``,  and a set of ``allocate``, ``deallocate``, ``reallocate`` and ``zero_allocate`` callbacks.
+Your allocator provides these capabilities through a ``get_rcl_allocator()`` member function.
+
+The callbacks cannot simply forward to the C++ allocator for a number of reasons.
+For example, rcl's ``deallocate`` does not pass the size of the memory block, but ``std::pmr::memory_resource::deallocate`` must receive the size and alignment that were used to allocate it.
+The  callbacks are called from C code, so they cannot use  C++ ``throw:`` semantics, instead they must return ``nullptr`` on failure in a manner similar to those used by  ``malloc``.
+
+For ``std::pmr``, a small wrapper around ``std::pmr::polymorphic_allocator`` can store the size of each block in a header in front of it:
+
+.. code-block:: c++
+
+    #include <cstring>
+    #include <limits>
+    #include <memory_resource>
+
+    #include "rcl/allocator.h"
+
+    template<typename T = void>
+    struct PmrAllocator : std::pmr::polymorphic_allocator<T>
+    {
+      using std::pmr::polymorphic_allocator<T>::polymorphic_allocator;
+
+      // Share the memory resource when changing the allocator's element type.
+      template<typename U>
+      PmrAllocator(const PmrAllocator<U> & other) noexcept
+      : std::pmr::polymorphic_allocator<T>(other.resource()) {}
+
+      // Let allocator traits create this wrapper for another element type.
+      template<typename U>
+      struct rebind
+      {
+        using other = PmrAllocator<U>;
+      };
+
+      rcl_allocator_t get_rcl_allocator() const
+      {
+        // Connect the C callbacks to the same memory resource as the C++ allocator.
+        rcl_allocator_t rcl_allocator = rcl_get_default_allocator();
+        rcl_allocator.allocate = &allocate_block;
+        rcl_allocator.deallocate = &deallocate_block;
+        rcl_allocator.reallocate = &reallocate_block;
+        rcl_allocator.zero_allocate = &zero_allocate_block;
+        // rcl passes this state pointer to each callback.
+        rcl_allocator.state = this->resource();
+        return rcl_allocator;
+      }
+
+    private:
+      // Reserve space before each payload for its size, keeping the payload aligned.
+      static constexpr size_t header = alignof(std::max_align_t);
+
+      static void * allocate_block(size_t size, void * state) noexcept
+      {
+        // Check that adding the header will not overflow the allocation size.
+        if (size > (std::numeric_limits<size_t>::max)() - header) {
+          return nullptr;
+        }
+        try {
+          auto resource = static_cast<std::pmr::memory_resource *>(state);
+          auto base = static_cast<char *>(resource->allocate(header + size, header));
+          // Save the size in the header and return only the payload to rcl.
+          std::memcpy(base, &size, sizeof(size));
+          return base + header;
+        } catch (...) {
+          // C callers expect nullptr on allocation failure, not a C++ exception.
+          return nullptr;
+        }
+      }
+
+      static void deallocate_block(void * pointer, void * state) noexcept
+      {
+        if (pointer == nullptr) {
+          return;
+        }
+        // rcl supplies no size, so recover it from the header before the payload.
+        auto base = static_cast<char *>(pointer) - header;
+        size_t size;
+        std::memcpy(&size, base, sizeof(size));
+        // The resource requires the original address, total size, and alignment.
+        static_cast<std::pmr::memory_resource *>(state)->deallocate(base, header + size, header);
+      }
+
+      static void * reallocate_block(void * pointer, size_t size, void * state) noexcept
+      {
+        // Allocate first so a failure leaves the original block untouched.
+        void * new_pointer = allocate_block(size, state);
+        if (new_pointer == nullptr) {
+          return nullptr;
+        }
+        if (pointer != nullptr) {
+          size_t old_size;
+          std::memcpy(&old_size, static_cast<char *>(pointer) - header, sizeof(old_size));
+          // Copy only what fits, then release the original block.
+          std::memcpy(new_pointer, pointer, old_size < size ? old_size : size);
+          deallocate_block(pointer, state);
+        }
+        return new_pointer;
+      }
+
+      static void * zero_allocate_block(size_t count, size_t size, void * state) noexcept
+      {
+        // Check for multiplication overflow before allocating the array.
+        if (size != 0 && count > (std::numeric_limits<size_t>::max)() / size) {
+          return nullptr;
+        }
+        void * pointer = allocate_block(count * size, state);
+        if (pointer != nullptr) {
+          std::memset(pointer, 0, count * size);
+        }
+        return pointer;
+      }
+    };
+
+If your allocator already has C-style functions that do not need the size, its ``get_rcl_allocator()`` can forward to them directly.
+The TLSF allocator described at the end of this tutorial demonstrates how to do this.
+
+The full implementation of the custom allocator for this tutorial is in https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/topics/allocator_tutorial_pmr.cpp.
+
+Writing an example main
+-----------------------
+
+Once you have written a valid C++ allocator, you must pass it as a shared pointer to your publisher, subscriber, and executor.
+But first, we'll declare a few aliases to shorten the names.
+
+.. code-block:: c++
+
+     using Alloc = PmrAllocator<void>;
+     using MessageAllocTraits =
+       rclcpp::allocator::AllocRebind<std_msgs::msg::UInt32, Alloc>;
+     using MessageAlloc = MessageAllocTraits::allocator_type;
+     using MessageDeleter = rclcpp::allocator::Deleter<MessageAlloc, std_msgs::msg::UInt32>;
+     using MessageUniquePtr = std::unique_ptr<std_msgs::msg::UInt32, MessageDeleter>;
+
+Now we can create our resources with the custom allocator:
+
+.. code-block:: c++
+
+     CustomMemoryResource mem_resource{};
+     auto alloc = std::make_shared<Alloc>(&mem_resource);
+     rclcpp::PublisherOptionsWithAllocator<Alloc> publisher_options;
+     publisher_options.allocator = alloc;
+     auto publisher = node->create_publisher<std_msgs::msg::UInt32>(
+       "allocator_tutorial", 10, publisher_options);
+
+     rclcpp::SubscriptionOptionsWithAllocator<Alloc> subscription_options;
+     subscription_options.allocator = alloc;
+     auto msg_mem_strat = std::make_shared<
+       rclcpp::message_memory_strategy::MessageMemoryStrategy<
+         std_msgs::msg::UInt32, Alloc>>(alloc);
+     auto subscriber = node->create_subscription<std_msgs::msg::UInt32>(
+       "allocator_tutorial", 10, callback, subscription_options, msg_mem_strat);
+
+     rclcpp::ExecutorOptions options;
+     rclcpp::executors::SingleThreadedExecutor executor(options);
+
+You must also instantiate a custom deleter and allocator for use when allocating messages:
+
+.. code-block:: c++
+
+     MessageDeleter message_deleter;
+     MessageAlloc message_alloc = *alloc;
+     rclcpp::allocator::set_allocator_for_deleter(&message_deleter, &message_alloc);
+
+Once you've add the node to the executor, it is time to spin.
+We'll use the custom allocator to allocate each message:
+
+.. code-block:: c++
+
+     uint32_t i = 0;
+     while (rclcpp::ok()) {
+       auto ptr = MessageAllocTraits::allocate(message_alloc, 1);
+       MessageAllocTraits::construct(message_alloc, ptr);
+       MessageUniquePtr msg(ptr, message_deleter);
+       msg->data = i;
+       ++i;
+       publisher->publish(std::move(msg));
+       rclcpp::sleep_for(10ms);
+       executor.spin_some();
+     }
+
+Passing an allocator to the intra-process pipeline
+--------------------------------------------------
+
+Even though we instantiated a publisher and subscriber in the same process, we aren't using the intra-process pipeline yet.
+
+The IntraProcessManager is a class that is usually hidden from the user, but in order to pass a custom allocator to it we need to expose it by getting it from the rclcpp Context.
+The IntraProcessManager makes use of several standard library structures, so without a custom allocator it will call the default ``new``.
+
+.. code-block:: c++
+
+    auto context = rclcpp::contexts::get_global_default_context();
+    auto options = rclcpp::NodeOptions()
+      .context(context)
+      .use_intra_process_comms(true);
+    auto node = rclcpp::Node::make_shared("allocator_example", options);
+
+Make sure to instantiate publishers and subscribers AFTER constructing the node in this way.
+
+Testing and verifying the code
+------------------------------
+
+How do you know that your custom allocator is actually getting called?
+
+The obvious thing to do would be to count the calls made to your custom allocator's ``allocate`` and ``deallocate`` functions and compare that to the calls to ``new`` and ``delete``.
+
+Adding counting to the custom allocator is easy:
+
+.. code-block:: c++
+
+     void * do_allocate(std::size_t size, std::size_t alignment) override
+     {
+       // ...
+       num_allocs++;
+       // ...
+     }
+
+     void do_deallocate(
+       void * p, std::size_t bytes,
+       std::size_t alignment) override
+     {
+       // ...
+       num_deallocs++;
+       // ...
+     }
+
+You can also override the global ``new`` and ``delete`` operators:
+
+.. code-block:: c++
+
+     void * operator new(std::size_t size)
+     {
+       if (is_running) {
+         global_runtime_allocs++;
+       }
+       return std::malloc(size);
+     }
+
+     void operator delete(void * ptr, size_t) noexcept
+     {
+       if (ptr != nullptr) {
+         if (is_running) {
+           global_runtime_deallocs++;
+         }
+         std::free(ptr);
+       }
+     }
+
+     void operator delete(void * ptr) noexcept
+     {
+       if (ptr != nullptr) {
+         if (is_running) {
+           global_runtime_deallocs++;
+         }
+         std::free(ptr);
+       }
+     }
+
+where the variables we are incrementing are just global static integers, and ``is_running`` is a global static boolean that gets toggled right before the call to ``spin``.
+
+The `example executable <https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/topics/allocator_tutorial_pmr.cpp>`__ prints the value of the variables.
+To run the example executable, use:
+
+.. code-block:: console
+
+     $ ros2 run demo_nodes_cpp allocator_tutorial
+
+or, to run the example with the intra-process pipeline on:
+
+.. code-block:: console
+
+     $ ros2 run demo_nodes_cpp allocator_tutorial intra
+     Global new was called 15590 times during spin
+     Global delete was called 15590 times during spin
+     Allocator new was called 27284 times during spin
+     Allocator delete was called 27281 times during spin
+
+We've caught about 2/3 of the allocations/deallocations that happen on the execution path, but where do the remaining 1/3 come from?
+
+As a matter of fact, these allocations/deallocations originate in the underlying DDS implementation used in this example.
+
+Proving this is out of the scope of this tutorial, but you can check out the test for the allocation path that gets run as part of the ROS 2 continuous integration testing, which backtraces through the code and figures out whether certain function calls originate in the rmw implementation or in a DDS implementation:
+
+https://github.com/ros2/realtime_support/blob/{REPOS_FILE_BRANCH}/tlsf_cpp/test/test_tlsf.cpp#L41
+
+Note that this test is not using the custom allocator we just created, but the TLSF allocator (see below).
+
+The TLSF allocator
+------------------
+
+ROS 2 offers support for the TLSF (Two Level Segregate Fit) allocator, which was designed to meet real-time requirements:
+
+https://github.com/ros2/realtime_support/tree/{REPOS_FILE_BRANCH}/tlsf_cpp
+
+For more information about TLSF, see `this page via Universitat Politècnica de València <http://www.gii.upv.es/tlsf/>`_.
+
+Note that the TLSF allocator is licensed under a dual-GPL/LGPL license.
+
+A full working example using the TLSF allocator is here:
+https://github.com/ros2/realtime_support/blob/{REPOS_FILE_BRANCH}/tlsf_cpp/example/allocator_example.cpp
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

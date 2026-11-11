@@ -531,4 +531,15 @@ Next steps
 ----------
 
 Next, let's add something meaningful to a package.
+<<<<<<< HEAD:source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst
 You'll start with a simple publisher/subscriber system, which you can choose to write in either :doc:`C++ <./Writing-A-Simple-Cpp-Publisher-And-Subscriber>` or :doc:`Python <./Writing-A-Simple-Py-Publisher-And-Subscriber>`.
+=======
+You'll start with a simple publisher/subscriber system, which you can choose to write in either :doc:`C++ <Writing-A-Simple-Cpp-Publisher-And-Subscriber>` or :doc:`Python <Writing-A-Simple-Py-Publisher-And-Subscriber>`.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
+>>>>>>> 5ff6b51 (3di | Add Related articles directive to the docs set (#7390)):source/ROS-Framework/client-libraries/Working-with-Client-Libraries/Creating-Your-First-ROS2-Package.rst

@@ -523,4 +523,15 @@ Next steps
 To improve the simulation, the robot's sensors can be used to detect obstacles and avoid them.
 The second part of the tutorial shows how to implement such behaviour:
 
+<<<<<<< HEAD:source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst
 * :doc:`./Setting-Up-Simulation-Webots-Advanced`.
+=======
+* :doc:`Setting-Up-Simulation-Webots-Advanced`.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
+>>>>>>> 5ff6b51 (3di | Add Related articles directive to the docs set (#7390)):source/Integrations-and-related/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst

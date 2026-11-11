@@ -446,4 +446,15 @@ Summary
 In this tutorial, you learned about using substitutions in launch files.
 You learned about their possibilities and capabilities to create reusable launch files.
 
+<<<<<<< HEAD:source/Tutorials/Intermediate/Launch/Using-Substitutions.rst
 You can now learn more about :doc:`using event handlers in launch files <./Using-Event-Handlers>` which are used to define a complex set of rules which can be used to dynamically modify the launch file.
+=======
+You can now learn more about :doc:`using event handlers in launch files <Using-Event-Handlers>` which are used to define a complex set of rules which can be used to dynamically modify the launch file.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
+>>>>>>> 5ff6b51 (3di | Add Related articles directive to the docs set (#7390)):source/Developer-Tools/Launch/Using-Substitutions.rst

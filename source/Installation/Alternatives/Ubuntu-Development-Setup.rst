@@ -245,4 +245,15 @@ Uninstall
 
    .. code-block:: console
 
+<<<<<<< HEAD:source/Installation/Alternatives/Ubuntu-Development-Setup.rst
     $ rm -rf ~/ros2_{DISTRO}
+=======
+      $ rm -rf ~/ros2_{DISTRO}
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
+>>>>>>> 5ff6b51 (3di | Add Related articles directive to the docs set (#7390)):source/Get-Started/Installation/Alternatives/Ubuntu-Development-Setup.rst

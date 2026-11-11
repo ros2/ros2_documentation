@@ -247,3 +247,10 @@ This script will produce three files:
    pendulum_demo_results_plot_minflts.svg
 
 You can view these plots in an image viewer of your choice.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
