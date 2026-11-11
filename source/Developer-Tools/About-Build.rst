@@ -81,16 +81,14 @@ It supports the building of source and binary packages, as well as continuous in
 
 Read more about ROS build farms: :doc:`../The-ROS2-Project/Contributing/Contributing-to-code/Build-Farms`
 
-.. Related content (placeholder)
-   -----------------------------
+Related content
+---------------
 
-   More articles about builds:
+Related articles:
 
-   * Example
+.. ros-related-articles::
 
-   * Example
-
-   FAQs (placeholder)
+.. FAQs (placeholder)
    ------------------
 
    * Example

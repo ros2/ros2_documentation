@@ -12,13 +12,6 @@ Debugging
    Sometimes your robot won't behave as you expected.
    This article summarizes the ROS developer tools and guidance available to help with debugging.
 
-.. short-description::
-   Sometimes your robot won't behave as you expected.
-   This article summarizes the ROS developer tools and guidance available to help with debugging.
-
-.. showmeta::
-   :order: area, contentType, experience
-   :labels: area=Area, contentType=Content type, experience=Level
 .. showmeta::
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level

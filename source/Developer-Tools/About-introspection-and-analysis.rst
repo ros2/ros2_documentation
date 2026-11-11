@@ -66,14 +66,12 @@ Community-contributed packages
 
 * `Plotjugler <https://index.ros.org/p/plotjuggler/>`_: Visualization and analysis tool for inspecting, monitoring, and interpreting time-series data.
 
-.. Related content (placeholder)
-   -----------------------------
+Related content
+---------------
 
-   More articles about introspection:
+Related articles:
 
-   * Example
-
-   * Example
+.. ros-related-articles::
 
    FAQs (placeholder)
    ------------------

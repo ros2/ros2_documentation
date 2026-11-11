@@ -16,13 +16,6 @@ Visualization
 .. showmeta::
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
-.. short-description::
-   Sometimes you need to visualize what your robot is sensing and planning to better develop, test, and debug your system.
-   This article summarizes the ROS developer tools and guidance available to help with visualization.
-
-.. showmeta::
-   :order: area, contentType, experience
-   :labels: area=Area, contentType=Content type, experience=Level
 
 .. toctree::
    :hidden:
@@ -59,16 +52,14 @@ Community-contributed packages
 
 * `Rerun <https://github.com/rerun-io/rerun>`_: Tool to visualize, query, and debug data from robotics, computer vision, and physical AI systems.
 
-.. Related content (placeholder)
-   -----------------------------
+Related content
+---------------
 
-   More articles about visualization:
+Related articles:
 
-   * Example
+.. ros-related-articles::
 
-   * Example
-
-   FAQs (placeholder)
+.. FAQs (placeholder)
    ------------------
 
    * Example

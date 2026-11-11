@@ -14,10 +14,6 @@ Package documentation
    Package documentation is essential for others to understand and use the package you've developed.
    This article summarizes the tools and guidance available to help with creating documentation for ROS packages.
 
-.. short-description::
-   Package documentation is essential for others to understand and use the package you've developed.
-   This article summarizes the tools and guidance available to help with creating documentation for ROS packages.
-
 .. showmeta::
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
@@ -91,16 +87,14 @@ All released ROS packages are automatically added to `docs.ros.org <https://docs
 
 If you would like to enable or configure your own package, see :doc:`Package-documentation/Documenting-a-ROS-2-Package`.
 
-.. Related content (placeholder)
-   -----------------------------
+Related content
+---------------
 
-   More articles about package documentation:
+Related articles:
 
-   * Example
+.. ros-related-articles::
 
-   * Example
-
-   FAQs (placeholder)
+.. FAQs (placeholder)
    ------------------
 
    * Example
