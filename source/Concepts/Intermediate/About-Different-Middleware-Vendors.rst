@@ -1,7 +1,22 @@
+<<<<<<<< HEAD:source/Concepts/Intermediate/About-Different-Middleware-Vendors.rst
+========
+.. meta::
+   :contentType: about
+   :experience: intermediate
+   :area: middleware, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+>>>>>>>> 32eab8b (3di: TOC update to include Framework > Middleware (#7409)):source/ROS-Framework/middleware/About-Different-Middleware-Vendors.rst
 .. redirect-from::
 
     DDS-and-ROS-middleware-implementations
     Concepts/About-Different-Middleware-Vendors
+<<<<<<<< HEAD:source/Concepts/Intermediate/About-Different-Middleware-Vendors.rst
+========
+    Concepts/Intermediate/About-Different-Middleware-Vendors
+    ROS-Framework/client-libraries/About-Different-Middleware-Vendors
+>>>>>>>> 32eab8b (3di: TOC update to include Framework > Middleware (#7409)):source/ROS-Framework/middleware/About-Different-Middleware-Vendors.rst
 
 Different ROS 2 middleware vendors
 ==================================

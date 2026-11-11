@@ -1,6 +1,21 @@
+<<<<<<<< HEAD:source/Concepts/Advanced/About-Middleware-Implementations.rst
 .. redirect-from::
 
    Concepts/About-Middleware-Implementations
+========
+.. meta::
+   :contentType: about
+   :experience: expert
+   :area: middleware, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+.. redirect-from::
+
+   Concepts/About-Middleware-Implementations
+   Concepts/Advanced/About-Middleware-Implementations
+   ROS-Framework/client-libraries/About-Middleware-Implementations
+>>>>>>>> 32eab8b (3di: TOC update to include Framework > Middleware (#7409)):source/ROS-Framework/middleware/About-Middleware-Implementations.rst
 
 ROS 2 middleware implementations
 ================================
@@ -14,7 +29,11 @@ ROS middleware implementations are sets of |packages| that provide the underlyin
 These packages interact with core ROS 2 interfaces such as the ``rmw``, ``rcl``, and ``rosidl`` |APIs| to integrate with external protocols like Zenoh, DDS, or others.
 For example, ``rmw_fastrtps_cpp`` adapts eProsima's Fast DDS implementation to ROS 2's middleware |API|, while ``rmw_zenoh_cpp`` provides similar integration for the Zenoh protocol.
 
+<<<<<<<< HEAD:source/Concepts/Advanced/About-Middleware-Implementations.rst
 For a more practical in-depth overview of how ROS 2 integrates with different middleware implementations, see :doc:`the middleware implementation tutorial <../../Tutorials/Advanced/Creating-An-RMW-Implementation>`.
+========
+For a more practical in-depth overview of how ROS 2 integrates with different middleware implementations, see :doc:`the middleware implementation tutorial <Creating-An-RMW-Implementation>`.
+>>>>>>>> 32eab8b (3di: TOC update to include Framework > Middleware (#7409)):source/ROS-Framework/middleware/About-Middleware-Implementations.rst
 
 Common Packages for DDS Middleware Implementations
 --------------------------------------------------

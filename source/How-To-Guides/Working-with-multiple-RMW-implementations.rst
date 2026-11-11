@@ -16,7 +16,11 @@ This page explains the default RMW implementation and how to specify an alternat
 Prerequisites
 --------------
 
+<<<<<<< HEAD:source/How-To-Guides/Working-with-multiple-RMW-implementations.rst
 You should have already read the :doc:`DDS and ROS middleware implementations page <../Concepts/Intermediate/About-Different-Middleware-Vendors>`.
+=======
+You should have already read the :doc:`DDS and ROS middleware implementations page <../../../ROS-Framework/middleware/About-Different-Middleware-Vendors>`.
+>>>>>>> 32eab8b (3di: TOC update to include Framework > Middleware (#7409)):source/Get-Started/Installation/RMW-Implementations/Working-with-multiple-RMW-implementations.rst
 
 Specifying RMW implementations
 ------------------------------
