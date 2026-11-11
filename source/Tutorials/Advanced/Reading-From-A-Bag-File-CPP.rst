@@ -323,3 +323,10 @@ Summary
 
 You created a C++ executable that reads data from a bag.
 You then compiled and ran the executable which printed some information from the bag to the console.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

@@ -152,3 +152,10 @@ For Ubuntu Linux, there is also a nightly Docker image based on the nightly bina
       $ docker run -it osrf/ros2:nightly
 
 For support on running GUI applications in Docker, take a look at the tutorial `User GUI's with Docker <https://wiki.ros.org/docker/Tutorials/GUI>`_ or the tool `rocker <https://github.com/osrf/rocker>`_.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

@@ -36,4 +36,15 @@ Adding Your Package to docs.ros.org
 -----------------------------------
 
 All released ROS 2 packages are automatically added to docs.ros.org and `ROS Index <https://index.ros.org/>`_.
+<<<<<<< HEAD:source/Package-Docs.rst
 If you would like to enable or configure your own package please see: :doc:`./How-To-Guides/Documenting-a-ROS-2-Package`.
+=======
+If you would like to enable or configure your own package please see: :doc:`../Package-documentation/Documenting-a-ROS-2-Package`.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
+>>>>>>> 5ff6b51 (3di | Add Related articles directive to the docs set (#7390)):source/Developer-Tools/Build/Package-Docs.rst

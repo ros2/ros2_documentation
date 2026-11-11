@@ -167,4 +167,15 @@ Uninstall
 
    .. code-block:: console
 
+<<<<<<< HEAD:source/Installation/Windows-Install-Binary.rst
       $ rmdir /s /q C:\pixi_ws
+=======
+      $ rmdir /s /q C:\dev\{DISTRO}
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
+>>>>>>> 5ff6b51 (3di | Add Related articles directive to the docs set (#7390)):source/Get-Started/Installation/Windows-Install-Binary.rst

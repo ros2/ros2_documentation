@@ -62,4 +62,15 @@ If you use a different version of Gazebo than the recommended version, make sure
 Summary
 -------
 
+<<<<<<< HEAD:source/Tutorials/Advanced/Simulators/Gazebo/Gazebo.rst
 In this tutorial, you have installed Gazebo and set-up your workspace to start with the `Gazebo tutorials <https://gazebosim.org/docs/harmonic/tutorials>`__.
+=======
+In this tutorial, you have installed Gazebo and set-up your workspace to start with the `Gazebo tutorials <https://gazebosim.org/docs/ionic/tutorials>`__.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
+>>>>>>> 5ff6b51 (3di | Add Related articles directive to the docs set (#7390)):source/Integrations-and-related/Simulators/Gazebo/Gazebo.rst

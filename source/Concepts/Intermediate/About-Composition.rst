@@ -127,4 +127,15 @@ The three most common ones are:
 Practical application
 ---------------------
 
+<<<<<<< HEAD:source/Concepts/Intermediate/About-Composition.rst
 Try the :doc:`Composition demos <../../Tutorials/Intermediate/Composition>`.
+=======
+Try the :doc:`Composition demos <Working-with-nodes/Composition>`.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
+>>>>>>> 5ff6b51 (3di | Add Related articles directive to the docs set (#7390)):source/ROS-Framework/nodes/About-Composition.rst

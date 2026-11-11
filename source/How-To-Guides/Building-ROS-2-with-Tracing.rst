@@ -100,3 +100,10 @@ It should print out:
        Tracing disabled through configuration
 
 If something else is printed, then something went wrong.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

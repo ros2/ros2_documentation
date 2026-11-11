@@ -462,6 +462,12 @@ The ParameterEventHandler is a convenient way to monitor for parameter changes s
 Related content
 ---------------
 
+<<<<<<< HEAD:source/Tutorials/Intermediate/Monitoring-For-Parameter-Changes-CPP.rst
 To learn how to adapt ROS 1 parameter files for ROS 2, see the :doc:`Migrating YAML parameter files from ROS 1 to ROS2 <../../How-To-Guides/Migrating-from-ROS1/Migrating-Parameters>` tutorial.
 
 
+=======
+Related articles:
+
+.. ros-related-articles::
+>>>>>>> 5ff6b51 (3di | Add Related articles directive to the docs set (#7390)):source/ROS-Framework/parameters/Working-with-parameters/Monitoring-For-Parameter-Changes-CPP.rst
