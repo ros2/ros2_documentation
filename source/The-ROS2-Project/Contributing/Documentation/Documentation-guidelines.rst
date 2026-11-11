@@ -89,8 +89,8 @@ Both of them support nested definitions and will render accordingly.
 
 .. code-block:: rst
 
-  #. First listed item
-  #. Second listed item
+   #. First listed item
+   #. Second listed item
 
 Code formatting
 ^^^^^^^^^^^^^^^
@@ -214,9 +214,9 @@ Therefore, when using ``:target:`` to add a hyperlink to the image file, use a r
 Charts, graphs, and diagrams
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-ROS documentation supports charts, graphs, and diagrams written using `Mermaid Charts. <https://mermaid.js.org/intro/>`__
+ROS documentation supports charts, graphs, and diagrams written using `Mermaid Charts <https://mermaid.js.org/intro/>`__.
 Prefer Mermaid instead of static image files, so these resources can be updated programmatically as the project evolves.
-Full documentation of the Mermaid graph language syntax can be found `on their website. <https://mermaid.js.org/intro/syntax-reference.html>`__
+Full documentation of the Mermaid graph language syntax can be found `on their website <https://mermaid.js.org/intro/syntax-reference.html>`__.
 
 References and links
 ^^^^^^^^^^^^^^^^^^^^
@@ -459,9 +459,9 @@ Matching uses the primary ``:area:`` value: other pages that include that value 
 
 .. code-block:: rst
 
-  Related articles:
+   Related articles:
 
-  .. ros-related-articles::
+   .. ros-related-articles::
 
 To generate related packages in the browser from the rosdistro cache, add the ``.. ros-related-packages::`` directive.
 Write a short intro line such as ``Related packages:`` above it.
@@ -469,9 +469,9 @@ Matching uses the primary ``:area:`` value against each package's ``<ros2_docume
 
 .. code-block:: rst
 
-  Related packages:
+   Related packages:
 
-  .. ros-related-packages::
+   .. ros-related-packages::
 
 You can also add related content manually.
 Use the following formatting and naming conventions.
@@ -615,12 +615,12 @@ Use the examples in the following table for guidance about the type of article y
        Useful for all levels of experience, particularly for users upgrading between distributions.
      - :doc:`Kilted Kaiju <../../../Releases/Release-Kilted-Kaiju>`
 
-Related articles
-----------------
+Related content
+---------------
 
-* :doc:`Contributing to documentation<../../../The-ROS2-Project/Contributing/Contributing-to-documentation>`
+* :doc:`Contributing to documentation <../Contributing-to-documentation>`
 
-* :doc:`Creating or updating documentation<../../../The-ROS2-Project/Contributing/Documentation/Creating-or-updating-documentation>`
+* :doc:`Creating or updating documentation <Creating-or-updating-documentation>`
 
 FAQs
 ----
