@@ -365,3 +365,10 @@ Making a PR
 ^^^^^^^^^^^
 
 When you've finished your documentation changes, submit them by :ref:`making a pull request <DeveloperGuidePullRequests>`.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

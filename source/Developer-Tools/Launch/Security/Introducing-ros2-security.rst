@@ -427,3 +427,10 @@ Are you ready to go further with ROS Security?
 Take a look at the `Secure Turtlebot2 Demo <https://github.com/ros-swg/turtlebot3_demo>`_.
 You'll find a functioning and complex implementation of ROS 2 security, ready to try out your own custom scenarios.
 Be sure to create pull requests and issues here so we can continue improving security support in ROS!
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

@@ -121,3 +121,10 @@ Once the pull request meets the review guidelines it will be merged, and your pa
 
 You've completed an important step toward releasing your package.
 Proceed to the next guide: :doc:`First Time Release <First-Time-Release>`.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

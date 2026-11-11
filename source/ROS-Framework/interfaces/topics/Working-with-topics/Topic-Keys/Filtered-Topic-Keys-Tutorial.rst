@@ -403,3 +403,10 @@ Even in a late-joining scenario, the controller node will receive the latest dat
 
 Overall, the combination of topic instances with a content filter topic offers significant benefits in terms of data efficiency, scalability, adaptability and resource optimization.
 By leveraging these capabilities, ROS 2 applications can efficiently manage and distribute data in complex distributed environments.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

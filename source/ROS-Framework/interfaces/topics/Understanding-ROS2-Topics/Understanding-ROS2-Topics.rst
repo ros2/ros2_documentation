@@ -611,11 +611,13 @@ Stop them by entering ``Ctrl+C`` in each terminal.
 Related content
 ---------------
 
-More articles:
+Related articles:
 
 * :doc:`Understanding nodes <../../../nodes/Working-with-nodes/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes>`
 * :doc:`Understanding services <../../services/Working-with-services/Understanding-ROS2-Services/Understanding-ROS2-Services>`
 * :doc:`Interfaces (topics, services, actions) <../../../Interfaces-Topics-Services-Actions>`
+
+.. ros-related-articles::
 
 FAQs
 ----

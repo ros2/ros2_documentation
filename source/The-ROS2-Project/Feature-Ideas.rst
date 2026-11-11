@@ -167,3 +167,10 @@ Reducing Technical Debt
 * Address / classify pending tickets
 * Address TODOs in code / docs
 * Remove tinyxml as a dependency
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

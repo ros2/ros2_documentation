@@ -318,3 +318,10 @@ The code used in these examples is originally from `here <https://github.com/ben
 Credit is given to the authors of this
 `ROS 1 tutorial <http://wiki.ros.org/urdf/Tutorials/Using%20urdf%20with%20robot_state_publisher>`__
 from which some content was reused.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

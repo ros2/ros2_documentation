@@ -134,6 +134,10 @@ When you are satisfied with the changes and they are ready to be merged, approve
 Related content
 ---------------
 
+Related articles:
+
 * :ref:`ROS development general principles <general-principles>`
 * :doc:`Making-a-PR`
 * `About pull request reviews <https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews>`__
+
+.. ros-related-articles::

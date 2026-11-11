@@ -138,3 +138,10 @@ Compared to the usage of ament_python, which supports automatic test discovery, 
 The timeout can be reduced as needed.
 
 Now, you can invoke your tests with the :doc:`standard colcon testing commands <../Debugging/Testing/CLI>`.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

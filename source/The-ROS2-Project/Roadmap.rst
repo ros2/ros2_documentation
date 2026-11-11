@@ -63,3 +63,10 @@ Here are a few resources to get you going.
 4. The core code for ROS 2 is in the `ros2 GitHub organization <https://github.com/ros2>`__.
 5. The forum discussing ROS 2 design is `Open Robotics Discourse's ROS category <https://discourse.openrobotics.org/c/ros/111>`__.
 6. Questions should be asked on `Robotics Stack Exchange <https://robotics.stackexchange.com/>`__\ , make sure to include at least the ``ros2`` tag and the rosdistro version you are running, e.g. ``{DISTRO}``.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

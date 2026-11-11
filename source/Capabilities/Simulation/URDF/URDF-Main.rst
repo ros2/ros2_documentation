@@ -39,3 +39,10 @@ A URDF file follows the XML format as described on `here <https://wiki.ros.org/u
    Using-URDF-with-Robot-State-Publisher-cpp
    Using-URDF-with-Robot-State-Publisher-py
    Exporting-an-URDF-File
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

@@ -207,3 +207,10 @@ See :doc:`Maintaining-a-Source-Checkout` to periodically refresh your source ins
    .. code-block:: console
 
       $ rm -rf ~/ros_ws_pixi
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
