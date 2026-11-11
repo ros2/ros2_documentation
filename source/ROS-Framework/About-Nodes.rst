@@ -31,7 +31,7 @@ Nodes
    nodes/About-Composition
    nodes/Working-with-nodes
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :local:
 
 Summary

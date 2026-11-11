@@ -28,7 +28,7 @@ Topics
    topics/About-Quality-of-Service-Settings
    topics/Working-with-topics
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :local:
 
 Topics are one of the three primary styles of interfaces provided by ROS 2.

@@ -22,7 +22,7 @@ How ROS works
 
 Coming Soon
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 

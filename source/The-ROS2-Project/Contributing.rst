@@ -35,7 +35,7 @@ Contributing to ROS
    Contributing/Triaging-an-issue
    Contributing/Reporting-an-issue
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :local:
 
 Summary
