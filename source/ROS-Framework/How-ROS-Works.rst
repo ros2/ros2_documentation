@@ -22,6 +22,7 @@ How ROS works
 
 Summary
 -------
+
 ROS systems use a network of modular software elements, called nodes, which process data concurrently and can communicate with each other through defined interfaces.
 The ROS graph refers to the network of nodes.
 
@@ -30,14 +31,14 @@ Elements of a ROS system
 
 The ROS framework consists of multiple elements which allow you to build a complete robotics system that can receive data from sensors and transform that data into robotic actions.
 
-A full robotic system is comprised of many nodes working together.
-In ROS 2, a single executable (C++ program, Python program, etc.) can contain one or more nodes.
+A full robotic system consists of many nodes working together.
+In ROS, a single executable (C++ program, Python program, etc.) can contain one or more nodes.
 Each node in ROS should be responsible for a single, modular purpose, such as controlling a motor or publishing sensor data.
 ROS nodes can process data concurrently and can communicate with each other.
 See :doc:`About-Nodes`.
 
 Communication between nodes is managed using the middleware interface.
-See :doc:`nodes/About-Discovery` and :doc:`client-libraries/About-Internal-Interfaces/About-Internal-Interfaces`.
+See the Discovery section of :doc:`About-Nodes`, and :doc:`client-libraries/About-Internal-Interfaces/About-Internal-Interfaces`.
 Each node can send data to and receive data from other nodes.
 See :doc:`Interfaces-Topics-Services-Actions`.
 
@@ -77,10 +78,11 @@ ROS CLI and client libraries
 
 You can build with ROS using the command line and the ROS API.
 
-* ROS CLI:
+ROS CLI
    The ROS command line tools allow you to interact with your ROS system using the command line interface (CLI).
    You can use the CLI for a variety of tasks including launching or investigating nodes.
-* ROS API:
+
+ROS API
    The ROS API allows you to build and run complex systems using client libraries.
    For a more in-depth description of the ROS API, see :doc:`About-Client-Libraries`.
 
@@ -89,9 +91,9 @@ You can build with ROS using the command line and the ROS API.
    ROS command line tools allow you to explore a live graph before writing your own nodes, and client libraries let you implement the same concepts in code.
    See :doc:`../First-Steps`.
 
-
 Related content
 ---------------
+
 * :doc:`About-Client-Libraries`
 * :doc:`About-Parameters`
 * :doc:`Interfaces-Topics-Services-Actions`
