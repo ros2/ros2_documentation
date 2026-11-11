@@ -16,7 +16,7 @@ How ROS works
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -92,7 +92,6 @@ You can build with ROS using the command line and the ROS API.
 
 Related content
 ---------------
-* :doc:`nodes/About-Discovery`
 * :doc:`About-Client-Libraries`
 * :doc:`About-Parameters`
 * :doc:`Interfaces-Topics-Services-Actions`
