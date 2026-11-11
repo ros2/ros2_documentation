@@ -20,7 +20,7 @@ ROS 2 adopters
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -38,3 +38,10 @@ To add your organization or project, see :doc:`Adopters/Add-Your-Project`.
    Adopters/Add-Your-Project
 
 .. adopters-table::
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

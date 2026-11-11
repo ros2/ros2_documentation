@@ -21,7 +21,7 @@ Supplementing custom ``rosdep`` keys - tutorial
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -159,3 +159,10 @@ Further reading
 
 - https://docs.ros.org/en/independent/api/rosdep/html/rosdep_yaml_format.html
 - https://docs.ros.org/en/independent/api/rosdep/html/contributing_rules.html
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

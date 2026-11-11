@@ -17,7 +17,7 @@ Reviewing a pull request (PR) — how-to
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -134,6 +134,10 @@ When you are satisfied with the changes and they are ready to be merged, approve
 Related content
 ---------------
 
+Related articles:
+
 * :ref:`ROS development general principles <general-principles>`
 * :doc:`Making-a-PR`
 * `About pull request reviews <https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews>`__
+
+.. ros-related-articles::

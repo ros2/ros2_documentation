@@ -1,13 +1,20 @@
 .. redirect-from::
 
+   Rosidl-Tutorial
+   Tutorials/Single-Package-Define-And-Use-Interface
+   Tutorials/Beginner-Client-Libraries/Single-Package-Define-And-Use-Interface
    How-To-Guides/Implementing-custom-interfaces
+   ROS-Framework/client-libraries/Working-with-Client-Libraries/Single-Package-Define-And-Use-Interface
+   Developer-Tools/Build/Single-Package-Define-And-Use-Interface
 
 .. meta::
    :contentType: how-to
    :experience: beginner, intermediate
-   :area: builds, tools
+   :area: interfaces, tools
    :distribution: {DISTRO}
    :product: {PRODUCT}
+
+.. _SinglePkgInterface:
 
 Implementing custom interfaces - how-to
 =======================================
@@ -104,7 +111,8 @@ Steps
 
    .. code-block:: xml
 
-      <build_depend>rosidl_default_generators</build_depend>
+      <depend>rclcpp</depend>
+      <buildtool_depend>rosidl_default_generators</buildtool_depend>
       <exec_depend>rosidl_default_runtime</exec_depend>
       <depend>geometry_msgs</depend>
       <member_of_group>rosidl_interface_packages</member_of_group>
@@ -128,6 +136,7 @@ Steps
    .. code-block:: c++
 
       #include <chrono>
+      #include <iostream>
       #include <memory>
 
       #include "rclcpp/rclcpp.hpp"
@@ -273,3 +282,12 @@ Steps
 
             $ install/setup.ps1
             $ ros2 topic echo /address_book
+
+Related content
+---------------
+
+Related articles:
+
+* There are `several design articles <https://design.ros2.org/#interfaces>`_ on ROS 2 interfaces and the IDL (interface definition language).
+
+.. ros-related-articles::

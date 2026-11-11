@@ -17,7 +17,7 @@ Making a pull request (PR) — how-to
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -120,5 +120,9 @@ Your changes may also be backported to older distributions of ROS.
 Related content
 ---------------
 
+Related articles:
+
 * :ref:`ROS development general principles <general-principles>`
 * :doc:`Reviewing-a-PR`
+
+.. ros-related-articles::

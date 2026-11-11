@@ -21,7 +21,7 @@ Using ros2_tracing to trace and analyze an application - tutorial
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -217,3 +217,10 @@ Then it showed how to trace a `performance_test <https://gitlab.com/ApexAI/perfo
 
 For more trace analyses, take a look at the `other sample notebooks <https://github.com/ros-tracing/tracetools_analysis/tree/{DISTRO}/tracetools_analysis/analysis>`_ and the `tracetools_analysis API documentation <https://docs.ros.org/en/{DISTRO}/p/tracetools_analysis/>`_.
 The `ros2_tracing design document <https://github.com/ros2/ros2_tracing/blob/{DISTRO}/doc/design_ros_2.md>`_ also contains a lot of information.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

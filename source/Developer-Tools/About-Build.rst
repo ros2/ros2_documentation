@@ -1,5 +1,6 @@
 .. meta::
    :contentType: about
+   :contentType: about
    :experience: intermediate
    :area: builds, tools
    :distribution: {DISTRO}
@@ -7,6 +8,7 @@
 
 Builds
 ======
+
 .. short-description::
    The ability to work with multiple packages together is useful for developing complex robotics systems.
    This article summarizes the ROS developer tools and guidance available to help with builds.
@@ -16,7 +18,6 @@ Builds
    :labels: area=Area, contentType=Content type, experience=Level
 
 .. toctree::
-   :maxdepth: 1
    :hidden:
 
    Build/About-Cross-Compilation

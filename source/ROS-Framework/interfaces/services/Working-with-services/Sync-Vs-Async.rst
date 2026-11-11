@@ -19,7 +19,7 @@ Synchronous vs. asynchronous service clients — tutorial
 .. short-description::
    Service clients can be written synchronously or asynchronously, but synchronous Python calls can block execution and cause deadlock.
    This article explains how ``call()`` and ``call_async()`` behave, when synchronous calls are unsafe, and why asynchronous calls are recommended.
-   After reading it, you will be able to choose a safer client pattern and recognise common deadlock conditions.
+   After reading it, you will be able to choose a safer client pattern and recognize common deadlock conditions.
 
 .. showmeta::
    :order: area, contentType, experience
@@ -165,3 +165,10 @@ They are susceptible to deadlock, but will not provide any indication of issue w
 If you must use synchronous calls, the example in section `1 Synchronous calls`_ is a safe method of doing so.
 You should also be aware of the conditions that cause deadlock outlined in section `1.1 Sync deadlock`_.
 We recommend using async service clients instead.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

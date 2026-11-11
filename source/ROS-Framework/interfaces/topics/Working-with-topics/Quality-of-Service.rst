@@ -23,7 +23,7 @@ Using quality-of-service settings for lossy networks — tutorial
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -202,3 +202,10 @@ When you're done, remember to delete the queueing discipline:
 .. code-block:: console
 
    $ sudo tc qdisc delete dev lo root netem loss 5%
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

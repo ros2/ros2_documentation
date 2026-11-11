@@ -1,5 +1,6 @@
 .. meta::
    :contentType: about
+   :contentType: about
    :experience: intermediate
    :area: visualization, tools
    :distribution: {DISTRO}
@@ -15,9 +16,15 @@ Visualization
 .. showmeta::
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
+.. short-description::
+   Sometimes you need to visualize what your robot is sensing and planning to better develop, test, and debug your system.
+   This article summarizes the ROS developer tools and guidance available to help with visualization.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 .. toctree::
-   :maxdepth: 1
    :hidden:
 
    Visualization/RViz/RViz-Main

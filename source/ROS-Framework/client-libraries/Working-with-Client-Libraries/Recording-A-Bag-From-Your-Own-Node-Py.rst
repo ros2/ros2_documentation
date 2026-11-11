@@ -693,3 +693,10 @@ You tested recording a bag using the node, and verified the data was recorded by
 This approach can be used to record a bag with additional data than it received over a topic, for example with results obtained from processing the received data.
 You then went on to create a node and an executable to generate synthetic data and store it in a bag.
 The latter approaches are useful especially for generating synthetic data that can be used, for example, as training sets.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

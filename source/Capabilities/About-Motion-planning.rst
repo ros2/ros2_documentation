@@ -8,19 +8,22 @@
 Motion planning and manipulation
 ================================
 
+.. short-description::
+   Motion planning enables you to control a robot's movements to achieve an intended goal.
+   Manipulation capabilities enable robots to analyze their environment and perform tasks like picking and placing objects.
+   This article summarizes ROS developer tools and guidance available to help with motion planning and manipulation.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
 .. toctree::
    :maxdepth: 1
    :hidden:
 
    Motion-planning/Real-Time-Programming
 
-Motion planning enables you to control a robot's movements to achieve an intended goal.
-Manipulation capabilities enable robots to analyze their environment and perform tasks like picking and placing objects.
-This article summarizes ROS developer tools and guidance available to help with motion planning and manipulation.
-
-**Area: motion-planning, manipulation, capabilities | Content-type: about | Experience: beginner, intermediate, expert**
-
-.. contents:: Table of Contents
+.. contents:: Contents
    :local:
 
 Summary
@@ -48,17 +51,17 @@ Community-contributed packages
 
 * `Search Based Planning Library (SBPL) <https://github.com/sbpl/sbpl>`_: A C++ library providing search-based motion planning algorithms for robotics and automated systems.
 
-* `RoboPlan <https://github.com/open-planning/roboplan>`_: A Rust and C++ library providing a planning framework for robotics and automated systems.
+* `RoboPlan <https://github.com/open-planning/roboplan>`_: A C++ library with Python bindings providing a planning framework for robotics and automated systems.
 
-* `pyroboplan <https://pyroboplan.readthedocs.io/en/latest/>`_: A Python library for modeling robot kinematics and dynamics.
+Related content
+---------------
 
-.. Related content (placeholder)
-   ------------------------------
-   * Example
+Related articles:
 
-   * Example
+.. ros-related-articles::
 
-   FAQs (placeholder)
+
+..   FAQs (placeholder)
    ------------------
    * Example
 

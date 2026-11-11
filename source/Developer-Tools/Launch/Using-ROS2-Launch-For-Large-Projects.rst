@@ -18,7 +18,7 @@ Managing large projects - tutorial
 
 .. short-description::
    Large robot applications often need reusable launch files that can start many related ROS nodes consistently.
-   This article shows how to organise launch files for larger projects using parameters, YAML files, namespaces, remappings, launch arguments, environment variables, and RViz configurations.
+   This article shows how to organize launch files for larger projects using parameters, YAML files, namespaces, remappings, launch arguments, environment variables, and RViz configurations.
    After you follow these steps, you can build a modular launch system for a multi-node turtlesim simulation.
 
 .. showmeta::
@@ -31,7 +31,7 @@ Managing large projects - tutorial
 
 **Time:** 20 minutes
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -565,3 +565,10 @@ Summary
 -------
 
 In this tutorial, you learned about various tips and practices of managing large projects using ROS 2 launch files.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

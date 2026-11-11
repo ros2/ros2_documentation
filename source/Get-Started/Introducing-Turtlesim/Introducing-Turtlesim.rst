@@ -330,7 +330,7 @@ Now, you can move ``turtle2`` when this terminal is active, and ``turtle1`` when
 Related content
 ---------------
 
-More articles:
+Related articles:
 
 * :doc:`First steps with ROS <../../First-Steps>`
 * :doc:`../Configuring-ROS2-Environment`

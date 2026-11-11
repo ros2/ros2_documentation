@@ -23,7 +23,7 @@ Maintaining ROS Core Packages - how-to
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -186,3 +186,10 @@ While doing maintenance on a package, questions about general procedures or indi
 For general questions, please follow the :doc:`contributing guidelines <../../The-ROS2-Project/Contributing>`.
 
 For questions on individual issues, please tag the ROS 2 GitHub team (@ros/team), and someone on the team will take a look.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

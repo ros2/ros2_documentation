@@ -23,7 +23,7 @@ Configuring QoS overrides using parameters — tutorial
 
 **Time:** 15 minutes
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -447,9 +447,13 @@ In this tutorial, you learned:
 * How to verify endpoint QoS profiles with ``ros2 topic info -v``.
 * How validation callbacks enforce application safety constraints at initialization.
 
-Related Content
+Related content
 ---------------
+
+Related articles:
 
 * :doc:`About Quality of Service settings <../About-Quality-of-Service-Settings>`
 * :doc:`Using quality-of-service settings for lossy networks — tutorial <Quality-of-Service>`
-* :doc:`Overriding QoS policies for recording and playback <../../../../Developer-Tools/Debugging/Testing/Overriding-QoS-Policies-For-Recording-And-Playback>`
+* :doc:`Overriding QoS policies for recording and playback </Developer-Tools/Debugging/Testing/Overriding-QoS-Policies-For-Recording-And-Playback>`
+
+.. ros-related-articles::

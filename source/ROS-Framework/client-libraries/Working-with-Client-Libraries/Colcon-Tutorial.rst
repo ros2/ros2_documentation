@@ -25,7 +25,7 @@ Using ``colcon`` to build packages — tutorial
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -426,3 +426,10 @@ Then, try out using the ``debug`` mixin:
     $ colcon build --mixin debug
 
 For more details, see  the `colcon mixin repository <https://github.com/colcon/colcon-mixin-repository>`__.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

@@ -1,6 +1,6 @@
 .. meta::
    :contentType: tutorial
-   :experience: TBD
+   :experience: beginner, intermediate, expert
    :area: installation
    :distribution: {DISTRO}
    :product: {PRODUCT}
@@ -24,7 +24,7 @@ Deploying on IBM Cloud Kubernetes [community-contributed] - tutorial
    :labels: area=Area, contentType=Content type, experience=Level
 
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -606,3 +606,10 @@ It is also possible, with little changes to utilize local ROS 2 packages as well
 This could be the topic of another article.
 However, you are encouraged to check out the following `Dockerfile <https://github.com/mm-nasr/ros2_ibmcloud/tree/main/dockers/local_pkgs_docker>`__ which uses a local copy of the demos repository.
 Similarly, you can use your own local package.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

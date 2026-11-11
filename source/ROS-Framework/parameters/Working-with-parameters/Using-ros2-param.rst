@@ -21,7 +21,7 @@ Using the ``ros2 param`` command-line tool — how-to
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 1
    :local:
 
@@ -159,3 +159,10 @@ That is, this command can reload values at runtime that were dumped out by ``ros
 .. code-block:: console
 
   $ ros2 param load /my_node my_node.yaml
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

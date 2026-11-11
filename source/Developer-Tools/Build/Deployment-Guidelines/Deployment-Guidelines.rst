@@ -27,7 +27,7 @@ Understanding security-enabled deployments - tutorial
 
 **Time:** 20 minutes
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -244,3 +244,10 @@ Note that:
 .. note::
 
   For the sake of simplicity, the same CA is used within this enclave for both identity and permissions.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

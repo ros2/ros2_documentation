@@ -297,3 +297,10 @@ It should work like any Python project now, allowing easy additions of breakpoin
 .. note::
 
    On Windows it seems the capitalization of the ``PATH`` variable under "Environment Variables:" must be "path" (all lowercase) in order to work.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

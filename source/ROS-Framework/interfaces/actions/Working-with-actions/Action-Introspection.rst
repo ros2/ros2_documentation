@@ -27,7 +27,7 @@ Configure action introspection — tutorial
 
 **Time:** 15 minutes
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -359,4 +359,8 @@ Now you can see the action communication between ``FibonacciActionServer`` and `
 Related content
 ---------------
 
-- `Action Introspection REP-2018 <https://github.com/ros-infrastructure/rep/pull/405>`__.
+Related articles:
+
+* `Action Introspection REP-2018 <https://github.com/ros-infrastructure/rep/pull/405>`__
+
+.. ros-related-articles::

@@ -27,7 +27,7 @@ Getting Backtraces in ROS 2 - how-to
 
 **Time:** 15 minutes
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -389,3 +389,10 @@ Automatic backtrace on crash
 The `backward-cpp <https://github.com/pal-robotics/backward_ros>`_ library provides beautiful stack traces, and the `backward_ros <https://github.com/pal-robotics/backward_ros>`_ wrapper simplifies its integration.
 
 Just add it as a dependency and ``find_package`` it in your CMakeLists and the backward libraries will be injected in all your executables and libraries.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

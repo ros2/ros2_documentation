@@ -463,5 +463,9 @@ Now that you have some packages and ROS 2 systems of your own, the :doc:`next tu
 Related content
 ---------------
 
+Related articles:
+
 * For more detailed information about using YAML files to load parameters, please refer to :ref:`this section <Parameters>` of Managing large projects tutorial.
 * If you want to learn, how to monitor and respond to parameter changes, check out :doc:`Monitoring for parameter changes (Python) <../../parameters/Working-with-parameters/Monitoring-For-Parameter-Changes-Python>` tutorial.
+
+.. ros-related-articles::

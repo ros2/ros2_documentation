@@ -17,7 +17,7 @@ Triaging an issue — how-to
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -78,8 +78,12 @@ After you've confirmed the issue is a genuine issue, and reproduced it, assign a
 Related content
 ---------------
 
+Related articles:
+
 * :doc:`../Contributing`
 * :doc:`Reporting-an-issue`
+
+.. ros-related-articles::
 
 FAQs
 ----

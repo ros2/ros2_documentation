@@ -19,7 +19,7 @@ Creating or updating documentation — how-to
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -365,3 +365,10 @@ Making a PR
 ^^^^^^^^^^^
 
 When you've finished your documentation changes, submit them by :ref:`making a pull request <DeveloperGuidePullRequests>`.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

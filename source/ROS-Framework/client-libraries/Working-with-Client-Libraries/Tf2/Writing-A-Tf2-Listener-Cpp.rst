@@ -278,7 +278,7 @@ All this is wrapped in a try-catch block to handle possible exceptions.
 
 The resulting transformation represents the position and orientation of the target turtle relative to ``turtle2``.
 The angle between the turtles is then used to calculate a velocity command to follow the target turtle.
-For more general information about tf2 see also the :doc:`tf2 page in the Concepts section <../../../interfaces/About-Tf2/About-Tf2>`.
+For more general information about tf2 see also the :doc:`About tf2 <../../../interfaces/Working-with-interfaces/About-Tf2/About-Tf2>` page.
 
 1.2 CMakeLists.txt
 ~~~~~~~~~~~~~~~~~~
@@ -444,3 +444,10 @@ Summary
 
 In this tutorial you learned how to use tf2 to get access to frame transformations.
 You also have finished writing your own turtlesim demo that you first tried in :doc:`Introduction to tf2 <../../../interfaces/Working-with-interfaces/Introduction-To-Tf2/Introduction-To-Tf2>` tutorial.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

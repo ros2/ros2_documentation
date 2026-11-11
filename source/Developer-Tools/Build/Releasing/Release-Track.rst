@@ -21,7 +21,7 @@ Creating release track prompts - how-to
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -264,3 +264,10 @@ Release Repository Push URL
       [None]:
 
 Can be left as the default in most cases.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

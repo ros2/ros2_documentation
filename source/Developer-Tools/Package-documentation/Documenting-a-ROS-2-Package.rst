@@ -5,6 +5,7 @@
 .. meta::
    :contentType: how-to
    :experience: beginner, intermediate
+   :experience: intermediate
    :area: visualization, tools
    :distribution: {DISTRO}
    :product: {PRODUCT}
@@ -21,7 +22,7 @@ Documenting a ROS 2 package - how-to
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -256,9 +257,49 @@ To view the status of your package's documentation build, search for ``doc__<pac
 One job is created for every distribution for which the package is released.
 On each job page, you can see when a build was last triggered, as well as the status and logs of each build.
 
+Related packages metadata
+-------------------------
+
+Add metadata to your package's ``package.xml`` to label the areas of ROS documentation it relates to.
+Articles on docs.ros.org use this metadata to list your package in their *Related packages* section so that readers can discover it from related topics.
+
+Add the metadata as exports in the ``<export>`` section of ``package.xml``.
+In this example, ``nodes`` and ``framework`` are area values taken from the allowed vocabulary.
+Replace them with the areas that apply to your package:
+
+.. code-block:: xml
+
+    <package>
+        <!-- [...] -->
+        <export>
+            <!-- [...] -->
+            <ros2_documentation_area>nodes, framework</ros2_documentation_area>
+            <ros2_documentation_related_scope>core</ros2_documentation_related_scope>
+        </export>
+    </package>
+
+``<ros2_documentation_area>`` is required for the package to be listed.
+It takes one or more area values, most specific first, using the same vocabulary as an article's ``:area:`` metadata.
+A package is listed on an article when that article's primary (first) area appears anywhere in this list.
+
+``<ros2_documentation_related_scope>`` is optional.
+It is either ``core`` or ``federation``, and decides whether the package is grouped under *Core ROS packages* or *Community packages*.
+Any other value, or no value at all, is treated as ``federation``.
+
+The package's ``<description>`` is shown next to its name so that readers can see what the package does.
+
+For the list of allowed area values and how to choose them, see :doc:`/The-ROS2-Project/Contributing/Documentation/Documentation-guidelines`.
+
 Further Reading
 ---------------
 
 * `rosdoc2 readme <https://github.com/ros-infrastructure/rosdoc2/blob/main/README.md>`_
 * `ROS 2 design document on package documentation <https://design.ros2.org/articles/per_package_documentation.html>`_
 * `The ROS 2 cookbook <https://github.com/mikeferguson/ros2_cookbook/blob/main/pages/rosdoc2.md>`_
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

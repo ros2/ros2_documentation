@@ -1,11 +1,18 @@
 .. meta::
    :contentType: how-to
-   :experience: intermediate
+   :experience: beginner, intermediate, expert
    :area: installation
    :distribution: {DISTRO}
    :product: {PRODUCT}
 
 .. _SnapshotRepository:
+
+.. meta::
+   :contentType: how-to
+   :experience: intermediate
+   :area: installation
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
 
 Installing from the snapshot repository
 =======================================
@@ -193,6 +200,13 @@ Reset the rosdistro index:
    $ rosdep update
 
 To move to a different snapshot instead, start from step 2 again.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
 
 FAQs
 ----
