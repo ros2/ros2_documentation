@@ -101,10 +101,19 @@ function bindModalEnterToSearchPage() {
       if (!modal) {
         return;
       }
-      const inModal = event.composedPath().some(
+      const path = event.composedPath();
+      const inModal = path.some(
         (node) => node instanceof Element && (node === modal || modal.contains(node)),
       );
       if (!inModal) {
+        return;
+      }
+      // Only Enter in the search box opens search.html. Enter on a highlighted
+      // or focused result must still open that result.
+      const fromSearchBox = path.some(
+        (node) => node instanceof HTMLInputElement && node.closest('pagefind-input'),
+      );
+      if (!fromSearchBox) {
         return;
       }
       const query = getModalSearchTerm(event);

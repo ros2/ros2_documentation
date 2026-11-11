@@ -18,7 +18,7 @@ To build this you need to install
 
 * make
 * graphviz
-* [Node.js](https://nodejs.org/) 18+ (`make html` and `make multiversion` index search with Pagefind; check with `node -v && npx -v`)
+* [Node.js](https://nodejs.org/) 18+ (optional: `make html` and `make multiversion` use it to index search with Pagefind, and fall back to Sphinx's built-in search without it; check with `node -v && npx -v`)
 
 With [venv](https://docs.python.org/3/library/venv.html)
 
@@ -125,6 +125,9 @@ branch's build; the branches themselves are still built one after another.
 Every build uses the Pagefind search UI, and `make html` / `make multiversion` then run
 `make pagefind` to index the output. `make serve` is the exception: it passes
 `-D pagefind_enabled=0` and keeps Sphinx's built-in search.
+
+If Node.js (`npx`) is not installed, `make html` and `make multiversion` print a warning
+and build with Sphinx's built-in search instead.
 
 Running `make pagefind` on its own only re-indexes an existing build.
 

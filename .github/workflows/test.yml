@@ -157,4 +157,3 @@ jobs:
 
       - name: Build the docs with Pagefind search
         run: make multiversion
-

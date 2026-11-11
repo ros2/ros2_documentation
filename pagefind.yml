@@ -19,9 +19,6 @@ exclude_selectors:
 search_result_meta:
   distribution: Distribution
   area: Area
-  installation: Installation
-  framework: Framework
-  tool: Tools
   contentType: Content type
   experience: Level
 

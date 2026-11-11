@@ -29,21 +29,36 @@ help:
 	@echo "  multiversion to build documentation for all branches"
 
 # Pagefind static search index (requires Node.js / npx).
+# source/_static/pagefind-search.js hooks into this version's Component UI
+# internals. After changing the version, test search and filters by hand.
 PAGEFIND_VERSION ?= 1.5.2
+HAVE_NPX := $(shell command -v npx 2>/dev/null)
+# Without Node.js, build with Sphinx's built-in search instead of failing.
+ifeq ($(HAVE_NPX),)
+PAGEFIND_OPTS = -D pagefind_enabled=0
+endif
+
 pagefind:
 	@command -v npx >/dev/null || { echo "make pagefind needs Node.js 18+ (npx)"; exit 1; }
 	npx -y pagefind@$(PAGEFIND_VERSION) --site "$(OUT)/html"
 
-# Docs builds use the Pagefind search UI (pagefind_enabled defaults on), then index the output.
-html: Makefile
-	@$(BUILD) -M html "$(SOURCE)" "$(OUT)" $(OPTS)
+# Index the output with Pagefind when Node.js is available.
+pagefind-if-available:
+ifeq ($(HAVE_NPX),)
+	@echo "WARNING: Node.js (npx) not found. Built with Sphinx's built-in search instead of Pagefind."
+else
 	$(MAKE) pagefind
+endif
+
+html: Makefile
+	@$(BUILD) -M html "$(SOURCE)" "$(OUT)" $(OPTS) $(PAGEFIND_OPTS)
+	$(MAKE) pagefind-if-available
 
 multiversion: Makefile
-	sphinx-multiversion $(OPTS) "$(SOURCE)" build/html
+	sphinx-multiversion $(OPTS) $(PAGEFIND_OPTS) "$(SOURCE)" build/html
 	@echo "<html><head><meta http-equiv=\"refresh\" content=\"0; url=lyrical/index.html\" /></head></html>" > build/html/index.html
 	$(PYTHON) make_sitemapindex.py
-	$(MAKE) pagefind
+	$(MAKE) pagefind-if-available
 
 %: Makefile
 	@$(BUILD) -M $@ "$(SOURCE)" "$(OUT)" $(OPTS)
@@ -111,4 +126,4 @@ linkcheck:
 serve:
 	sphinx-autobuild --host $(LIVE_HOST) --port $(LIVE_PORT) -c . -D pagefind_enabled=0 $(SOURCE) $(OUT)/html
 
-.PHONY: help Makefile html multiversion pagefind test test-tools linkcheck serve lint spellcheck check-dictionaries sort-dictionaries ensure-enhancements supersede-enhancement-reviews $(MAKEFILE_LIST)
+.PHONY: help Makefile html multiversion pagefind pagefind-if-available test test-tools linkcheck serve lint spellcheck check-dictionaries sort-dictionaries ensure-enhancements supersede-enhancement-reviews $(MAKEFILE_LIST)
