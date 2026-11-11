@@ -1,8 +1,8 @@
 :orphan:
 
 .. meta::
-   :contentType:
-   :experience:
+   :contentType: about
+   :experience: intermediate
    :area: builds, tools
    :distribution: {DISTRO}
    :product: {PRODUCT}

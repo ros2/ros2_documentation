@@ -17,7 +17,7 @@ Transporting GPU buffers with ``rosidl::Buffer`` - tutorial
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -230,7 +230,7 @@ You can reproduce them with:
 
 The CUDA path maintains high throughput across resolutions because the
 zero-copy IPC transfer only carries a handle, not the pixel data.
-The CPU path must copy frames from GPU to host and serialise them through
+The CPU path must copy frames from GPU to host and serialize them through
 the middleware, so throughput drops as image size grows.
 At 4K (31.6 MB per frame) the CUDA backend is roughly 6x faster than the
 raw CPU path.

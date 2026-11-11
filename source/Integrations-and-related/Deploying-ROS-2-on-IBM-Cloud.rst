@@ -1,6 +1,6 @@
 .. meta::
    :contentType: tutorial
-   :experience: TBD
+   :experience: beginner, intermediate, expert
    :area: installation
    :distribution: {DISTRO}
    :product: {PRODUCT}
@@ -24,7 +24,7 @@ Deploying on IBM Cloud Kubernetes [community-contributed] - tutorial
    :labels: area=Area, contentType=Content type, experience=Level
 
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 

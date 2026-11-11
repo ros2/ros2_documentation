@@ -39,7 +39,8 @@ The Markers display allows programmatic addition of various primitive shapes to 
 
 .. image:: images/marker_overview.png
 
-Start with :doc:`Marker: Sending Basic Shapes <../Marker-Sending-Basic-Shapes/Marker-Sending-Basic-Shapes>` for a minimal publisher example that introduces the marker message used throughout this page.
+To see markers in RViz before you write your own publisher, start with :doc:`Learning about data visualization <../Marker-Sending-Basic-Shapes/Marker-Sending-Basic-Shapes>`.
+The following sections describe the marker message, and :doc:`Marker: Points and Lines <../Marker-Points-and-Lines/Marker-Points-and-Lines>` walks through a complete C++ publisher.
 
 The Marker Message
 ------------------

@@ -24,12 +24,6 @@ Learning about topics - tutorial
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-**Goal:** Use rqt_graph and command line tools to introspect ROS 2 topics.
-
-Topics are one of the main communication types used for moving data around a ROS system.
-This article walks you through using ``rqt_graph`` and other command-line tools to examine how nodes connect over topics.
-A hands-on exercise with Turtlesim helps you understand how data moves around the ROS graph.
-
 .. contents:: Contents
    :depth: 3
    :local:
@@ -429,7 +423,7 @@ c. **Use auto-complete**:
 
     $ ros2 topic pub /turtle1/cmd_vel geometry_msgs/msg/Twist \'
 
-  The terminal does not recognise an unescaped single quote as part of the auto-complete string, so you need to escape it with ``\'``.
+  The terminal does not recognize an unescaped single quote as part of the auto-complete string, so you need to escape it with ``\'``.
 
   The final auto-completed string should look like this:
 

@@ -27,8 +27,8 @@ Installing on RHEL / Fedora (RPM packages) - how-to
    :local:
 
 RPM packages for ROS 2 {DISTRO_TITLE_FULL} are currently available for RHEL 10 and supported Fedora releases.
-The Rolling Ridley distribution will change target platforms from time to time as new platforms are selected for development.
-The target platforms are defined in `REP 2000 <https://reps.openrobotics.org/rep-2000/>`__.
+The supported Fedora version depends on the ROS distribution and may change over time.
+Before installing, check the target platforms listed on your distribution's page in :doc:`Distributions <../../Releases>`.
 Most people will want to use a stable ROS distribution.
 
 Resources
@@ -37,7 +37,7 @@ Resources
 * Status Page:
 
   * ROS 2 {DISTRO_TITLE} (RHEL 10): `amd64 <http://repo.ros2.org/status_page/ros_{DISTRO}_rhel.html>`__
-  * ROS 2 {DISTRO_TITLE} (Fedora 44): `amd64 <http://repo.ros2.org/status_page/ros_{DISTRO}_fedora.html>`__
+  * ROS 2 {DISTRO_TITLE} (Fedora): `amd64 <http://repo.ros2.org/status_page/ros_{DISTRO}_fedora.html>`__
 * `Jenkins Instance <http://build.ros2.org/>`__
 * `Repositories <http://repo.ros2.org>`__
 

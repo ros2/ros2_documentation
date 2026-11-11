@@ -28,7 +28,7 @@ Creating a content filtering subscription — tutorial
 
 **Time:** 15 minutes
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 1
    :local:
 

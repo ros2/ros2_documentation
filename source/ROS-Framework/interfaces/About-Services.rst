@@ -26,7 +26,7 @@ Services
 
    services/Working-with-services
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :local:
 
 In ROS 2, a service refers to a remote procedure call.

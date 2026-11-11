@@ -21,7 +21,7 @@ ROS 2 middleware implementations
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :local:
 
 .. include:: ../../../global_substitutions.txt

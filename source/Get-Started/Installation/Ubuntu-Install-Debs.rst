@@ -198,7 +198,7 @@ Related content
 Related articles:
 
 * :doc:`Create a workspace <../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace>`
-* :doc:`About ROS </About-ROS>`
+* :doc:`About ROS <../../About-ROS>`
 
 .. ros-related-articles::
 

@@ -24,12 +24,6 @@ Learning about actions - tutorial
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-**Goal:** Introspect actions in ROS 2.
-
-Actions are one of the communication types used for long-duration tasks in a ROS system.
-This article walks you through using command-line tools to examine and send action goals.
-A hands-on exercise with Turtlesim helps you understand how goals, feedback, and results work together.
-
 .. contents:: Contents
    :depth: 2
    :local:

@@ -1,16 +1,17 @@
 .. redirect-from::
 
     Concepts/Basic/About-Interfaces
+    ROS-Framework/interfaces/About-Interfaces
 
 .. meta::
-   :contentType: about
-   :experience: beginner, intermediate, expert
+   :contentType: reference
+   :experience: intermediate
    :area: interfaces, framework
    :distribution: {DISTRO}
    :product: {PRODUCT}
 
-Interfaces
-==========
+Interface specifications
+========================
 
 .. short-description::
    Interfaces in ROS define the structured data used by nodes to exchange messages, make requests, and coordinate long-running tasks.
@@ -20,22 +21,14 @@ Interfaces
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. toctree::
-   :maxdepth: 1
-   :hidden:
-
-   Topics-Services-Actions
-   About-Tf2/About-Tf2
-   Working-with-interfaces
-
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 
 Background
 ----------
 
-ROS applications typically communicate through interfaces of one of three types: :doc:`topics <About-Topics>`, :doc:`services <About-Services>`, or :doc:`actions <About-Actions>`.
+ROS applications typically communicate through interfaces of one of three types: :doc:`topics <../About-Topics>`, :doc:`services <../About-Services>`, or :doc:`actions <../About-Actions>`.
 ROS 2 uses a simplified description language, the interface definition language (IDL), to describe these interfaces.
 This description makes it easy for ROS tools to automatically generate source code for the interface type in several target languages.
 

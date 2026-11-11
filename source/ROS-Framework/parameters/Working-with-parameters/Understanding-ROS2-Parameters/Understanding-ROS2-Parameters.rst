@@ -25,12 +25,6 @@ Learning about parameters - tutorial
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-Parameters are configuration values stored by each node in the ROS graph.
-This article walks you through using the ``ros2 param`` command-line tools to inspect, change, save, and reload parameters.
-A hands-on exercise with Turtlesim shows how parameters control node behaviour at runtime.
-
-**Area: Framework | Content-type: tutorial | Experience: beginner**
-
 .. contents:: Contents
    :depth: 2
    :local:

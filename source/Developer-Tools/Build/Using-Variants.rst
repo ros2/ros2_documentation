@@ -17,11 +17,11 @@ Using variants - how-to
    This article explains how official variants are defined and how to create project-specific metapackages.
    After you read it, you can propose community variants or build private variants for your own packages.
 
-  .. showmeta::
+.. showmeta::
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 

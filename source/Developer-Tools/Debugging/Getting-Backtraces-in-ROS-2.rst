@@ -27,7 +27,7 @@ Getting Backtraces in ROS 2 - how-to
 
 **Time:** 15 minutes
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 

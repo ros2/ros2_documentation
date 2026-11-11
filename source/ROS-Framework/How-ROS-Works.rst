@@ -22,7 +22,7 @@ How ROS works
 
 Coming Soon
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -39,7 +39,7 @@ Related content
 
 Related articles:
 
-* :doc:`nodes/About-Discovery`
+* :doc:`About-Nodes`
 * :doc:`About-Client-Libraries`
 * :doc:`About-Parameters`
 * :doc:`Interfaces-Topics-Services-Actions`
