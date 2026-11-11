@@ -33,7 +33,7 @@ This page explains the default RMW implementation and how to specify an alternat
 Prerequisites
 --------------
 
-You should have already read the :doc:`DDS and ROS middleware implementations page <../../../ROS-Framework/client-libraries/About-Different-Middleware-Vendors>`.
+You should have already read the :doc:`DDS and ROS middleware implementations page <../../../ROS-Framework/middleware/About-Different-Middleware-Vendors>`.
 
 Specifying RMW implementations
 ------------------------------

@@ -264,7 +264,7 @@ For non-DDS RMW implementations such as ``rmw_zenoh_cpp``, the ``Endpoint count`
       Liveliness: AUTOMATIC
       Liveliness lease duration: Infinite
 
-To learn more about different RMW implementations, see :doc:`About Different Middleware Vendors <../../../../client-libraries/About-Different-Middleware-Vendors>`.
+To learn more about different RMW implementations, see :doc:`About Different Middleware Vendors <../../../../middleware/About-Different-Middleware-Vendors>`.
 
 5 Find services of a specific type
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
