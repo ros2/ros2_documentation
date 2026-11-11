@@ -17,7 +17,7 @@ Working with parameters - how-to
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -32,7 +32,7 @@ Working with parameters - how-to
 Background
 ----------
 
-Before you get started, familiarise yourself with what parameters are in ROS: :doc:`../About-Parameters`
+Before you get started, familiarize yourself with what parameters are in ROS: :doc:`../About-Parameters`
 
 Declaring parameters
 --------------------

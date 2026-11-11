@@ -1,6 +1,6 @@
 .. meta::
-   :contentType:
-   :experience:
+   :contentType: about
+   :experience: beginner, intermediate, expert
    :area: framework
    :distribution: {DISTRO}
    :product: {PRODUCT}
@@ -8,15 +8,18 @@
 Integrations
 ============
 
-.. contents:: Contents
-   :depth: 2
-   :local:
+.. short-description::
+   ROS works with many simulators, cloud platforms, and related projects.
+   These articles show you how to use ROS with simulators such as Gazebo and Webots, deploy ROS in the cloud, and find related projects.
 
-Coming Soon
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+In this section:
 
 .. toctree::
-   :hidden:
-   :glob:
+   :maxdepth: 1
 
    Integrations-and-related/Simulators/Simulation-Main
    Integrations-and-related/Deploying-ROS-2-on-IBM-Cloud

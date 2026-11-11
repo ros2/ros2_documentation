@@ -1,6 +1,6 @@
 .. meta::
-   :contentType:
-   :experience:
+   :contentType: about
+   :experience: beginner, intermediate, expert
    :area: framework, tools, capabilities
    :distribution: {DISTRO}
    :product: {PRODUCT}
@@ -8,14 +8,18 @@
 Get started
 ===========
 
-.. contents:: Contents
-   :depth: 2
-   :local:
+.. short-description::
+   Start here if you are new to ROS.
+   These articles help you install ROS, take your first steps, configure your environment, try out turtlesim, and learn key terms.
 
-Coming Soon
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+In this section:
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 1
 
    Get-Started/Installation
    First-Steps

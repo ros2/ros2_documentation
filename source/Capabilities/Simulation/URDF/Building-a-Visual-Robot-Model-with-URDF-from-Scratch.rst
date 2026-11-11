@@ -592,3 +592,10 @@ The meshes for this tutorial are located within the ``urdf_tutorial`` package, i
 There you have it.
 A R2D2-like URDF model.
 Now you can continue on to the next step, :doc:`making it move <Building-a-Movable-Robot-Model-with-URDF>`.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

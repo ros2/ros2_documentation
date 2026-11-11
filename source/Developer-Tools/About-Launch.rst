@@ -38,7 +38,7 @@ Node management
    Launch/Discovery-Server/Discovery-Server
    Launch/Security/About-Security
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -69,3 +69,11 @@ To avoid this, send ``SIGTERM`` to ``ros2 launch`` instead, or pass ``--noninter
 ``--noninteractive`` is the default when stdin is not a terminal.
 
 For more details, see `the launch signal handling documentation <https://docs.ros.org/en/{DISTRO}/p/launch/signal_handling.html>`__.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
+

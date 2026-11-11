@@ -30,7 +30,7 @@ Examining network traffic - tutorial
 
 **Time:** 20 minutes
 
-.. contents:: Table of Contents
+.. contents:: Contents
   :depth: 2
   :local:
 
@@ -230,3 +230,10 @@ The data in this RTPS packet is all encrypted.
 
 In addition to this data packet, you should see additional packets with node and enclave names; these support other ROS features such as parameters and services.
 Encryption options for these packets can also be controlled by security policy.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

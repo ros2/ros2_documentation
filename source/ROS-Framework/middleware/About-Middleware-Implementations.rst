@@ -22,7 +22,7 @@ ROS 2 middleware implementations
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :local:
 
 .. include:: ../../../global_substitutions.txt
@@ -124,3 +124,9 @@ When a server is created, a liveliness token of type ``SS`` is declared.
 
 The RMW implementation for ``Zenoh`` is on |GitHub|_ at `ros2/rmw_zenoh <https://github.com/ros2/rmw_zenoh/tree/rolling>`_.
 
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

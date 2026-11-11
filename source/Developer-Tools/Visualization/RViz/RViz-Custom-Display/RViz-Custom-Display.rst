@@ -21,7 +21,7 @@ Building a Custom RViz Display - tutorial
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -476,3 +476,10 @@ And finally, here's the icon in the standard interface:
 
 
 Note, if you change the plugins name, previous RViz configurations will no longer work.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

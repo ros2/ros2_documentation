@@ -12,16 +12,12 @@ First steps with ROS - learning path
 
 .. short-description::
    ROS provides the framework, tools, and libraries for building robotic applications.
-   This learning path introduces installation, turtlesim, core communication concepts, introspection, launch files, and data playback.
+   This learning path introduces installation, Turtlesim, core communication concepts, introspection, launch files, and data playback.
    After completing it, you will be ready to start working with ROS client libraries and tutorials.
 
 .. showmeta::
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
-
-ROS (Robot Operating System) is an open-source ecosystem that provides framework, tools, and libraries for building, deploying, running, and maintaining robotic applications.
-This page presents a set of articles and hands-on activities to introduce the main concepts behind the ROS framework.
-Working through these will give you the essential knowledge needed to start developing applications with ROS.
 
 .. contents:: Contents
    :depth: 2
@@ -34,7 +30,7 @@ The ROS framework is the “plumbing” which makes communication between differ
 It includes messaging, standard interfaces, and support for multiple programming languages and platforms.
 
 You need to understand the fundamental concepts of the framework before you can work with ROS to develop or maintain applications.
-The turtlesim tool and the tutorials in this site will help you get up to speed.
+The Turtlesim tool and the tutorials in this site will help you get up to speed.
 
 
 Prerequisites
@@ -54,19 +50,21 @@ Steps
 * :doc:`ROS-Framework/Interfaces-Topics-Services-Actions`
 * :doc:`ROS-Framework/About-Parameters`
 
-2 Install ROS and turtlesim
+2 Install ROS and Turtlesim
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ROS installation includes the essential packages for working with ROS.
 If you're familiar with Linux, our recommended platform is Ubuntu (deb packages).
 Otherwise, a good alternative installation platform is Windows (binaries): :doc:`Installation options <Get-Started/Installation>`
 
-With turtlesim, a lightweight 2D simulation tool designed for beginners, you can learn core ROS concepts in a simple visual environment: :doc:`Install and set up turtlesim <Get-Started/Introducing-Turtlesim/Introducing-Turtlesim>`
+After installing ROS, set up your environment so that ROS commands, packages, and workspaces are available in each new shell: :doc:`Set up your environment <Get-Started/Configuring-ROS2-Environment>`
+
+With Turtlesim, a lightweight 2D simulation tool designed for beginners, you can learn core ROS concepts in a simple visual environment: :doc:`Set up Turtlesim <Get-Started/Introducing-Turtlesim/Introducing-Turtlesim>`
 
 3 Try out working with the main communication components of the ROS framework
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Use turtlesim to familiarize yourself with the main communication components and try out messaging in the ROS framework.
+Use Turtlesim to familiarize yourself with the main communication components and try out messaging in the ROS framework.
 
 #. Complete the nodes tutorial: :doc:`ROS-Framework/nodes/Working-with-nodes/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes`
 #. Complete the topics tutorial: :doc:`ROS-Framework/interfaces/topics/Understanding-ROS2-Topics/Understanding-ROS2-Topics`
@@ -80,7 +78,7 @@ Use turtlesim to familiarize yourself with the main communication components and
 Introspection enables you to see information about how a system is operating.
 Nodes use logs to output messages concerning events and status in a variety of ways.
 
-To see introspection through logs in action, complete the rqt_console tutorial: :doc:`ROS-Framework/nodes/Working-with-nodes/Using-Rqt-Console/Using-Rqt-Console`
+To see introspection through logs in action, complete the CLI logging tutorial: [coming soon]
 
 5 Learn about using launch files
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -96,7 +94,16 @@ Sometimes it's useful to replay data to reproduce the results of your tests and 
 
 Complete the recording and playback tutorial: :doc:`ROS-Framework/interfaces/Working-with-interfaces/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data`
 
+7 Learn about data visualization
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+RViz lets you inspect 3D data from a running ROS system, such as shapes, sensor data, and robot models.
+
+Complete the data visualization tutorial: :doc:`Developer-Tools/Visualization/RViz/Marker-Sending-Basic-Shapes/Marker-Sending-Basic-Shapes`
+
 Next steps
 ----------
 
-To complete your knowledge of the ROS framework, we recommend familiarizing yourself with ROS client libraries: :doc:`ROS-Framework/About-Client-Libraries`
+The tutorials in this learning path use the ROS command-line interface (CLI) to introduce the core ROS concepts and show you how to interact with them.
+To build your own ROS components, such as nodes written in C++ or Python, you use the ROS client library APIs.
+We recommend getting comfortable with the CLI first, then familiarizing yourself with ROS client libraries: :doc:`ROS-Framework/About-Client-Libraries`

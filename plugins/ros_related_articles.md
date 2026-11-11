@@ -17,7 +17,7 @@ The `.. ros-related-articles::` directive is replaced **during the Sphinx build*
 | **When** | At documentation build time, after every page has been read |
 | **Which pages** | Only pages that include `.. ros-related-articles::` and declare a non-empty `area` |
 | **What is listed** | Other pages whose `area` contains this page's **primary** (first) `area` value |
-| **When nothing is emitted** | No other page shares that primary area, and there is no adjacent hand-written list to keep |
+| **When nothing is emitted** | No other page shares that primary area, and there is no adjacent hand-written list to keep. The build warns (an error with `-W`), because the page would show an empty section: remove the directive and its intro, or add the area to related pages |
 
 ### Prerequisites
 
@@ -88,12 +88,9 @@ The layout is chosen from this page's `content-type`, unless `:layout:` override
 | This page's `content-type` | What renders |
 |----------------------------|--------------|
 | anything not listed below | A single list of related articles |
-| `tutorial` | Two blocks: other tutorials first, then **More related articles:** with everything else. A tutorial is never repeated across the two |
 | `navigation` | One list per `area` value on the page, each headed **Articles about \<Value\>:**, listing pages that contain that value anywhere in their own `area` |
 
 Setting `:layout: by-area` produces the `navigation` behaviour on any page.
-
-On a tutorial page the first block is labelled **More tutorials:** only when there is no hand-written list above the directive. When there is one, the generated tutorials are appended to it without a new label, so the author's list reads as essential reading followed by more of the same.
 
 ### Mixing in hand-written links
 
@@ -129,7 +126,7 @@ From an author's perspective:
 | Situation | What the reader sees |
 |-----------|----------------------|
 | No directive | Nothing |
-| Matches found | `Related articles` heading, then one or more related-article lists |
+| Matches found | `Related articles` heading, then a related-article list |
 | No matches | Nothing (or only the author's hand-written list) |
 | Missing `area` | **Build fails** |
 

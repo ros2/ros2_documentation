@@ -27,9 +27,6 @@ Matching rules
 - Results are ordered by ``content-type`` (About, Process overview, Learning
   path, How-to, Tutorial, Example, Reference), then by title. Pages without a
   content type sort after known types.
-- When the current page's ``content-type`` is ``tutorial``, the directive emits
-  two lists: other tutorials first, then remaining related articles (tutorials
-  removed so they are not duplicated).
 - When the current page's ``content-type`` is ``navigation``, or the directive
   option ``:layout: by-area`` is set, the directive emits one list per ``area``
   value on the page (``Articles about <Value>:``), each listing articles that
@@ -51,6 +48,9 @@ from typing import List, Set, TypedDict
 from docutils import nodes
 from docutils.parsers.rst import directives
 from sphinx.util.docutils import SphinxDirective
+from sphinx.util import logging
+
+logger = logging.getLogger(__name__)
 
 # Article order by content type.
 CONTENT_TYPE_ORDER = (
@@ -232,6 +232,19 @@ def _append_article_items(
         para += link
         entry += para
         bullet_list += entry
+
+
+def _warn_empty(node: nodes.Node, area: str) -> None:
+    """Warn that the directive produced no links, so the page shows an empty section."""
+    logger.warning(
+        'ros-related-articles: no other page has the area %r, so this page would '
+        'show an empty related articles section. Remove the directive and its '
+        'intro, or add the area to related pages.',
+        area,
+        location=node,
+        type='ros-related-articles',
+        subtype='empty',
+    )
 
 
 def _absorb_bullet_list(
@@ -453,6 +466,7 @@ class RosRelatedArticlesDirective(SphinxDirective):
             )
 
         node = RosRelatedArticlesNode()
+        self.set_source_info(node)
         node['area'] = page['area']
         node['experience'] = page['experience']
         node['content_type'] = page['content_type']
@@ -527,6 +541,8 @@ def resolve_related_articles(app, doctree, fromdocname) -> None:
                 _absorb_bullet_list(prev_list, next_list)
                 next_list.replace_self([])
             if not pieces:
+                if prev_list is None and next_list is None:
+                    _warn_empty(node, ', '.join(area_tokens))
                 node.replace_self([])
                 continue
             # Keep any manual list; append generated sections after the directive.
@@ -545,54 +561,14 @@ def resolve_related_articles(app, doctree, fromdocname) -> None:
             index, fromdocname, primary_area, manual_docnames,
         )
 
-        # Tutorials: "More tutorials" then "More related articles".
-        if page_content_type == 'tutorial':
-            tutorials = [
-                item for item in matches if item['content_type'] == 'tutorial'
-            ]
-            others = [
-                item for item in matches if item['content_type'] != 'tutorial'
-            ]
-            tutorials = _apply_max(tutorials, max_items)
-            others = _apply_max(others, max_items)
-            lead: List[nodes.Node] = []
-            if tutorials:
-                # First block uses the normal merge path for manuals + tutorials.
-                if others:
-                    extra_heading = _heading_paragraph('More related articles:')
-                    extra_list = _new_article_list()
-                    _append_article_items(extra_list, others, app, fromdocname)
-                    _collapse_article_list(extra_list)
-                    lead = [extra_heading, extra_list]
-                # Prepend a tutorials label when we are about to emit the main list.
-                # Manual list (if any) remains unlabeled "essential reading".
-                if prev_list is None:
-                    # No manuals: label the tutorials list explicitly.
-                    wrapper: List[nodes.Node] = [
-                        _heading_paragraph('More tutorials:'),
-                    ]
-                    main = _new_article_list()
-                    _append_article_items(main, tutorials, app, fromdocname)
-                    wrapper.append(main)
-                    if next_list is not None:
-                        _absorb_bullet_list(main, next_list)
-                        next_list.replace_self([])
-                    _collapse_article_list(main)
-                    wrapper.extend(lead)
-                    node.replace_self(wrapper)
-                    continue
-                _resolve_related_articles_list(
-                    node, tutorials, app, fromdocname, lead_nodes=lead,
-                )
-                continue
-            matches = others
-
         matches = _apply_max(matches, max_items)
 
         if not matches:
             if prev_list is not None and next_list is not None:
                 _absorb_bullet_list(prev_list, next_list)
                 next_list.replace_self([])
+            if prev_list is None and next_list is None:
+                _warn_empty(node, primary_area)
             node.replace_self([])
             continue
 

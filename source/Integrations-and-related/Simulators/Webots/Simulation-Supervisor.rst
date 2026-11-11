@@ -163,3 +163,10 @@ Summary
 
 In this tutorial, you learned how to enable the ``Ros2Supervisor`` and how to extend the interface with the Webots simulation.
 The node creates multiple services and topics to interact with and modify the simulation.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

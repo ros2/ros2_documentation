@@ -21,7 +21,7 @@ Internal ROS 2 interfaces
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :local:
 
 .. include:: ../../../../global_substitutions.txt
@@ -254,3 +254,10 @@ These are mainly used for error handling, commandline argument parsing, and logg
 The ``rcutils`` |API| and implementation are located in the `ros2/rcutils <https://github.com/ros2/rcutils>`_ repository on |GitHub|_ which contains the interface as C headers.
 
 For a complete definition of the ``rcutils`` |API|, see `the rcutils docs <https://docs.ros.org/en/{DISTRO}/p/rcutils/>`_.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

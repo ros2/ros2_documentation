@@ -24,7 +24,7 @@ Running ROS 2 nodes in Docker [community-contributed] - how-to
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -108,3 +108,10 @@ As an alternative to the command line invocation, you can create a ``docker-comp
 
 To run the containers call ``docker compose up`` in the same directory.
 You can close the containers with ``Ctrl+C``.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

@@ -18,7 +18,7 @@ Platform EOL policy
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -59,3 +59,10 @@ After a target platform reaches EOL:
     * The updates seem unlikely to have regressions, and
     * The ROS Buildfarm still has runners for that platform.
 * Merge your pull request to disable the buildfarm jobs.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

@@ -30,7 +30,7 @@ Contributing to code
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -865,3 +865,10 @@ Generate html for easy visualization and annotation of covered lines.
 
     $ mkdir -p coverage
     $ genhtml ~/ros2_coverage.info --output-directory coverage
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

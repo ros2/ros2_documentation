@@ -21,7 +21,7 @@ Composition
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :local:
 
 ROS 1 - Nodes vs. Nodelets
@@ -151,3 +151,10 @@ Practical application
 ---------------------
 
 Try the :doc:`Composition demos <Working-with-nodes/Composition>`.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

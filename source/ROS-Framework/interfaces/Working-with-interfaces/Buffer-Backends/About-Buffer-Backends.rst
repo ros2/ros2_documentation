@@ -26,7 +26,7 @@ About ``rosidl::Buffer`` backends
    Writing-a-Buffer-Compatible-Conversions-Package
 
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -234,3 +234,10 @@ Where to go next
   buffer-backed ``uint8[]`` fields.
 * :doc:`GPU-Buffer-Transport` -- end-to-end demo that
   exercises a GPU-backed publish/subscribe pipeline.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

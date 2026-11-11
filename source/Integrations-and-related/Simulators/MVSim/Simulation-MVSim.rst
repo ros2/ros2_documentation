@@ -39,3 +39,10 @@ with low computational overhead and fast iteration times.
    Installation-Ubuntu
    Getting-Started-MVSim
    Defining-Worlds-MVSim
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

@@ -23,7 +23,7 @@ Testing - tutorial
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -100,3 +100,10 @@ To get the benefits of testing, some investment is necessary.
   These tests fail not only because the redesign re-introduced bugs but also because they need to be updated to the new design.
   Occasionally, with bigger redesigns, old regression tests should be dropped.
 * Large bodies of tests can take a long time to run, which can increase Continuous Integration server costs.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

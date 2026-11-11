@@ -30,7 +30,7 @@ Setting access controls - tutorial
 
 **Time:** 20 minutes
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -198,3 +198,10 @@ However, the following attempt for the ``listener`` node to subscribe to a topic
 
   $ ros2 run demo_nodes_py listener --ros-args --enclave /talker_listener/listener \
     --remap chatter:=not_chatter
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

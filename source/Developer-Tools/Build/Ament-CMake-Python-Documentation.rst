@@ -22,7 +22,7 @@ Using ament_cmake_python - how-to
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -138,3 +138,10 @@ Compared to the usage of ament_python, which supports automatic test discovery, 
 The timeout can be reduced as needed.
 
 Now, you can invoke your tests with the :doc:`standard colcon testing commands <../Debugging/Testing/CLI>`.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

@@ -16,7 +16,7 @@ Release Schedule
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -62,3 +62,10 @@ Releases and support duration
 - May 2027: M Turtle: non-LTS release, supported for 1.5 years
 - May 2028: N Turtle: LTS release, supported for 5 years
 - and so on, alternating annually between LTS and non-LTS releases
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

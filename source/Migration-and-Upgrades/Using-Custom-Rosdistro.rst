@@ -1,6 +1,6 @@
 .. meta::
    :contentType: how-to
-   :experience: TBD
+   :experience: intermediate
    :area: installation, framework
    :distribution: {DISTRO}
    :product: {PRODUCT}
@@ -36,7 +36,7 @@ The motivating example that this guide will use is a desire to use a previous ve
 It is possible that during transition periods from one operating system to another, Rolling on the older operating system may become unusable due to support shifting to a new OS (i.e. moving from Ubuntu 22.04 to 24.04).
 Thus, we wish to set a prior version of rosdistro that aligns with a working Rolling distribution on a given operating system to keep our systems functioning before upgrading to the new operating system.
 
-To achieve this with package binaries, take a look at the :doc:`snapshot repository </Get-Started/Installation/Snapshot-Repository>`.
+To achieve this with package binaries, take a look at the :doc:`snapshot repository <../Get-Started/Installation/Snapshot-Repository>`.
 
 Important Preliminaries
 -----------------------
@@ -82,3 +82,10 @@ Afterward, you can ``rosdep update``, which will now use the changes to update t
 You can see this in action in `Nav2's CircleCI <https://github.com/ros-planning/navigation2/commit/80bb5bff1488c0677efcc4254b7a89908c853ba0>`_ and `ros_gz's GitHub Actions <https://github.com/gazebosim/ros_gz/pull/522/files>`_ in order to bypass a temporary Rolling outage in their CI systems.
 
 .. Note:: If you are using a custom rosdistro version, you can substitute the final URLs in the default list and index URL with your fork or index location.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

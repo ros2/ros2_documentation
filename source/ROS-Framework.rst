@@ -1,6 +1,6 @@
 .. meta::
-   :contentType:
-   :experience:
+   :contentType: about
+   :experience: beginner, intermediate, expert
    :area: framework
    :distribution: {DISTRO}
    :product: {PRODUCT}
@@ -8,14 +8,18 @@
 Framework
 =========
 
-.. contents:: Contents
-   :depth: 2
-   :local:
+.. short-description::
+   The ROS framework is the set of core concepts that every ROS system is built on.
+   These articles explain how ROS works, and describe nodes, interfaces, parameters, and client libraries.
 
-Coming Soon
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+In this section:
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 1
 
    ROS-Framework/How-ROS-Works
    ROS-Framework/About-Nodes
