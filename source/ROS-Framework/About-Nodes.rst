@@ -80,7 +80,7 @@ Discovery
 ^^^^^^^^^
 
 Discovery of nodes happens automatically through the underlying middleware of ROS.
-How discovery works depends on the :doc:`middleware (RMW) implementation <client-libraries/About-Middleware-Implementations>` and how it is configured.
+How discovery works depends on the :doc:`middleware (RMW) implementation <middleware/About-Middleware-Implementations>` and how it is configured.
 With the default DDS-based middleware, nodes find each other through a distributed discovery process, with no central server.
 Other configurations use server-client discovery instead, for example, a Fast DDS discovery server, or the router that ``rmw_zenoh`` uses by default.
 See :doc:`../Developer-Tools/Launch/Discovery-Server/Discovery-Server` and :doc:`../Get-Started/Installation/RMW-Implementations/Non-DDS-Implementations/Working-with-Zenoh`.

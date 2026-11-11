@@ -39,8 +39,8 @@ For planned future development, see the :doc:`Roadmap <Roadmap>`.
    * - Discovery, transport and serialization over DDS
      - `Article <https://design.ros2.org/articles/ros_on_dds.html>`__
      -
-   * - Support for :doc:`multiple DDS implementations <../ROS-Framework/client-libraries/About-Different-Middleware-Vendors>`, chosen at runtime
-     - :doc:`Concept <../ROS-Framework/client-libraries/About-Different-Middleware-Vendors>`, :doc:`How-to Guide <../Get-Started/Installation/RMW-Implementations/Working-with-multiple-RMW-implementations>`
+   * - Support for :doc:`multiple DDS implementations <../ROS-Framework/middleware/About-Different-Middleware-Vendors>`, chosen at runtime
+     - :doc:`Concept <../ROS-Framework/middleware/About-Different-Middleware-Vendors>`, :doc:`How-to Guide <../Get-Started/Installation/RMW-Implementations/Working-with-multiple-RMW-implementations>`
      - Currently Eclipse Cyclone DDS, eProsima Fast DDS, and RTI Connext DDS are fully supported.
    * - Common core client library that is wrapped by language-specific libraries
      - :doc:`Details <../ROS-Framework/About-Client-Libraries>`

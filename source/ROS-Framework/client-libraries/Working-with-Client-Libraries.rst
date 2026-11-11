@@ -40,6 +40,5 @@ In this section:
    Working-with-Client-Libraries/Recording-A-Bag-From-Your-Own-Node-Py
    Working-with-Client-Libraries/Reading-From-A-Bag-File-CPP
    Working-with-Client-Libraries/Reading-From-A-Bag-File-Python
-   Working-with-Client-Libraries/Creating-An-RMW-Implementation
    Working-with-Client-Libraries/Configure-ZeroCopy-loaned-messages
 
