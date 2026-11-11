@@ -93,12 +93,9 @@ ROS API
 
 Related content
 ---------------
-<<<<<<< HEAD
-=======
 
 Related articles:
 
->>>>>>> 48bf812 (3di | How ROS works (#7391))
 * :doc:`About-Client-Libraries`
 * :doc:`About-Parameters`
 * :doc:`Interfaces-Topics-Services-Actions`
