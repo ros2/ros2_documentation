@@ -1,5 +1,5 @@
 .. meta::
-  :contentType:
+  :contentType: about
   :experience: beginner, intermediate, expert
   :area: community
   :distribution: {DISTRO}
@@ -7,6 +7,10 @@
 
 Community
 =========
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 Check out the resources below to learn more about the advancement of the ROS 2 project.
 
