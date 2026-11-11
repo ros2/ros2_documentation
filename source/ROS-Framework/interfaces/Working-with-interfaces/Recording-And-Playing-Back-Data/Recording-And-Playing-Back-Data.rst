@@ -32,7 +32,9 @@ Summary
 -------
 
 Use ``ros2 bag record`` to save data from topics, services, and actions, ``ros2 bag info`` to inspect a recording, and ``ros2 bag play`` to replay it.
-Recordings are stored in bag directories as ``.mcap`` files that you can share or reuse to reproduce experiments.
+Recordings are stored in bag directories that you can share or reuse to reproduce experiments.
+By default, recordings use the MCAP (``.mcap``) storage format.
+Humble and earlier distributions use SQLite (``.db3``) by default.
 
 Prerequisites
 -------------
@@ -137,7 +139,9 @@ Use the arrow keys to move the turtle around.
 .. note::
    The ``turtle_teleop_key`` terminal must be the active window to capture your key presses.
 
-In the terminal running ``ros2 topic echo``, data is displayed:
+Each time you press an arrow key, the teleoperation node publishes a ``geometry_msgs/msg/Twist`` message, and ``ros2 topic echo`` prints it.
+``linear.x`` is the forward or backward speed and ``angular.z`` is the turning rate.
+For example, pressing the up arrow publishes the following message, which moves the turtle forward:
 
 .. code-block:: console
 
@@ -193,8 +197,8 @@ The exact path does not matter, but try to make a recognizable pattern to verify
 
 Press :kbd:`Ctrl-C` to stop recording.
 
-The new directory is in ``<root>/bag_files/`` that you created in the previous step.
-This directory will contain a ``metadata.yaml`` along with the bag file.
+The data will be accumulated in a new bag directory with a name in the pattern of ``rosbag2_year_month_day-hour_minute_second``.
+This directory will contain a ``metadata.yaml`` along with the bag file in the recorded format.
 
 3.2 Record multiple topics
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
