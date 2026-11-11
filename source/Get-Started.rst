@@ -1,12 +1,16 @@
 .. meta::
-   :contentType:
-   :experience:
+   :contentType: about
+   :experience: beginner, intermediate, expert
    :area: framework, tools, capabilities
    :distribution: {DISTRO}
    :product: {PRODUCT}
 
 Get started
 ===========
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 .. contents:: Contents
    :depth: 2

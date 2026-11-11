@@ -1,5 +1,5 @@
 .. meta::
-   :contentType:
+   :contentType: about
    :experience: intermediate, expert
    :area: installation
    :distribution: {DISTRO}

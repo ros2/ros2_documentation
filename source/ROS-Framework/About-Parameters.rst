@@ -28,7 +28,7 @@ Parameters
 
    parameters/Working-with-parameters
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -98,13 +98,6 @@ A ROS node can optionally register three different types of callbacks to be info
 * Post-set parameter callback: This callback gives you the ability to react to changes from parameters that have successfully been accepted.
 
 To learn how to register these callbacks, see :doc:`parameters/Working-with-parameters`.
-
-Migrating from ROS 1
---------------------
-
-The :doc:`Launch file migration guide <../Migration-and-Upgrades/Migrating-from-ROS1/Migrating-Launch-Files>` explains how to migrate ``param`` and ``rosparam`` launch tags from ROS 1 to ROS 2.
-
-The :doc:`Migration guide <../Migration-and-Upgrades/Migrating-from-ROS1/Migrating-Parameters>` explains how to migrate parameters from ROS 1 to ROS 2.
 
 Related content
 ---------------

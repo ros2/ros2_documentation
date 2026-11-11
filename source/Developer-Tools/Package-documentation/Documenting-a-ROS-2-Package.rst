@@ -4,7 +4,7 @@
 
 .. meta::
    :contentType: how-to
-   :experience:
+   :experience: intermediate
    :area: visualization, tools
    :distribution: {DISTRO}
    :product: {PRODUCT}
@@ -21,13 +21,13 @@ Documenting a ROS 2 package - how-to
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 
 This guide introduces the standard way to create documentation for ROS 2 packages.
 For packages with binary releases this also results in the docs being hosted at ``docs.ros.org/en/<distro>/p/<package>/``.
-For information on how to contribute to the documentation on docs.ros.org, see :doc:`/The-ROS2-Project/Contributing/Contributing-to-documentation`.
+For information on how to contribute to the documentation on docs.ros.org, see :doc:`../../The-ROS2-Project/Contributing/Contributing-to-documentation`.
 
 Prerequisites
 -------------
