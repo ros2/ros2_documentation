@@ -259,3 +259,12 @@ Steps
 
             $ install/setup.ps1
             $ ros2 topic echo /address_book
+
+Related content
+---------------
+
+Related articles:
+
+* There are `several design articles <https://design.ros2.org/#interfaces>`_ on ROS 2 interfaces and the IDL (interface definition language).
+
+.. ros-related-articles::

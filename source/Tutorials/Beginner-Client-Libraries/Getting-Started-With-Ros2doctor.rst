@@ -190,13 +190,18 @@ You can get a deeper look at information behind those warnings by using the ``--
 Keep in mind, ``ros2doctor`` is not a debug tool; it won't help with errors in your code or on the implementation side of your system.
 
 
+Next steps
+----------
+
+You've completed the beginner level tutorials!
+
 Related content
 ---------------
 
-`ros2doctor's README <https://github.com/ros2/ros2cli/tree/{REPOS_FILE_BRANCH}/ros2doctor>`__ will tell you more about different arguments.
 You might want to take a look around the ``ros2doctor`` repo as well, since it's fairly beginner friendly and a great place to get started with contributing.
 
-Next steps
-----------------
+Related articles:
 
-You've completed the beginner level tutorials!
+* `ros2doctor's README <https://github.com/ros2/ros2cli/tree/{REPOS_FILE_BRANCH}/ros2doctor>`__ will tell you more about different arguments.
+
+.. ros-related-articles::

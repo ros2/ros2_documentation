@@ -107,4 +107,13 @@ When a server is created, a liveliness token of type ``SS`` is declared.
 
 The RMW implementation for ``Zenoh`` is on |GitHub|_ at `ros2/rmw_zenoh <https://github.com/ros2/rmw_zenoh/tree/rolling>`_.
 
+<<<<<<< HEAD:source/Concepts/Advanced/About-Middleware-Implementations.rst
 
+=======
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
+>>>>>>> 5ff6b51 (3di | Add Related articles directive to the docs set (#7390)):source/ROS-Framework/client-libraries/About-Middleware-Implementations.rst

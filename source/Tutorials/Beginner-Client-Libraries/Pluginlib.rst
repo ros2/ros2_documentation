@@ -359,3 +359,10 @@ Summary
 
 Congratulations!
 You've just written and used your first plugins.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

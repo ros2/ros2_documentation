@@ -66,6 +66,7 @@ To get the benefits of testing, some investment is necessary.
   Occasionally, with bigger redesigns, old regression tests should be dropped.
 * Large bodies of tests can take a long time to run, which can increase Continuous Integration server costs.
 
+<<<<<<< HEAD:source/Tutorials/Intermediate/Testing/Testing-Main.rst
 Available Tutorials:
 --------------------
 
@@ -77,3 +78,11 @@ Available Tutorials:
    Python
    Integration
    BuildFarmTesting
+=======
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
+>>>>>>> 5ff6b51 (3di | Add Related articles directive to the docs set (#7390)):source/Developer-Tools/Debugging/About-testing.rst

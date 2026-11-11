@@ -798,4 +798,15 @@ You can learn more about it in :doc:`About ROS 2 interfaces <../../Concepts/Basi
 Next steps
 ----------
 
+<<<<<<< HEAD:source/Tutorials/Beginner-Client-Libraries/Custom-ROS2-Interfaces.rst
 The :doc:`next article <../../How-To-Guides/Single-Package-Define-And-Use-Interface>` covers more ways to use interfaces in ROS 2.
+=======
+:doc:`../../interfaces/Working-with-interfaces/Single-Package-Define-And-Use-Interface` covers more ways to use interfaces in ROS 2.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
+>>>>>>> 5ff6b51 (3di | Add Related articles directive to the docs set (#7390)):source/ROS-Framework/client-libraries/Working-with-Client-Libraries/Custom-ROS2-Interfaces.rst

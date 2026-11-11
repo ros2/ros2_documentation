@@ -215,3 +215,10 @@ Uninstall
    .. code-block:: console
 
       $ rm -rf ~/ros2_{DISTRO}
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

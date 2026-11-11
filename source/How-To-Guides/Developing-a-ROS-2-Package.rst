@@ -151,4 +151,15 @@ Combined C++ and Python Packages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 When writing a package with both C++ and Python code, the ``setup.py`` file and ``setup.cfg`` file are not used.
+<<<<<<< HEAD:source/How-To-Guides/Developing-a-ROS-2-Package.rst
 Instead, use :doc:`ament_cmake_python <./Ament-CMake-Python-Documentation>`.
+=======
+Instead, use :doc:`ament_cmake_python <Ament-CMake-Python-Documentation>`.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
+>>>>>>> 5ff6b51 (3di | Add Related articles directive to the docs set (#7390)):source/Developer-Tools/Build/Developing-a-ROS-2-Package.rst

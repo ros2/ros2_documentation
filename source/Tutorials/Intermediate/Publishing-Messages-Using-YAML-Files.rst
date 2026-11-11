@@ -108,4 +108,15 @@ By executing the same command as before, we publish three different messages to 
 Next steps
 ----------
 
+<<<<<<< HEAD:source/Tutorials/Intermediate/Publishing-Messages-Using-YAML-Files.rst
 If you are interested in publishing multiple topics using the CLI, you can take a look at the :doc:`Recording and playing back data <../Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data>` tutorial.
+=======
+If you are interested in publishing multiple topics using the CLI, you can take a look at the :doc:`Recording and playing back data <../../../../ROS-Framework/interfaces/Working-with-interfaces/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data>` tutorial.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
+>>>>>>> 5ff6b51 (3di | Add Related articles directive to the docs set (#7390)):source/Developer-Tools/Introspection-and-analysis/Publishing-Messages-Using-YAML-Files.rst

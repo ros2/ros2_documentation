@@ -226,4 +226,15 @@ Next steps
 You might want to improve the plugin or create new nodes to change the behavior of the robot.
 You can also implement a reset handler to automatically restart your ROS nodes when the simulation is reset from the Webots interface:
 
+<<<<<<< HEAD:source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Advanced.rst
 * :doc:`./Simulation-Reset-Handler`.
+=======
+* :doc:`Simulation-Reset-Handler`.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
+>>>>>>> 5ff6b51 (3di | Add Related articles directive to the docs set (#7390)):source/Integrations-and-related/Simulators/Webots/Setting-Up-Simulation-Webots-Advanced.rst
