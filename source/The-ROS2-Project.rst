@@ -1,7 +1,27 @@
+<<<<<<< HEAD
 The ROS 2 Project
 =================
+=======
+.. meta::
+  :contentType: about
+  :experience: beginner, intermediate, expert
+  :area: community
+  :distribution: {DISTRO}
+  :product: {PRODUCT}
 
-Check out the resources below to learn more about the advancement of the ROS 2 project.
+Community
+=========
+
+.. short-description::
+   Learn how the ROS 2 project is run and how you can take part.
+   These articles cover contributing, features and roadmap, governance, platform support and release policies, events, marketing, metrics, and adopters.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+>>>>>>> f9d6b94 (Show section contents on navigation pages and add short descriptions (#7446))
+
+In this section:
 
 .. toctree::
    :maxdepth: 1

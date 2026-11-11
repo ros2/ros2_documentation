@@ -8,6 +8,17 @@
 Releasing a Package
 ===================
 
+<<<<<<< HEAD:source/How-To-Guides/Releasing/Releasing-a-Package.rst
+=======
+.. short-description::
+   Releasing a package makes it available on the public ROS build farm, so that users can install it with their package manager.
+   This article explains what a release gives you and which release guide to follow.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+>>>>>>> f9d6b94 (Show section contents on navigation pages and add short descriptions (#7446)):source/Developer-Tools/Build/Releasing/Releasing-a-Package.rst
 .. toctree::
    :hidden:
 
