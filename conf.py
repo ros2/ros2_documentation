@@ -93,9 +93,18 @@ extensions = [
     'sphinxcontrib.mermaid',
     'sphinxext.opengraph',
     'short_description',
+    'pagefind_config',
+    'pagefind_meta',
     'showmeta',
     'ros_related_articles',
 ]
+
+
+# Pagefind search: CLI options and the facet list live in pagefind.yml.
+# Loading it into a config value makes Sphinx rebuild pages when it changes.
+from pagefind_config import load_pagefind_yml  # noqa: E402
+
+pagefind_search = load_pagefind_yml(os.path.abspath('.'))
 
 # Intersphinx mapping
 
@@ -405,6 +414,7 @@ def smv_rewrite_configs(app, config):
             ),
             'DISTRO_ARM_STATUS_SUFFIX': distro_arm_status_suffix.get(distro, 'unv8'),
             'REPOS_FILE_BRANCH' : distro,
+            'PRODUCT': 'ROS 2',
         }
 
 def github_link_rewrite_branch(app, pagename, templatename, context, doctree):
