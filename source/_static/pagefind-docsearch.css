@@ -1,0 +1,419 @@
+/* DocSearch-like sidebar trigger for Pagefind modal (plan §3) */
+.ros2-pagefind-search {
+  margin: 0.5rem 0 1rem;
+}
+
+/*
+  The modal is moved to document.body so it is not a descendant of
+  .wy-nav-side. That sidebar is position:fixed, z-index:200, and
+  overflow:hidden; while the dialog stays inside it, the filter column
+  (which overlaps the sidebar) is a different hit-test layer from the
+  painted dialog.
+*/
+.ros2-pagefind-search.ros2-pagefind-search--portal {
+  margin: 0;
+  width: 0;
+  height: 0;
+  overflow: visible;
+  contain: none;
+  position: static;
+  pointer-events: none;
+}
+
+.ros2-pagefind-search--portal pagefind-modal {
+  contain: none !important;
+  display: block;
+  width: 0;
+  height: 0;
+  margin: 0;
+  overflow: visible;
+  pointer-events: none;
+}
+
+/*
+  Pagefind sets pointer-events:revert on .pf-* with a high-specificity :is(#\#)
+  hack. That beats a normal `auto` here and reverts to inheritance from the
+  portal host (none), so filter checkboxes never receive clicks. Force auto.
+*/
+.ros2-pagefind-search--portal dialog.pf-modal,
+.ros2-pagefind-search--portal dialog.pf-modal::backdrop {
+  pointer-events: auto !important;
+}
+
+.ros2-pagefind-search pagefind-modal-trigger {
+  display: block;
+  width: 100%;
+}
+
+/* Light styling for the trigger button (Pagefind exposes light DOM button) */
+.ros2-pagefind-search pagefind-modal-trigger::part(button),
+.ros2-pagefind-search button {
+  align-items: center;
+  background: var(--wy-menu-vertical-background-color, #fcfcfc);
+  border: 1px solid #ccc;
+  border-radius: 40px;
+  color: var(--wy-menu-vertical-color, #404040);
+  cursor: pointer;
+  display: flex;
+  font-size: 0.85rem;
+  gap: 0.35rem;
+  justify-content: space-between;
+  min-height: 2.25rem;
+  padding: 0.35rem 0.6rem 0.35rem 0.75rem;
+  text-align: left;
+  width: 100%;
+}
+
+.ros2-pagefind-search pagefind-modal-trigger::part(button):hover,
+.ros2-pagefind-search button:hover {
+  border-color: #999;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+}
+
+/* Keyboard hint styling (Algolia DocSearch-like) */
+.ros2-pagefind-search .DocSearch-Button-Keys,
+.ros2-pagefind-search pagefind-modal-trigger::part(keys) {
+  display: flex;
+  gap: 0.2rem;
+}
+
+.ros2-pagefind-search kbd,
+.ros2-pagefind-search pagefind-modal-trigger::part(kbd) {
+  align-items: center;
+  background: linear-gradient(-225deg, #d5dbe4, #f8f8f8);
+  border: 0;
+  border-radius: 3px;
+  box-shadow: inset 0 -2px 0 0 #cdcde6, inset 0 0 1px 1px #fff, 0 1px 2px 1px rgba(30, 35, 90, 0.2);
+  color: #969faf;
+  display: flex;
+  font-size: 0.65rem;
+  font-weight: 600;
+  line-height: 1;
+  min-height: 1.25rem;
+  min-width: 1.25rem;
+  padding: 0 0.3rem;
+  justify-content: center;
+}
+
+.wy-nav-side-scroll .ros2-pagefind-search {
+  padding-right: 0.5rem;
+}
+
+.ros-search-ui .pf-result-breadcrumb {
+  margin: 0.15rem 0 0.35rem !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  color: var(--pf-text-secondary, rgba(0, 0, 0, 0.55)) !important;
+  font-size: 0.8rem !important;
+  font-weight: 400 !important;
+  line-height: 1.35 !important;
+}
+
+.ros-search-ui .pf-result-breadcrumb-label {
+  color: #495057 !important;
+  font-weight: 600 !important;
+}
+
+.ros-page-meta-summary,
+.ros-search-ui .pf-result-meta-block {
+  margin: -0.25rem 0 1rem !important;
+  padding: 0.45rem 0.75rem !important;
+  border-left: 4px solid #6c757d !important;
+  background: #f8f9fa !important;
+  color: #495057 !important;
+  font-size: 0.85rem !important;
+}
+
+.ros2-pagefind-search dialog.pf-modal {
+  width: clamp(900px, 60vw, 1200px) !important;
+  max-width: 92vw !important;
+  min-width: min(900px, 92vw) !important;
+}
+
+.ros-search-ui .ros-search-two-col {
+  display: grid;
+  grid-template-columns: minmax(220px, 260px) minmax(0, 1fr);
+  gap: 16px;
+  min-height: 0;
+  width: 100%;
+  align-items: stretch;
+}
+
+.ros-search-ui .ros-search-facets,
+.ros-search-ui .ros-search-results {
+  max-height: 62vh;
+  overflow: auto;
+  min-width: 0;
+}
+
+/*
+  Match Pagefind Component UI .pf-filter-pane tokens so empty placeholders
+  and the native filter pane read as the same sidebar treatment.
+*/
+.ros-search-ui .ros-search-facets {
+  align-self: stretch;
+  background: transparent;
+  border: 0;
+  padding: 0;
+}
+
+.ros-search-ui .ros-search-facets.ros-search-facets--placeholders {
+  background: #eee;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 16px;
+}
+
+.ros2-pagefind-search pagefind-modal-body .ros-search-two-col,
+.ros2-pagefind-search dialog.pf-modal .ros-search-two-col {
+  min-height: 50vh;
+}
+
+.ros-search-ui .ros-search-facets pagefind-filter-pane,
+.ros-search-ui .ros-search-results pagefind-summary,
+.ros-search-ui .ros-search-results pagefind-results {
+  display: block;
+}
+
+/* Filters stay available, but the result list waits for a search term. */
+.ros-search-awaiting-term pagefind-summary,
+.ros-search-awaiting-term pagefind-results {
+  display: none !important;
+}
+
+/* Placeholder facet groups — mirror .pf-filter-group / .pf-filter-group-title */
+.ros-facet-placeholders {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.ros-facet-placeholders[hidden] {
+  display: none !important;
+}
+
+.ros-facet-placeholder {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+}
+
+.ros-facet-placeholder > summary {
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  padding: 4px 0;
+  margin: -4px 0;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  color: #767676;
+}
+
+.ros-facet-placeholder > summary::-webkit-details-marker {
+  display: none;
+}
+
+.ros-facet-placeholder > summary::after {
+  content: "";
+  width: 10px;
+  height: 6px;
+  flex-shrink: 0;
+  margin-inline-start: 8px;
+  margin-left: auto;
+  background: #767676;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  transition: transform 0.15s;
+}
+
+.ros-facet-placeholder:not([open]) > summary::after {
+  transform: rotate(-90deg);
+}
+
+.ros-facet-placeholder > summary:hover {
+  color: #666;
+}
+
+.ros-facet-placeholder-empty {
+  margin: 0;
+  padding: 0;
+  min-height: 30px;
+  display: flex;
+  align-items: center;
+  color: #767676;
+  font-size: 13px;
+  font-style: normal;
+}
+
+pagefind-filter-pane[hidden] {
+  display: none !important;
+}
+
+/* Hide the page count beside each filter option. */
+.ros-search-ui .pf-filter-checkbox-count {
+  display: none !important;
+}
+
+.ros-search-ui .ros-search-results pagefind-summary {
+  margin-bottom: 0.75rem;
+}
+
+/*
+  Result cards: keep the page background by default. Separate with a thin
+  centered rule (80% width); darker fill + card chrome on hover / selection.
+  !important beats pagefind-component-ui.css (loaded after this file).
+*/
+:is(*, #\#):is(*, #\#):is(*, #\#) .pf-results {
+  gap: 0 !important;
+}
+
+:is(*, #\#):is(*, #\#):is(*, #\#) .pf-result-card {
+  position: relative;
+  background: transparent !important;
+  border: 1px solid transparent !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  transition:
+    background 0.15s,
+    border-color 0.15s,
+    border-radius 0.15s,
+    box-shadow 0.15s !important;
+}
+
+:is(*, #\#):is(*, #\#):is(*, #\#) .pf-result-card::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 80%;
+  height: 1px;
+  background: var(--pf-border, #e0e0e0);
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+:is(*, #\#):is(*, #\#):is(*, #\#) .pf-result:last-child .pf-result-card::after {
+  display: none;
+}
+
+:is(*, #\#):is(*, #\#):is(*, #\#) .pf-result-card:hover,
+:is(*, #\#):is(*, #\#):is(*, #\#) .pf-result-card:has([data-pf-selected]) {
+  background: var(--pf-hover, #f5f5f5) !important;
+  border-color: var(--pf-border-focus, #999) !important;
+  border-radius: var(--pf-border-radius, 6px) !important;
+  box-shadow: var(--pf-shadow-sm, 0 2px 8px rgba(0, 0, 0, 0.06)) !important;
+}
+
+/* Keep Pagefind's high-contrast focus ring for keyboard navigation. */
+:is(*, #\#):is(*, #\#):is(*, #\#) .pf-result-card:has(.pf-result-link:focus-visible) {
+  background: var(--pf-hover, #f5f5f5) !important;
+  border-color: var(--pf-outline-focus, #2563eb) !important;
+  border-radius: var(--pf-border-radius, 6px) !important;
+  box-shadow: 0 0 0 var(--pf-outline-width, 2px) var(--pf-outline-focus, #2563eb) !important;
+}
+
+:is(*, #\#):is(*, #\#):is(*, #\#) .pf-result-card:hover::after,
+:is(*, #\#):is(*, #\#):is(*, #\#) .pf-result-card:has(.pf-result-link:focus-visible)::after,
+:is(*, #\#):is(*, #\#):is(*, #\#) .pf-result-card:has([data-pf-selected])::after,
+:is(*, #\#):is(*, #\#):is(*, #\#) .pf-result:has(+ .pf-result .pf-result-card:hover) .pf-result-card::after,
+:is(*, #\#):is(*, #\#):is(*, #\#) .pf-result:has(+ .pf-result .pf-result-card:has(.pf-result-link:focus-visible)) .pf-result-card::after,
+:is(*, #\#):is(*, #\#):is(*, #\#) .pf-result:has(+ .pf-result .pf-result-card:has([data-pf-selected])) .pf-result-card::after {
+  display: none;
+}
+
+:is(*, #\#):is(*, #\#):is(*, #\#) .pf-result-link {
+  font-size: 1rem !important;
+  font-weight: 700 !important;
+  line-height: 1.25 !important;
+}
+
+:is(*, #\#):is(*, #\#):is(*, #\#) .pf-result-excerpt,
+:is(*, #\#):is(*, #\#):is(*, #\#) .pf-result-preview {
+  font-size: var(--pf-result-excerpt-font-size, 13px) !important;
+  line-height: 1.4 !important;
+  font-weight: 400 !important;
+  color: var(--pf-text-secondary, rgba(0, 0, 0, 0.7)) !important;
+  white-space: normal !important;
+  overflow: visible !important;
+  text-overflow: unset !important;
+}
+
+.ros-search-ui .pf-result-meta-block {
+  margin-top: 0.25rem !important;
+  margin-bottom: 0.45rem !important;
+  border-radius: 0 !important;
+  display: block !important;
+  line-height: 1.35 !important;
+}
+
+.ros-search-ui .pf-result-breadcrumb + .pf-result-meta-block {
+  margin-top: 0.2rem !important;
+}
+
+.ros-search-ui .pf-result-meta-block b,
+.ros-search-ui .pf-result-meta-block strong {
+  color: #495057 !important;
+  font-weight: 600 !important;
+}
+
+/* Full-page search results (search.html) */
+.ros-search-page {
+  padding: 0 0 2rem;
+}
+
+.ros-search-page-input-row {
+  margin-bottom: 1.5rem;
+}
+
+.ros-search-page-input-row pagefind-input {
+  display: block;
+  width: 100%;
+}
+
+.ros-search-page-two-col .ros-search-facets,
+.ros-search-page-two-col .ros-search-results {
+  max-height: none;
+  overflow: visible;
+}
+
+/*
+  Force Pagefind's per-result IntersectionObserver to use this <pagefind-results>
+  element as its root. The component walks up the DOM looking for an ancestor
+  whose computed overflow-y is not "visible" or "hidden"; without this, no
+  ancestor matches on a dedicated search page (everything renders with default
+  overflow), the observer never fires, and result cards remain skeletons.
+
+  Setting overflow-y: auto with no max-height gives the observer a valid root
+  without producing any visible scrollbar - the element grows to fit content
+  naturally and the page itself remains the scroll context for the user.
+*/
+#ros-search-page pagefind-results {
+  overflow-y: auto !important;
+}
+
+@media (max-width: 980px) {
+  .ros-search-ui .ros-search-two-col {
+    grid-template-columns: 1fr;
+  }
+
+  .ros-search-ui .ros-search-facets,
+  .ros-search-ui .ros-search-results {
+    max-height: none;
+  }
+
+  .ros-search-ui .ros-search-facets {
+    border-right: 0;
+    margin-bottom: 0.75rem;
+  }
+
+  .ros-search-ui .ros-search-facets.ros-search-facets--placeholders {
+    border-bottom: 1px solid #e0e0e0;
+  }
+}
