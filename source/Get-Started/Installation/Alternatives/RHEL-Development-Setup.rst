@@ -32,7 +32,7 @@ System requirements
 -------------------
 The current target Red Hat platforms for {DISTRO_TITLE_FULL} are:
 
-- Tier 2: RHEL 10 64-bit
+- Tier 1: RHEL 10 64-bit
 
 As defined in `REP 2000 <https://reps.openrobotics.org/rep-2000/>`_.
 
