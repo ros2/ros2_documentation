@@ -122,6 +122,9 @@ Set up the following prerequisites to build the docs site locally:
 
       $ node -v && npx -v
 
+   Without Node.js, ``make html`` still builds the site, but with the built-in Sphinx search instead of Pagefind, and prints a warning.
+   This is the case in the Docker image and the Devcontainer, which do not install Node.js.
+
 2 Checking / testing the site
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -230,7 +233,7 @@ To build the site for just the current active branch:
 
    As well as building the pages, this command does two things for the related packages and search features:
 
-   * Downloads a snapshot of the ROS package index into ``source/_static/``, which the related packages lists filter in the browser.
+   * Downloads a snapshot of the ROS package index into ``source/_static/rosdistro_cache/``, which the related packages lists filter in the browser.
    * Indexes the built site for search.
 
 #. Serve the output over HTTP:
@@ -241,8 +244,8 @@ To build the site for just the current active branch:
 
 #. In your browser, open ``http://127.0.0.1:8000`` to see the site.
 
-   Search does not work when you open a built file directly from disk, so serve the output rather than opening ``build/html/index.html``.
-   To check everything except search, you can still open the file directly.
+   Search and the related packages lists do not work when you open a built file directly from disk, so serve the output rather than opening ``build/html/index.html``.
+   To check everything except search and the related packages lists, you can still open the file directly.
 
 To index an existing build again without rebuilding the pages, run the following command:
 
@@ -252,8 +255,8 @@ To index an existing build again without rebuilding the pages, run the following
 
 .. note::
 
-   If you build without a network connection, the snapshot of the ROS package index cannot be downloaded.
-   The build still completes, and the related packages lists fall back to the last snapshot that was downloaded.
+   ``make html`` needs a network connection to download the snapshot of the ROS package index.
+   Without one, the download fails with a warning, and because warnings are treated as errors, so does the build.
 
 .. note::
 

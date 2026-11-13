@@ -17,6 +17,7 @@ Contributing to documentation
 .. short-description::
    ROS documentation is maintained by the community and helps users learn concepts, complete tasks, and contribute improvements to the wider ecosystem.
    This article describes where the documentation source is hosted, how the content is structured, and how contributors create, check, and submit changes.
+
 .. showmeta::
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
@@ -68,7 +69,7 @@ Search
 
 The site search is built from the metadata on each article.
 When the site is built, the pages are indexed for search.
-The metadata fields become filters, so that readers can narrow results by distribution, area, content type, and experience level, among others.
+The metadata fields become filters, so that readers can narrow results by distribution, area, content type, and experience level.
 Results start filtered to the distribution the reader is viewing, which they can change or clear.
 
 Related articles
@@ -85,9 +86,9 @@ Related packages
 
 A *Related packages* list shows the ROS packages relevant to the page.
 Unlike related articles, which are built into the page when the site is built, these lists are built in the reader's browser.
-When a reader opens the page, the browser downloads the latest snapshot of the ROS package index, keeps only the packages whose own metadata matches the page's ``area``, and fills in the list.
-If it cannot reach the latest snapshot, it falls back to one saved when the site was built.
-This keeps the lists current between documentation builds.
+When the site is built, a snapshot of the ROS package index is saved with it.
+When a reader opens the page, the browser loads that snapshot, keeps only the packages whose own metadata matches the page's ``area``, and fills in the list.
+The lists reflect the package index as it was when the site was last built.
 A package opts in to these lists through metadata in its ``package.xml``.
 
 To learn how to add a related packages list to an article, see :doc:`Documentation/Documentation-guidelines`.
