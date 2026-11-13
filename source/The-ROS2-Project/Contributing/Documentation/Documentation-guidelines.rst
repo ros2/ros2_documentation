@@ -543,6 +543,7 @@ Use the examples in the following table for guidance about the type of article y
 
 .. list-table::
    :header-rows: 1
+   :widths: 5 35 40 20
 
    * - Content type
      - Description
