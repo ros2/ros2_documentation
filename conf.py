@@ -214,7 +214,7 @@ html_static_path = ['source/_static']
 html_sourcelink_suffix = ''
 
 # Relative to html_static_path
-html_css_files = ['custom.css', 'adopters.css']
+html_css_files = ['custom.css', 'adopters.css', 'tables.css']
 html_js_files = [
     ('vendor/pako.min.js', {'defer': ''}),
     ('vendor/js-yaml.min.js', {'defer': ''}),
