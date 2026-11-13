@@ -23,7 +23,7 @@ RViz
 In this section:
 
 .. toctree::
-   :maxdepth: 1
+   :hidden:
 
    RViz-User-Guide/RViz-User-Guide
    Marker-Sending-Basic-Shapes/Marker-Sending-Basic-Shapes

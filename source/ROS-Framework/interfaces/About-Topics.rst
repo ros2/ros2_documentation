@@ -21,7 +21,6 @@ Topics
    :labels: area=Area, contentType=Content type, experience=Level
 
 .. toctree::
-   :maxdepth: 1
    :hidden:
 
    topics/Understanding-ROS2-Topics/Understanding-ROS2-Topics

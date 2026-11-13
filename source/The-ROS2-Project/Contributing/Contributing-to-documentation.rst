@@ -28,7 +28,6 @@ This article describes where the documentation source lives, how it is structure
 
 .. toctree::
    :hidden:
-   :maxdepth: 2
 
    Documentation/Creating-or-updating-documentation
    Documentation/Documentation-guidelines
