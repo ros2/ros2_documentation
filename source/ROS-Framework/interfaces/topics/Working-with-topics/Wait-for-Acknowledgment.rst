@@ -28,7 +28,7 @@ Wait for acknowledgment — tutorial
 **Time:** 10 minutes
 
 .. contents:: Contents
-   :depth: 1
+   :depth: 2
    :local:
 
 Overview

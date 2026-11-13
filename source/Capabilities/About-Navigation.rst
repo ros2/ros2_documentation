@@ -17,12 +17,12 @@ Navigation
    :labels: area=Area, contentType=Content type, experience=Level
 
 .. toctree::
-   :maxdepth: 1
    :hidden:
 
 ..   list of child topics here
 
 .. contents:: Contents
+   :depth: 2
    :local:
 
 Summary

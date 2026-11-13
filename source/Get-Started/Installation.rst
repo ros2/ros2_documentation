@@ -28,7 +28,7 @@ Installation
    :local:
 
 .. toctree::
-   :maxdepth: 1
+   :hidden:
 
    Installation/Ubuntu-Install-Debs
    Installation/Windows-Install-Binary

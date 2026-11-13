@@ -28,7 +28,7 @@ Testing - tutorial
    :local:
 
 .. toctree::
-   :maxdepth: 1
+   :hidden:
 
    Testing/CLI
    Testing/Cpp

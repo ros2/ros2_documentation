@@ -28,7 +28,7 @@ This set of tutorials will teach you how to configure the Webots simulator with 
    :local:
 
 .. toctree::
-   :maxdepth: 1
+   :hidden:
 
    Installation-Ubuntu
    Installation-Windows

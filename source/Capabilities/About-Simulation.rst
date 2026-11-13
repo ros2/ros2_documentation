@@ -17,13 +17,13 @@ Simulation
    :labels: area=Area, contentType=Content type, experience=Level
 
 .. toctree::
-   :maxdepth: 1
    :hidden:
 
    Simulation/URDF/URDF-Main
    Simulation/dummy-robot/dummy-robot-demo
 
 .. contents:: Contents
+   :depth: 2
    :local:
 
 Summary

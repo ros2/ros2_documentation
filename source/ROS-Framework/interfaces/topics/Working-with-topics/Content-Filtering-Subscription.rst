@@ -29,7 +29,7 @@ Creating a content filtering subscription — tutorial
 **Time:** 15 minutes
 
 .. contents:: Contents
-   :depth: 1
+   :depth: 2
    :local:
 
 Overview

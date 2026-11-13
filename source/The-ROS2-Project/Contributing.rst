@@ -25,7 +25,6 @@ Contributing to ROS
    :labels: area=Area, contentType=Content type, experience=Level
 
 .. toctree::
-   :maxdepth: 2
    :hidden:
 
    Contributing/Developer-Guide
@@ -36,6 +35,7 @@ Contributing to ROS
    Contributing/Reporting-an-issue
 
 .. contents:: Contents
+   :depth: 2
    :local:
 
 Summary

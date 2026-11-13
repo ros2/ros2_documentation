@@ -22,6 +22,7 @@ Composition
    :labels: area=Area, contentType=Content type, experience=Level
 
 .. contents:: Contents
+   :depth: 2
    :local:
 
 ROS 1 - Nodes vs. Nodelets

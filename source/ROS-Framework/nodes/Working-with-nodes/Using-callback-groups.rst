@@ -28,6 +28,7 @@ It is assumed that the reader has a basic understanding
 about the concept of :doc:`executors <../../client-libraries/About-Executors/About-Executors>`.
 
 .. contents:: Contents
+   :depth: 2
    :local:
 
 Basics of callback groups
