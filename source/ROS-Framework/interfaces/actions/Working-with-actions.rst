@@ -19,7 +19,7 @@ Working with actions
 In this section:
 
 .. toctree::
-   :hidden:
+   :depth: 1
 
    Working-with-actions/Understanding-ROS2-Actions/Understanding-ROS2-Actions
    Working-with-actions/Action-Introspection

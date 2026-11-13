@@ -19,7 +19,7 @@ Working with interfaces
 In this section:
 
 .. toctree::
-   :hidden:
+   :depth: 1
 
    Working-with-interfaces/Interface-specifications
    Working-with-interfaces/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data

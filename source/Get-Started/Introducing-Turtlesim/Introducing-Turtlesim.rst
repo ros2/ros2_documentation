@@ -30,7 +30,7 @@ A short exercise provides you with basic experience with these tools.
 **Area: Framework | Content-type: how-to | Experience: beginner**
 
 .. contents:: Contents
-   :depth: 3
+   :depth: 2
    :local:
 
 Summary

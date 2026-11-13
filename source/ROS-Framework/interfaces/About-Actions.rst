@@ -26,6 +26,7 @@ Actions
    actions/Working-with-actions
 
 .. contents:: Contents
+   :depth: 2
    :local:
 
 In ROS 2, an action refers to a long-running remote procedure call with feedback and the ability to cancel or preempt the goal.

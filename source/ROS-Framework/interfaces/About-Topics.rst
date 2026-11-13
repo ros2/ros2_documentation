@@ -28,6 +28,7 @@ Topics
    topics/Working-with-topics
 
 .. contents:: Contents
+   :depth: 2
    :local:
 
 Topics are one of the three primary styles of interfaces provided by ROS 2.

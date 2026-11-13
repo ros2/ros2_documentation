@@ -23,6 +23,7 @@ Simulation
    Simulation/dummy-robot/dummy-robot-demo
 
 .. contents:: Contents
+   :depth: 2
    :local:
 
 Summary

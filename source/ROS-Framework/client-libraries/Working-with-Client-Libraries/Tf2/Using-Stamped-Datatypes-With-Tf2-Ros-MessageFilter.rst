@@ -31,7 +31,7 @@ Using stamped datatypes with ``tf2_ros::MessageFilter`` — tutorial
 **Time:** 10 minutes
 
 .. contents:: Contents
-   :depth: 3
+   :depth: 2
    :local:
 
 Background

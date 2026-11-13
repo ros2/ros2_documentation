@@ -22,6 +22,7 @@ Navigation
 ..   list of child topics here
 
 .. contents:: Contents
+   :depth: 2
    :local:
 
 Summary

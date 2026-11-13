@@ -31,6 +31,7 @@ Nodes
    nodes/Working-with-nodes
 
 .. contents:: Contents
+   :depth: 2
    :local:
 
 Summary

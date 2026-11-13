@@ -35,6 +35,7 @@ Contributing to ROS
    Contributing/Reporting-an-issue
 
 .. contents:: Contents
+   :depth: 2
    :local:
 
 Summary

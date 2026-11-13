@@ -23,6 +23,7 @@ Motion planning and manipulation
    Motion-planning/Real-Time-Programming
 
 .. contents:: Contents
+   :depth: 2
    :local:
 
 Summary
