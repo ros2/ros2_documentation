@@ -62,7 +62,7 @@ ROS 2 uses `conda-forge <https://conda-forge.org/>`__ as a backend for packages,
 Install pixi
 ^^^^^^^^^^^^
 
-Use use the instructions on https://pixi.sh/latest/ to install ``pixi`` either with the Windows Installer or using command line in your opened Command Prompt terminal.
+Use the instructions on https://pixi.sh/latest/ to install ``pixi`` either with the Windows Installer or using command line in your opened Command Prompt terminal.
 
 Once ``pixi`` has been installed, close the Command Prompt session and start it again, which will ensure ``pixi`` is on the PATH.
 
@@ -100,7 +100,7 @@ Go to the folder where you unzipped the ROS 2 prereleased binaries and install t
 Run preinstall installation script
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Run the preinstall installation setup script to make sure that the zipped file are able to run in the current folder the ROS 2 binaries have been exctrated to:
+Run the preinstall installation setup script to make sure that the extracted files can run in the folder where the ROS 2 binaries were extracted:
 
 .. code-block:: console
 
