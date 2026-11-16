@@ -153,6 +153,20 @@ This is accomplished by adding the following lines to our ``CMakeLists.txt`` bef
       "action/Fibonacci.action"
     )
 
+.. note::
+
+    If the action has external dependencies, i.e. ``geometry_msgs``, they must explicitly be found in ``CMakeLists.txt`` by using ``find_package(package_name REQUIRED)`` and specified as dependencies during ``rosidl_generate_interfaces``, i.e.
+    
+    .. code-block:: cmake
+    
+        find_package(rosidl_default_generators REQUIRED)
+        find_package(package_name REQUIRED)
+    
+        rosidl_generate_interfaces(${PROJECT_NAME}
+          "action/Fibonacci.action"
+          DEPENDENCIES package_name
+        )
+    
 We should also add the required dependencies to our ``package.xml``:
 
 .. code-block:: xml
