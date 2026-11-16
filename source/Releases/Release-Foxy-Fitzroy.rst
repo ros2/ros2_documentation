@@ -249,7 +249,7 @@ For example, previously to pass a number as a string you would have to add extra
    <!-- results in the string value "'3'" -->
    <param name="foo" value="''3''"/>
 
-After the refactor, the above will result in the the string ``"''3''"`` (note the extra set of quotation marks).
+After the refactor, the above will result in the string ``"''3''"`` (note the extra set of quotation marks).
 Now, users should use the ``type`` attribute to signal that the value should be interpreted as a string:
 
 .. code-block:: xml
