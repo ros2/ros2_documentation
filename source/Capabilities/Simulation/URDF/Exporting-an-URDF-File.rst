@@ -62,6 +62,7 @@ However, we figured it would be helpful to produce a list of available URDF expo
  * The `Blender Robotics Tools <https://github.com/robotology/blender-robotics-utils/>`_ repository includes a number of useful tools, including a tool to export `URDF files from Blender. <https://github.com/robotology/blender-robotics-utils/tree/master?tab=readme-ov-file#urdftoblender>`_
  * `CoppeliaSim URDF Exporter <https://manual.coppeliarobotics.com/en/importExport.htm#urdf>`_
  * `Isaac Sim URDF Exporter <https://docs.omniverse.nvidia.com/isaacsim/latest/advanced_tutorials/tutorial_advanced_export_urdf.html>`_
+ * `ProtoJoint (browser-based CAD that exports URDF, MJCF and ROS 2 packages) <https://protojoint.ai/cad-to-urdf/>`_
 
 **Viewing URDF & SDF Files**
  * `Examples of Common URDF Launch Files <https://github.com/ros/urdf_launch>`_
