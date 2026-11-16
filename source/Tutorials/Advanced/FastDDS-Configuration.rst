@@ -430,7 +430,7 @@ You can have a default publisher configuration profile and several topic-specifi
 The only requirement is that all publisher profiles have a different name and that there is only a single default profile.
 The same goes for subscribers.
 
-In order to define a configuration for a specific topic, just name the profile after the the ROS 2 topic name (like ``/sync_topic`` and ``/async_topic`` in the example),
+In order to define a configuration for a specific topic, just name the profile after the ROS 2 topic name (like ``/sync_topic`` and ``/async_topic`` in the example),
 and ``rmw_fastrtps`` will apply this profile to all publishers and subscribers for that topic.
 The default configuration profile is identified by the attribute ``is_default_profile`` set to ``true``, and acts as a fallback profile when there is no other one with a name matching the topic name.
 
