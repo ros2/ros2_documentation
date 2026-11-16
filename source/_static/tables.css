@@ -1,7 +1,6 @@
-/* prevent horizontal scroll */
-.wy-table-responsive table td {
+/* Allow table cells to wrap so tables fit the page width.
+   The theme's overflow:auto is kept as a fallback for tables that still can't fit. */
+.wy-table-responsive table td,
+.wy-table-responsive table th {
     white-space: normal !important;
-}
-.wy-table-responsive {
-    overflow: visible !important;
 }
