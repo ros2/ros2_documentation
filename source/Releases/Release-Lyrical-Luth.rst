@@ -823,7 +823,7 @@ Tracing sessions using LTTng's `snapshot mode <https://lttng.org/docs/v2.13/#doc
 When memory buffers fill up, the oldest data is discarded, maintaining a rolling history whose size can be controlled by configuring sub-buffer size.
 This "flight recorder" mode is useful for capturing trace data only when something interesting occurs, avoiding continuous disk writes and thus lowering the runtime performance impact even more.
 
-`Snapshot mode tracing <https://github.com/ros2/ros2_tracing/tree/lyrical#tracing-in-snapshot-mode>`_ is available in ``ros2_tracing`` through the `ros2 trace command <https://github.com/ros2/ros2_tracing/tree/lyrical#trace-command-1>`_ and the the `Trace launch file action <https://github.com/ros2/ros2_tracing/tree/lyrical#launch-file-trace-action-1>`_.
+`Snapshot mode tracing <https://github.com/ros2/ros2_tracing/tree/lyrical#tracing-in-snapshot-mode>`_ is available in ``ros2_tracing`` through the `ros2 trace command <https://github.com/ros2/ros2_tracing/tree/lyrical#trace-command-1>`_ and the `Trace launch file action <https://github.com/ros2/ros2_tracing/tree/lyrical#launch-file-trace-action-1>`_.
 
 See `ros2/ros2_tracing#195 <https://github.com/ros2/ros2_tracing/pull/195>`_ and `ros2/ros2_tracing#206 <https://github.com/ros2/ros2_tracing/pull/206>`_ for more info.
 
