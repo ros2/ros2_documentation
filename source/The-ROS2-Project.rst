@@ -19,7 +19,7 @@ Community
 In this section:
 
 .. toctree::
-   :depth: 1
+   :maxdepth: 1
 
    The-ROS2-Project/Contributing
    The-ROS2-Project/Features

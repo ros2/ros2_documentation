@@ -18,7 +18,7 @@ Working with topics
 In this section:
 
 .. toctree::
-   :depth: 1
+   :maxdepth: 1
 
    Working-with-topics/Topic-Keys/Topic-Keys-Tutorial
    Working-with-topics/Topic-Keys/Filtered-Topic-Keys-Tutorial

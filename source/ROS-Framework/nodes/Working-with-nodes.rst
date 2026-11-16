@@ -18,7 +18,7 @@ Working with nodes
 In this section:
 
 .. toctree::
-   :depth: 1
+   :maxdepth: 1
 
    Working-with-nodes/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes
    Working-with-nodes/Learning-About-Logging/Learning-About-Logging
