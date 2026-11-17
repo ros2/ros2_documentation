@@ -31,8 +31,8 @@ Ensuring security across machines - tutorial
 **Time:** 5 minutes
 
 .. contents:: Contents
-  :depth: 2
-  :local:
+   :depth: 2
+   :local:
 
 Background
 ----------

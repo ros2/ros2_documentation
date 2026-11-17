@@ -14,7 +14,7 @@ Contributing to code
 ====================
 
 .. toctree::
-   :maxdepth: 2
+   :hidden:
 
    Contributing-to-code/Source-Control-Best-Practices
    Contributing-to-code/Build-Farms

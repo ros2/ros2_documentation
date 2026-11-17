@@ -21,7 +21,6 @@ Topics
    :labels: area=Area, contentType=Content type, experience=Level
 
 .. toctree::
-   :maxdepth: 1
    :hidden:
 
    topics/Understanding-ROS2-Topics/Understanding-ROS2-Topics
@@ -29,6 +28,7 @@ Topics
    topics/Working-with-topics
 
 .. contents:: Contents
+   :depth: 2
    :local:
 
 Topics are one of the three primary styles of interfaces provided by ROS 2.
