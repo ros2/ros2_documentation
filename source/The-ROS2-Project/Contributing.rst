@@ -7,8 +7,32 @@
 Contributing
 ============
 
+<<<<<<< HEAD
 .. contents:: Table of Contents
    :depth: 1
+=======
+.. short-description::
+   ROS (Robot Operating System) is an open-source ecosystem.
+   We rely on contributions from our community to help us grow and improve.
+   This article introduces the ways in which you can contribute to ROS.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. toctree::
+   :hidden:
+
+   Contributing/Developer-Guide
+   Contributing/Contributing-to-documentation
+   Contributing/Reviewing-a-PR
+   Contributing/Making-a-PR
+   Contributing/Triaging-an-issue
+   Contributing/Reporting-an-issue
+
+.. contents:: Contents
+   :depth: 2
+>>>>>>> 158adfc (3di | Standardise TOCs (#7477))
    :local:
 
 A few things to remember before you start contributing to the ROS 2 project.

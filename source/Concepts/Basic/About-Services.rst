@@ -1,7 +1,25 @@
 Services
 ========
 
+<<<<<<< HEAD:source/Concepts/Basic/About-Services.rst
 .. contents:: Table of Contents
+=======
+.. short-description::
+   Services in ROS let nodes send requests and receive responses for short computations or interactions.
+   This article explains how services work, including service definitions, service servers, service clients, and when to use services instead of actions.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. toctree::
+   :hidden:
+
+   services/Working-with-services
+
+.. contents:: Contents
+   :depth: 2
+>>>>>>> 158adfc (3di | Standardise TOCs (#7477)):source/ROS-Framework/interfaces/About-Services.rst
    :local:
 
 In ROS 2, a service refers to a remote procedure call.
