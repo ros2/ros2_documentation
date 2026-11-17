@@ -7,7 +7,12 @@ Creating an ``rmw`` implementation
 
 **Time:** 30+ minutes
 
+<<<<<<< HEAD:source/Tutorials/Advanced/Creating-An-RMW-Implementation.rst
 .. contents:: Table of Contents
+=======
+.. contents:: Contents
+   :depth: 2
+>>>>>>> 158adfc (3di | Standardise TOCs (#7477)):source/ROS-Framework/middleware/Creating-An-RMW-Implementation.rst
    :local:
 
 Introduction

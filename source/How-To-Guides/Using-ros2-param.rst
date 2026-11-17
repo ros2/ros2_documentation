@@ -1,8 +1,29 @@
 Using the ``ros2 param`` command-line tool
 ==========================================
 
+<<<<<<< HEAD:source/How-To-Guides/Using-ros2-param.rst
 .. contents:: Table of Contents
    :depth: 1
+=======
+.. redirect-from::
+
+    How-To-Guides/Using-ros2-param
+
+Using the ``ros2 param`` command-line tool — how-to
+===================================================
+
+.. short-description::
+   Parameters let you inspect and adjust node configuration while a ROS system is running.
+   This article describes how to use the ``ros2 param`` command-line tool to list, get, set, delete, describe, dump, and load parameters.
+   After you follow these steps, you will be able to manage node parameters from the command line.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
+   :depth: 2
+>>>>>>> 158adfc (3di | Standardise TOCs (#7477)):source/ROS-Framework/parameters/Working-with-parameters/Using-ros2-param.rst
    :local:
 
 Parameters in ROS 2 can be get, set, listed, and described through a set of services as described in :doc:`the concept document <../Concepts/Basic/About-Parameters>`.

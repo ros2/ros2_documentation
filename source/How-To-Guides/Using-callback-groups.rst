@@ -7,7 +7,12 @@ This page is meant as a guide on how to use callback groups efficiently.
 It is assumed that the reader has a basic understanding
 about the concept of :doc:`executors <../Concepts/Intermediate/About-Executors>`.
 
+<<<<<<< HEAD:source/How-To-Guides/Using-callback-groups.rst
 .. contents:: Table of Contents
+=======
+.. contents:: Contents
+   :depth: 2
+>>>>>>> 158adfc (3di | Standardise TOCs (#7477)):source/ROS-Framework/nodes/Working-with-nodes/Using-callback-groups.rst
    :local:
 
 Basics of callback groups

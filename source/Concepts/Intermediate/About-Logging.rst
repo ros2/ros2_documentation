@@ -2,6 +2,32 @@
 
     Logging
     Concepts/About-Logging
+<<<<<<< HEAD:source/Concepts/Intermediate/About-Logging.rst
+=======
+    Concepts/Intermediate/About-Logging
+
+.. meta::
+   :contentType: about
+   :experience: intermediate
+   :area: nodes, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+Logging
+=======
+
+.. short-description::
+   ROS logging helps you monitor node behavior and diagnose problems by sending logs to console output, log files, and the ``/rosout`` topic.
+   This article describes the available logging severities, APIs, configuration options, environment, and implementations.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
+   :depth: 2
+   :local:
+>>>>>>> 158adfc (3di | Standardise TOCs (#7477)):source/ROS-Framework/nodes/About-Logging/About-Logging.rst
 
 Logging and logger configuration
 ================================

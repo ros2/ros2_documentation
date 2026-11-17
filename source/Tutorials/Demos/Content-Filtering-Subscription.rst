@@ -11,8 +11,13 @@ Creating a content filtering subscription
 
 **Time:** 15 minutes
 
+<<<<<<< HEAD:source/Tutorials/Demos/Content-Filtering-Subscription.rst
 .. contents:: Table of Contents
    :depth: 1
+=======
+.. contents:: Contents
+   :depth: 2
+>>>>>>> 158adfc (3di | Standardise TOCs (#7477)):source/ROS-Framework/interfaces/topics/Working-with-topics/Content-Filtering-Subscription.rst
    :local:
 
 Overview

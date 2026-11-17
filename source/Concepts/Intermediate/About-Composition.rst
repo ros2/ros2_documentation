@@ -5,7 +5,20 @@
 Composition
 ===========
 
+<<<<<<< HEAD:source/Concepts/Intermediate/About-Composition.rst
 .. contents:: Table of Contents
+=======
+.. short-description::
+   Composition lets you decide how ROS nodes are arranged into processes when an application is deployed.
+   This article explains ROS components, component containers, and the main ways to write, register, and use composable nodes.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
+   :depth: 2
+>>>>>>> 158adfc (3di | Standardise TOCs (#7477)):source/ROS-Framework/nodes/About-Composition.rst
    :local:
 
 ROS 1 - Nodes vs. Nodelets
