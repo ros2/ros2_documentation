@@ -64,7 +64,7 @@ Company-driven Projects
 -----------------------
 
 .. toctree::
-   :maxdepth: 1
+   :hidden:
 
    Related-Projects/Intel-ROS2-Projects
    Related-Projects/Nvidia-ROS2-Projects

@@ -31,7 +31,6 @@ Interfaces (topics, services, actions)
    :local:
 
 .. toctree::
-   :maxdepth: 1
    :hidden:
 
    interfaces/About-Topics

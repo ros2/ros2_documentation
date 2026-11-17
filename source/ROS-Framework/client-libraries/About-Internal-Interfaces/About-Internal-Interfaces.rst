@@ -22,6 +22,7 @@ Internal ROS 2 interfaces
    :labels: area=Area, contentType=Content type, experience=Level
 
 .. contents:: Contents
+   :depth: 2
    :local:
 
 .. include:: ../../../../global_substitutions.txt

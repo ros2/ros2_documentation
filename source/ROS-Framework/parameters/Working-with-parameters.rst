@@ -22,7 +22,7 @@ Working with parameters - how-to
    :local:
 
 .. toctree::
-   :maxdepth: 2
+   :hidden:
 
    Working-with-parameters/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters
    Working-with-parameters/Using-ros2-param

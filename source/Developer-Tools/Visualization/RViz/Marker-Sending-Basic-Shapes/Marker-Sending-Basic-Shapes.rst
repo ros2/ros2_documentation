@@ -24,7 +24,7 @@ Learning about data visualization - tutorial
    :labels: area=Area, contentType=Content type, experience=Level
 
 .. contents:: Contents
-   :depth: 3
+   :depth: 2
    :local:
 
 Summary

@@ -29,6 +29,7 @@ Creating an ``rmw`` implementation — tutorial
 **Time:** 30+ minutes
 
 .. contents:: Contents
+   :depth: 2
    :local:
 
 Summary
