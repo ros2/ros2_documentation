@@ -25,6 +25,8 @@ ROS 2 Documentation
    :local:
 
 .. toctree::
+   :titlesonly:
+   :maxdepth: 1
    :hidden:
 
    About-ROS
