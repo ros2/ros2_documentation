@@ -7,8 +7,13 @@ Wait for acknowledgment
 
 **Time:** 10 minutes
 
+<<<<<<< HEAD:source/Tutorials/Demos/Wait-for-Acknowledgment.rst
 .. contents:: Table of Contents
    :depth: 1
+=======
+.. contents:: Contents
+   :depth: 2
+>>>>>>> 158adfc (3di | Standardise TOCs (#7477)):source/ROS-Framework/interfaces/topics/Working-with-topics/Wait-for-Acknowledgment.rst
    :local:
 
 Overview

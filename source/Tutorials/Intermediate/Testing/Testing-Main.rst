@@ -1,7 +1,36 @@
 .. _TestingMain:
 
+<<<<<<< HEAD:source/Tutorials/Intermediate/Testing/Testing-Main.rst
 Testing
 =======
+=======
+Testing - tutorial
+==================
+
+.. short-description::
+   Automated tests help ROS developers change, refactor, and maintain code with greater confidence.
+   This article explains why tests are important for package quality, regression prevention, documentation, contribution, and Continuous Integration.
+   After reading it, you can decide where testing adds value and what maintenance costs to expect.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
+   :depth: 2
+   :local:
+
+.. toctree::
+   :hidden:
+
+   Testing/CLI
+   Testing/Cpp
+   Testing/Python
+   Testing/Integration
+   Testing/BuildFarmTesting
+   Testing/Overriding-QoS-Policies-For-Recording-And-Playback
+   Testing/Testing
+>>>>>>> 158adfc (3di | Standardise TOCs (#7477)):source/Developer-Tools/Debugging/About-testing.rst
 
 Why automatic tests?
 --------------------

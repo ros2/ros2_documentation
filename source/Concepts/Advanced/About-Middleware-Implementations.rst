@@ -5,7 +5,20 @@
 ROS 2 middleware implementations
 ================================
 
+<<<<<<< HEAD:source/Concepts/Advanced/About-Middleware-Implementations.rst
 .. contents:: Table of Contents
+=======
+.. short-description::
+   Middleware implementations let ROS communicate through different underlying transport protocols and vendor-specific systems.
+   This article describes how middleware packages integrate with core ROS interfaces, and outlines the common packages, patterns, and configuration points used by DDS-based implementations.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
+   :depth: 2
+>>>>>>> 158adfc (3di | Standardise TOCs (#7477)):source/ROS-Framework/middleware/About-Middleware-Implementations.rst
    :local:
 
 .. include:: ../../../global_substitutions.txt

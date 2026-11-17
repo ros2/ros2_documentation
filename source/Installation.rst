@@ -8,7 +8,10 @@ Options for installing ROS 2 {DISTRO_TITLE_FULL}:
 
 .. toctree::
    :hidden:
+<<<<<<< HEAD:source/Installation.rst
    :glob:
+=======
+>>>>>>> 158adfc (3di | Standardise TOCs (#7477)):source/Get-Started/Installation.rst
 
    Installation/Ubuntu-Install-Debs
    Installation/Windows-Install-Binary
