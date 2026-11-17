@@ -29,7 +29,7 @@ Adding a frame (C++) — tutorial
 **Time:** 15 minutes
 
 .. contents:: Contents
-   :depth: 3
+   :depth: 2
    :local:
 
 Background

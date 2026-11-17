@@ -22,7 +22,7 @@ Using the ``ros2 param`` command-line tool — how-to
    :labels: area=Area, contentType=Content type, experience=Level
 
 .. contents:: Contents
-   :depth: 1
+   :depth: 2
    :local:
 
 Parameters in ROS 2 can be get, set, listed, and described through a set of services as described in :doc:`the concept document <../../About-Parameters>`.
