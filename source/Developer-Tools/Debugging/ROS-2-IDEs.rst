@@ -135,6 +135,8 @@ VSCode and any terminal created inside VSCode will correctly inherit from the pa
 Python
 ^^^^^^
 
+Make sure the `Python Debugger <https://marketplace.visualstudio.com/items?itemName=ms-python.debugpy>`_ extension is installed and enabled in VSCode.
+
 In your workspace, verify the correct interpreter is used.
 Through sourcing the basic command ``python`` should be correct, but VSCode likes to resort to an absolute path for Python.
 In the bottom right corner click on "Selected Python Interpreter" to change it.
@@ -147,17 +149,17 @@ Now simply run a file or create a configuration in ``launch.json``.
 Debugging a node is easiest by creating a configuration like a ``python ...`` command, instead of ``ros2 run/launch ...``.
 An example of ``launch.json`` could be:
 
-.. code-block::
+.. code-block:: json
 
    {
        "version": "0.2.0",
        "configurations": [
            {
                "name": "Python: File",
-               "type": "python",
+               "type": "debugpy",
                "request": "launch",
                "program": "my_node.py"
-           },
+           }
        ]
    }
 
