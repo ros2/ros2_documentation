@@ -57,9 +57,9 @@ one node publishes data and the other subscribes to the topic so it can receive 
 
 .. note::
 
-   The ``{interface(std_msgs/msg/String)}`` message used in this tutorial is deprecated as of
-   ROS 2 Foxy. It is retained here only to demonstrate basic topic communication. For deployed
-   systems, define a semantically meaningful message type for the data being exchanged.
+   The ``{interface(std_msgs/msg/String)}`` message is deprecated as of ROS 2 Foxy.
+   It is retained in this tutorial only to demonstrate basic topic communication.
+   For deployed systems, define a semantically meaningful message type for the data being exchanged.
 
 The code used in these examples can be found `here <https://github.com/ros2/examples/tree/{REPOS_FILE_BRANCH}/rclpy/topics>`__.
 
