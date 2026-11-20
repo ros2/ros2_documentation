@@ -50,6 +50,10 @@ You can also check for issues relating to nearby updates you could make to the a
 
 If you are creating a new article, decide on the content type for the article before you start.
 
+Every article needs metadata, and articles also carry the directives that generate their related content lists.
+
+For the metadata values to use, and how to add the directives, see :doc:`Documentation-guidelines`.
+
 For more information about the docs source, tools, and workflow to use when making your updates, see :doc:`../Contributing-to-documentation`.
 
 Building the site locally
@@ -109,6 +113,17 @@ Set up the following prerequisites to build the docs site locally:
 
          Download an installer from the `Graphviz Download page <https://graphviz.gitlab.io/_pages/Download/Download_windows.html>`__ and install it.
          Make sure to allow the installer to add it to the Windows ``%PATH%``, otherwise Sphinx will not be able to find it.
+
+#. The site search is indexed with `Pagefind <https://pagefind.app/>`__, which runs through ``npx``, so install `Node.js <https://nodejs.org/>`__ 18 or later.
+
+   Check that it is available:
+
+   .. code-block:: console
+
+      $ node -v && npx -v
+
+   Without Node.js, ``make html`` still builds the site, but with the built-in Sphinx search instead of Pagefind, and prints a warning.
+   This is the case in the Docker image and the Devcontainer, which do not install Node.js.
 
 2 Checking / testing the site
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -216,7 +231,32 @@ To build the site for just the current active branch:
 
       $ make html
 
-#. In your browser, open ``build/html/index.html`` to see the output.
+   As well as building the pages, this command does two things for the related packages and search features:
+
+   * Downloads a snapshot of the ROS package index into ``source/_static/rosdistro_cache/``, which the related packages lists filter in the browser.
+   * Indexes the built site for search.
+
+#. Serve the output over HTTP:
+
+   .. code-block:: console
+
+      $ python3 -m http.server --directory build/html
+
+#. In your browser, open ``http://127.0.0.1:8000`` to see the site.
+
+   Search and the related packages lists do not work when you open a built file directly from disk, so serve the output rather than opening ``build/html/index.html``.
+   To check everything except search and the related packages lists, you can still open the file directly.
+
+To index an existing build again without rebuilding the pages, run the following command:
+
+.. code-block:: console
+
+   $ make pagefind
+
+.. note::
+
+   ``make html`` needs a network connection to download the snapshot of the ROS package index.
+   Without one, the download fails with a warning, and because warnings are treated as errors, so does the build.
 
 .. note::
 
@@ -240,6 +280,9 @@ At the top level of the repository, from the ``rolling`` branch, run the followi
 .. code-block:: console
 
    $ make multiversion
+
+As with ``make html``, this indexes the site for search once every branch is built.
+Preview the output over HTTP in the same way, then open the pages for a distribution, such as ``http://127.0.0.1:8000/rolling/``.
 
 This has two drawbacks:
 
@@ -269,6 +312,9 @@ The live server uses `sphinx-autobuild <https://github.com/sphinx-doc/sphinx-aut
       $ make serve
 
 #. Open ``http://localhost:2022`` in a browser.
+
+The live server rebuilds pages as you edit, but it does not index them for search.
+It keeps the built-in Sphinx search instead, so use ``make html`` when you need to check the site search.
 
 The ``serve`` target binds to ``0.0.0.0:2022`` by default, so the server is reachable through a Devcontainer using port forwarding.
 You can override the bind address or port number if needed:
@@ -365,6 +411,18 @@ Making a PR
 ^^^^^^^^^^^
 
 When you've finished your documentation changes, submit them by :ref:`making a pull request <DeveloperGuidePullRequests>`.
+
+Checks run automatically on your pull request.
+One of them reviews the metadata on each article you changed and posts a review comment listing what it found.
+
+The comment marks each item as required or optional.
+Only ``area`` is required: the check fails if an article has no ``area``, or if it uses an ``area`` value that is not allowed.
+Everything else the comment lists, such as the content type, the experience level, or a missing ``.. short-description::``, is optional and does not fail the check.
+
+To fix anything the check reports, edit the article and push the change to your branch.
+The check runs again and replaces its earlier comment.
+
+To learn which values each field accepts, see :doc:`Documentation-guidelines`.
 
 Related content
 ---------------
