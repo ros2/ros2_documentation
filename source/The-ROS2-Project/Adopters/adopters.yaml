@@ -544,3 +544,13 @@ adopters:
       - JP
       - KR
     description: "Apex.OS® is a commercial software development kit based on ROS 2 that helps teams bring robotics and autonomous systems from prototype to production. It combines Apex.Grace™, an application framework with ROS 2-based APIs and production features such as execution management, monitoring, and diagnostics, with Apex.Ida™, a communication middleware featuring zero-copy shared-memory IPC and connectors for protocols including DDS, SOME/IP, CAN, MQTT, ISOBUS, and others. Apex.OS is used in production across multiple industries, including automotive, agriculture, mining, marine, healthcare, and supports integration with the ROS 2 ecosystem. For safety-critical applications, Apex.OS Cert is certified as a Safety Element out of Context (SEooC) to ISO 26262 ASIL B."
+  - organization: "Exail"
+    organization_url: "https://www.exail.com"
+    project: "DriX uncrewed surface vessels"
+    project_url: "https://www.exail.com/product-range/drix-series-uncrewed-surface-vessels"
+    domain:
+      - Marine
+    date_added: "2026-11-21"
+    country:
+      - FR
+    description: "DriX is a family of uncrewed surface vessels (USVs) for hydrographic survey, offshore and defense missions. The onboard vehicle and autonomy software stack is built on ROS 2."
