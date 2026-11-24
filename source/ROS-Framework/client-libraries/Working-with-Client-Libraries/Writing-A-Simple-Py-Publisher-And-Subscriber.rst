@@ -41,10 +41,10 @@ Create a Python package named ``py_pubsub`` with the ``ament_python`` build type
 
 Add two nodes:
 
-* ``talker``, which publishes ``{interface(std_msgs/msg/String)}`` messages on the topic topic every 0.5 seconds.
+* ``talker``, which publishes ``{interface(example_interfaces/msg/String)}`` messages on the topic topic every 0.5 seconds.
 * ``listener``, which subscribes to the same topic and prints each received message.
 
-Declare the ``{package(rclpy)}`` and ``{package(std_msgs)}`` dependencies in package.xml.
+Declare the ``{package(rclpy)}`` and ``{package(example_interfaces)}`` dependencies in package.xml.
 Add both entry points in ``setup.py``, build with ``colcon``, source the workspace setup file, and run the nodes with ``ros2 run``.
 
 
@@ -135,7 +135,7 @@ Open the file using your preferred text editor.
   from rclpy.executors import ExternalShutdownException
   from rclpy.node import Node
 
-  from std_msgs.msg import String
+  from example_interfaces.msg import String
 
 
   class MinimalPublisher(Node):
@@ -180,11 +180,11 @@ The first lines of code after the comments import {package(rclpy)} so its `Node 
   from rclpy.executors import ExternalShutdownException
   from rclpy.node import Node
 
-The next statement imports the built-in {interface(std_msgs/msg/String)} message type that the node uses to structure the data that it passes on the topic.
+The next statement imports the built-in {interface(example_interfaces/msg/String)} message type that the node uses to structure the data that it passes on the topic.
 
 .. code-block:: python
 
-  from std_msgs.msg import String
+  from example_interfaces.msg import String
 
 These lines represent the node's dependencies.
 Recall that dependencies have to be added to ``package.xml``, which you'll do in the next section.
@@ -198,7 +198,7 @@ Next, the ``MinimalPublisher`` class is created, which inherits from (or is a su
 Following is the definition of the class's constructor.
 ``super().__init__`` calls the `Node <{package_link(rclpy)}api/node.html>`__ class's constructor and gives it your node name, in this case ``minimal_publisher``.
 
-`create_publisher <{package_link(rclpy)}api/node.html#rclpy.node.Node.create_publisher>`__ declares that the node publishes messages of type {interface(std_msgs/msg/String)} (imported from the ``std_msgs.msg`` module), over a topic named ``topic``, and that the "queue size" is 10.
+`create_publisher <{package_link(rclpy)}api/node.html#rclpy.node.Node.create_publisher>`__ declares that the node publishes messages of type {interface(example_interfaces/msg/String)} (imported from the ``example_interfaces.msg`` module), over a topic named ``topic``, and that the "queue size" is 10.
 Queue size is a required :doc:`Quality of Service <../../interfaces/topics/About-Quality-of-Service-Settings>` (QoS) setting that limits the amount of queued messages if a subscriber is not receiving them fast enough.
 
 Next, `create_timer <{package_link(rclpy)}api/node.html#rclpy.node.Node.create_timer>`__ is used to create a callback that executes every 0.5 seconds.
@@ -260,9 +260,9 @@ After the lines above, add the following dependencies corresponding to your node
 .. code-block:: xml
 
   <exec_depend>rclpy</exec_depend>
-  <exec_depend>std_msgs</exec_depend>
+  <exec_depend>example_interfaces</exec_depend>
 
-This declares the package needs {package(rclpy)} and  {package(std_msgs)} when its code is executed.
+This declares the package needs {package(rclpy)} and  {package(example_interfaces)} when its code is executed.
 
 Make sure to save the file.
 
@@ -358,7 +358,7 @@ Open the ``subscriber_member_function.py`` with your text editor.
   from rclpy.executors import ExternalShutdownException
   from rclpy.node import Node
 
-  from std_msgs.msg import String
+  from example_interfaces.msg import String
 
 
   class MinimalSubscriber(Node):
@@ -443,7 +443,7 @@ Make sure to save the file, and then your pub/sub system should be ready.
 
 4 Build and run
 ^^^^^^^^^^^^^^^
-You likely already have the {package(rclpy)} and {package(std_msgs)} packages installed as part of your ROS 2 system.
+You likely already have the {package(rclpy)} and {package(example_interfaces)} packages installed as part of your ROS 2 system.
 It's good practice to run `rosdep <https://docs.ros.org/en/independent/api/rosdep/html/>`__ (check the :doc:`rosdep tutorial <Rosdep>`) in the root of your workspace (``ros2_ws``) to check for missing dependencies before building:
 
 .. tabs::
