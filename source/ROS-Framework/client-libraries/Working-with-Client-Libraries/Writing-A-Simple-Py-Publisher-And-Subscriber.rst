@@ -41,7 +41,7 @@ Create a Python package named ``py_pubsub`` with the ``ament_python`` build type
 
 Add two nodes:
 
-* ``talker``, which publishes ``{interface(example_interfaces/msg/String)}`` messages on the topic topic every 0.5 seconds.
+* ``talker``, which publishes ``{interface(example_interfaces/msg/String)}`` messages on the topic every 0.5 seconds.
 * ``listener``, which subscribes to the same topic and prints each received message.
 
 Declare the ``{package(rclpy)}`` and ``{package(example_interfaces)}`` dependencies in package.xml.
