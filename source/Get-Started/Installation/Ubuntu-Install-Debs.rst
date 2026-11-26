@@ -23,6 +23,24 @@ Installing on Ubuntu - how-to
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
+.. Temporary: remove this warning after the first Rolling sync to the main repository for Ubuntu Resolute.
+   See https://github.com/ros2/ros2_documentation/issues/7519
+
+.. warning::
+
+   Rolling Ridley deb packages for Ubuntu Resolute Raccoon (26.04) are not yet available in the main ROS apt repository.
+   Until they are synchronized, installing ``ros-rolling-desktop`` or ``ros-rolling-ros-base`` fails with ``Unable to locate package``.
+
+   To install Rolling on Resolute now, follow the steps on this page and, right after you install the ``ros2-apt-source`` package, switch to the ``ros-testing`` repository:
+
+   .. code-block:: console
+
+      $ sudo apt update && sudo apt install ros2-testing-apt-source
+
+   This replaces the ``ros2-apt-source`` package, because only one of the two repositories can be enabled at a time.
+   The ``ros-testing`` repository contains pre-release binaries, see :doc:`Testing with pre-release binaries <../../Developer-Tools/Debugging/Testing/Testing>` for details.
+   If you need a stable distribution on Resolute, install `Lyrical Luth <https://docs.ros.org/en/lyrical/Get-Started/Installation/Ubuntu-Install-Debs.html>`__ instead.
+
 .. contents:: Contents
    :depth: 2
    :local:
