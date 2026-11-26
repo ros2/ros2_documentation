@@ -172,6 +172,8 @@ Run the ``colcon`` tool to build everything (more on using ``colcon`` in :doc:`t
 Note: due to an unresolved issue with SIP, Qt@5, and PyQt5, we need to disable ``python_qt_binding`` to have the build succeed.
 This will be removed when the issue is resolved, see: https://github.com/ros-visualization/python_qt_binding/issues/103
 
+Note: if you happen to use a custom python binary, this can be added by executing it with the added ``--cmake-args -DPython3_EXECUTABLE=$(which python3)``
+
 Setup environment
 -----------------
 
