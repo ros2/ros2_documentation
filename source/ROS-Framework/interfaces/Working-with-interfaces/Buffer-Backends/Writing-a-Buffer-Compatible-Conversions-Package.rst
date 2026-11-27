@@ -321,7 +321,7 @@ message:
 
     subscription_ = this->create_subscription<tensor_msgs::msg::ExperimentalTensor>(
       "tensor", 10,
-      [](const tensor_msgs::msg::ExperimentalTensor::SharedPtr msg) {
+      [](const tensor_msgs::msg::ExperimentalTensor::ConstSharedPtr msg) {
         mytensor::Tensor input =
           mytensor_conversions::from_input_tensor_msg(*msg, /*clone=*/false);
         run_model(input);
