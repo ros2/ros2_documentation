@@ -59,8 +59,13 @@ You need the following things installed to build ROS 2:
    .. code-block:: console
 
       $ brew install asio assimp bison bullet cmake console_bridge cppcheck \
+<<<<<<< HEAD:source/Installation/Alternatives/macOS-Development-Setup.rst
          cunit eigen freetype graphviz opencv openssl orocos-kdl pcre poco \
          pyqt@5 python qt@5 sip spdlog osrf/simulation/tinyxml1 tinyxml2
+=======
+        cunit eigen freetype graphviz opencv openssl orocos-kdl pcre poco \
+        pyqt@5 python qt@5 sip spdlog tinyxml2 googletest
+>>>>>>> 20e61cd (chore(macos): add googletest to brew install (#7518)):source/Get-Started/Installation/Alternatives/macOS-Development-Setup.rst
 
 #.
    Setup some environment variables:
