@@ -147,7 +147,23 @@ Run the ``colcon`` tool to build everything (more on using ``colcon`` in :doc:`t
 Note: due to an unresolved issue with SIP, Qt@5, and PyQt5, we need to disable ``python_qt_binding`` to have the build succeed.
 This will be removed when the issue is resolved, see: https://github.com/ros-visualization/python_qt_binding/issues/103
 
+<<<<<<< HEAD:source/Installation/Alternatives/macOS-Development-Setup.rst
 Environment setup
+=======
+
+.. note::
+
+   If ``colcon`` and the Python packages above were installed into a different Python than the one CMake finds by default (for example with ``pyenv`` or a virtual environment),
+   the build can fail with ``ModuleNotFoundError: No module named 'catkin_pkg'``.
+
+   In that case, tell CMake which interpreter to use:
+
+   .. code-block::
+
+      $ colcon build --symlink-install --packages-skip-by-dep python_qt_binding --cmake-args -DPython3_EXECUTABLE=$(which python3)
+
+Setup environment
+>>>>>>> 6cd08cf (docs(macos): update macOS colcon build with custom python binary (#7517)):source/Get-Started/Installation/Alternatives/macOS-Development-Setup.rst
 -----------------
 
 Source the ROS 2 setup file:
