@@ -116,6 +116,41 @@ All executors can be used with multiple nodes by calling ``add_node(..)`` for ea
 In the above example, the one thread of a Single-Threaded Executor is used to serve three nodes together.
 In case of a Multi-Threaded Executor, the actual parallelism depends on the callback groups.
 
+.. _TheEventsExecutor:
+
+The Events Executor (experimental)
+----------------------------------
+
+The ``EventsExecutor`` was the first executor in rclcpp to use an *events queue* instead of wait sets.
+It was originally developed by iRobot as a `standalone implementation <https://github.com/irobot-ros/events-executor>`_ and has been part of rclcpp since Iron Irwini.
+Rather than waiting on all entities, each entity pushes an event to the executor's queue when it becomes ready, and the executor processes these events in order.
+Timers are handled by a separate ``TimersManager`` running in its own thread, which can give more accurate timing and lower overhead, especially with many timers.
+
+The ``EventsExecutor`` has the same API as the other executors, so trying it out is a matter of replacing the executor type:
+
+.. code-block:: cpp
+
+   #include <rclcpp/experimental/executors/events_executor/events_executor.hpp>
+
+   rclcpp::experimental::executors::EventsExecutor executor;
+   executor.add_node(node);
+   executor.spin();
+
+Since Kilted Kaiju, rclpy also provides an experimental port of the ``EventsExecutor`` concept:
+
+.. code-block:: python
+
+   from rclpy.experimental import EventsExecutor
+
+   executor = EventsExecutor()
+   executor.add_node(node)
+   executor.spin()
+
+.. note::
+
+   The ``EventsExecutor`` lives in the ``experimental`` namespace in both rclcpp and rclpy, so its API may still change between releases.
+   The :ref:`Callback Group Events Executor <TheCallbackGroupEventsExecutor>` builds on the same events-queue design and adds support for multiple sources of ROS time and multiple threads.
+
 .. _TheCallbackGroupEventsExecutor:
 
 The Callback Group Events Executor
