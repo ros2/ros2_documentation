@@ -435,6 +435,22 @@ Note that the Chair of an official Working Group must be a ROS PMC Member.
 Community groups that are organized by and for the ROS community, but are not chartered by the ROS PMC, are not listed here.
 Their meetings can be found on the `Discourse working-group tag <https://discourse.openrobotics.org/tag/working-group>`__ and on the unofficial ROS community calendar below.
 
+Working Groups (WGs)
+-------------------
+
+The following are the official working groups (WGs) that report to the ROS PMC.
+
+Client Library
+^^^^^^^^^^^^^^^^
+
+* Lead(s): Alberto Soragna
+* Resources:
+
+ * Meeting invite group: `ros-client-library-wg <https://groups.google.com/g/ros-2-client-library-wg>`_
+ * `Meeting minutes and agendas <https://docs.google.com/document/d/1-tU2AKoHKLCVHPBz0QchYownmZZvYjHmVUQXT2WBMOw/edit?usp=sharing>`_
+ * Working group charter: :doc:`Client Library WG Charter <./Working-Groups/charters/client-library-wg>`
+ * Discourse tag: `wg-client-libraries <https://discourse.ros.org/tags/wg-client-libraries>`_
+
 Upcoming ROS Events
 -------------------
 
