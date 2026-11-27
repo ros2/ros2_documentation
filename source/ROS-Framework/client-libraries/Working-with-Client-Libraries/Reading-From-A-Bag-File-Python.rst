@@ -118,7 +118,7 @@ Inside the ``ros2_ws/src/bag_reader_node_py/bag_reader_node_py`` directory, crea
 
         def timer_callback(self):
             while self.reader.has_next():
-                msg = self.reader.read_next()
+                msg = self.reader.read_next_ext()
                 if msg[0] != 'chatter':
                     continue
                 self.publisher.publish(msg[1])
@@ -177,7 +177,7 @@ The timer callback publishes all messages from the bag file only to the ``chatte
 
    def timer_callback(self):
        while self.reader.has_next():
-           msg = self.reader.read_next()
+           msg = self.reader.read_next_ext()
            if msg[0] != 'chatter':
                continue
            self.publisher.publish(msg[1])
