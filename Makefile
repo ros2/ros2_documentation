@@ -29,7 +29,10 @@ multiversion: Makefile
 %: Makefile
 	@$(BUILD) -M $@ "$(SOURCE)" "$(OUT)" $(OPTS)
 
+# The git grep fails the lint on committed merge conflict markers, which are valid
+# reStructuredText and would otherwise pass every check (e.g. a failed backport cherry-pick).
 lint:
+	! git grep -nE '^(<<<<<<<|>>>>>>>) ' -- source
 	./sphinx-lint-with-ros source
 
 test:
