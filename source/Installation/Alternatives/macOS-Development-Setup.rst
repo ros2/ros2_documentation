@@ -155,7 +155,7 @@ This will be removed when the issue is resolved, see: https://github.com/ros-vis
 
    In that case, tell CMake which interpreter to use:
 
-   .. code-block::
+   .. code-block:: console
 
       $ colcon build --symlink-install --packages-skip-by-dep python_qt_binding --cmake-args -DPython3_EXECUTABLE=$(which python3)
 
