@@ -291,7 +291,7 @@ then convert the received tensor message:
 
     subscription_ = this->create_subscription<tensor_msgs::msg::ExperimentalTensor>(
       "image", 10,
-      [](const tensor_msgs::msg::ExperimentalTensor::SharedPtr msg) {
+      [](const tensor_msgs::msg::ExperimentalTensor::ConstSharedPtr msg) {
         auto guard = torch_conversions::set_stream();
         at::Tensor frame =
           torch_conversions::from_input_tensor_msg(*msg, /*clone=*/false);
