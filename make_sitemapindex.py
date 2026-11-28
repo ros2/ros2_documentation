@@ -1,5 +1,5 @@
 from xml.etree.ElementTree import Element, SubElement, ElementTree
-from conf import distro_full_names, html_baseurl
+from conf import distro_full_names, docs_root_url
 
 
 def make_sitemapindex(sitemap_file):
@@ -8,7 +8,7 @@ def make_sitemapindex(sitemap_file):
     sitemapindex.set('xmlns', 'http://www.sitemaps.org/schemas/sitemap/0.9')
     for distro in distro_full_names.keys():
         node = SubElement(sitemapindex, 'sitemap')
-        SubElement(node, 'loc').text = f'{html_baseurl}/{distro}/sitemap.xml'
+        SubElement(node, 'loc').text = f'{docs_root_url}/{distro}/sitemap.xml'
 
     ElementTree(sitemapindex).write(sitemap_file, encoding='utf-8', xml_declaration=True)
 
