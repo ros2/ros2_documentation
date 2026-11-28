@@ -10,6 +10,7 @@ find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
+find_package(sensor_msgs REQUIRED)
 find_package(pluginlib REQUIRED)
 find_package(webots_ros2_driver REQUIRED)
 
@@ -23,10 +24,11 @@ include_directories(
 add_executable(obstacle_avoider
   src/ObstacleAvoider.cpp
 )
-ament_target_dependencies(obstacle_avoider
-  rclcpp
-  geometry_msgs
-  sensor_msgs
+target_link_libraries(obstacle_avoider
+  PRIVATE
+  geometry_msgs::geometry_msgs
+  rclcpp::rclcpp
+  sensor_msgs::sensor_msgs
 )
 install(TARGETS
   obstacle_avoider
@@ -47,12 +49,15 @@ target_include_directories(
   ${PROJECT_NAME}
   PRIVATE
   include
+  ${webots_ros2_driver_INCLUDE_DIRS}
 )
-ament_target_dependencies(
+target_link_libraries(
   ${PROJECT_NAME}
-  pluginlib
-  rclcpp
-  webots_ros2_driver
+  PUBLIC
+  geometry_msgs::geometry_msgs
+  pluginlib::pluginlib
+  rclcpp::rclcpp
+  ${webots_ros2_driver_LIBRARIES}
 )
 install(TARGETS
   ${PROJECT_NAME}
