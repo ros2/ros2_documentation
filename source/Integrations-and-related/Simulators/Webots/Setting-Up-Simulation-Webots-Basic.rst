@@ -445,7 +445,8 @@ Finally, an optional part is added in order to shutdown all the nodes once Webot
         .. literalinclude:: Code/CMakeLists.txt
             :language: cmake
 
-        The CMakeLists.txt exports the plugin configuration file with the ``pluginlib_export_plugin_description_file()``, defines a shared library of the C++ plugin ``src/MyRobotDriver.cpp``, and sets the include and library dependencies using ``target_link_libraries()``.
+        The CMakeLists.txt exports the plugin configuration file with the ``pluginlib_export_plugin_description_file()``, defines a shared library of the C++ plugin ``src/MyRobotDriver.cpp``, and sets the include and library dependencies using ``target_include_directories()`` and ``target_link_libraries()``.
+        Since ``webots_ros2_driver`` does not export CMake targets, its headers and libraries are added with the ``webots_ros2_driver_INCLUDE_DIRS`` and ``webots_ros2_driver_LIBRARIES`` variables instead.
 
         The file then installs the library, the directories ``launch``, ``resource``, and ``worlds`` to the ``share/my_package`` directory.
         Finally, it exports the include directories and libraries using ``ament_export_include_directories()`` and ``ament_export_libraries()``, respectively, and declares the package using ``ament_package()``.

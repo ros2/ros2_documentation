@@ -26,12 +26,15 @@ target_include_directories(
   ${PROJECT_NAME}
   PRIVATE
   include
+  ${webots_ros2_driver_INCLUDE_DIRS}
 )
-ament_target_dependencies(
+target_link_libraries(
   ${PROJECT_NAME}
-  pluginlib
-  rclcpp
-  webots_ros2_driver
+  PUBLIC
+  geometry_msgs::geometry_msgs
+  pluginlib::pluginlib
+  rclcpp::rclcpp
+  ${webots_ros2_driver_LIBRARIES}
 )
 install(TARGETS
   ${PROJECT_NAME}
